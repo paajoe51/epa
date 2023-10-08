@@ -130,7 +130,7 @@
          <div class="nav-left-sidebar sidebar-dark">
             <div class="menu-list">
                <nav class="navbar navbar-expand-lg navbar-light">
-                  <a class="d-xl-none d-lg-none" href="#">Dashboard</a>
+                  <a class="d-xl-none d-lg-none" href="index.html">Dashboard</a>
                   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                   </button>
@@ -139,40 +139,40 @@
                         <li class="nav-divider">
                            Menu
                         </li>
-                        
                         <li class="nav-item">
-                           <a class="nav-link" href="students-records.html" ><i class="fas fa-fw fa-inbox"></i> Students Records<span class="badge badge-secondary">New</span></a>
+                           <a class="nav-link" href="index.html" ><i class="fas fa-fw fa-tachometer-alt"></i> Dasboard<span class="badge badge-secondary">New</span></a>
                            <div id="submenu-7" class="collapse submenu" style="">
-                                              
-                     
-                        <li class="nav-item">
-                           <a class="nav-link" href="#" ><i class="fas fa-fw fa-inbox"></i> Fees Table<span class="badge badge-secondary">New</span></a>
-                           <div id="submenu-7" class="collapse submenu" style="">
-                        </li>
-
+                        </li>                    
+                  
                         <li class="nav-divider">
                            REPORTS
                         </li>
                         <li class="nav-item">
-                           <a class="nav-link" href="#" ><i class="fas fa-fw fa-inbox"></i> Students Reports<span class="badge badge-secondary">New</span></a>
-                           <div id="submenu-7" class="collapse submenu" style="">
-                        </li>
-                                                <li class="nav-item">
-                           <a class="nav-link" href="#" ><i class="fas fa-fw fa-inbox"></i> Staff Records<span class="badge badge-secondary">New</span></a>
+                           <a class="nav-link" href="students-records.html" ><i class="fas fa-fw fa-users"></i> Students Reports<span class="badge badge-secondary">New</span></a>
                            <div id="submenu-7" class="collapse submenu" style="">
                         </li>
                         <li class="nav-item">
-                           <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-6" aria-controls="submenu-6"><i class="fas fa-fw fa-file"></i> Account </a>
+                           <a class="nav-link" href="staff.html" ><i class="fas fa-fw fa-suitcase"></i> Staff Records<span class="badge badge-secondary">New</span></a>
+                           <div id="submenu-7" class="collapse submenu" style="">
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link" href="notifications.html"><i class="fas fa-fw fa-print"></i> Expenditure Report</a>
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link" href="bank-report.html"><i class="fas fa-fw fa-print"></i> Bank Report</a>
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link" href="pages/blank-page-header.html"><i class="fas fa-fw fa-print"></i> Received Report</a>
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-6" aria-controls="submenu-6"><i class="fas fa-fw fa-money-bill-alt"></i> Account </a>
                            <div id="submenu-6" class="collapse submenu" style="">
                               <ul class="nav flex-column">
                                  <li class="nav-item">
-                                    <a class="nav-link" href="pages/blank-page.html">Expenditure Report</a>
+                                    <a class="nav-link" href="fees-table.html"><i class="fas fa-fw fa-table"></i> Fees Table</a>
                                  </li>
                                  <li class="nav-item">
-                                    <a class="nav-link" href="pages/blank-page.html">Bank Report</a>
-                                 </li>
-                                 <li class="nav-item">
-                                    <a class="nav-link" href="pages/blank-page-header.html">Received Report</a>
+                                    <a class="nav-link"data-toggle="modal" data-target="#addUserMdl"><i class="fas fa-fw fa-plus-square"></i> Record Transaction</a>
                                  </li>
                               </ul>
                            </div>
@@ -181,25 +181,13 @@
                            USERS
                         </li>
                         <li class="nav-item">
-                           <a class="nav-link" href="#" ><i class="fas fa-fw fa-users"></i> All Users<span class="badge badge-secondary">New</span></a>
+                           <a class="nav-link" href="users.html" ><i class="fas fa-fw fa-users"></i> All Users<span class="badge badge-secondary">New</span></a>
                            <div id="submenu-7" class="collapse submenu" style="">
                         </li>
-                                                <li class="nav-item">
+                           <li class="nav-item">
                            <a class="nav-link" href="#" ><i class="fas fa-fw fa-user-plus"></i> Add User<span class="badge badge-secondary">New</span></a>
                            <div id="submenu-7" class="collapse submenu" style="">
-                        </li>
-                        <li class="nav-divider">
-                           USER ACCOUNT
-                        </li>
-                        <li class="nav-item">
-                           <a class="nav-link" href="#" ><i class="fas fa-fw fa-inbox"></i> Profile<span class="badge badge-secondary">New</span></a>
-                           <div id="submenu-7" class="collapse submenu" style="">
-                        </li>
-                                                <li class="nav-item">
-                           <a class="nav-link" href="#" ><i class="fas fa-fw fa-sign-out"></i> Sign Out<span class="badge badge-secondary">New</span></a>
-                           <div id="submenu-7" class="collapse submenu" style="">
-                        </li>
-                  
+                           </li>
                      </ul>
                   </div>
                </nav>
@@ -229,92 +217,24 @@
                         <div class="col-sm-12 col-lg-12 col-md-6 col-sm-12 col-12">
                            <div class="card">
                               <div class="card-header primary">
-                                 <span><h5 class="mb-0">Branches Records<button type="button"class=" btn btn-success float-right" data-toggle="modal" data-target="#addUserMdl"><i class="fas fa-user-plus"></i> Add User</button></h5></span>
+                                 <span><h5 class="mb-0">Branches Records<button type="button"class=" btn btn-success float-right" data-toggle="modal" data-target="#addUserMdl"> <i class="fas fa-plus-square"></i> Create Branch <i class="fas fa-university"></i></button></h5></span>
                               </div>
                               <div class="card-body">
                                  <div class="table-responsive">
-                                    <table  class="table  table-hover table-bordered small" id="dash_std_tbl" data-page-length='5'>
+                                    <table  class="table  table-hover table-bordered small" id="br_tbl" data-page-length='5'>
                                        <thead class="bg-light">
                                           <tr class="border-0">
-                                             <th class="border-0 border-right">#</th>
+                                             <th class="border-0 border-right" width="5%">#</th>
                                              <th class="border-0" width="5%"></th>
                                              <th class="border-0" >Branch Name</th>
                                              <th class="border-0">Students </th>
                                              <th class="border-0">Staff</th>
-                                             <th class="border-0">Teachers </th>
-                                             <th class="text-center">Action</th>
+                                             <th class="border-0 d-none">Branch ID </th>
+                                             <th class="text-center" width="15%">Action</th>
                                           </tr>
                                        </thead>
                                        <tbody>
-                                          <tr>
-                                             <td>1</td>
-                                             <td class="text-center text-info">
-                                                <div class="m-r-5"><i class="fas fa-university fa-2x cyan-color text-center"></i></div>
-                                             </td>
-                                             <td>Agona Swedru </td>
-                                             <td>25</td>
-                                             <td>7</td>
-                                             <td>5</td>
-                                             <td style="margin:0;padding:2px;" class= "text-center">
-                                                <span>
-                                                    <button type="button" class="btn btn-sm btn-outline-warning" style="margin:0; margin-left: margin-right:0;"><i class="fas fa-cog fa-spin fa-lg"></i></button>
-                                                    <button type="button" class="btn btn-sm btn-outline-danger" style="margin:0; margin-left: 0; margin-right:0;"><i class="fas fa-user-times  fa-lg"></i></button>
-                                                </span>
-                                             </td>
-                                             
-                                          </tr>
-                                          <tr>
-                                             <td>2</td>
-                                             <td class="text-center text-info"  class= "text-center">
-                                                <div class="m-r-5"><i class="fas fa-university fa-2x cyan-color text-center"></i></div>
-                                             </td>
-                                             <td>Breman Asikuma </td>
-                                             <td>19</td>
-                                             <td>6</td>
-                                             <td>4</td>
-                                             <td style="margin:0;padding:2px;"  class= "text-center">
-                                                <span>
-                                                    <button type="button" class="btn btn-sm btn-outline-warning" style="margin:0; margin-left: margin-right:0;"><i class="fas fa-cog fa-spin fa-lg"></i></button>
-                                                    <button type="button" class="btn btn-sm btn-outline-danger" style="margin:0; margin-left: 0; margin-right:0;"><i class="fas fa-user-times  fa-lg"></i></button>
-                                                </span>
-                                             </td>
-                                          </tr>
-                                          <tr>
-                                             <td>3</td>
-                                             <td class="text-center text-info">
-                                                <div class="m-r-5"><i class="fas fa-university fa-2x cyan-color text-center"></i></div>
-                                             </td>
-                                             <td>Kasoa</td>
-                                             <td>45 </td>
-                                             <td>10</td>
-                                             <td>7</td>
-                                             <td style="margin:0;padding:2px;"  class= "text-center">
-                                                <span>
-                                                    <button type="button" class="btn btn-sm btn-outline-warning" style="margin:0; margin-left: margin-right:0;"><i class="fas fa-cog fa-spin fa-lg"></i></button>
-                                                    <button type="button" class="btn btn-sm btn-outline-danger" style="margin:0; margin-left: 0; margin-right:0;"><i class="fas fa-user-times  fa-lg"></i></button>
-                                                </span>
-                                             </td>
-                                          </tr>
-                                          <tr>
-                                             <td>4</td>
-                                             <td class="text-center text-info">
-                                                <div class="m-r-5"><i class="fas fa-university fa-2x cyan-color text-center"></i></div>
-                                             </td>
-                                             <td>Cape Coast</td>
-                                             <td>50 </td>
-                                             <td>10</td>
-                                             <td>7</td>
-                                             <td style="margin:0;padding:2px;"  class= "text-center">
-                                                <span>
-                                                    <button type="button" class="btn btn-sm btn-outline-warning" style="margin:0; margin-left: margin-right:0;"><i class="fas fa-cog fa-spin fa-lg"></i></button>
-                                                    <button type="button" class="btn btn-sm btn-outline-danger" style="margin:0; margin-left: 0; margin-right:0;"><i class="fas fa-user-times  fa-lg"></i></button>
-                                                </span>
-                                             </td>
-                                          </tr>
-                                                                                                                            
-                                          <!--tr>
-                                             <td colspan="9"><a href="#" class="btn btn-outline-light float-right">View Details</a></td>
-                                          </tr-->
+                                          <!--The table content loads here-->
                                        </tbody>
                                     </table>
                                  </div>
@@ -353,18 +273,56 @@
      
        <!-- Modal Header -->
        <div class="modal-header">
-         <h4 class="modal-title">Add New User</h4>
+         <h4 class="modal-title">Create New Branch</h4>
          <button type="button" class="close" data-dismiss="modal">&times;</button>
        </div>
        
        <!-- Modal body -->
        <div class="modal-body">
-         Modal body..
+         <form id="addBranchform">
+            <div class="input-group mb-3">
+               <div class="input-group-prepend">
+               <span class="input-group-text">Bramch ID:</span>
+               </div>
+               <input type="text" class="form-control" id="br_id_txt" name="branch_id" readonly>
+               <div class="input-group-append">
+                  <span class="input-group-text">-#-</i></span>
+               </div>
+            </div>
+            <div class="input-group mb-3">
+               <div class="input-group-prepend">
+               <span class="input-group-text">Bramch name:</span>
+               </div>
+               <input type="text" class="form-control" id="br_name_txt" name="branch_name">
+               <div class="input-group-append">
+                  <span class="input-group-text"><i class="fas fa-university"></i></span>
+               </div>
+            </div>
+            <div class="input-group mb-3">
+               <div class="input-group-prepend">
+               <span class="input-group-text">Location:</span>
+               </div>
+               
+               <input type="text" class="form-control" id ="location_txt" name="location">
+               <div class="input-group-append">
+                  <span class="input-group-text"><i class="fas fa-map"></i></span>
+               </div>
+            </div>
+            <div class="input-group mb-3">
+               <div class="input-group-prepend">
+               <span class="input-group-text">Address:</span>
+               </div>
+               <textarea type="text" class="form-control" id="address_txt" name="address"></textarea>
+               <div class="input-group-append">
+                  <span class="input-group-text"><i class="fas fa-box"></i></span>
+               </div>
+            </div>
+         </form>
        </div>
        
        <!-- Modal footer -->
        <div class="modal-footer">
-         <button type="button" class="btn btn-success" data-dismiss="modal">Save</button>
+         <button type="button" class="btn btn-success" id="addBranchBtn" data-dismiss="modal">Save</button>
          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
        </div>
        
@@ -395,9 +353,43 @@
       <script src="../assets/vendor/datatables.net/jquery-3.7.0.js"></script>
       <script src="../assets/vendor/datatables.net/dataTables.min.js"></script>
       <script src="../assets/vendor/datatables.net/dataTables.bootstrap4.min.js"></script>
-
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
       <script>
-         new DataTable('#dash_std_tbl');
+          $.ajax({
+           url: '../api/get-branches_data.php', // Update with your endpoint URL
+           type: 'GET',
+           dataType: 'json', // Assuming the response is JSON
+           success: function(data) {
+               // Assuming the data received is an array of objects
+               var tableBody = $('#br_tbl tbody');
+
+               // Iterate through the data and populate the table rows
+               $.each(data, function(index, branch) {
+                   var row = '<tr>' +
+                       '<td>' + (index + 1) + '</td>' +
+                       '<td class="text-center text-info">'+
+                           '<div class="m-r-5"><i class="fas fa-university fa-2x cyan-color text-center"></i></div>'+
+                        '</td>'+
+                       '<td>' + branch.name + '</td>' +
+                       '<td>'+branch.num_students+'</td>' +
+                       '<td>'+branch.num_staff+'</td>' +
+                       '<td class="d-none">' + branch.branch_id + '</td>' +
+                       '<td style="margin:0;padding:2px;"  class= "text-center">'+
+                               '<span>'+
+                                   '<button type="button" class="btn btn-sm btn-outline-warning" style="margin:0; margin-left: margin-right:0;"><i class="fas fa-cog fa-spin fa-lg"></i></button>'+
+                                   '<button type="button" class="btn btn-sm btn-outline-danger" style="margin:0; margin-left: 0; margin-right:0;"><i class="fas fa-user-times  fa-lg"></i></button>'+
+                               '</span>'+
+                            '</td>'+
+                       '</tr>';
+                   tableBody.append(row);
+               });
+           },
+           error: function(xhr, status, error) {
+               console.error('Error fetching data:', error);
+           }
+       });
+      </script>
+      <script>
          $(function(){
                $(".dropdown-menu").on('click', 'a', function(){
                   $(this).parents('.dropdown').find('button').text($(this).text());
@@ -406,6 +398,90 @@
      </script>
 
       <script src="../assets/vendor/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js" data-cf-settings="8753a994eed150800267cbdd-|49" defer=""></script>
+      <script>
+         $(document).ready(function(){
+
+            $('#br_name_txt').on('input', function() {
+        // Get the value of the 'branch_name' input
+        var branchName = $(this).val();
+
+        // Call a function to update the 'branch_id' input
+        updateBranchId(branchName);
+    });
+
+    // Function to update the 'branch_id' input
+    function updateBranchId(branchName) {
+        // Remove leading and trailing whitespaces
+        branchName = branchName.trim();
+
+        // Split the 'branchName' into words
+        var words = branchName.split(/\s+/);
+
+        // Initialize 'branchId' as an empty string
+        var branchId = '';
+
+        // Check if 'branchName' has only one word
+        if (words.length === 1) {
+            // If only one word, take the first 2 consonants
+            branchId = branchName.replace(/[aeiou]/gi, '').slice(0, 2).toUpperCase();
+        } else {
+            // Otherwise, take the first letter of each word
+            branchId = words.map(function(word) {
+                // Extract the first letter and convert to uppercase
+                return word.charAt(0).toUpperCase();
+            }).join('');
+        }
+
+        // Set the value of 'branch_id' input
+        $('#br_id_txt').val(branchId);
+    }
+            $("#addBranchBtn").click(function(event){
+              // alert('test button')  ;
+               event.preventDefault()
+               var branch_name = $("#br_name_txt").val().trim();
+               var location = $("#location_txt").val().trim();
+               var address = $("#address_txt").val().trim();
+               var form_data = $("#addBranchform").serialize();
+
+               if( branch_name != "" && location != ""){
+           // alert('all fields set');
+            $.ajax({
+                url:'../api/save-branch.php',
+                type:'POST',
+                contentType: 'application/x-www-form-urlencoded',
+                data:form_data,
+                success:function(response){
+                    //var msg = "";
+                    if(response ==200){
+                      Swal.fire(
+                        'Sucessful',
+                        'Branch <strong>'+branch_name+'</strong> Created Succesfully',
+                        'success'
+                      )
+
+                      $(function () {
+                        $('#modal-lg').modal('toggle');
+                      });
+                       // window.location = "dashboard/index.html";
+                    }
+                    else if(response ==400){
+                      Swal.fire(
+                        'Error',
+                        'User already Exists',
+                        'error'
+                      )
+                    }
+                    else{
+                      alert ('something went wrong');
+                        //msg = "Invalid username and password!";
+                    }
+                 //   $("#message").html(msg);
+                }
+            });
+        }
+            });
+         })
+      </script>
    </body>
    <!-- Mirrored from colorlib.com/polygon/concept/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Mar 2020 00:27:53 GMT -->
 </html>

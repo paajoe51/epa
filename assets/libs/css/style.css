@@ -1812,7 +1812,8 @@ Leftsidebar - dark
 }
 
 .sidebar-dark .nav-divider {
-    color: #a4aadb;
+    /*color: #a4aadb;*/
+    color:rgb(253, 251, 247);
     font-size: 12px;
     letter-spacing: 1px;
 }
