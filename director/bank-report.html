@@ -217,9 +217,9 @@
                         <div class="col-xl-4 col-lg-3 col-md-6 col-sm-12 col-12">
                            <div class="card border-3 border-top border-top-primary">
                               <div class="card-body">
-                                 <h5 class="text-muted">Account Balance</h5>
+                                 <h5 class="text-muted" >Total Withdrawals</h5>
                                  <div class="metric-value d-inline-block">
-                                    <h1 class="mb-1">12,099</h1>
+                                    <h1 class="mb-1" >GHC <span id="with_amt" class="money"></span></h1>
                                  </div>
                                  <div class="metric-label d-inline-block float-right text-success font-weight-bold">
                                     <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">5.86%</span>
@@ -230,9 +230,9 @@
                         <div class="col-xl-4 col-lg-3 col-md-6 col-sm-12 col-12">
                            <div class="card border-3 border-top border-top-primary">
                               <div class="card-body">
-                                 <h5 class="text-muted">Total Students</h5>
+                                 <h5 class="text-muted">30% to HQ</h5>
                                  <div class="metric-value d-inline-block">
-                                    <h1 class="mb-1">104</h1>
+                                    <h1 class="mb-1" >GHC <span id="hq_amt" class="money"></span></h1>
                                  </div>
                                  <div class="metric-label d-inline-block float-right text-success font-weight-bold">
                                     <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">10%</span>
@@ -243,9 +243,9 @@
                         <div class="col-xl-4 col-lg-3 col-md-6 col-sm-12 col-12">
                            <div class="card border-3 border-top border-top-primary">
                               <div class="card-body">
-                                 <h5 class="text-muted">Inventory</h5>
+                                 <h5 class="text-muted">70% to EPADAC</h5>
                                  <div class="metric-value d-inline-block">
-                                    <h1 class="mb-1">54</h1>
+                                    <h1 class="mb-1">GHC <span id="epa_amt" class="money"></span></h1>
                                  </div>
                                  <div class="metric-label d-inline-block float-right text-success font-weight-bold">
                                     <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">5%</span>
@@ -277,73 +277,24 @@
                                           </div>
                                           <div class="card-body">
                                              <div class="table-responsive">
-                                                <table  class="table table-striped table-hover table-bordered small" id="dash_std_tbl" data-page-length='10'>
+                                                <table  class="table table-striped table-hover table-bordered table-condensed small" id="dep_banking_tbl" data-page-length='5'>
                                                    <thead class="bg-light">
                                                       <tr class="border-0">
                                                          <th class="border-0">#</th>
-                                                         <th>Date</th>
-                                                         <th class="border-0" width ="15%">Branch</th>
-                                                         <th class="border-0">Amount</th>
-                                                         <th class="border-0">New Balance</th>
+                                                         <th class="border-0" width="8%">Date</th>
+                                                         <th width="15%">Branch</th>
+                                                         <th class="border-0" width="15%">Invoice ID</th>
+                                                         <th width="10%">Target Acc</th>
+                                                         <th class="border-0" width="10%">Amount</th>
+                                                         <th class="border-0">Note</th>
                                                       </tr>
                                                    </thead>
                                                    <tbody>
-                                                      <tr>
-                                                         <td>1</td>
-                                                         <td>01/07/2023</td>
-                                                         <td>Swedru </td>
-                                                         <td>GHC 1,500 </td>
-                                                         <td>GHS 1,832</td>
-                                                      </tr>
-                                                      <tr>
-                                                         <td>2</td>
-                                                         <td>01/07/2023</td>
-                                                         <td>Kasoa </td>
-                                                         <td>GHC 2,500</td>
-                                                         <td>GHS 2400</td>
-                                                      </tr>
-                                                      <tr>
-                                                         <td>3</td>
-                                                         <td>01/07/2023</td>
-                                                         <td>Asikuma</td>
-                                                         <td>GHC 500 </td>
-                                                         <td>GHS 1832  </td>
-                                                      </tr>
-                                                      <tr>
-                                                         <td>4</td>
-                                                         <td>23/06/2023</td>
-                                                         <td>Swedru </td>
-                                                         <td>GHC 1,500 </td>
-                                                         <td>GHS 1,832</td>
-                                                      </tr>
-                                                      <tr>
-                                                         <td>5</td>
-                                                         <td>01/07/2023</td>
-                                                         <td>Swedru </td>
-                                                         <td>GHC 1,500 </td>
-                                                         <td>GHS 1,832</td>
-                                                      </tr>
-                                                      <tr>
-                                                         <td>6</td>
-                                                         <td>01/07/2023</td>
-                                                         <td>Kasoa </td>
-                                                         <td>GHC 2,500</td>
-                                                         <td>GHS 2400</td>
-                                                      </tr>
-                                                      <tr>
-                                                         <td>7</td>
-                                                         <td>01/07/2023</td>
-                                                         <td>Asikuma</td>
-                                                         <td>GHC 500 </td>
-                                                         <td>GHS 1832  </td>
-                                                      </tr>
-                                                      <tr>
-                                                         <td>8</td>
-                                                         <td>23/06/2023</td>
-                                                         <td>Swedru </td>
-                                                         <td>GHC 1,500 </td>
-                                                         <td>GHS 1,832</td>
-                                                      </tr>
+                                                      
+                                                                                        
+                                                      <!--tr>
+                                                         <td colspan="9"><a href="#" class="btn btn-outline-light float-right">View Details</a></td>
+                                                      </tr-->
                                                    </tbody>
                                                 </table>
                                              </div>
@@ -361,73 +312,22 @@
                                           </div>
                                           <div class="card-body">
                                              <div class="table-responsive">
-                                                <table  class="table table-striped table-hover table-bordered small" id="rep_std_tbl" data-page-length='5'>
+                                                <table  class="table table-striped table-hover table-bordered table-condensed small" id="with_banking_tbl" data-page-length='5' style="width: 100%;">
                                                    <thead class="bg-light">
                                                       <tr class="border-0">
-                                                         <th class="border-0"  width ="5%">#</th>
-                                                         <th>Date</th>
-                                                         <th class="border-0" width ="15%">Branch</th>
-                                                         <th class="border-0">Amount</th>
-                                                         <th class="border-0">New Balance</th>
+                                                         <th class="border-0">#</th>
+                                                         <th class="border-0" width="8%">Date</th>
+                                                         <th width="15%">Branch</th>
+                                                         <th class="border-0" width="15%">Invoice ID</th>
+                                                         <th width="10%">Target Acc</th>
+                                                         <th class="border-0" width="10%">Amount</th>
+                                                         <th class="border-0">Note</th>
                                                       </tr>
                                                    </thead>
-                                                   <tbody>
-                                                      <tr>
-                                                         <td>1</td>
-                                                         <td>01/07/2023</td>
-                                                         <td>Swedru </td>
-                                                         <td>GHC 1,500 </td>
-                                                         <td>GHS 1,832</td>
-                                                      </tr>
-                                                      <tr>
-                                                         <td>2</td>
-                                                         <td>01/07/2023</td>
-                                                         <td>Kasoa </td>
-                                                         <td>GHC 2,500</td> 
-                                                         <td>GHS 2400</td>
-                                                      </tr>
-                                                      <tr>
-                                                         <td>3</td>
-                                                         <td>01/07/2023</td>
-                                                         <td>Asikuma</td>
-                                                         <td>GHC 500 </td> 
-                                                         <td>GHS 1832  </td>
-                                                      </tr>
-                                                      <tr>
-                                                         <td>4</td>
-                                                         <td>23/06/2023</td>
-                                                         <td>Swedru </td>
-                                                         <td>GHC 1,500 </td>
-                                                         <td>GHS 1,832</td>
-                                                      </tr>
-                                                      <tr>
-                                                         <td>5</td>
-                                                         <td>01/07/2023</td>
-                                                         <td>Swedru </td>
-                                                         <td>GHC 1,500 </td>
-                                                         <td>GHS 1,832</td>
-                                                      </tr>
-                                                      <tr>
-                                                         <td>6</td>
-                                                         <td>01/07/2023</td>
-                                                         <td>Kasoa </td>
-                                                         <td>GHC 2,500</td>
-                                                         <td>GHS 2400</td>
-                                                      </tr>
-                                                      <tr>
-                                                         <td>7</td>
-                                                         <td>01/07/2023</td>
-                                                         <td>Asikuma</td>
-                                                         <td>GHC 500 </td>
-                                                         <td>GHS 1832  </td>
-                                                      </tr>
-                                                      <tr>
-                                                         <td>8</td>
-                                                         <td>23/06/2023</td>
-                                                         <td>Swedru </td>
-                                                         <td>GHC 1,500 </td>
-                                                         <td>GHS 1,832</td>
-                                                      </tr>
+                                                   <tbody>                                      
+                                                      <!--tr>
+                                                         <td colspan="9"><a href="#" class="btn btn-outline-light float-right">View Details</a></td>
+                                                      </tr-->
                                                    </tbody>
                                                 </table>
                                              </div>
@@ -445,10 +345,10 @@
             <div class="footer">
                <div class="container-fluid">
                   <div class="row">
-                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                        Copyright © 2023 EPADAC Busineess Center - Powered by Mickysoft Technologies. All rights reserved.
+                     <div class="col-xl-8 col-lg-6 col-md-6 col-sm-12 col-12">
+                        Copyright © 2023 EPADAC Business Center - Powered by Mickysoft Technologies. All rights reserved.
                      </div>
-                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                     <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
                         <div class="text-md-right footer-links d-none d-sm-block">
                            <a href="javascript: void(0);">About</a>
                            <a href="javascript: void(0);">Support</a>
@@ -549,7 +449,83 @@
       <script src="../assets/vendor/datatables.net/jquery-3.7.0.js"></script>
       <script src="../assets/vendor/datatables.net/dataTables.min.js"></script>
       <script src="../assets/vendor/datatables.net/dataTables.bootstrap4.min.js"></script>
+      <script src="../assets/vendor/Auto-Format-Currency/simple.money.format.js"></script>
+<script>
 
+
+$.ajax({
+            url: '../api/get-banking_count.php', // Replace with the actual path to your PHP script
+            type: 'GET',
+            dataType: 'json',
+            success: function(banking) {
+                // Assign JSON data to HTML elements with different IDs
+                ($('#with_amt').text(banking.withdrawals)).simpleMoneyFormat();
+               ($('#hq_amt').text(banking.hq)).simpleMoneyFormat();
+               ($('#epa_amt').text(banking.epadac)).simpleMoneyFormat();
+            },
+            error: function(xhr, status, error) {
+                console.error('Error fetching JSON data:', error);
+            }
+        });
+
+       
+    var dataTable = $('#dep_banking_tbl').DataTable({
+    // Specify your DataTable configuration options here
+    ajax: {
+        url: "../api/get-deposit_banking.php",
+        dataType: "json",
+        type: "GET",
+        dataSrc: "" // Data source property in the API response, if needed
+    },
+    columns: [
+        { data: null }, // ID
+        { data: "date" },
+        { data: "branch" },
+        { data: "inv_id" },
+        { data: "target" },
+        { data: "amount",className:'money' },
+        { data: "comment" },
+    ],
+    columnDefs: [
+        {
+            targets: [0], // Target the ID column
+            render: function (data, type, row, meta) {
+                // Render the ID using the row index
+                return meta.row + 1;
+            }
+        },
+    ]
+});
+
+var dataTable = $('#with_banking_tbl').DataTable({
+    // Specify your DataTable configuration options here
+    ajax: {
+        url: "../api/get-withdrawal_banking.php",
+        dataType: "json",
+        type: "GET",
+        dataSrc: "" // Data source property in the API response, if needed
+    },
+    columns: [
+        { data: null }, // ID
+        { data: "date" },
+        { data: "branch" },
+        { data: "inv_id" },
+        { data: "target" },
+        { data: "amount" },
+        { data: "comment" },
+    ],
+    columnDefs: [
+        {
+            targets: [0], // Target the ID column
+            render: function (data, type, row, meta) {
+                // Render the ID using the row index
+                return meta.row + 1;
+            }
+        },
+    ]
+});
+$('.money').simpleMoneyFormat();
+</script>
       <script>
          new DataTable('#dash_std_tbl,#rep_std_tbl');
          $(function(){

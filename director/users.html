@@ -360,7 +360,7 @@
                   <div class="form-group">
                      <div class="input-group mb-3">
                         <div class="input-group-prepend"><span class="input-group-text">Select Branch:</span></div>
-                           <select class="form-control form-control-lg" id="branch" name="branch" required>
+                           <select class="form-control form-control-lg branch_list" id="branch" name="branch" required>
                               <option value="">Please select branch</option>
                               <option value="asikuma">Breman Asikuma</option>
                               <option value="swedru">Agona Swedru</option>
@@ -506,6 +506,30 @@
            $('#users-data').append(users_data);
         }
     });
+
+    $.ajax({
+            url: '../api/get-branches_data.php', // Replace with the actual PHP file path
+            type: 'GET',
+            dataType: 'json',
+            success: function(data) {
+                var select = $('.branch_list');
+
+                // Clear existing options (if any)
+                select.empty();
+
+                // Iterate through the JSON data and append options
+                $.each(data, function(index, branch) {
+                    select.append($('<option>', {
+                        value: branch.name,
+                        text: branch.name
+                    }));
+                });
+            },
+            error: function(xhr, status, error) {
+                console.error('Error fetching data:', error);
+            }
+        });
+
 
    });
    </script>

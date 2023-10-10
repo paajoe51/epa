@@ -1,8 +1,19 @@
 <?php
 include('conn.php');
 
+session_start();
+
+$branch = $_SESSION['SESS_BRANCH'] ;
+$position = $_SESSION['SESS_POSITION'] ;
+
+if($position=='branch_admin' | $position=='counselor' ){
+    $sql = "SELECT * FROM students WHERE branch = '$branch' ORDER BY id DESC";
+}
+
+else{
 // Query to select data from the users table
 $sql = "SELECT * FROM students ORDER BY id DESC";
+}
 
 try {
     $stmt = $db->prepare($sql);

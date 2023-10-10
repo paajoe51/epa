@@ -1,22 +1,10 @@
 <?php
 include('conn.php');
-
 session_start();
-$branch = $_SESSION['SESS_BRANCH'] ;
-$position = $_SESSION['SESS_POSITION'] ;
-
-if($position=='branch_admin' | $position=='counselor' ){
-    $sql = "SELECT * FROM requests 
-            WHERE type='recent' AND branch = '$branch'";
-}
-
-else{
-    $sql = "SELECT * FROM requests 
-    WHERE type='recent'";
-}
+$branch=$_SESSION['SESS_BRANCH']; 
 
 // Query to select data from the courses table
-
+$sql = "SELECT * FROM fees WHERE branch = '$branch'";
 
 try {
     $stmt = $db->prepare($sql);

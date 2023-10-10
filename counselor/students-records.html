@@ -18,8 +18,8 @@
       <link rel="stylesheet" href="../assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
       <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
       <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.5/css/dataTables.bootstrap4.min.css">
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
- 
       <title>Students Records</title>
    </head>
    <body>
@@ -32,11 +32,6 @@
                </button>
                <div class="collapse navbar-collapse " id="navbarSupportedContent">
                   <ul class="navbar-nav ml-auto navbar-right-top">
-                     <li class="nav-item">
-                        <div id="custom-search" class="top-search-bar">
-                           <input class="form-control" type="text" placeholder="Search..">
-                        </div>
-                     </li>
                      <li class="nav-item dropdown notification">
                         <a class="nav-link nav-icons" href="#" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-fw fa-bell"></i> <span class="indicator"></span></a>
                         <ul class="dropdown-menu dropdown-menu-right notification-dropdown">
@@ -125,7 +120,7 @@
                         <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../assets/images/avatar-1.jpg" alt="" class="user-avatar-md rounded-circle"></a>
                         <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
                            <div class="nav-user-info">
-                              <h5 class="mb-0 text-white nav-user-name">John Abraham </h5>
+                              <h5 class="mb-0 text-white nav-user-name" id="profile_name">John Abraham </h5>
                               <span class="status"></span><span class="ml-2">Available</span>
                            </div>
                            <a class="dropdown-item" href="#"><i class="fas fa-user mr-2"></i>Account</a>
@@ -149,230 +144,32 @@
                         <li class="nav-divider">
                            Menu
                         </li>
-                        <li class="nav-item ">
-                           <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1" aria-controls="submenu-1"><i class="fa fa-fw fa-user-circle"></i>Dashboard <span class="badge badge-success">6</span></a>
-                           <div id="submenu-1" class="collapse submenu" style="">
-                              <ul class="nav flex-column">
-                                 <li class="nav-item">
-                                    <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1-2" aria-controls="submenu-1-2">E-Commerce</a>
-                                    <div id="submenu-1-2" class="collapse submenu" style="">
-                                       <ul class="nav flex-column">
-                                          <li class="nav-item">
-                                             <a class="nav-link" href="index-2.html">E Commerce Dashboard</a>
-                                          </li>
-                                          <li class="nav-item">
-                                             <a class="nav-link" href="ecommerce-product.html">Product List</a>
-                                          </li>
-                                          <li class="nav-item">
-                                             <a class="nav-link" href="ecommerce-product-single.html">Product Single</a>
-                                          </li>
-                                          <li class="nav-item">
-                                             <a class="nav-link" href="ecommerce-product-checkout.html">Product Checkout</a>
-                                          </li>
-                                       </ul>
-                                    </div>
-                                 </li>
-                                 <li class="nav-item">
-                                    <a class="nav-link" href="dashboard-finance.html">Finance</a>
-                                 </li>
-                                 <li class="nav-item">
-                                    <a class="nav-link" href="dashboard-sales.html">Sales</a>
-                                 </li>
-                                 <li class="nav-item">
-                                    <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1-1" aria-controls="submenu-1-1">Infulencer</a>
-                                    <div id="submenu-1-1" class="collapse submenu" style="">
-                                       <ul class="nav flex-column">
-                                          <li class="nav-item">
-                                             <a class="nav-link" href="dashboard-influencer.html">Influencer</a>
-                                          </li>
-                                          <li class="nav-item">
-                                             <a class="nav-link" href="influencer-finder.html">Influencer Finder</a>
-                                          </li>
-                                          <li class="nav-item">
-                                             <a class="nav-link" href="influencer-profile.html">Influencer Profile</a>
-                                          </li>
-                                       </ul>
-                                    </div>
-                                 </li>
-                              </ul>
-                           </div>
-                        </li>
+                        
                         <li class="nav-item">
-                           <a class="nav-link" href="#" ><i class="fas fa-fw fa-inbox"></i> Students Records<span class="badge badge-secondary">New</span></a>
+                           <a class="nav-link" href="index.html" ><i class="fas fa-fw fa-tachometer-alt"></i> Dashboard <span class="badge badge-secondary">New</span></a>
                            <div id="submenu-7" class="collapse submenu" style="">
                         </li>
                         <li class="nav-item">
-                           <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-2" aria-controls="submenu-2"><i class="fa fa-fw fa-rocket"></i>UI Elements</a>
-                           <div id="submenu-2" class="collapse submenu" style="">
-                              <ul class="nav flex-column">
-                                 <li class="nav-item">
-                                    <a class="nav-link" href="pages/cards.html">Cards <span class="badge badge-secondary">New</span></a>
-                                 </li>
-                                 <li class="nav-item">
-                                    <a class="nav-link" href="pages/general.html">General</a>
-                                 </li>
-                                 <li class="nav-item">
-                                    <a class="nav-link" href="pages/carousel.html">Carousel</a>
-                                 </li>
-                                 <li class="nav-item">
-                                    <a class="nav-link" href="pages/listgroup.html">List Group</a>
-                                 </li>
-                                 <li class="nav-item">
-                                    <a class="nav-link" href="pages/typography.html">Typography</a>
-                                 </li>
-                                 <li class="nav-item">
-                                    <a class="nav-link" href="pages/accordions.html">Accordions</a>
-                                 </li>
-                                 <li class="nav-item">
-                                    <a class="nav-link" href="pages/tabs.html">Tabs</a>
-                                 </li>
-                              </ul>
-                           </div>
+                        <a class="nav-link" href="students-records.html" ><i class="fas fa-fw fa-users"></i> Students Records<span class="badge badge-secondary">New</span></a>
+                        <div id="submenu-7" class="collapse submenu" style=""></div>
                         
-                        
+                        <li class="nav-item">
+                           <a class="nav-link" href="fees.html" ><i class="mdi mdi-cash-multiple mdi-18px"></i> Fees <span class="badge badge-secondary">New</span></a>
+                           <div id="submenu-7" class="collapse submenu" style="">
+                        </li>                 
                         
                         <li class="nav-divider">
-                           REPORTS
+                           USER ACCOUNT
                         </li>
                         <li class="nav-item">
-                           <a class="nav-link" href="#" ><i class="fas fa-fw fa-inbox"></i> Students Reports<span class="badge badge-secondary">New</span></a>
+                           <a class="nav-link" href="#" ><i class="fas fa-fw fa-user"></i> Profile<span class="badge badge-secondary">New</span></a>
                            <div id="submenu-7" class="collapse submenu" style="">
                         </li>
-                        <li class="nav-item">
-                           <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-6" aria-controls="submenu-6"><i class="fas fa-fw fa-file"></i> Pages </a>
-                           <div id="submenu-6" class="collapse submenu" style="">
-                              <ul class="nav flex-column">
-                                 <li class="nav-item">
-                                    <a class="nav-link" href="pages/blank-page.html">Students Report</a>
-                                 </li>
-                                 <li class="nav-item">
-                                    <a class="nav-link" href="pages/blank-page.html">Blank Page</a>
-                                 </li>
-                                 <li class="nav-item">
-                                    <a class="nav-link" href="pages/blank-page-header.html">Blank Page Header</a>
-                                 </li>
-                                 <li class="nav-item">
-                                    <a class="nav-link" href="pages/login.html">Login</a>
-                                 </li>
-                                 <li class="nav-item">
-                                    <a class="nav-link" href="pages/404-page.html">404 page</a>
-                                 </li>
-                                 <li class="nav-item">
-                                    <a class="nav-link" href="pages/sign-up.html">Sign up Page</a>
-                                 </li>
-                                 <li class="nav-item">
-                                    <a class="nav-link" href="pages/forgot-password.html">Forgot Password</a>
-                                 </li>
-                                 <li class="nav-item">
-                                    <a class="nav-link" href="pages/pricing.html">Pricing Tables</a>
-                                 </li>
-                                 <li class="nav-item">
-                                    <a class="nav-link" href="pages/timeline.html">Timeline</a>
-                                 </li>
-                                 <li class="nav-item">
-                                    <a class="nav-link" href="pages/calendar.html">Calendar</a>
-                                 </li>
-                                 <li class="nav-item">
-                                    <a class="nav-link" href="pages/sortable-nestable-lists.html">Sortable/Nestable List</a>
-                                 </li>
-                                 <li class="nav-item">
-                                    <a class="nav-link" href="pages/widgets.html">Widgets</a>
-                                 </li>
-                                 <li class="nav-item">
-                                    <a class="nav-link" href="pages/media-object.html">Media Objects</a>
-                                 </li>
-                                 <li class="nav-item">
-                                    <a class="nav-link" href="pages/cropper-image.html">Cropper</a>
-                                 </li>
-                                 <li class="nav-item">
-                                    <a class="nav-link" href="pages/color-picker.html">Color Picker</a>
-                                 </li>
-                              </ul>
-                           </div>
-                        </li>
-                        <li class="nav-item">
-                           <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-7" aria-controls="submenu-7"><i class="fas fa-fw fa-inbox"></i>Apps <span class="badge badge-secondary">New</span></a>
+                                                <li class="nav-item">
+                           <a class="nav-link" href="../index.html" ><i class="fa fa-fw fa-sign-out-alt"></i> Sign Out<span class="badge badge-secondary">New</span></a>
                            <div id="submenu-7" class="collapse submenu" style="">
-                              <ul class="nav flex-column">
-                                 <li class="nav-item">
-                                    <a class="nav-link" href="pages/inbox.html">Inbox</a>
-                                 </li>
-                                 <li class="nav-item">
-                                    <a class="nav-link" href="pages/email-details.html">Email Detail</a>
-                                 </li>
-                                 <li class="nav-item">
-                                    <a class="nav-link" href="pages/email-compose.html">Email Compose</a>
-                                 </li>
-                                 <li class="nav-item">
-                                    <a class="nav-link" href="pages/message-chat.html">Message Chat</a>
-                                 </li>
-                              </ul>
-                           </div>
                         </li>
-                        <li class="nav-item">
-                           <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-8" aria-controls="submenu-8"><i class="fas fa-fw fa-columns"></i>Icons</a>
-                           <div id="submenu-8" class="collapse submenu" style="">
-                              <ul class="nav flex-column">
-                                 <li class="nav-item">
-                                    <a class="nav-link" href="pages/icon-fontawesome.html">FontAwesome Icons</a>
-                                 </li>
-                                 <li class="nav-item">
-                                    <a class="nav-link" href="pages/icon-material.html">Material Icons</a>
-                                 </li>
-                                 <li class="nav-item">
-                                    <a class="nav-link" href="pages/icon-simple-lineicon.html">Simpleline Icon</a>
-                                 </li>
-                                 <li class="nav-item">
-                                    <a class="nav-link" href="pages/icon-themify.html">Themify Icon</a>
-                                 </li>
-                                 <li class="nav-item">
-                                    <a class="nav-link" href="pages/icon-flag.html">Flag Icons</a>
-                                 </li>
-                                 <li class="nav-item">
-                                    <a class="nav-link" href="pages/icon-weather.html">Weather Icon</a>
-                                 </li>
-                              </ul>
-                           </div>
-                        </li>
-                        <li class="nav-item">
-                           <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-9" aria-controls="submenu-9"><i class="fas fa-fw fa-map-marker-alt"></i>Maps</a>
-                           <div id="submenu-9" class="collapse submenu" style="">
-                              <ul class="nav flex-column">
-                                 <li class="nav-item">
-                                    <a class="nav-link" href="pages/map-google.html">Google Maps</a>
-                                 </li>
-                                 <li class="nav-item">
-                                    <a class="nav-link" href="pages/map-vector.html">Vector Maps</a>
-                                 </li>
-                              </ul>
-                           </div>
-                        </li>
-                        <li class="nav-item">
-                           <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-10" aria-controls="submenu-10"><i class="fas fa-f fa-folder"></i>Menu Level</a>
-                           <div id="submenu-10" class="collapse submenu" style="">
-                              <ul class="nav flex-column">
-                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Level 1</a>
-                                 </li>
-                                 <li class="nav-item">
-                                    <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-11" aria-controls="submenu-11">Level 2</a>
-                                    <div id="submenu-11" class="collapse submenu" style="">
-                                       <ul class="nav flex-column">
-                                          <li class="nav-item">
-                                             <a class="nav-link" href="#">Level 1</a>
-                                          </li>
-                                          <li class="nav-item">
-                                             <a class="nav-link" href="#">Level 2</a>
-                                          </li>
-                                       </ul>
-                                    </div>
-                                 </li>
-                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Level 3</a>
-                                 </li>
-                              </ul>
-                           </div>
-                        </li>
+                  
                      </ul>
                   </div>
                </nav>
@@ -405,7 +202,7 @@
                               <div class="card-body">
                                  <h5 class="text-muted">Total Students</h5>
                                  <div class="metric-value d-inline-block">
-                                    <h1 class="mb-1">12099</h1>
+                                    <h1 class="mb-1"> <span class="text-success"><i class="fa fa-fw fa-users"></i> </span> <span id="t_std"> <i class="fa fa-spinner fa-spin"></i> </span></h1>
                                  </div>
                                  <div class="metric-label d-inline-block float-right text-success font-weight-bold">
                                     <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">5.86%</span>
@@ -418,7 +215,7 @@
                               <div class="card-body">
                                  <h5 class="text-muted">Males</h5>
                                  <div class="metric-value d-inline-block">
-                                    <h1 class="mb-1">1245</h1>
+                                    <h1 class="mb-1"><span class="text-primary"><i class="fa fa-fw fa-male"></i></span> <span id="m_std"> <i class="fa fa-spinner fa-spin"></i> </span></h1>
                                  </div>
                                  <div class="metric-label d-inline-block float-right text-success font-weight-bold">
                                     <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">10%</span>
@@ -431,7 +228,7 @@
                               <div class="card-body">
                                  <h5 class="text-muted">Females</h5>
                                  <div class="metric-value d-inline-block">
-                                    <h1 class="mb-1">13000</h1>
+                                    <h1 class="mb-1"><span class="text-info"><i class="fa fa-fw fa-female"></span></i> <span id="f_std"> <i class="fa fa-spinner fa-spin"></i> </span></h1>
                                  </div>
                                  <div class="metric-label d-inline-block float-right text-success font-weight-bold">
                                     <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">5%</span>
@@ -449,7 +246,9 @@
                               <div class="card-header">
                                  <h5 class="mb-0">Full Records of students 
                                     <span class="float-right">
-                                       <button type="button"class=" btn btn-sm btn-primary" style="margin-left: 20px;" data-toggle="modal" data-target="#regStdMdl"><i class="fas fa-user-plus"></i>Register Student</button>
+                                       <button class="btn btn-outline-info btn-sm" data-toggle="modal" data-target="#impStdMdl" style="margin-right: 15px;"><i class="fas fa-download"></i> Import</button>
+                                       <button class="btn btn-outline-info btn-sm"><i class="fas fa-upload"></i> Export</button>
+                                       <button type="button"class=" btn btn-sm btn-primary" style="margin-left: 20px;" data-toggle="modal" data-target="#regStdMdl"><i class="fas fa-user-plus" id="registerBtn"></i>Register Student</button>
                                     </span>
                                  </h5>
                               </div>
@@ -460,78 +259,21 @@
                                           <tr class="border-0">
                                              <th class="border-0" width="3%">#</th>
                                              <th class="border-0" width="5%">Image</th>
+                                             <th >ID</th>
                                              <th class="border-0" width ="15%">Student Name</th>
                                              <th class="border-0" width="7%">Mobile </th>
                                              <th class="border-0" width="20%">Course</th>
                                              <th class="border-0" width="15%"> Student ID</th>
                                              <th class="border-0" width="8%">Amount Paid</th>
                                              <th class="border-0" width="8%">Payment Status</th>
+                                             <th></th>
+                                             <th ></th>
+                                             <th></th>
+                                             <th class="d-none" width="10%">Action</th>
                                           </tr>
                                        </thead>
-                                       <tbody>
-                                          <tr>
-                                             <td>1</td>
-                                             <td>
-                                                <div class="m-r-10"><img src="../assets/images/avatar-6.png" alt="user" class="rounded" width="45"></div>
-                                             </td>
-                                             <td>Abdul-Razak Tahiru </td>
-                                             <td>0544628575 </td>
-                                             <td>System And Network Engineering S1 </td>
-                                             <td>KS/SE(L1)21/ANT577 </td>
-                                             <td>1,832</td>
-                                             <td><span class="badge-dot badge-success mr-1"></span>Fully Paid </td>
-                                          </tr>
-                                          <tr>
-                                             <td>2</td>
-                                             <td>
-                                                <div class="m-r-10"><img src="../assets/images/avatar-6.png" alt="user" class="rounded" width="45"></div>
-                                             </td>
-                                             <td>Adamu Sahibu </td>
-                                             <td>0591446094 </td>
-                                             <td>Graphic And Web Design </td>
-                                             <td>KS/GWD22/ANS958</td>
-                                             <td>2400</td>
-                                             <td><span class="badge-dot badge-warning mr-1"></span>GHS 1832</td>
-                                          </tr>
-                                          <tr>
-                                             <td>3</td>
-                                             <td>
-                                                <div class="m-r-10"><img src="../assets/images/avatar-6.png" alt="user" class="rounded" width="45"></div>
-                                             </td>
-                                             <td>Agnes Assan </td>
-                                             <td>0543147754 </td>
-                                             <td>Database Technology S1</td>
-                                             <td>KS/DBT(L1)21/ANA210 </td>
-                                             <td>1832  </td>
-                                             <td><span class="badge-dot badge-success mr-1"></span>Fully Paid </td>
-                                          </tr>
-                                          <tr>
-                                             <td>4</td>
-                                             <td>
-                                                <div class="m-r-10"><img src="../assets/images/avatar-6.png" alt="user" class="rounded" width="45"></div>
-                                             </td>
-                                             <td>Ahmed Abdul</td>
-                                             <td>0554427573 </td>
-                                             <td>Graphic And Web Design</td>
-                                             <td>KS/GWD22/AAA397</td>
-                                             <td>3300 </td>
-                                             <td><span class="badge-dot badge-warning mr-1"></span>GHS 300</td>
-                                          </tr>
-                                          <tr>
-                                             <td>5</td>
-                                             <td>
-                                                <div class="m-r-10"><img src="../assets/images/avatar-6.png" alt="user" class="rounded" width="45"></div>
-                                             </td>
-                                             <td>Alex Otoo</td>
-                                             <td>0203093840 </td>
-                                             <td>Graphic And Web Design S1</td>
-                                             <td>KS/GWD21/ANM498</td>
-                                             <td>1200</td>
-                                             <td><span class="badge-dot badge-success mr-1"></span>Fully Paid </td>
-                                          </tr>                                                                           
-                                          <!--tr>
-                                             <td colspan="9"><a href="#" class="btn btn-outline-light float-right">View Details</a></td>
-                                          </tr-->
+                                       <tbody id="students-data">
+                                          
                                        </tbody>
                                     </table>
                                  </div>
@@ -568,10 +310,10 @@
             <div class="footer">
                <div class="container-fluid">
                   <div class="row">
-                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                        Copyright © 2018 Concept. All rights reserved.
+                     <div class="col-xl-8 col-lg-6 col-md-6 col-sm-12 col-12">
+                        Copyright © 2023 EPADAC Business Center - Powered by Mickysoft Technologies. All rights reserved.
                      </div>
-                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                     <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
                         <div class="text-md-right footer-links d-none d-sm-block">
                            <a href="javascript: void(0);">About</a>
                            <a href="javascript: void(0);">Support</a>
@@ -584,241 +326,282 @@
          </div>
       </div>
 
-      <!-- The Modal -->
-  <div class="modal fade" id="regStdMdl">
-   <div class="modal-dialog modal-lg">
-     <div class="modal-content">
-     
-       <!-- Modal Header -->
-       <div class="modal-header">
-         <h4 class="modal-title">New Student Registration</h4>
-         <button type="button" class="close" data-dismiss="modal">&times;</button>
-       </div>
-       
-       <!-- Modal body -->
-       <div class="modal-body"> <h4>Access Control</h4>
-         <div class="row">
-            <div class="col-md-6">
-               <div class="form-group">
-                  <div class="input-group mb-3">
-                     <div class="input-group-prepend" ><span class="input-group-text">Student ID:</span></div>
-                     <input type="text" readonly class="form-control">
-                     <div class="input-group-append"><span class="input-group-text"><i class="fas fa-user"></i></span></div>
-                  </div>
-               </div>
-            </div>
-            <div class="col-md-6">
-               <div class="input-group mb-3">
-                  <div class="input-group-prepend"><span class="input-group-text">Branch</span></div>
-                  <input type="text" readonly class="form-control">
-                  <div class="input-group-append"><span class="input-group-text"><i class="fas fa-key"></i></span></div>
-               </div>
-            </div>
-         </div>
-         <div class="row">
-            <div class="col-md-6">
-               <div class="input-group mb-3">
-                  <div class="input-group-prepend"><span class="input-group-text">Course</span></div>
-                  <select class="form-control form-control-md">
-                     <option class ="font-italic">Select Course</option>
-                     <option>Grphic Design</option>
-                     <option>Software Engineering</option>
-                     <option>Networking</option>
-                  </select>
-                  <div class="input-group-append"><span class="input-group-text"><i class="fas fa-book"></i></span></div>
-               </div>
-            </div>
-            <div class="col-sm-6">
-               <div class="form-group">
-                  <div class="input-group mb-3">
-                     <div class="input-group-prepend"><span class="input-group-text"> Batch:</span></div>
-                        <select class="form-control form-control-md">
-                           <option>Large select</option>
-                        </select>
-                     <div class="input-group-append"><span class="input-group-text"><i class="fa fa-users"></i></span></div>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <div class="form-group">
-            <div class="input-group mb-3">
-               <div class="input-group-prepend"><span class="input-group-text">Full Name : </span></div>
-               <input type="text" class="form-control">
-               <div class="input-group-append"><span class="input-group-text"><i class="fas fa-user"></i></span></div>
-            </div>
-            <div class="input-group mb-3">
-               <div class="input-group-prepend"><span class="input-group-text">Date of Birth</span></div>
-               <input type="date" class="form-control">
-               <div class="input-group-append"><span class="input-group-text"><i class="far fa-calendar"></i></span></div>
-            </div>
-            <div class="input-group mb-3">
-               <div class="input-group-prepend"><span class="input-group-text">Hometown</span></div>
-               <input type="text" class="form-control">
-               <div class="input-group-append"><span class="input-group-text"><i class="fas fa-home"></i></span></div>
-            </div>
-         </div>
-
-         
-  
-         <h4>Contact Data</h4>
-         <div class="form-group">
-            <div class="input-group mb-3">
-               <div class="input-group-prepend"><span class="input-group-text">Phone Numbers : </span></div>
-               <input type="text" placeholder="Enter the numbers separated by comma(,) 0248394057, 0557953561" class="form-control">
-               <div class="input-group-append"><span class="input-group-text"><i class="fas fa-phone"></i></span></div>
-            </div>
-            <div class="input-group mb-3">
-               <div class="input-group-prepend"><span class="input-group-text">E-Mail</span></div>
-               <input type="text" class="form-control">
-               <div class="input-group-append"><span class="input-group-text"><i class="fas fa-envelope"></i></span></div>
-            </div>
-         </div>
-        </div>
-     
-       
-       <!-- Modal footer -->
-       <div class="modal-footer">
-         <button type="button" class="btn btn-success" data-dismiss="modal">Save</button>
-         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-       </div>
-       
-     </div>
-   </div>
- </div>
-
- <div class="modal fade" id="editUserMdl">
-   <div class="modal-dialog modal-lg">
-     <div class="modal-content">
-     
-       <!-- Modal Header -->
-       <div class="modal-header">
-         <h4 class="modal-title">Edit Student Record</h4>
-         <button type="button" class="close" data-dismiss="modal">&times;</button>
-       </div>
-       
-       <!-- Modal body -->
-       <div class="modal-body"> <h4>Access Control</h4>
-         <div class="row">
-            <div class="col-md-6">
-               <div class="form-group">
-                  <div class="input-group mb-3">
-                     <div class="input-group-prepend" ><span class="input-group-text">Student ID:</span></div>
-                     <input value="KS/SE(L1)21/ANT577 " type="text" readonly class="form-control">
-                     <div class="input-group-append"><span class="input-group-text"><i class="fas fa-user"></i></span></div>
-                  </div>
-               </div>
-            </div>
-            <div class="col-md-6">
-               <div class="input-group mb-3">
-                  <div class="input-group-prepend"><span class="input-group-text">Branch</span></div>
-                  <input type="text" readonly class="form-control">
-                  <div class="input-group-append"><span class="input-group-text"><i class="fas fa-key"></i></span></div>
-               </div>
-            </div>
-         </div>
-         <div class="row">
-            <div class="col-md-6">
-               <div class="input-group mb-3">
-                  <div class="input-group-prepend"><span class="input-group-text">Course</span></div>
-                  <select class="form-control form-control-md">
-                     <option class ="font-italic">Select Course</option>
-                     <option>Grphic Design</option>
-                     <option>Software Engineering</option>
-                     <option>Networking</option>
-                  </select>
-                  <div class="input-group-append"><span class="input-group-text"><i class="fas fa-book"></i></span></div>
-               </div>
-            </div>
-            <div class="col-sm-6">
-               <div class="form-group">
-                  <div class="input-group mb-3">
-                     <div class="input-group-prepend"><span class="input-group-text"> Batch:</span></div>
-                        <select class="form-control form-control-md">
-                           <option>Large select</option>
-                        </select>
-                     <div class="input-group-append"><span class="input-group-text"><i class="fa fa-users"></i></span></div>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <div class="form-group">
-            <div class="input-group mb-3">
-               <div class="input-group-prepend"><span class="input-group-text">Full Name : </span></div>
-               <input type="text" class="form-control">
-               <div class="input-group-append"><span class="input-group-text"><i class="fas fa-user"></i></span></div>
-            </div>
-            <div class="input-group mb-3">
-               <div class="input-group-prepend"><span class="input-group-text">Date of Birth</span></div>
-               <input type="date" class="form-control">
-               <div class="input-group-append"><span class="input-group-text"><i class="far fa-calendar"></i></span></div>
-            </div>
-            <div class="input-group mb-3">
-               <div class="input-group-prepend"><span class="input-group-text">Hometown</span></div>
-               <input type="text" class="form-control">
-               <div class="input-group-append"><span class="input-group-text"><i class="fas fa-home"></i></span></div>
-            </div>
-         </div>
-
-         
-  
-         <h4>Contact Data</h4>
-         <div class="form-group">
-            <div class="input-group mb-3">
-               <div class="input-group-prepend"><span class="input-group-text">Phone Numbers : </span></div>
-               <input type="text" placeholder="Enter the numbers separated by comma(,) 0248394057, 0557953561" class="form-control">
-               <div class="input-group-append"><span class="input-group-text"><i class="fas fa-phone"></i></span></div>
-            </div>
-            <div class="input-group mb-3">
-               <div class="input-group-prepend"><span class="input-group-text">E-Mail</span></div>
-               <input type="text" class="form-control">
-               <div class="input-group-append"><span class="input-group-text"><i class="fas fa-envelope"></i></span></div>
-            </div>
-         </div>
-        </div>
-     
-       
-       <!-- Modal footer -->
-       <div class="modal-footer">
-         <button type="button" class="btn btn-success" data-dismiss="modal">Save</button>
-         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-       </div>
-       
-     </div>
-   </div>
- </div>
-
- <div class="modal fade" id="impStdMdl">
-   <div class="modal-dialog modal-md">
-     <div class="modal-content">
-     
-       <!-- Modal Header -->
-       <div class="modal-header">
-         <h4 class="modal-title">Import Students</h4>
-         <button type="button" class="close" data-dismiss="modal">&times;</button>
-       </div>
-       
-       <!-- Modal body -->
-       <div class="modal-body"> 
-         
-         <h6 class="text-info"><i>Please select the Ecxel file with the names and details that you want to import. Allowed file types are .XLSX and .XLS</i></h6>
-         <div class="form-group">
-            <div class="custom-file">
-               <input type="file" class="custom-file-input" id="customFile">
-               <label class="custom-file-label" for="customFile">Choose file</label>
+      <div class="modal fade" id="regStdMdl">
+         <div class="modal-dialog modal-lg">
+           <div class="modal-content">
+           
+             <!-- Modal Header -->
+             <div class="modal-header">
+               <h4 class="modal-title">New Student Registration</h4>
+               <button type="button" class="close" data-dismiss="modal">&times;</button>
              </div>
+             
+             <!-- Modal body -->
+             <div class="modal-body">
+               <form id="addStdForm">
+               <div class="row">           
+                  <div class="col-md-6">
+                     <div class="form-group">
+                        <div class="input-group mb-3">
+                           <div class="input-group-prepend" ><span class="input-group-text">Student ID:</span></div>
+                           <input type="text" readonly class="form-control" name="student_id">
+                           <div class="input-group-append"><span class="input-group-text"><i class="fas fa-user"></i></span></div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-md-6">
+                     <div class="input-group mb-3">
+                        <div class="input-group-prepend"><span class="input-group-text">Branch</span></div>
+                        <input type="text" readonly class="form-control std_br" name="branch" id="add_std_br">
+                        <div class="input-group-append"><span class="input-group-text"><i class="fas fa-key"></i></span></div>
+                     </div>
+                  </div>
+               </div>
+               <div class="input-group mb-3">
+                  <div class="input-group-prepend"><span class="input-group-text">Course</span></div>
+                  <select class="form-control form-control-md course_list" name="course" id="course_list">
+                     <option class ="font-italic">Select Course</option>
+                     <option value="Graphic Design">Graphic Design</option>
+                     <option value="Software Engineering">Software Engineering</option>
+                     <option Value="Networking">Networking</option>
+                  </select>
+                  <div class="input-group-append"><span class="input-group-text"><i class="fas fa-book"></i></span></div>
+               </div>
+               <div class="row">
+                  <div class="col-md-6">
+                     <div class="input-group mb-3">
+                        <div class="input-group-prepend"><span class="input-group-text">Course Duration</span></div>
+                        <select class="form-control form-control-md" name="course_duration" id="course_duration">
+                           <option class ="font-italic">Select Duration</option>
+                           <option value="Three Months">Three Months</option>
+                           <option value="Six Months">Six Months</option>
+                           <option Value="One Year">One Year</option>
+                        </select>
+                        <div class="input-group-append"><span class="input-group-text"><i class="fas fa-clock"></i></span></div>
+                     </div>
+                  </div>
+                  <div class="col-sm-6">
+                     <div class="form-group">
+                        <div class="input-group mb-3">
+                           <div class="input-group-prepend"><span class="input-group-text"> Batch:</span></div>
+                              <select class="form-control form-control-md batch_list" name="batch" id="batch_list">
+                                 <option>Default Batch</option>
+                              </select>
+                           <div class="input-group-append"><span class="input-group-text"><i class="fa fa-users"></i></span></div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="form-group">
+                  <div class="input-group mb-3">
+                     <div class="input-group-prepend"><span class="input-group-text">Full Name : </span></div>
+                     <input type="text" class="form-control" name="name" id="full_name">
+                     <div class="input-group-append"><span class="input-group-text"><i class="fas fa-user"></i></span></div>
+                  </div>
+                  <div class="row">           
+                     <div class="col-md-6">
+                        <div class="input-group mb-3">
+                           <div class="input-group-prepend"><span class="input-group-text">Date of Birth</span></div>
+                           <input type="date" class="form-control" name="dob">
+                           <div class="input-group-append"><span class="input-group-text"><i class="far fa-calendar-alt"></i></span></div>
+                        </div>
+                     </div>
+                     <div class="col-md-6">
+                        <div class="input-group mb-3">
+                           <div class="input-group-prepend"><span class="input-group-text">Sex</span></div>
+                              <select class="form-control" name="sex" id="sex">
+                                 <option value="Male">Male</option>
+                                 <option value="Female">Female</option>
+                              </select>
+                           <div class="input-group-append"><span class="input-group-text"><i class="far fa-female"></i></span></div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="input-group mb-3">
+                     <div class="input-group-prepend"><span class="input-group-text">Hometown</span></div>
+                     <input type="text" class="form-control" name="hometown">
+                     <div class="input-group-append"><span class="input-group-text"><i class="fas fa-home"></i></span></div>
+                  </div>
+               </div>
+        
+               <h4>Contact Data</h4>
+               <div class="form-group">
+                  <div class="input-group mb-3">
+                     <div class="input-group-prepend"><span class="input-group-text">Phone Numbers : </span></div>
+                     <input type="text" placeholder="Enter the numbers separated by comma(,) 0248394057, 0557953561" class="form-control" name="contact">
+                     <div class="input-group-append"><span class="input-group-text"><i class="fas fa-phone"></i></span></div>
+                  </div>
+                  <div class="input-group mb-3">
+                     <div class="input-group-prepend"><span class="input-group-text">E-Mail</span></div>
+                     <input type="text" class="form-control" name="email">
+                     <div class="input-group-append"><span class="input-group-text"><i class="fas fa-envelope"></i></span></div>
+                  </div>
+               </div>
+               </form>
+              </div>
+      
+             <!-- Modal footer -->
+             <div class="modal-footer">
+               <button type="button" class="btn btn-success" data-dismiss="modal" id="addStdBtn">Save</button>
+               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+             </div>
+             </div>
+           </div>
+           </div>
+
+            <div class="modal fade" id="editUserMdl">
+               <div class="modal-dialog modal-lg">
+               <div class="modal-content">
+               
+                  <!-- Modal Header -->
+                  <div class="modal-header">
+                     <h4 class="modal-title">Edit Student Record</h4>
+                     <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+                  
+                  <div class="modal-body">
+                     <form id="addStdForm">
+                     <div class="row">           
+                        <div class="col-md-6">
+                           <div class="form-group">
+                              <div class="input-group mb-3">
+                                 <div class="input-group-prepend" ><span class="input-group-text">Student ID:</span></div>
+                                 <input type="text" readonly class="form-control" name="student_id">
+                                 <div class="input-group-append"><span class="input-group-text"><i class="fas fa-user"></i></span></div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-md-6">
+                           <div class="input-group mb-3">
+                              <div class="input-group-prepend"><span class="input-group-text">Branch</span></div>
+                              <input type="text" readonly class="form-control std_br" name="branch" id="add_std_br">
+                              <div class="input-group-append"><span class="input-group-text"><i class="fas fa-key"></i></span></div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col-md-6">
+                           <div class="input-group mb-3">
+                              <div class="input-group-prepend"><span class="input-group-text">Course</span></div>
+                              <select class="form-control form-control-md course_list" name="course" id="course_list">
+                                 <!--Course List-->
+                              </select>
+                              <div class="input-group-append"><span class="input-group-text"><i class="fas fa-book"></i></span></div>
+                           </div>
+                        </div>
+                        <div class="col-sm-6">
+                           <div class="form-group">
+                              <div class="input-group mb-3">
+                                 <div class="input-group-prepend"><span class="input-group-text"> Batch:</span></div>
+                                    <select class="form-control form-control-md batch_list" name="batch" id="batch_list">
+                                       <option>Default Batch</option>
+                                    </select>
+                                 <div class="input-group-append"><span class="input-group-text"><i class="fa fa-users"></i></span></div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="input-group mb-3">
+                        <div class="input-group-prepend"><span class="input-group-text">Course Duration</span></div>
+                        <select class="form-control form-control-md" name="duration" id="course_duration">
+                           <option class ="font-italic">Select Duration</option>
+                           <option value="Three Months">Three Months</option>
+                           <option value="Six Months">Six Months</option>
+                           <option Value="One Year">One Year</option>
+                        </select>
+                        <div class="input-group-append"><span class="input-group-text"><i class="fas fa-clock"></i></span></div>
+                     </div>
+                     <div class="form-group">
+                        <div class="input-group mb-3">
+                           <div class="input-group-prepend"><span class="input-group-text">Full Name : </span></div>
+                           <input type="text" class="form-control" name="name" id="full_name">
+                           <div class="input-group-append"><span class="input-group-text"><i class="fas fa-user"></i></span></div>
+                        </div>
+                        <div class="row">           
+                           <div class="col-md-6">
+                              <div class="input-group mb-3">
+                                 <div class="input-group-prepend"><span class="input-group-text">Date of Birth</span></div>
+                                 <input type="date" class="form-control" name="dob">
+                                 <div class="input-group-append"><span class="input-group-text"><i class="far fa-calendar-alt"></i></span></div>
+                              </div>
+                           </div>
+                           <div class="col-md-6">
+                              <div class="input-group mb-3">
+                                 <div class="input-group-prepend"><span class="input-group-text">Sex</span></div>
+                                    <select class="form-control" name="sex" id="sex">
+                                       <option value="Male">Male</option>
+                                       <option value="Female">Female</option>
+                                    </select>
+                                 <div class="input-group-append"><span class="input-group-text"><i class="far fa-female"></i></span></div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="input-group mb-3">
+                           <div class="input-group-prepend"><span class="input-group-text">Hometown</span></div>
+                           <input type="text" class="form-control" name="hometown">
+                           <div class="input-group-append"><span class="input-group-text"><i class="fas fa-home"></i></span></div>
+                        </div>
+                     </div>
+              
+                     <h4>Contact Data</h4>
+                     <div class="form-group">
+                        <div class="input-group mb-3">
+                           <div class="input-group-prepend"><span class="input-group-text">Phone Numbers : </span></div>
+                           <input type="text" placeholder="Enter the numbers separated by comma(,) 0248394057, 0557953561" class="form-control" name="contact">
+                           <div class="input-group-append"><span class="input-group-text"><i class="fas fa-phone"></i></span></div>
+                        </div>
+                        <div class="input-group mb-3">
+                           <div class="input-group-prepend"><span class="input-group-text">E-Mail</span></div>
+                           <input type="text" class="form-control" name="email">
+                           <div class="input-group-append"><span class="input-group-text"><i class="fas fa-envelope"></i></span></div>
+                        </div>
+                     </div>
+                     </form>
+                    </div>
+            
+                  <!-- Modal footer -->
+                  <div class="modal-footer">
+                     <button type="button" class="btn btn-success" data-dismiss="modal">Save</button>
+                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  </div>
+                  
+               </div>
+               </div>
+            </div>
+
+      <div class="modal fade" id="impStdMdl">
+         <div class="modal-dialog modal-md">
+         <div class="modal-content">
+         
+            <!-- Modal Header -->
+            <div class="modal-header">
+               <h4 class="modal-title">Import Students</h4>
+               <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            
+            <!-- Modal body -->
+            <div class="modal-body"> 
+               
+               <h6 class="text-info"><i>Please select the Ecxel file with the names and details that you want to import. Allowed file types are .XLSX and .XLS</i></h6>
+               <div class="form-group">
+                  <div class="custom-file">
+                     <form  id="importForm" enctype="multipart/form-data">
+                        <input type="file"  name="file">
+                     </form>
+                  </div>
+               </div>
+            </div>
+         
+            
+            <!-- Modal footer -->
+            <div class="modal-footer">
+               <button type="button" class="btn btn-success" data-dismiss="modal" id="ImportBtn">Save</button>
+               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+            
          </div>
-        </div>
-     
-       
-       <!-- Modal footer -->
-       <div class="modal-footer">
-         <button type="button" class="btn btn-success" data-dismiss="modal">Save</button>
-         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-       </div>
-       
-     </div>
-   </div>
- </div>
+         </div>
+      </div>
       <script src="../assets/vendor/jquery/jquery-3.3.1.min.js" type="8753a994eed150800267cbdd-text/javascript"></script>
       <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.js" type="8753a994eed150800267cbdd-text/javascript"></script>
       <script src="../assets/vendor/slimscroll/jquery.slimscroll.js" type="8753a994eed150800267cbdd-text/javascript"></script>
@@ -832,25 +615,366 @@
       <script src="../assets/vendor/charts/c3charts/C3chartjs.js" type="8753a994eed150800267cbdd-text/javascript"></script>
       <script src="../assets/libs/js/dashboard-ecommerce.js" type="8753a994eed150800267cbdd-text/javascript"></script>
       <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13" type="8753a994eed150800267cbdd-text/javascript"></script>
-      <script type="8753a994eed150800267cbdd-text/javascript">
-         window.dataLayer = window.dataLayer || [];
-         function gtag(){dataLayer.push(arguments);}
-         gtag('js', new Date());
-         
-         gtag('config', 'UA-23581568-13');
-      </script>
-      
       <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script>
+       $(document).ready(function () {
+         reloadNumbers();
+         var course_code;
+         var branch_code;
+         var name_code;
+         
+         function refreshTable() {
+                dataTable.ajax.url("../api/get-students_data.php").load();
+            }
+
+
+       $('#importBtn').click(function (e) {
+        alert('import');
+        var formData = new FormData(this);
+
+        $.ajax({
+            url: 'import.php',
+            type: 'POST',
+            data: formData,
+            contentType: false,
+            processData: false,
+            success: function (response) {
+                console.log(response);
+                // Handle the response (importedRecords and skippedRecords)
+            },
+            error: function (error) {
+                console.error(error);
+            }
+        });
+    });
+         
+            // AJAX request to fetch JSON data from the PHP script
+        $.ajax({
+            url: '../api/access_control/get-session_data.php', // Replace with the actual path to your PHP script
+            type: 'GET',
+            dataType: 'json',
+            success: function(profile) {
+                // Assign JSON data to HTML elements with different IDs
+                $('#profile_name').text(profile[0].name);
+                $('.std_br').val(profile[0].branch);
+                // Assign more data to other HTML elements as needed
+            },
+            error: function(xhr, status, error) {
+                console.error('Error fetching JSON data:', error);
+            }
+        });
+
+         // Reload the content after AJAX success
+         function reloadNumbers() {
+           $.ajax({
+            url: '../api/get-num_students.php', // Replace with the actual path to your PHP script
+            type: 'GET',
+            dataType: 'json',
+            success: function(count) {
+                // Assign JSON data to HTML elements with different IDs
+                $('#t_std').text(count.total);
+                $('#m_std').text(count.males);
+                $('#f_std').text(count.females);
+                // Assign more data to other HTML elements as needed
+            },
+            error: function(xhr, status, error) {
+                console.error('Error fetching JSON data:', error);
+            }
+        });
+      }
+         // Make an AJAX request to fetch JSON data from a PHP file
+       $.ajax({
+            url: '../api/get-courses_data.php', // Replace with the actual PHP file path
+            type: 'GET',
+            dataType: 'json',
+            success: function(data) {
+                var select = $('.course_list');
+
+                // Clear existing options (if any)
+                select.empty();
+
+                // Iterate through the JSON data and append options
+                $.each(data, function(index, course) {
+                    select.append($('<option>', {
+                        value: course.name,
+                        text: course.name
+                    }));
+                });
+            },
+            error: function(xhr, status, error) {
+                console.error('Error fetching data:', error);
+            }
+        });
+
+        // Listen for changes in the "course_list" select
+      $('#course_list').change(function () {
+         // Get the selected course value
+         var selectedCourse = $(this).val();
+
+         // Make an AJAX request to get the batch options based on the selected course
+         $.ajax({
+               url: '../api/get-course_batch.php', // Replace with your actual endpoint
+               type: 'POST',
+               dataType: 'json',
+               data: { selected_course: selectedCourse }, // Send the selected course to the server
+         })
+         .done(function (response) {
+               // Update the options in the "batch_list"
+               var batchList = $('.batch_list');
+               batchList.empty(); // Clear existing options
+
+               // Add new options based on the response from the server
+               $.each(response.batches, function (index, batch) {
+                  batchList.append('<option>' + batch + '</option>');
+               });
+         })
+         .fail(function (error) {
+               console.error(error);
+         });
+      });
+
+     $("#addStdBtn").click(function(event) {
+       event.preventDefault(); // Prevent the default form submission
+         
+       // Serialize the form data
+       var formData = $("#addStdForm").serialize();
+   
+       // Make an AJAX POST request
+       $.ajax({
+           url: '../api/save-add_student.php', // Replace with your server endpoint
+           type: 'POST',
+           data: formData,
+           success: function(response) {
+              if(response==200){
+               // Handle the response from the server
+               Swal.fire(
+                 'Success!',
+                 'New User Created Successfully!',
+                 'success'
+                 )
+                 refreshTable();
+                 reloadNumbers();
+                 
+               // You can also do additional actions here, like clearing the form or redirecting.
+                  }
+              else{
+                 alert(response)
+              }
+              },
+           error: function(xhr, status, error) {
+               // Handle errors here
+               console.error(xhr.responseText);
+               alert('An error occurred while processing your request.');
+           }
+       });
+   });
+
+    // Initialize DataTable
+    var dataTable = $('#std_recs_tbl').DataTable({
+    // Specify your DataTable configuration options here
+    ajax: {
+        url: "../api/get-students_data.php",
+        dataType: "json",
+        type: "GET",
+        dataSrc: "" // Data source property in the API response, if needed
+    },
+    columns: [
+        { data: null }, // ID
+        { data: null}, // Avatar
+        { data: "id", className:'ID d-none'},
+        { data: "name" },
+        { data: "contact" },
+        { data: "course" },
+        { data: "student_id",className:'student_id'},
+        { data: "amount_paid" },
+        { data: "payment_status" },
+        { data: "course_duration" , className:'d-none'},
+        { data: "hometown", className:'d-none' },
+        { data: "email", className:'d-none' },
+        { data: null, className:'d-none' } // Actions
+    ],
+    columnDefs: [
+        {
+            targets: [0], // Target the ID column
+            render: function (data, type, row, meta) {
+                // Render the ID using the row index
+                return meta.row + 1;
+            }
+        },
+        {
+            targets: [1], // Target the Avatar column
+            render: function (data, type, row) {
+                return '<div class="m-r-10"><img src="../assets/images/avatar-6.png" alt="user" class="rounded" width="45"></div>';
+            }
+        },
+        {
+            targets: [12], // Target the Actions column
+            orderable: false,
+            render: function (data, type, row) {
+                return '<td class="d-none" style="margin:0;padding:2px;">' +
+                    '<span>' +
+                    '<button type="button" class="btn btn-sm btn-outline-warning"  data-toggle="modal" data-target="#editUserMdl" style="margin:0; margin-left: margin-right:0;"><i class="fas fa-cog fa-spin fa-lg"></i></button>' +
+                    '<button type="button" class="btn btn-sm btn-outline-danger delete-btn" style="margin:0; margin-left: 0; margin-right:0;"><i class="fas fa-user-times  fa-lg"></i></button>' +
+                    '</span>' +
+                    '</td>';
+            }
+        }
+    ]
+});
+
+$('#std_recs_tbl').on('click', '.btn-outline-warning', function() {
+        // Get the row data from the clicked row
+        var rowData = $(this).closest('tr').find('td').map(function() {
+            return $(this).text();
+        }).get();
+
+        // Extract the relevant data
+        var studentID = rowData[6]; // Assuming ID is at index 2
+        var studentName = rowData[3];
+        var course = rowData[5];
+        var duration = rowData[9];
+        var amount = rowData[5];
+        var contact = rowData[4];
+        var hometown = rowData[10];
+        var email = rowData[11];
+
+        // Fill the form with the data
+        $('input[name="student_id"]').val(studentID);
+        $('input[name="name"]').val(studentName);
+        $('select[name="duration"]').val(duration);
+        $('select[name="course"]').val(course);
+        $('input[name="amount"]').val(amount);
+        $('input[name="contact"]').val(contact);
+        $('input[name="hometown"]').val(hometown);
+         // Get the selected course value
+         var selectedCourse = $('select[name="course"]').val();
+
+         // Make an AJAX request to get the batch options based on the selected course
+         $.ajax({
+               url: '../api/get-course_batch.php', // Replace with your actual endpoint
+               type: 'POST',
+               dataType: 'json',
+               data: { selected_course: selectedCourse }, // Send the selected course to the server
+         })
+         .done(function (response) {
+               // Update the options in the "batch_list"
+               var batchList = $('.batch_list');
+               batchList.empty(); // Clear existing options
+
+               // Add new options based on the response from the server
+               $.each(response.batches, function (index, batch) {
+                  batchList.append('<option>' + batch + '</option>');
+               });
+         })
+         .fail(function (error) {
+               console.error(error);
+         });
+
+        // Show the modal
+        $('#editFeeMdl').modal('show');
+    });
+
+$('#std_recs_tbl').on('click', '.delete-btn', function() {
+    // Store the reference to the clicked button
+    var $deleteBtn = $(this);
+
+    // Get the corresponding student ID from the selected row
+    var studentId = $deleteBtn.closest('tr').find('.ID').text();
+
+    // Add your code to send an AJAX request to delete the student
+    $.ajax({
+        url: '../api/save-delete_student.php', // Replace with the actual path to your PHP script
+        method: 'POST',
+        data: { id: studentId },
+        success: function(response) {
+            // Handle the success response, if needed
+            toastr.success('Student Deleted successfully!', 'Success', { progressBar: true });
+
+            // Remove the row from the table
+            $deleteBtn.closest('tr').fadeOut();
+            reloadNumbers();
+        },
+        error: function(error) {
+            // Handle the error, if needed
+            console.error(error);
+        }
+    });
+});
+
+    // Load data into the table on page load
+    dataTable.ajax.url("../api/get-students_data.php").load();
+
+var randomNumber = Math.floor(Math.random() * 90) + 10;
+// Event listener for when the course_list dropdown changes
+$('#course_list').change(updateStudentID);
+
+$('#batch_list').change(updateStudentID);
+// Event listener for when the add_std_br input changes
+
+$('#add_std_br').on('input', updateStudentID);
+
+// Event listener for when the name input changes
+$('input[name="name"]').on('input', updateStudentID);
+
+function updateStudentID() {
+    // Get the value from add_std_br
+    var branchValue = $('#add_std_br').val();
+
+    // Process the value based on your conditions
+    var branchInitials = processInitials(branchValue);
+
+    // Get the selected option text for course_list
+    var courseName = $('#course_list').find('option:selected').text();
+
+    // Event listener for when the select element changes
+    var batch_code = $('#batch_list').find('option:selected').text();
+
+    // Process the course name based on your conditions
+    var courseInitials = processInitials(courseName);
+
+    // Get the value from the name input
+    var fullName = $('#full_name').val();
+
+    // Process the full name based on your conditions
+    var nameInitials = processInitials(fullName);
+
+    // Concatenate the values
+    var studentID = branchInitials.toUpperCase() +'/'+ batch_code +'/'+nameInitials.toUpperCase()+randomNumber;
+
+    // Set the value of 'Student ID' input
+    $('input[name="student_id"]').val(studentID);
+}
+
+// Function to process initials based on conditions
+function processInitials(value) {
+    var words = value.split(' ');
+
+    // Check if it's a single word
+    if (words.length === 1) {
+        // Take the first 2 consonants
+        return value.replace(/[aeiou]/gi, '').slice(0, 2);
+    }
+
+    // Take the first letter of each word
+    return words.map(function(word) {
+        return word.charAt(0);
+    }).join('');
+}
+});
+
+    </script>
+<script>
+   $(document).ready(function () {
+    
+});
+
+</script>
+    
+
       <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
       <script src="https://cdn.datatables.net/1.13.5/js/dataTables.bootstrap4.min.js"></script>
-      <script>
-         new DataTable('#std_recs_tbl');
-
-         $(".custom-file-input").on("change", function() {
-            var fileName = $(this).val().split("\\").pop();
-            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
-            });
-     </script>
 
       <script src="../assets/vendor/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js" data-cf-settings="8753a994eed150800267cbdd-|49" defer=""></script>
    </body>

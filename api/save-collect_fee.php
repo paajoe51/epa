@@ -9,6 +9,8 @@ $comment = $_POST['comment'];
 $branch = $_POST['branch_name'];
 $student = $_POST['fee_student'];
 $trans_id = $_POST['trans_id'];
+$course = str_replace("+", " ", ($_POST['course']));
+$duration =  str_replace("+", " ", ($_POST['duration']));
 
 if ($amount == "" || $student == "") {
     $response = 201;
@@ -24,10 +26,27 @@ if ($amount == "" || $student == "") {
         // Calculate the new amount by adding the current amount and the new amount from the form
         $newAmount = $currentAmountPaid + $amount;
 
+        // Fetch the current amount paid from the students table
+        $fee_query = "SELECT amount FROM fees_table WHERE course_name = :course AND duration = :duration" ;
+        $fee_stmt = $db->prepare($fee_query);
+        $fee_stmt->bindParam(':course', $course);
+        $fee_stmt->bindParam(':duration', $duration);
+        $fee_stmt->execute();
+        $fee = $fee_stmt->fetchColumn();
+
+        // Calculate the new amount by adding the current amount and the new amount from the form
+        if ($newAmount<$fee){
+            $payment_status= $newAmount-$fee;
+        }
+        elseif ($newAmount>=$fee){
+            $payment_status="Fully Paid";
+        }
+
         // Update the amount_paid in the students table
-        $updateQuery = "UPDATE students SET amount_paid = :new_amount WHERE id = :student_id";
+        $updateQuery = "UPDATE students SET amount_paid = :new_amount, payment_status = :payment_status WHERE id = :student_id";
         $updateStmt = $db->prepare($updateQuery);
         $updateStmt->bindParam(':new_amount', $newAmount);
+        $updateStmt->bindParam(':payment_status', $payment_status);
         $updateStmt->bindParam(':student_id', $student);
         $updateStmt->execute();
 

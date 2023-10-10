@@ -141,24 +141,30 @@
                         </li>
                         
                         <li class="nav-item">
-                           <a class="nav-link" href="students-records.html" ><i class="fas fa-fw fa-inbox"></i> Students Records<span class="badge badge-secondary">New</span></a>
-                           <div id="submenu-7" class="collapse submenu" style="">
-                                              
-                     
-                        <li class="nav-item">
-                           <a class="nav-link" href="#" ><i class="fas fa-fw fa-inbox"></i> Fees Table<span class="badge badge-secondary">New</span></a>
+                           <a class="nav-link" href="index.html" ><i class="fas fa-fw fa-tachometer-alt"></i> Dashboard <span class="badge badge-secondary">New</span></a>
                            <div id="submenu-7" class="collapse submenu" style="">
                         </li>
-
+                        <li class="nav-item">
+                        <a class="nav-link" href="students-records.html" ><i class="fas fa-fw fa-users"></i> Students Records<span class="badge badge-secondary">New</span></a>
+                        <div id="submenu-7" class="collapse submenu" style=""></div>
+                        
+                        <li class="nav-item">
+                           <a class="nav-link" href="fees.html" ><i class="mdi mdi-cash-multiple mdi-18px"></i> Fees <span class="badge badge-secondary">New</span></a>
+                           <div id="submenu-7" class="collapse submenu" style="">
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link" href="#" ><i class="mdi mdi-18px mdi-book-open-variant"></i> Courses / Batches <span class="badge badge-secondary">New</span></a>
+                           <div id="submenu-7" class="collapse submenu" style="">
+                        </li>
                         <li class="nav-divider">
                            REPORTS
                         </li>
                         <li class="nav-item">
-                           <a class="nav-link" href="#" ><i class="fas fa-fw fa-inbox"></i> Students Reports<span class="badge badge-secondary">New</span></a>
+                           <a class="nav-link" href="students-records.html" ><i class="fas fa-fw fa-inbox"></i> Students Reports<span class="badge badge-secondary">New</span></a>
                            <div id="submenu-7" class="collapse submenu" style="">
                         </li>
                                                 <li class="nav-item">
-                           <a class="nav-link" href="#" ><i class="fas fa-fw fa-inbox"></i> Staff Records<span class="badge badge-secondary">New</span></a>
+                           <a class="nav-link" href="courses.html" ><i class="fas fa-fw fa-book"></i> Library / Archives <span class="badge badge-secondary">New</span></a>
                            <div id="submenu-7" class="collapse submenu" style="">
                         </li>
                         <li class="nav-item">
@@ -166,13 +172,10 @@
                            <div id="submenu-6" class="collapse submenu" style="">
                               <ul class="nav flex-column">
                                  <li class="nav-item">
-                                    <a class="nav-link" href="pages/blank-page.html"><i class="fas fa-fw fa-inbox"></i>Expenditure Report</a>
+                                    <a class="nav-link" href="account.html"><i class="fas fa-fw fa-university"></i> Bank Report</a>
                                  </li>
                                  <li class="nav-item">
-                                    <a class="nav-link" href="pages/blank-page.html"><i class="fas fa-fw fa-inbox"></i>Bank Report</a>
-                                 </li>
-                                 <li class="nav-item">
-                                    <a class="nav-link" href="pages/blank-page-header.html"><i class="fas fa-fw fa-inbox"></i>Received Report</a>
+                                    <a class="nav-link" href="requests.html"><i class="mdi mdi-book-plus"></i> Expenditure Requests</a>
                                  </li>
                               </ul>
                            </div>
@@ -182,11 +185,11 @@
                            USER ACCOUNT
                         </li>
                         <li class="nav-item">
-                           <a class="nav-link" href="#" ><i class="fas fa-fw fa-inbox"></i> Profile<span class="badge badge-secondary">New</span></a>
+                           <a class="nav-link" href="#" ><i class="fas fa-fw fa-user"></i> Profile<span class="badge badge-secondary">New</span></a>
                            <div id="submenu-7" class="collapse submenu" style="">
                         </li>
                                                 <li class="nav-item">
-                           <a class="nav-link" href="#" ><i class="fas fa-fw fa-sign-out"></i> Sign Out<span class="badge badge-secondary">New</span></a>
+                           <a class="nav-link" href="../index.html" ><i class="fa fa-fw fa-sign-out-alt"></i> Sign Out<span class="badge badge-secondary">New</span></a>
                            <div id="submenu-7" class="collapse submenu" style="">
                         </li>
                   
@@ -215,8 +218,6 @@
                      </div>
                   </div>
                   <div class="ecommerce-widget">
-
-                     
                      <div class="row">
                         <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
                            <div class="card border-3 border-top border-top-primary">
@@ -236,7 +237,7 @@
                               <div class="card-body">
                                  <h5 class="text-muted">Total Expenditure</h5>
                                  <div class="metric-value d-inline-block">
-                                    <h1 class="mb-1">1,560</h1>
+                                    <h1 class="mb-1"><span id="with_amt">0</span></h1>
                                  </div>
                                  <div class="metric-label d-inline-block float-right text-success font-weight-bold">
                                     <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">10%</span>
@@ -249,7 +250,7 @@
                               <div class="card-body">
                                  <h5 class="text-muted">30% to HQ</h5>
                                  <div class="metric-value d-inline-block">
-                                    <h1 class="mb-1">13000</h1>
+                                    <h1 class="mb-1"><span id="hq_amt">0</span> / <span id="30_p">0</span></h1>
                                  </div>
                                  <div class="metric-label d-inline-block float-right text-success font-weight-bold">
                                     <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">5%</span>
@@ -262,7 +263,7 @@
                               <div class="card-body">
                                  <h5 class="text-muted">70% to EPADAC</h5>
                                  <div class="metric-value d-inline-block">
-                                    <h1 class="mb-1">1340</h1>
+                                    <h1 class="mb-1"><span id="epa_amt">0</span> / <span id="70_p">0</span></h1>
                                  </div>
                                  <div class="metric-label d-inline-block float-right text-danger font-weight-bold">
                                     <span class="icon-circle-small icon-box-xs text-danger bg-danger-light bg-danger-light "><i class="fa fa-fw fa-arrow-down"></i></span><span class="ml-1">4%</span>
@@ -277,11 +278,11 @@
                         <div class="col-xl-12 col-lg-12 col-md-6 col-sm-12 col-12">
                            <div class="card">
                               <div class="card-header primary">
-                                 <h5 class="mb-0">Full Records of students <button type="button"class=" btn btn-primary float-right" id="feeMdlBtn" data-toggle="modal" data-target="#recFeeMdl"><i class="mdi mdi-cash-multiple"></i> Record Bank Tansaction</button></h5>
+                                 <h5 class="mb-0">Full Records of students <button type="button"class=" btn btn-primary float-right" id="feeMdlBtn" data-toggle="modal" data-target="#recAccMdl"><i class="mdi mdi-cash-multiple"></i> Record Bank Tansaction</button></h5>
                               </div>
                               <div class="card-body">
                                  <div class="table-responsive">
-                                    <table  class="table table-striped table-hover table-bordered table-condensed small" id="dash_std_tbl" data-page-length='5'>
+                                    <table  class="table table-striped table-hover table-bordered table-condensed small" id="banking_tbl" data-page-length='5'>
                                        <thead class="bg-light">
                                           <tr class="border-0">
                                              <th class="border-0">#</th>
@@ -324,12 +325,8 @@
                                  </div>
                               </div>
                            </div>
-                        
-                        </div>
-                                             
+                        </div>          
                      </div>
-                     
-                     
                      <div class="row">
                         <div class="col-xl-5 col-lg-5 col-md-12 col-sm-12 col-12">
                            <div class="card">
@@ -358,10 +355,10 @@
             <div class="footer">
                <div class="container-fluid">
                   <div class="row">
-                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                        Copyright © 2023 EPADAC Busineess Center - Powered by Mickysoft Technologies. All rights reserved.
+                     <div class="col-xl-8 col-lg-6 col-md-6 col-sm-12 col-12">
+                        Copyright © 2023 EPADAC Business Center - Powered by Mickysoft Technologies. All rights reserved.
                      </div>
-                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                     <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
                         <div class="text-md-right footer-links d-none d-sm-block">
                            <a href="javascript: void(0);">About</a>
                            <a href="javascript: void(0);">Support</a>
@@ -373,6 +370,96 @@
             </div>
          </div>
       </div>
+
+            <!-- The Modal -->
+  <div class="modal fade" id="recAccMdl">
+   <div class="modal-dialog modal-lg">
+     <div class="modal-content">
+     
+       <!-- Modal Header -->
+       <div class="modal-header">
+         <h4 class="modal-title">Banking Record </h4>
+         <button type="button" class="close" data-dismiss="modal">&times;</button>
+       </div>
+       
+       <!-- Modal body -->
+       <div class="modal-body"> <h4></h4>
+         <form id="addFeeForm">
+         <div class="row">
+            <div class="col-md-6">
+               <div class="form-group">
+                  <div class="input-group mb-3">
+                     <div class="input-group-prepend" ><span class="input-group-text">Date :</span></div>
+                     <input type="text" readonly class="form-control" id="banking_date" name="banking_date">
+                     <div class="input-group-append"><span class="input-group-text"> <i class="fa fa-calendar-alt"></i> </span></div>
+                  </div>
+               </div>
+            </div>
+            <div class="col-md-6">
+               <div class="input-group mb-3">
+                  <div class="input-group-prepend"><span class="input-group-text">Branch</span></div>
+                  <input type="text" readonly class="form-control branch_name" name="branch_name" id="branch_name">
+                  <div class="input-group-append"><span class="input-group-text"><i class="fas fa-university"></i></span></div>
+               </div>
+            </div>
+         </div>
+         <div class="form-group">
+            <div class="input-group mb-3">
+               <div class="input-group-prepend"><span class="input-group-text">Transaction Type</span></div>
+               <select class="form-control" name="banking_type" readonly>
+                  <option class="font-italic font-light">Select the Type of Banking Transaction</option>
+                  <option>Deposit</option>
+                  <option>Withdrawal</option>
+               </select>
+               <div class="input-group-append"><span class="input-group-text"><i class="fas fa-calendar-check"></i></span></div>
+            </div> 
+            <div class="row">
+               <div class="col-md-6">
+                  <div class="form-group">
+                     <div class="input-group mb-3">
+                        <div class="input-group-prepend" ><span class="input-group-text" id="id_label">Invoice ID :</span></div>
+                        <input type="text" class="form-control" id="inv_id" name="inv_id">
+                        <div class="input-group-append"><span class="input-group-text"> # </span></div>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-6">
+                  <div class="input-group mb-3">
+                     <div class="input-group-prepend"><span class="input-group-text">Target Account</span></div>
+                     <select class="form-control" name="target">
+                        <option value="HQ">HQ</option>
+                        <option value="EPADAC">EPADAC</option>
+                     </select>
+                     <div class="input-group-append"><span class="input-group-text"><i class="fas fa-university"></i></span></div>
+                  </div>
+               </div>
+            </div>
+
+            <div class="input-group mb-3">
+               <div class="input-group-prepend"><span class="input-group-text">Amount : </span></div>
+               <input type="number" class="form-control" name="amount">
+               <div class="input-group-append"><span class="input-group-text"><i class="fas fa-money-bill-alt"></i></span></div>
+            </div>
+           
+            <div class="input-group mb-3">
+               <div class="input-group-prepend"><span class="input-group-text">Comment</span></div>
+               <textarea  class="form-control" rows="3" name="comment" placeholder ="PLease enter some details of the Transaction "></textarea>              
+               <div class="input-group-append"><span class="input-group-text"><i class="fas fa-home"></i></span></div>
+            </div>
+        </div>
+         </form>
+        </div>
+     
+       
+       <!-- Modal footer -->
+       <div class="modal-footer">
+         <button type="button" class="btn btn-success" data-dismiss="modal" id="saveBankingBtn">Save</button>
+         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+       </div>
+       
+     </div>
+   </div>
+ </div>
       <script src="../assets/vendor/jquery/jquery-3.3.1.min.js" type="8753a994eed150800267cbdd-text/javascript"></script>
       <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.js" type="8753a994eed150800267cbdd-text/javascript"></script>
       <script src="../assets/vendor/slimscroll/jquery.slimscroll.js" type="8753a994eed150800267cbdd-text/javascript"></script>
@@ -396,7 +483,164 @@
       <script src="../assets/vendor/datatables.net/jquery-3.7.0.js"></script>
       <script src="../assets/vendor/datatables.net/dataTables.min.js"></script>
       <script src="../assets/vendor/datatables.net/dataTables.bootstrap4.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+      <script src="../assets/vendor/Auto-Format-Currency/simple.money.format.js"></script>
+<script>
+    // Function to get current date in YYYY-MM-DD format
+    function getFullCurrentDate() {
+        var currentDate = new Date();
+        var year = currentDate.getFullYear();
+        var month = (currentDate.getMonth() + 1).toString().padStart(2, '0'); // Months are zero-based
+        var day = currentDate.getDate().toString().padStart(2, '0');
+        return `${day}/${month}/${year}`;
+    }
 
+    // Set the current date to the banking_date input
+    $('#banking_date').val(getFullCurrentDate());
+    $.ajax({
+            url: '../api/get-banking_count.php', // Replace with the actual path to your PHP script
+            type: 'GET',
+            dataType: 'json',
+            success: function(banking) {
+                // Assign JSON data to HTML elements with different IDs
+               ($('#with_amt').text(banking.withdrawals)).simpleMoneyFormat();
+               ($('#hq_amt').text(banking.hq)).simpleMoneyFormat();
+               ($('#epa_amt').text(banking.epadac)).simpleMoneyFormat();
+            },
+            error: function(xhr, status, error) {
+                console.error('Error fetching JSON data:', error);
+            }
+        });
+
+            $.ajax({
+            url: '../api/get-fees_count.php', // Replace with the actual path to your PHP script
+            type: 'GET',
+            dataType: 'json',
+            success: function(fees) {
+                // Assign JSON data to HTML elements with different IDs
+               ($('#30_p').text((fees.fees)*0.3)).simpleMoneyFormat();
+               ($('#70_p').text((fees.fees)*0.7)).simpleMoneyFormat()
+            },
+            error: function(xhr, status, error) {
+                console.error('Error fetching JSON data:', error);
+            }
+        });
+
+    $.ajax({
+            url: '../api/access_control/get-session_data.php', // Replace with the actual path to your PHP script
+            type: 'GET',
+            dataType: 'json',
+            success: function(profile) {
+                // Assign JSON data to HTML elements with different IDs
+                $('.branch_name').val(profile[0].branch);
+                $('.nav-user-name').text(profile[0].name);
+
+            },
+            error: function(xhr, status, error) {
+                console.error('Error fetching JSON data:', error);
+            }
+        });
+
+        $('#saveBankingBtn').click(function() {
+        // Serialize the form data
+        var formData = $("#addFeeForm").serialize();
+
+        // Add your code to send an AJAX request to save the banking record
+        $.ajax({
+            url: '../api/save-banking.php', // Replace with the actual path to your PHP script
+            method: 'POST',
+            data: formData,
+            success: function(response) {
+                // Handle the success response
+                if (response==200) {
+                    // Display success message using SweetAlert
+                Swal.fire({
+                  icon: 'success',
+                  title: 'Success',
+                  text: 'Banking data Recorded Successfully',
+                  confirmButtonColor: '#3085d6',
+                  confirmButtonText: 'OK'
+                }).then((result) => {
+                  // Reload or redirect to another page as needed
+                  location.reload();
+                });
+                } else {
+                    // Handle the case where amount or inv_id is empty
+                    if (response.errorCode === 201) {
+                        alert('Amount or Invoice ID is empty. Please fill in the required fields.');
+                    } else {
+                        // Handle other errors, if needed
+                        console.error(response.message);
+                    }
+                }
+            },
+            error: function(error) {
+                // Handle the error, if needed
+                console.error(error);
+            }
+        });
+    });
+
+    var dataTable = $('#banking_tbl').DataTable({
+    // Specify your DataTable configuration options here
+    ajax: {
+        url: "../api/get-banking_data.php",
+        dataType: "json",
+        type: "GET",
+        dataSrc: "" // Data source property in the API response, if needed
+    },
+    columns: [
+        { data: null }, // ID
+        { data: "date" },
+        { data: "branch" },
+        { data: "banking_type" },
+        { data: "inv_id" },
+        { data: "target" },
+        { data: "amount" },
+        { data: "comment" },
+    ],
+    columnDefs: [
+        {
+            targets: [0], // Target the ID column
+            render: function (data, type, row, meta) {
+                // Render the ID using the row index
+                return meta.row + 1;
+            }
+        },
+    ]
+});
+
+function getCurrentDate() {
+        var currentDate = new Date();
+        var year = currentDate.getFullYear().toString().slice(-2);
+        var month = (currentDate.getMonth() + 1).toString().padStart(2, '0'); // Months are zero-based
+        var day = currentDate.getDate().toString().padStart(2, '0');
+        return `${year}${month}${day}`;
+    }
+
+    // Event listener for the Transaction Type select
+    $('select[name="banking_type"]').change(function() {
+        var bankingType = $(this).val();
+        var branchName = $('.branch_name').val();
+        var invIdInput = $('#inv_id');
+        var randomNumber = Math.floor(Math.random() * 90) + 10;
+
+        if (bankingType === 'Deposit') {
+            // Generate invoice ID for Deposit
+            var branchInitials = branchName.split(' ').map(word => word.charAt(0).toUpperCase()).join('');
+            var generatedCode = branchInitials+'-'+getCurrentDate()+randomNumber;
+            
+            // Display and make the input readonly
+            invIdInput.val(generatedCode).prop('readonly', true);
+            $('#id_label').text('Banking ID')
+        } else if (bankingType === 'Withdrawal') {
+            // Change text to Cheque number and make it editable
+             $('#id_label').text('Cheque Number');
+             invIdInput.val('');
+             invIdInput.prop('readonly', false);
+        }
+    });
+</script>
       <script>
          new DataTable('#dash_std_tbl');
          $(function(){

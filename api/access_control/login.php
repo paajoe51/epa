@@ -55,7 +55,7 @@
 							echo 2;
 							exit();
 						}
-                        elseif($account_type=='admin'){
+                        elseif($account_type=='branch_admin'){
 							echo 3;
 							exit();
 						}

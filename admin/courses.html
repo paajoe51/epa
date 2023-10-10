@@ -144,24 +144,30 @@
                         </li>
                         
                         <li class="nav-item">
-                           <a class="nav-link" href="students-records.html" ><i class="fas fa-fw fa-inbox"></i> Students Records<span class="badge badge-secondary">New</span></a>
-                           <div id="submenu-7" class="collapse submenu" style="">
-                                              
-                     
-                        <li class="nav-item">
-                           <a class="nav-link" href="#" ><i class="fas fa-fw fa-inbox"></i> Fees Table<span class="badge badge-secondary">New</span></a>
+                           <a class="nav-link" href="index.html" ><i class="fas fa-fw fa-tachometer-alt"></i> Dashboard <span class="badge badge-secondary">New</span></a>
                            <div id="submenu-7" class="collapse submenu" style="">
                         </li>
-
+                        <li class="nav-item">
+                        <a class="nav-link" href="students-records.html" ><i class="fas fa-fw fa-users"></i> Students Records<span class="badge badge-secondary">New</span></a>
+                        <div id="submenu-7" class="collapse submenu" style=""></div>
+                        
+                        <li class="nav-item">
+                           <a class="nav-link" href="fees.html" ><i class="mdi mdi-cash-multiple mdi-18px"></i> Fees <span class="badge badge-secondary">New</span></a>
+                           <div id="submenu-7" class="collapse submenu" style="">
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link" href="#" ><i class="mdi mdi-18px mdi-book-open-variant"></i> Courses / Batches <span class="badge badge-secondary">New</span></a>
+                           <div id="submenu-7" class="collapse submenu" style="">
+                        </li>
                         <li class="nav-divider">
                            REPORTS
                         </li>
                         <li class="nav-item">
-                           <a class="nav-link" href="#" ><i class="fas fa-fw fa-inbox"></i> Students Reports<span class="badge badge-secondary">New</span></a>
+                           <a class="nav-link" href="students-records.html" ><i class="fas fa-fw fa-inbox"></i> Students Reports<span class="badge badge-secondary">New</span></a>
                            <div id="submenu-7" class="collapse submenu" style="">
                         </li>
                                                 <li class="nav-item">
-                           <a class="nav-link" href="#" ><i class="fas fa-fw fa-inbox"></i> Staff Records<span class="badge badge-secondary">New</span></a>
+                           <a class="nav-link" href="courses.html" ><i class="fas fa-fw fa-book"></i> Library / Archives <span class="badge badge-secondary">New</span></a>
                            <div id="submenu-7" class="collapse submenu" style="">
                         </li>
                         <li class="nav-item">
@@ -169,37 +175,24 @@
                            <div id="submenu-6" class="collapse submenu" style="">
                               <ul class="nav flex-column">
                                  <li class="nav-item">
-                                    <a class="nav-link" href="pages/blank-page.html">Expenditure Report</a>
+                                    <a class="nav-link" href="account.html"><i class="fas fa-fw fa-university"></i> Bank Report</a>
                                  </li>
                                  <li class="nav-item">
-                                    <a class="nav-link" href="pages/blank-page.html">Bank Report</a>
-                                 </li>
-                                 <li class="nav-item">
-                                    <a class="nav-link" href="pages/blank-page-header.html">Received Report</a>
+                                    <a class="nav-link" href="requests.html"><i class="mdi mdi-book-plus"></i> Expenditure Requests</a>
                                  </li>
                               </ul>
                            </div>
                         </li>
-                        <li class="nav-divider">
-                           USERS
-                        </li>
-                        <li class="nav-item">
-                           <a class="nav-link" href="#" ><i class="fas fa-fw fa-users"></i> All Users<span class="badge badge-secondary">New</span></a>
-                           <div id="submenu-7" class="collapse submenu" style="">
-                        </li>
-                                                <li class="nav-item">
-                           <a class="nav-link" href="#" ><i class="fas fa-fw fa-user-plus"></i> Add User<span class="badge badge-secondary">New</span></a>
-                           <div id="submenu-7" class="collapse submenu" style="">
-                        </li>
+                        
                         <li class="nav-divider">
                            USER ACCOUNT
                         </li>
                         <li class="nav-item">
-                           <a class="nav-link" href="#" ><i class="fas fa-fw fa-inbox"></i> Profile<span class="badge badge-secondary">New</span></a>
+                           <a class="nav-link" href="#" ><i class="fas fa-fw fa-user"></i> Profile<span class="badge badge-secondary">New</span></a>
                            <div id="submenu-7" class="collapse submenu" style="">
                         </li>
                                                 <li class="nav-item">
-                           <a class="nav-link" href="#" ><i class="fas fa-fw fa-sign-out"></i> Sign Out<span class="badge badge-secondary">New</span></a>
+                           <a class="nav-link" href="../index.html" ><i class="fa fa-fw fa-sign-out-alt"></i> Sign Out<span class="badge badge-secondary">New</span></a>
                            <div id="submenu-7" class="collapse submenu" style="">
                         </li>
                   
@@ -342,9 +335,9 @@
                         </div>
                         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
                            <div class="card">
-                              <h5 class="card-header">Rooms for Learning <button type="button"class=" btn btn-outline-primary btn-sm float-right" data-toggle="modal" data-target="#addRoomMdl"><i class="fas fa-home"></i> Add  <i class="fas fa-plus-square"></i></h5>
+                              <h5 class="card-header">Rooms for Learning <button type="button"class=" btn btn-outline-primary  float-right" data-toggle="modal" data-target="#addRoomMdl"><i class="fas fa-home"></i> Add  <i class="fas fa-plus-square"></i></h5>
                               <div class="card-body">
-                                 <ul class="list-group">
+                                 <ul class="list-group" id="room_list">
                                     <li class="list-group-item active">Breman Asikuma</li>
                                     <li class="list-group-item">Dapibus ac facilisis in</li>
                                     <li class="list-group-item">Morbi leo risus</li>
@@ -361,10 +354,10 @@
             <div class="footer">
                <div class="container-fluid">
                   <div class="row">
-                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                        Copyright © 2023 EPADAC Busineess Center - Powered by Mickysoft Technologies. All rights reserved.
+                     <div class="col-xl-8 col-lg-6 col-md-6 col-sm-12 col-12">
+                        Copyright © 2023 EPADAC Business Center - Powered by Mickysoft Technologies. All rights reserved.
                      </div>
-                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                     <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
                         <div class="text-md-right footer-links d-none d-sm-block">
                            <a href="javascript: void(0);">About</a>
                            <a href="javascript: void(0);">Support</a>
@@ -460,7 +453,6 @@
              <!-- Modal body -->
              <div class="modal-body">
                <form id="addRoomForm">
-                  <h4>Bio Data</h4>
                   <div class="form-group">
                      <div class="input-group mb-3">
                         <div class="input-group-prepend"><span class="input-group-text">Room ID : </span></div>
@@ -626,7 +618,7 @@
       $("#addRoomBtn").click(function(event){
          event.preventDefault();
         // var room_id = $("#room_id").val().trim();
-         //var room_name = $("#room_name").val().trim(); // Corrected a typo here
+         var room_name = $("#room_name").val().trim(); // Corrected a typo here
          var form_data = $("#addRoomForm").serialize();
             $.ajax({
                url: '../api/save-create_room.php',
@@ -693,12 +685,31 @@
             $('#batch_name').val(batchName);
          }
 
+         $.ajax({
+            url: '../api/get-studyrooms_data.php',
+            type: 'GET',
+            dataType: 'json',
+            success: function (data) {
+                // Clear existing list items
+                $('#room_list').empty();
 
+                // Iterate through the JSON data and append to the list
+                $.each(data, function (index, room) {
+                    $('#room_list').append($('<li>', {
+                        class: 'list-group-item',
+                        text: room.room_name
+                    }));
+                });
+            },
+            error: function (xhr, status, error) {
+                console.error('Error:', error);
+            }
+        });
 
       $("#addBatchBtn").click(function(event){
          event.preventDefault();
          var room_id = $("#room_id").val().trim();
-         var room_name = $("#room_name").val().trim(); // Corrected a typo here
+         var room_name = $("#batch_name").val().trim(); // Corrected a typo here
          var form_data = $("#addBatchForm").serialize();
          var start_date= $('#start_date').val().trim();
             $.ajax({
