@@ -124,8 +124,7 @@
                               <span class="status"></span><span class="ml-2">Available</span>
                            </div>
                            <a class="dropdown-item" href="#"><i class="fas fa-user mr-2"></i>Account</a>
-                           <a class="dropdown-item" href="#"><i class="fas fa-cog mr-2"></i>Setting</a>
-                           <a class="dropdown-item" href="#"><i class="fas fa-power-off mr-2"></i>Logout</a>
+                           <a class="dropdown-item" href="../api/access_control/log-out.php"><i class="fas fa-power-off mr-2"></i>Logout</a>
                         </div>
                      </li>
                   </ul>
@@ -158,7 +157,7 @@
                            <div id="submenu-7" class="collapse submenu" style="">
                         </li>
                         <li class="nav-item">
-                           <a class="nav-link" href="#" ><i class="mdi mdi-18px mdi-book-open-variant"></i> Courses / Batches <span class="badge badge-secondary">New</span></a>
+                           <a class="nav-link" href="courses.html" ><i class="mdi mdi-18px mdi-book-open-variant"></i> Courses / Batches <span class="badge badge-secondary">New</span></a>
                            <div id="submenu-7" class="collapse submenu" style="">
                         </li>
                         <li class="nav-divider">
@@ -194,7 +193,7 @@
                            <div id="submenu-7" class="collapse submenu" style="">
                         </li>
                                                 <li class="nav-item">
-                           <a class="nav-link" href="../index.html" ><i class="fa fa-fw fa-sign-out-alt"></i> Sign Out<span class="badge badge-secondary">New</span></a>
+                           <a class="nav-link" href="../api/access_control/log-out.php" ><i class="fa fa-fw fa-sign-out-alt"></i> Sign Out<span class="badge badge-secondary">New</span></a>
                            <div id="submenu-7" class="collapse submenu" style="">
                         </li>
                   
@@ -274,10 +273,9 @@
                               <div class="card-header">
                                  <h5 class="mb-0">Full Records of students 
                                     <span class="float-right">
-                                       <button class="btn btn-outline-info btn-sm"  style="margin-right: 15px;"><i class="mdi mdi-apple-ios"></i></button>
                                        <button class="btn btn-outline-info btn-sm" data-toggle="modal" data-target="#impStdMdl" style="margin-right: 15px;"><i class="fas fa-download"></i> Import</button>
                                        <button class="btn btn-outline-info btn-sm"><i class="fas fa-upload"></i> Export</button>
-                                       <button type="button"class=" btn btn-sm btn-primary" style="margin-left: 20px;" data-toggle="modal" data-target="#regStdMdl"><i class="fas fa-user-plus" id="registerBtn"></i>Register Student</button>
+                                       <button type="button"class=" btn btn-sm btn-primary" style="margin-left: 20px;" data-toggle="modal" data-target="#regStdMdl" id="registerBtn"><i class="fas fa-user-plus"></i>Register Student</button>
                                     </span>
                                  </h5>
                               </div>
@@ -299,6 +297,7 @@
                                              <th></th>
                                              <th></th>
                                              <th width="10%">Action</th>
+                                             <td></td>
                                           </tr>
                                        </thead>
                                        <tbody id="students-data">
@@ -370,7 +369,7 @@
                <form id="addStdForm">
                <div class="row">           
                   <div class="col-md-6">
-                     <div class="form-group">
+                     <div class="form-group-sm">
                         <div class="input-group mb-3">
                            <div class="input-group-prepend" ><span class="input-group-text">Student ID:</span></div>
                            <input type="text" readonly class="form-control" name="student_id">
@@ -389,7 +388,7 @@
                <div class="input-group mb-3">
                   <div class="input-group-prepend"><span class="input-group-text">Course</span></div>
                   <select class="form-control form-control-md course_list" name="course" id="course_list">
-                     <option class ="font-italic">Select Course</option>
+                     <option class ="font-italic"value="">Select Course</option>
                      <option value="Graphic Design">Graphic Design</option>
                      <option value="Software Engineering">Software Engineering</option>
                      <option Value="Networking">Networking</option>
@@ -401,7 +400,7 @@
                      <div class="input-group mb-3">
                         <div class="input-group-prepend"><span class="input-group-text">Course Duration</span></div>
                         <select class="form-control form-control-md" name="course_duration" id="course_duration">
-                           <option class ="font-italic">Select Duration</option>
+                           <option class ="font-italic" value="">Select Duration</option>
                            <option value="Three Months">Three Months</option>
                            <option value="Six Months">Six Months</option>
                            <option Value="One Year">One Year</option>
@@ -414,7 +413,7 @@
                         <div class="input-group mb-3">
                            <div class="input-group-prepend"><span class="input-group-text"> Batch:</span></div>
                               <select class="form-control form-control-md batch_list" name="batch" id="batch_list">
-                                 <option>Default Batch</option>
+                                 <option>GB(L0)</option>
                               </select>
                            <div class="input-group-append"><span class="input-group-text"><i class="fa fa-users"></i></span></div>
                         </div>
@@ -424,14 +423,14 @@
                <div class="form-group">
                   <div class="input-group mb-3">
                      <div class="input-group-prepend"><span class="input-group-text">Full Name : </span></div>
-                     <input type="text" class="form-control" name="name" id="full_name">
+                     <input type="text" class="form-control clear_input" name="name" id="full_name">
                      <div class="input-group-append"><span class="input-group-text"><i class="fas fa-user"></i></span></div>
                   </div>
                   <div class="row">           
                      <div class="col-md-6">
                         <div class="input-group mb-3">
                            <div class="input-group-prepend"><span class="input-group-text">Date of Birth</span></div>
-                           <input type="date" class="form-control" name="dob">
+                           <input type="date" class="form-control clear_input" name="dob">
                            <div class="input-group-append"><span class="input-group-text"><i class="far fa-calendar-alt"></i></span></div>
                         </div>
                      </div>
@@ -442,28 +441,49 @@
                                  <option value="Male">Male</option>
                                  <option value="Female">Female</option>
                               </select>
-                           <div class="input-group-append"><span class="input-group-text"><i class="far fa-female"></i></span></div>
+                           <div class="input-group-append"><span class="input-group-text"><i class="fa fa-venus-mars"></i></span></div>
                         </div>
                      </div>
                   </div>
                   <div class="input-group mb-3">
                      <div class="input-group-prepend"><span class="input-group-text">Hometown</span></div>
-                     <input type="text" class="form-control" name="hometown">
+                     <input type="text" class="form-control clear_input" name="hometown">
                      <div class="input-group-append"><span class="input-group-text"><i class="fas fa-home"></i></span></div>
                   </div>
                </div>
-        
-               <h4>Contact Data</h4>
-               <div class="form-group">
-                  <div class="input-group mb-3">
-                     <div class="input-group-prepend"><span class="input-group-text">Phone Numbers : </span></div>
-                     <input type="text" placeholder="Enter the numbers separated by comma(,) 0248394057, 0557953561" class="form-control" name="contact">
-                     <div class="input-group-append"><span class="input-group-text"><i class="fas fa-phone"></i></span></div>
+               <div class="row">           
+                  <div class="col-md-6">
+                     <div class="input-group mb-3">
+                        <div class="input-group-prepend"><span class="input-group-text">Sponsor: </span></div>
+                        <input type="text" class="form-control clear_input" id="sp_name" name="sp_name">
+                        <div class="input-group-append"><span class="input-group-text"><i class="fa fa-user-circle"></i></span></div>
+                     </div>
                   </div>
-                  <div class="input-group mb-3">
-                     <div class="input-group-prepend"><span class="input-group-text">E-Mail</span></div>
-                     <input type="text" class="form-control" name="email">
-                     <div class="input-group-append"><span class="input-group-text"><i class="fas fa-envelope"></i></span></div>
+                  <div class="col-md-6">
+                     <div class="input-group mb-3">
+                        <div class="input-group-prepend"><span class="input-group-text">Sponsor Contact:</span></div>
+                           <input type="text" class="form-control clear_input" id ="sp_contact" name="sp_contact">
+                        <div class="input-group-append"><span class="input-group-text"><i class="fa fa-phone-square"></i></span></div>
+                     </div>
+                  </div>
+               </div>
+               <h4>Contact Information</h4>
+               <div class="form-group">
+                  <div class="row">           
+                     <div class="col-md-6">
+                        <div class="input-group mb-3">
+                           <div class="input-group-prepend"><span class="input-group-text">Phone Number(s): </span></div>
+                           <input type="text" placeholder="Enter the numbers separated by comma(,) 0248394057, 0557953561" class="form-control clear_input" name="contact">
+                           <div class="input-group-append"><span class="input-group-text"><i class="fas fa-phone"></i></span></div>
+                        </div>
+                     </div>
+                     <div class="col-md-6">
+                        <div class="input-group mb-3">
+                           <div class="input-group-prepend"><span class="input-group-text">E-Mail</span></div>
+                           <input type="text" class="form-control clear_input" name="email">
+                           <div class="input-group-append"><span class="input-group-text"><i class="fas fa-envelope"></i></span></div>
+                        </div>
+                     </div>
                   </div>
                </div>
                </form>
@@ -489,8 +509,9 @@
                   </div>
                   
                   <div class="modal-body">
-                     <form id="addStdForm">
-                     <div class="row">           
+                     <form id="editStdForm">
+                     <div class="row">    
+                        <input type="text" readonly class="form-control d-none" name="id">       
                         <div class="col-md-6">
                            <div class="form-group">
                               <div class="input-group mb-3">
@@ -532,7 +553,7 @@
                      </div>
                      <div class="input-group mb-3">
                         <div class="input-group-prepend"><span class="input-group-text">Course Duration</span></div>
-                        <select class="form-control form-control-md" name="duration" id="course_duration">
+                        <select class="form-control form-control-md" name="duration" id="course_duration" readonly>
                            <option class ="font-italic">Select Duration</option>
                            <option value="Three Months">Three Months</option>
                            <option value="Six Months">Six Months</option>
@@ -550,7 +571,7 @@
                            <div class="col-md-6">
                               <div class="input-group mb-3">
                                  <div class="input-group-prepend"><span class="input-group-text">Date of Birth</span></div>
-                                 <input type="date" class="form-control" name="dob">
+                                 <input type="date" class="form-control" name="dob" readonly>
                                  <div class="input-group-append"><span class="input-group-text"><i class="far fa-calendar-alt"></i></span></div>
                               </div>
                            </div>
@@ -573,16 +594,23 @@
                      </div>
               
                      <h4>Contact Data</h4>
+                     
                      <div class="form-group">
-                        <div class="input-group mb-3">
-                           <div class="input-group-prepend"><span class="input-group-text">Phone Numbers : </span></div>
-                           <input type="text" placeholder="Enter the numbers separated by comma(,) 0248394057, 0557953561" class="form-control" name="contact">
-                           <div class="input-group-append"><span class="input-group-text"><i class="fas fa-phone"></i></span></div>
-                        </div>
-                        <div class="input-group mb-3">
-                           <div class="input-group-prepend"><span class="input-group-text">E-Mail</span></div>
-                           <input type="text" class="form-control" name="email">
-                           <div class="input-group-append"><span class="input-group-text"><i class="fas fa-envelope"></i></span></div>
+                        <div class="row">
+                           <div class="col-md-6">
+                              <div class="input-group mb-3">
+                                 <div class="input-group-prepend"><span class="input-group-text">Phone Numbers : </span></div>
+                                 <input type="text" placeholder="Enter the numbers separated by comma(,) 0248394057, 0557953561" class="form-control" name="contact">
+                                 <div class="input-group-append"><span class="input-group-text"><i class="fas fa-phone"></i></span></div>
+                              </div>
+                           </div>
+                           <div class="col-md-6">
+                              <div class="input-group mb-3">
+                                 <div class="input-group-prepend"><span class="input-group-text">E-Mail</span></div>
+                                 <input type="text" class="form-control" name="email">
+                                 <div class="input-group-append"><span class="input-group-text"><i class="fas fa-envelope"></i></span></div>
+                              </div>
+                           </div>
                         </div>
                      </div>
                      </form>
@@ -590,7 +618,7 @@
             
                   <!-- Modal footer -->
                   <div class="modal-footer">
-                     <button type="button" class="btn btn-success" data-dismiss="modal">Save</button>
+                     <button type="button" class="btn btn-success" data-dismiss="modal" id="editStdBtn">Save</button>
                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                   </div>
                   
@@ -647,8 +675,26 @@
       <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-    <script>
+      <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
+      <script src="https://cdn.datatables.net/1.13.5/js/dataTables.bootstrap4.min.js"></script>
+   <script>
        $(document).ready(function () {
+
+         $.ajax({
+            url: '../api/access_control/get-session_data.php', // Replace with the actual path to your PHP script
+            type: 'GET',
+            dataType: 'json',
+            success: function(profile) {
+                // Assign JSON data to HTML elements with different IDs
+                $('.branch_name').val(profile[0].branch);
+                $('.nav-user-name').text(profile[0].name);
+
+            },
+            error: function(xhr, status, error) {
+                console.error('Error fetching JSON data:', error);
+            }
+        });
+
          reloadNumbers();
          var course_code;
          var branch_code;
@@ -678,7 +724,9 @@
             }
         });
     });
-         
+      $('#registerBtn').click(function () {
+       $(".clear_input").empty();
+    });
             // AJAX request to fetch JSON data from the PHP script
         $.ajax({
             url: '../api/access_control/get-session_data.php', // Replace with the actual path to your PHP script
@@ -732,6 +780,7 @@
                     }));
                 });
             },
+            cache: false,
             error: function(xhr, status, error) {
                 console.error('Error fetching data:', error);
             }
@@ -787,6 +836,15 @@
                  reloadNumbers();
                  
                // You can also do additional actions here, like clearing the form or redirecting.
+               }else if(response==400){
+               // Handle the response from the server
+               Swal.fire(
+                 'Warning!',
+                 'User Already Exists!',
+                 'warning'
+                 )
+                 
+               // You can also do additional actions here, like clearing the form or redirecting.
                   }
               else{
                  alert(response)
@@ -807,6 +865,7 @@
         url: "../api/get-students_data.php",
         dataType: "json",
         type: "GET",
+        cache: false,
         dataSrc: "" // Data source property in the API response, if needed
     },
     columns: [
@@ -822,7 +881,8 @@
         { data: "course_duration" , className:'d-none'},
         { data: "hometown", className:'d-none' },
         { data: "email", className:'d-none' },
-        { data: null } // Actions
+        { data: null }, // Actions
+        { data: "dob", className:'d-none' }
     ],
     columnDefs: [
         {
@@ -860,6 +920,7 @@ $('#std_recs_tbl').on('click', '.btn-outline-warning', function() {
         }).get();
 
         // Extract the relevant data
+        var ID = rowData[2];
         var studentID = rowData[6]; // Assuming ID is at index 2
         var studentName = rowData[3];
         var course = rowData[5];
@@ -868,15 +929,19 @@ $('#std_recs_tbl').on('click', '.btn-outline-warning', function() {
         var contact = rowData[4];
         var hometown = rowData[10];
         var email = rowData[11];
+        var dob = rowData[13];
 
         // Fill the form with the data
+        $('input[name="id"]').val(ID);
         $('input[name="student_id"]').val(studentID);
         $('input[name="name"]').val(studentName);
         $('select[name="duration"]').val(duration);
         $('select[name="course"]').val(course);
         $('input[name="amount"]').val(amount);
         $('input[name="contact"]').val(contact);
-        $('input[name="hometown"]').val(hometown);
+        $('input[name="hometown"]').val(hometown); 
+        $('input[name="email"]').val(email); 
+        $('input[name="dob"]').val(dob);
          // Get the selected course value
          var selectedCourse = $('select[name="course"]').val();
 
@@ -932,8 +997,39 @@ $('#std_recs_tbl').on('click', '.delete-btn', function() {
     });
 });
 
+
+$("#editStdBtn").click(function(event){
+            event.preventDefault(); // Prevent the default form submission
+   
+            // Serialize the form data
+            var formData = $("#editStdForm").serialize();
+   
+            // Make an AJAX POST request
+            $.ajax({
+               url: '../api/save-edit_student.php', // Replace with your server endpoint URL
+               type: 'POST',
+               data: formData,
+               success: function(response){
+                  // Handle the response from the server
+                  if(response == 200){
+                     toastr.success('Student Record Updated  successfully!', 'Success', { progressBar: true });
+                     dataTable.ajax.url("../api/get-students_data.php").load();
+                  } else {
+                     // Something went wrong, show an error message
+                     alert(response);
+                  }
+                  //$('#editStdMdl').modal('hide');
+               },
+               error: function(xhr, status, error){
+                  // Handle errors here
+                  console.error(xhr.responseText);
+                  alert('An error occurred while processing your request.');
+               }
+            });
+         });
+
     // Load data into the table on page load
-    dataTable.ajax.url("../api/get-students_data.php").load();
+   // dataTable.ajax.url("../api/get-students_data.php").load();
 
 var randomNumber = Math.floor(Math.random() * 90) + 10;
 // Event listener for when the course_list dropdown changes
@@ -1002,8 +1098,6 @@ function processInitials(value) {
 </script>
     
 
-      <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
-      <script src="https://cdn.datatables.net/1.13.5/js/dataTables.bootstrap4.min.js"></script>
 
       <script src="../assets/vendor/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js" data-cf-settings="8753a994eed150800267cbdd-|49" defer=""></script>
    </body>

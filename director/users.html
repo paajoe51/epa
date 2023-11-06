@@ -16,6 +16,8 @@
       <link rel="stylesheet" href="../assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
       <link rel="stylesheet" href="../assets/vendor/charts/c3charts/c3.css">
       <link rel="stylesheet" href="../assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+
       <title>Users-Director</title>
    </head>
    <body>
@@ -115,7 +117,7 @@
                         <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../assets/images/avatar-1.jpg" alt="" class="user-avatar-md rounded-circle"></a>
                         <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
                            <div class="nav-user-info">
-                              <h5 class="mb-0 text-white nav-user-name">John Abraham </h5>
+                              <h5 class="mb-0 text-white nav-user-name">System User </h5>
                               <span class="status"></span><span class="ml-2">Available</span>
                            </div>
                            <a class="dropdown-item" href="#"><i class="fas fa-user mr-2"></i>Account</a>
@@ -143,7 +145,14 @@
                            <a class="nav-link" href="index.html" ><i class="fas fa-fw fa-tachometer-alt"></i> Dasboard<span class="badge badge-secondary">New</span></a>
                            <div id="submenu-7" class="collapse submenu" style="">
                         </li>                    
-                  
+                        <li class="nav-item">
+                           <a class="nav-link" href="courses.html" ><i class="fas fa-fw fa-book"></i> Courses / Batches<span class="badge badge-secondary">New</span></a>
+                           <div id="submenu-7" class="collapse submenu" style="">
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link" href="branches.html" ><i class="fas fa-fw fa-code-branch"></i> Branches Management<span class="badge badge-secondary">New</span></a>
+                           <div id="submenu-7" class="collapse submenu" style="">
+                        </li>
                         <li class="nav-divider">
                            REPORTS
                         </li>
@@ -156,7 +165,7 @@
                            <div id="submenu-7" class="collapse submenu" style="">
                         </li>
                         <li class="nav-item">
-                           <a class="nav-link" href="notifications.html"><i class="fas fa-fw fa-print"></i> Expenditure Report</a>
+                           <a class="nav-link" href="requests.html"><i class="fas fa-fw fa-print"></i> Expenditure Requests</a>
                         </li>
                         <li class="nav-item">
                            <a class="nav-link" href="bank-report.html"><i class="fas fa-fw fa-print"></i> Bank Report</a>
@@ -215,12 +224,12 @@
                   <div class="ecommerce-widget">
 
                      <div class="row">
-                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+                        <div class="col-xl-4 col-lg-3 col-md-6 col-sm-12 col-12">
                            <div class="card border-3 border-top border-top-primary">
                               <div class="card-body">
                                  <h5 class="text-muted">All Users</h5>
                                  <div class="metric-value d-inline-block">
-                                    <h1 class="mb-1">20</h1>
+                                    <h1 class="mb-1" id="users">0</h1>
                                  </div>
                                  <div class="metric-label d-inline-block float-right text-success font-weight-bold">
                                     <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">5.86%</span>
@@ -228,12 +237,12 @@
                               </div>
                            </div>
                         </div>
-                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+                        <div class="col-xl-4 col-lg-3 col-md-6 col-sm-12 col-12">
                            <div class="card border-3 border-top border-top-primary">
                               <div class="card-body">
                                  <h5 class="text-muted">Counselors</h5>
                                  <div class="metric-value d-inline-block">
-                                    <h1 class="mb-1">5</h1>
+                                    <h1 class="mb-1" id="counselors">0</h1>
                                  </div>
                                  <div class="metric-label d-inline-block float-right text-success font-weight-bold">
                                     <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">10%</span>
@@ -241,28 +250,15 @@
                               </div>
                            </div>
                         </div>
-                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+                        <div class="col-xl-4 col-lg-3 col-md-6 col-sm-12 col-12">
                            <div class="card border-3 border-top border-top-primary">
                               <div class="card-body">
-                                 <h5 class="text-muted">Admins</h5>
+                                 <h5 class="text-muted">Admin </h5>
                                  <div class="metric-value d-inline-block">
-                                    <h1 class="mb-1">5</h1>
+                                    <h1 class="mb-1" id="admins">0</h1>
                                  </div>
                                  <div class="metric-label d-inline-block float-right text-success font-weight-bold">
                                     <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">5%</span>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
-                           <div class="card border-3 border-top border-top-primary">
-                              <div class="card-body">
-                                 <h5 class="text-muted">Ops Managers</h5>
-                                 <div class="metric-value d-inline-block">
-                                    <h1 class="mb-1">4</h1>
-                                 </div>
-                                 <div class="metric-label d-inline-block float-right text-danger font-weight-bold">
-                                    <span class="icon-circle-small icon-box-xs text-danger bg-danger-light bg-danger-light "><i class="fa fa-fw fa-arrow-down"></i></span><span class="ml-1">4%</span>
                                  </div>
                               </div>
                            </div>
@@ -277,17 +273,18 @@
                               </div>
                               <div class="card-body">
                                  <div class="table-responsive">
-                                    <table  class="table table-striped table-hover table-bordered small" id="dash_std_tbl" data-page-length='5'>
+                                    <table  class="table table-striped table-hover table-bordered small" id="users_tbl" data-page-length='5'>
                                        <thead class="bg-light">
                                           <tr class="border-0">
                                              <th class="border-0">#</th>
                                              <th class="border-0" width="5%">Image</th>
+                                             <th class="d-none">ID</th>
                                              <th class="border-0" >Full Name</th>
                                              <th class="border-0">Branch </th>
                                              <th class="border-0">Role</th>
                                              <th class="border-0">Phone </th>
-                                             <th width="5%" class="text-center">------Action------</th>
-                                             
+                                             <th class="d-none border-0">username</th>
+                                             <th width="5%" class="text-center">------Action------</th>                                            
                                           </tr>
                                        </thead>
                                        <tbody  id="users-data">
@@ -423,6 +420,95 @@
    </div>
  </div>
 
+ <div class="modal fade" id="editUserMdl">
+   <div class="modal-dialog modal-lg">
+     <div class="modal-content">
+     
+       <!-- Modal Header -->
+       <div class="modal-header">
+         <h4 class="modal-title">Edit User</h4>
+         <button type="button" class="close" data-dismiss="modal">&times;</button>
+       </div>
+       
+       <!-- Modal body -->
+       <div class="modal-body">
+         <form id="editUserForm">
+            <h4>Bio Data</h4>
+            <input type="text" class="form-control" id="u_id" name="ID" required>
+            <div class="form-group">
+               <div class="input-group mb-3">
+                  <div class="input-group-prepend"><span class="input-group-text">Full Name : </span></div>
+                  <input type="text" class="form-control" id="edit_full_name" name="full_name" required>
+                  <div class="input-group-append"><span class="input-group-text"><i class="fas fa-user"></i></span></div>
+               </div>
+               <div class="input-group mb-3">
+                  <div class="input-group-prepend"><span class="input-group-text">Phone</span></div>
+                  <input type="text" class="form-control" id="edit_contact" name="contact" required>
+                  <div class="input-group-append"><span class="input-group-text"><i class="fas fa-phone-square"></i></span></div>
+               </div>
+               <div class="input-group mb-3">
+                  <div class="input-group-prepend"><span class="input-group-text">E-Mail</span></div>
+                  <input type="text" class="form-control" id="edit_email" name="email" required>
+                  <div class="input-group-append"><span class="input-group-text"><i class="fas fa-envelope-square"></i></span></div>
+               </div>
+            </div>
+   
+            <h4>Access Control</h4>
+            <div class="row">
+               <div class="col-md-6">
+                  <div class="form-group">
+                     <div class="input-group mb-3">
+                        <div class="input-group-prepend"><span class="input-group-text">Select Branch:</span></div>
+                           <input type="text" class="form-control form-control-lg branch_list" id="branch" name="branch" readonly>
+                        <div class="input-group-append"><span class="input-group-text"><i class="fas fa-university"></i></span></div>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-6">
+                  <div class="input-group mb-3">
+                     <div class="input-group-prepend"><span class="input-group-text"> Select Role</span></div>
+                     <select class="form-control form-control-lg" id="position" name="position" readonly>
+                        <option value="">Please select role</option>
+                        <option value="counselor">Counselor</option>
+                        <option value="branch_admin">Administrator</option>
+                        <option value="ops_manager">Operations Manager</option>
+                     </select>
+                     <div class="input-group-append"><span class="input-group-text"><i class="fas fa-key"></i></span></div>
+                  </div>
+               </div>
+            </div>
+
+            <h4>Access Control</h4>
+            <div class="row">
+               <div class="col-md-6">
+                  <div class="form-group">
+                     <div class="input-group mb-3">
+                        <div class="input-group-prepend"><span class="input-group-text">Username:</span></div>
+                        <input type="text" class="form-control" id="edit_username" name="username" required>
+                        <div class="input-group-append"><span class="input-group-text"><i class="fas fa-user"></i></span></div>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-6">
+                  <div class="input-group mb-3">
+                     <div class="input-group-prepend"><span class="input-group-text">Password</span></div>
+                     <input type="password" class="form-control" id="edit_password" name="password" required>
+                     <div class="input-group-append"><span class="input-group-text"><i class="fas fa-key"></i></span></div>
+                  </div>
+               </div>
+            </div>
+         </form>
+        </div>
+  
+       <!-- Modal footer -->
+       <div class="modal-footer">
+         <button type="button" class="btn btn-success" data-dismiss="" id="editUserBtn">Save</button>
+         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+       </div>
+       
+     </div>
+   </div>
+ </div>
 
        
       <script src="../assets/vendor/jquery/jquery-3.3.1.min.js" type="8753a994eed150800267cbdd-text/javascript"></script>
@@ -442,11 +528,12 @@
       <script src="../assets/vendor/datatables.net/jquery-3.7.0.js"></script>
       <script src="../assets/vendor/datatables.net/dataTables.min.js"></script>
       <script src="../assets/vendor/datatables.net/dataTables.bootstrap4.min.js"></script>
-      
-
-     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Include jQuery -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
      <script>
       $(document).ready(function(){
+          reloadNumbers();
+
          $("#addUserBtn").click(function(event){
             event.preventDefault(); // Prevent the default form submission
    
@@ -460,13 +547,23 @@
                data: formData,
                success: function(response){
                   // Handle the response from the server
-                  if(response === "200"){
-                     // Success, do something
-                     alert('User added successfully.');
-                  } else if(response === "400"){
-                     // User already exists, show an error
-                     alert('User already exists.');
-                  } else {
+                  if(response == 200){
+                     Swal.fire(
+                     'Success!',
+                     'User Added  Successfully!',
+                     'success'
+                     )
+                     $("#addUserMdl").modal('toggle');
+                  }else if(response == 400){
+                     Swal.fire(
+                     'Warning!',
+                     'User Already Exists!',
+                     'warning'
+                     )
+                     $("#addUserMdl").modal('toggle');
+                  }
+                  
+                  else {
                      // Something went wrong, show an error message
                      alert(response);
                   }
@@ -478,8 +575,7 @@
                }
             });
          });
-
-         
+      
          $.ajax({
          url:"../api/access_control/get-users_data.php",
          dataType:"JSON",
@@ -488,17 +584,23 @@
          success: function(users) {
            var id= 1;
            var users_data ="";
-           var action = '<td style="margin:0;padding:2px;"><span><button type="button" class="btn btn-sm btn-outline-warning"  data-toggle="modal" data-target="#editUserMdl" style="margin:0; margin-left: margin-right:0;"><i class="fas fa-cog fa-spin fa-lg"></i></button><button type="button" class="btn btn-sm btn-outline-danger" style="margin:0; margin-left: 0; margin-right:0;"><i class="fas fa-user-times  fa-lg"></i></button></span>'
+           var action = '<td style="margin:0;padding:2px;"><span>'+
+                           '<button type="button" class="btn btn-sm btn-outline-warning"  data-toggle="modal" data-target="#editUserMdl" style="margin:0; margin-left: margin-right:0;"><i class="fas fa-cog fa-spin fa-lg"></i></button>'+
+                           '<button type="button" class="btn btn-sm btn-outline-danger delete-btn" style="margin:0; margin-left: 0; margin-right:0;"><i class="fas fa-user-times  fa-lg"></i></button></span>'+
                         '</td>';
                            
            $.each(users, function(key, user){
              users_data += '<tr>';
              users_data += '<td>'+id+'</td>';
-             users_data += '<td><div class="m-r-10"><img src="../assets/images/product-pic.jpg" alt="user" class="rounded-circle" width="45"></div></td>';
+             users_data += '<td><div class="m-r-10"><img src="https://w7.pngwing.com/pngs/481/915/png-transparent-computer-icons-user-avatar-woman-avatar-computer-business-conversation-thumbnail.png" alt="user" class="rounded-circle" width="45"></div></td>';
+             users_data += '<td class="d-none ID">'+user.id+'</td>';
              users_data += '<td>'+user.name+'</td>';
              users_data += '<td>'+ user.branch+'</td>';
              users_data += '<td>'+ user.position+'</td>';
              users_data += '<td>'+ user.contact+'</td>';
+             users_data += '<td class="d-none">'+ user.email+'</td>';
+             users_data += '<td class="d-none">'+ user.username+'</td>';
+             users_data += '<td class="d-none">'+ user.password+'</td>';
              users_data += action;
              users_data += '</tr>';
              id++;
@@ -507,7 +609,8 @@
         }
     });
 
-    $.ajax({
+   function  reloadNumbers(){
+   $.ajax({
             url: '../api/get-branches_data.php', // Replace with the actual PHP file path
             type: 'GET',
             dataType: 'json',
@@ -529,6 +632,136 @@
                 console.error('Error fetching data:', error);
             }
         });
+
+        $.ajax({
+            url: '../api/get-users_count.php', // Replace with the actual PHP file path
+            type: 'GET',
+            dataType: 'json',
+            success: function(data) {
+               $("#users").text(data.total);
+               $("#counselors").text(data.counselor);
+               $("#admins").text(data.admin);
+            },
+            error: function(xhr, status, error) {
+                console.error('Error fetching data:', error);
+            }
+        });
+   }
+
+   $('#users_tbl').on('click', '.delete-btn', function() {
+    // Store the reference to the clicked button
+    var $deleteBtn = $(this);
+
+    // Get the corresponding student ID from the selected row
+    var userId = $deleteBtn.closest('tr').find('.ID').text();
+
+    // Add your code to send an AJAX request to delete the student
+    $.ajax({
+        url: '../api/access_control/save-delete_user.php', // Replace with the actual path to your PHP script
+        method: 'POST',
+        data: { id: userId },
+        success: function(response) {
+            // Handle the success response, if needed
+            toastr.success('Student Deleted successfully!', 'Success', { progressBar: true });
+
+            // Remove the row from the table
+            $deleteBtn.closest('tr').fadeOut();
+            reloadNumbers();
+        }, 
+        error: function(error) {
+            // Handle the error, if needed
+            console.error(error);
+        }
+    });
+});
+
+$('#users_tbl').on('click', '.btn-outline-warning', function() {
+        // Get the row data from the clicked row
+        var rowData = $(this).closest('tr').find('td').map(function() {
+            return $(this).text();
+        }).get();
+
+        // Extract the relevant data
+        var id = rowData[2];
+        var name = rowData[3];
+        var branch = rowData[4];
+        var position = rowData[5];
+        var email = rowData[7];
+        var contact = rowData[6];
+        var hometown = rowData[10];
+        var username=rowData[8];
+        var password=rowData[9];
+        // Fill the form with the data
+        $('input[name="ID"]').val(id);
+        $('input[name="full_name"]').val(name);
+        $('input[name="branch"]').val(branch);
+        $('select[name="position"]').val(position);
+        $('input[name="username"]').val(username);
+        $('input[name="password"]').val(password);
+        $('input[name="contact"]').val(contact);
+        $('input[name="email"]').val(email);
+        $('input[name="hometown"]').val(hometown);
+         // Get the selected course value
+         var selectedCourse = $('select[name="course"]').val();
+
+         // Make an AJAX request to get the batch options based on the selected course
+         $.ajax({
+               url: '../api/get-course_batch.php', // Replace with your actual endpoint
+               type: 'POST',
+               dataType: 'json',
+               data: { selected_course: selectedCourse }, // Send the selected course to the server
+         })
+         .done(function (response) {
+               // Update the options in the "batch_list"
+               var batchList = $('.batch_list');
+               batchList.empty(); // Clear existing options
+
+               // Add new options based on the response from the server
+               $.each(response.batches, function (index, batch) {
+                  batchList.append('<option>' + batch + '</option>');
+               });
+         })
+         .fail(function (error) {
+               console.error(error);
+         });
+
+        // Show the modal
+        $('#editUserMdl').modal('show');
+    });
+
+    $("#editUserBtn").click(function(event){
+            event.preventDefault(); // Prevent the default form submission
+   
+            // Serialize the form data
+            var formData = $("#editUserForm").serialize();
+   
+            // Make an AJAX POST request
+            $.ajax({
+               url: '../api/access_control/save-edit_user.php', // Replace with your server endpoint URL
+               type: 'POST',
+               data: formData,
+               success: function(response){
+                  // Handle the response from the server
+                  if(response == 200){
+                     Swal.fire(
+                     'Success!',
+                     'User Records Modified  Successfully!',
+                     'success'
+                     )
+                     location.reload();
+                  } else {
+                     // Something went wrong, show an error message
+                     alert(response);
+                  }
+                  $('#editUserMdl').modal('hide');
+               },
+               error: function(xhr, status, error){
+                  // Handle errors here
+                  console.error(xhr.responseText);
+                  alert('An error occurred while processing your request.');
+               }
+            });
+         });
 
 
    });

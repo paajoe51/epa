@@ -87,7 +87,7 @@
                               <span class="status"></span><span class="ml-2">Available</span>
                            </div>
                            <a class="dropdown-item" href="#"><i class="fas fa-user mr-2"></i>Account</a>
-                           <a class="dropdown-item" href="#"><i class="fas fa-power-off mr-2"></i>Logout</a>
+                           <a class="dropdown-item" href="../api/access_control/log-out.php"><i class="fas fa-power-off mr-2"></i>Logout</a>
                         </div>
                      </li>
                   </ul>
@@ -120,7 +120,7 @@
                            <div id="submenu-7" class="collapse submenu" style="">
                         </li>
                         <li class="nav-item">
-                           <a class="nav-link" href="#" ><i class="mdi mdi-18px mdi-book-open-variant"></i> Courses / Batches <span class="badge badge-secondary">New</span></a>
+                           <a class="nav-link" href="courses.html" ><i class="mdi mdi-18px mdi-book-open-variant"></i> Courses / Batches <span class="badge badge-secondary">New</span></a>
                            <div id="submenu-7" class="collapse submenu" style="">
                         </li>
                         <li class="nav-divider">
@@ -155,8 +155,8 @@
                            <a class="nav-link" href="#" ><i class="fas fa-fw fa-user"></i> Profile<span class="badge badge-secondary">New</span></a>
                            <div id="submenu-7" class="collapse submenu" style="">
                         </li>
-                                                <li class="nav-item">
-                           <a class="nav-link" href="../index.html" ><i class="fa fa-fw fa-sign-out-alt"></i> Sign Out<span class="badge badge-secondary">New</span></a>
+                        <li class="nav-item">
+                           <a class="nav-link" href="../api/access_control/log-out.php" ><i class="fa fa-fw fa-sign-out-alt"></i> Sign Out<span class="badge badge-secondary">New</span></a>
                            <div id="submenu-7" class="collapse submenu" style="">
                         </li>
                   
@@ -193,7 +193,7 @@
                               <div class="card-body">
                                  <h5 class="text-muted">Students</h5>
                                  <div class="metric-value d-inline-block">
-                                    <h1 class="mb-1">120</h1>
+                                    <h1 class="mb-1"><span class="text-primary"><i class="fa fa-fw fa-users"></i> </span> <span id="t_std"> <i class="fa fa-spinner fa-spin"></i> </span></h1>
                                  </div>
                                  <div class="metric-label d-inline-block float-right text-success font-weight-bold">
                                     <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">5.86%</span>
@@ -204,9 +204,9 @@
                         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
                            <div class="card border-3 border-top border-top-primary">
                               <div class="card-body">
-                                 <h5 class="text-muted">Current Blanace</h5>
+                                 <h5 class="text-muted">Fees for Day</h5>
                                  <div class="metric-value d-inline-block">
-                                    <h1 class="mb-1">13000</h1>
+                                    <h1 class="mb-1"><span class="text-success"><i class="fa fa-fw fa-users"></i> </span> <span id="fees_day"> <i class="fa fa-spinner fa-spin"></i> </span></h1>
                                  </div>
                                  <div class="metric-label d-inline-block float-right text-success font-weight-bold">
                                     <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">5%</span>
@@ -217,9 +217,9 @@
                         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
                            <div class="card border-3 border-top border-top-primary">
                               <div class="card-body">
-                                 <h5 class="text-muted">Users</h5>
+                                 <h5 class="text-muted">Batches</h5>
                                  <div class="metric-value d-inline-block">
-                                    <h1 class="mb-1">1340</h1>
+                                    <h1 class="mb-1"><span class="text-success"><i class="fa fa-fw fa-users"></i> </span> <span id="t_batches"> <i class="fa fa-spinner fa-spin"></i> </span></h1>
                                  </div>
                                  <div class="metric-label d-inline-block float-right text-danger font-weight-bold">
                                     <span class="icon-circle-small icon-box-xs text-danger bg-danger-light bg-danger-light "><i class="fa fa-fw fa-arrow-down"></i></span><span class="ml-1">4%</span>
@@ -438,17 +438,26 @@
       <script src="../assets/vendor/charts/c3charts/C3chartjs.js" type="8753a994eed150800267cbdd-text/javascript"></script>
       <script src="../assets/libs/js/dashboard-ecommerce.js" type="8753a994eed150800267cbdd-text/javascript"></script>
       <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13" type="8753a994eed150800267cbdd-text/javascript"></script>
-      <script type="8753a994eed150800267cbdd-text/javascript">
-         window.dataLayer = window.dataLayer || [];
-         function gtag(){dataLayer.push(arguments);}
-         gtag('js', new Date());
-         
-         gtag('config', 'UA-23581568-13');
-      </script>
       <script src="../assets/vendor/datatables.net/jquery-3.7.0.js"></script>
       <script src="../assets/vendor/datatables.net/dataTables.min.js"></script>
       <script src="../assets/vendor/datatables.net/dataTables.bootstrap4.min.js"></script>
 <script>
+   $.ajax({
+       url: '../api/access_control/get-session_data.php', // Replace with the actual path to your PHP script
+       type: 'GET',
+       dataType: 'json',
+       success: function(profile) {
+           // Assign JSON data to HTML elements with different IDs
+           $('.branch_name').val(profile[0].branch);
+           $('.nav-user-name').text(profile[0].name);
+
+       },
+       error: function(xhr, status, error) {
+           console.error('Error fetching JSON data:', error);
+       }
+   });
+
+  
     // Initialize DataTable
     var dataTable = $('#std_recs_tbl').DataTable({
     // Specify your DataTable configuration options here
@@ -503,13 +512,72 @@ $.ajax({
            console.error('Error fetching JSON data:', error);
        }
    });
+   $.ajax({
+       url: '../api/get-batches_count.php', // Replace with the actual path to your PHP script
+       type: 'GET',
+       dataType: 'json',
+       success: function(batch) {
+           // Assign JSON data to HTML elements with different IDs
+           $('#t_batches').text(batch.total);
+       },
+       error: function(xhr, status, error) {
+           console.error('Error fetching JSON data:', error);
+       }
+   });
 </script>
       <script>
+             reloadNumbers();
          new DataTable('#dash_std_tbl');
          $(function(){
                $(".dropdown-menu").on('click', 'a', function(){
                   $(this).parents('.dropdown').find('button').text($(this).text());
                });
+            });
+
+            function reloadNumbers() {
+           $.ajax({
+            url: '../api/get-num_students.php', // Replace with the actual path to your PHP script
+            type: 'GET',
+            dataType: 'json',
+            success: function(count) {
+                // Assign JSON data to HTML elements with different IDs
+                $('#t_std').text(count.total);
+                // Assign more data to other HTML elements as needed
+            },
+            error: function(xhr, status, error) {
+                console.error('Error fetching JSON data:', error);
+            }
+        }); 
+        $.ajax({
+            url: '../api/get-fees_count.php', // Replace with the actual path to your PHP script
+            type: 'GET',
+            dataType: 'json',
+            success: function(fees) {
+                $('#fees_day').text(fees.today_fees);
+                // Assign more data to other HTML elements as needed
+            },
+            error: function(xhr, status, error) {
+                console.error('Error fetching JSON data:', error);
+            }
+        });
+      }
+
+      $("#logoutButton").click(function () {
+                // Send an Ajax request to logout.php
+                $.ajax({
+                    type: "POST",
+                    url: "../api/access_control/log-out.php",
+                    success: function (response) {
+                        // Handle the response, if needed
+                        console.log(response);
+
+                        // Redirect to the login page or any other page as needed
+                        window.location.href = "login.php";
+                    },
+                    error: function (error) {
+                        console.error("Logout failed:", error);
+                    }
+                });
             });
      </script>
 

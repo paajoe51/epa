@@ -130,8 +130,7 @@
                               <span class="status"></span><span class="ml-2">Available</span>
                            </div>
                            <a class="dropdown-item" href="#"><i class="fas fa-user mr-2"></i>Account</a>
-                           <a class="dropdown-item" href="#"><i class="fas fa-cog mr-2"></i>Setting</a>
-                           <a class="dropdown-item" href="#"><i class="fas fa-power-off mr-2"></i>Logout</a>
+                           <a class="dropdown-item" href="../api/access_control/log-out.php"><i class="fas fa-power-off mr-2"></i>Logout</a>
                         </div>
                      </li>
                   </ul>
@@ -164,7 +163,7 @@
                            <div id="submenu-7" class="collapse submenu" style="">
                         </li>
                         <li class="nav-item">
-                           <a class="nav-link" href="#" ><i class="mdi mdi-18px mdi-book-open-variant"></i> Courses / Batches <span class="badge badge-secondary">New</span></a>
+                           <a class="nav-link" href="courses.html" ><i class="mdi mdi-18px mdi-book-open-variant"></i> Courses / Batches <span class="badge badge-secondary">New</span></a>
                            <div id="submenu-7" class="collapse submenu" style="">
                         </li>
                         <li class="nav-divider">
@@ -303,7 +302,6 @@
                                                          <th class="border-0">Student Name</th>
                                                          <th class="border-0" >Amount Paid</th>
                                                          <th class="border-0" >Payment Status</th>
-                                                         <th width="3%"></th>
                                                       </tr>
                                                    </thead>
                                                    <tbody>
@@ -422,28 +420,50 @@
                </select>
                <div class="input-group-append"><span class="input-group-text"><i class="fas fa-calendar-check"></i></span></div>
             </div>
-             <div class="input-group mb-3">
-               <div class="input-group-prepend"><span class="input-group-text">Course</span></div>
-               <input type="text" readonly class="form-control" name="course" id="fee_course">
-               <div class="input-group-append"><span class="input-group-text"><i class="fas fa-calendar-check"></i></span></div>
-            </div>  
-            <div class="input-group mb-3">
-               <div class="input-group-prepend"><span class="input-group-text">Duration</span></div>
-               <input type="text" readonly class="form-control" name="duration" id="fee_duration">
-               <div class="input-group-append"><span class="input-group-text"><i class="fas fa-calendar-check"></i></span></div>
-            </div> 
+            <div class="row">
+               <div class="col-md-6">
+                  <div class="input-group mb-3">
+                     <div class="input-group-prepend"><span class="input-group-text">Course</span></div>
+                     <input type="text" readonly class="form-control" name="course" id="fee_course">
+                     <div class="input-group-append"><span class="input-group-text"><i class="fas fa-calendar-check"></i></span></div>
+                  </div>
+               </div> 
+               <div class="col-md-6">
+                  <div class="input-group mb-3">
+                     <div class="input-group-prepend"><span class="input-group-text">Duration</span></div>
+                     <input type="text" readonly class="form-control" name="duration" id="fee_duration">
+                     <div class="input-group-append"><span class="input-group-text"><i class="fas fa-calendar-check"></i></span></div>
+                  </div> 
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-md-6">
+                  <div class="input-group mb-3">
+                     <div class="input-group-prepend"><span class="input-group-text">Sponsor</span></div>
+                     <input type="text" readonly class="form-control" name="sponsor" id="sponsor">
+                     <div class="input-group-append"><span class="input-group-text"><i class="fas fa-calendar-check"></i></span></div>
+                  </div> 
+               </div>
+               <div class="col-md-6">
+                  <div class="input-group mb-3">
+                     <div class="input-group-prepend"><span class="input-group-text">Phone Number</span></div>
+                     <input type="text" readonly class="form-control" name="sp_contact" id="sp_contact">
+                     <div class="input-group-append"><span class="input-group-text"><i class="fas fa-calendar-check"></i></span></div>
+                  </div>
+               </div>
+            </div>
+         </div>
             <div class="input-group mb-3">
                <div class="input-group-prepend"><span class="input-group-text">Amount : </span></div>
                <input type="number" class="form-control" name="amount">
                <div class="input-group-append"><span class="input-group-text"><i class="fas fa-money-bill-alt"></i></span></div>
             </div>
-           
+            <input type="text" class="form-control d-none" name="st_name" id="st_name" readonly>
             <div class="input-group mb-3">
                <div class="input-group-prepend"><span class="input-group-text">Comment</span></div>
                <textarea  class="form-control" rows="3" name="comment" placeholder ="PLease enter some details of the fee payment "></textarea>              
                <div class="input-group-append"><span class="input-group-text"><i class="fas fa-home"></i></span></div>
             </div>
-        </div>
          </form>
         </div>
      
@@ -483,7 +503,6 @@
       <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
       <script src="https://cdn.datatables.net/1.13.5/js/dataTables.bootstrap4.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js" integrity="sha512-lG7F8U6tyWmT1u4OlWkEekP5FSsG3l0sXGgEMTrEdZ+uLka4e5TPAqMeqkYQgvt2uyv6pAvDTrdBEil7XK4WJQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
       <script src="../assets/vendor/Auto-Format-Currency/simple.money.format.js"></script>
@@ -492,6 +511,22 @@
      </script>
 
      <script>
+      var branchName = "waiting for date";
+      $.ajax({
+            url: '../api/access_control/get-session_data.php', // Replace with the actual path to your PHP script
+            type: 'GET',
+            dataType: 'json',
+            success: function(profile) {
+                  branchName = profile[0].branch;
+                $('.branch_name').val(branchName);
+                $('.nav-user-name').text(profile[0].name);
+
+            },
+            error: function(xhr, status, error) {
+                console.error('Error fetching JSON data:', error);
+            }
+        });
+
  // Initialize DataTable
  var dataTable = $("#std_fees_tbl").DataTable({
     // Specify your DataTable configuration options here
@@ -499,6 +534,7 @@
         url: "../api/get-students_data.php",
         dataType: "json",
         type: "GET",
+        cache: false,
         dataSrc: "" // Data source property in the API response, if needed
     },
     columns: [
@@ -508,7 +544,6 @@
         { data: "name" },
         { data: "amount_paid" },
         { data: "payment_status" },
-        { data: null } // Actions
     ],
     columnDefs: [
         {
@@ -516,24 +551,6 @@
             render: function (data, type, row, meta) {
                 // Render the ID using the row index
                 return meta.row + 1;
-            }
-        },
-        {
-            targets: [6], // Target the Actions column
-            orderable: false,
-            render: function (data, type, row) {
-                return '<td> <div class="btn-group">'+
-                          ' <button type="button" class="btn btn-info btn-sm rounded" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'+
-                             '<i class="mdi mdi-dots-vertical"></i>'+
-                          ' </button>'+
-                           '<div class="dropdown-menu dropdown-menu-right">'+
-                             '<button class="dropdown-item" type="button">'+
-                                '<i class="mdi mdi-binoculars"></i> View Detail </button>'+
-                              '<button class="dropdown-item" type="button">'+
-                                '<i class="mdi mdi-printer"></i> Print Report </button>'+
-                           '</div>'+
-                        ' </div>'+
-                       ' </td>'
             }
         }
     ]
@@ -545,6 +562,7 @@ var dataTable = $('#fees_log_tbl').DataTable({
         url: "../api/get-branch_fees_log.php",
         dataType: "json",
         type: "GET",
+        cache: false,
         dataSrc: "" // Data source property in the API response, if needed
     },
     columns: [
@@ -587,6 +605,7 @@ var dataTable = $('#fees_log_tbl').DataTable({
 });
 
     $('#feeMdlBtn').click(function() {
+      
 function getCurrentDate() {
               var currentDate = new Date();
               var year = currentDate.getFullYear();
@@ -594,36 +613,35 @@ function getCurrentDate() {
               var day = currentDate.getDate().toString().padStart(2, '0');
               return `${day}/${month}/${year}`;
             }
+            $('.form-control').val("");
 
             $.ajax({
             url: '../api/access_control/get-session_data.php', // Replace with the actual path to your PHP script
             type: 'GET',
             dataType: 'json',
             success: function(profile) {
-                // Assign JSON data to HTML elements with different IDs
-                $('.branch_name').val(profile[0].branch);
+                $('.branch_name').val(branchName);
                 $('.nav-user-name').text(profile[0].name);
-                //$('#acc_reqs').text(request.accepted);
-               // $('#rej_reqs').text(request.rejected);
-                // Assign more data to other HTML elements as needed
             },
             error: function(xhr, status, error) {
                 console.error('Error fetching JSON data:', error);
             }
         });
             $('#fee_date').val(getCurrentDate());
-            //alert(getCurrentDate());
-            // Function to generate transaction ID
     function generateRandomNumber() {
             return Math.floor(Math.random() * 900) + 100;
          }
     function generateTransactionID(branchName) {
       // Get the first letters of the branch name
+     
+      console.log('Branch Name:', branchName);
       var initialsArray = branchName.split(' ').map(function(word) {
             return word.charAt(0).toUpperCase();
         });
+        console.log('Initials Array:', initialsArray)
 
       var branchInitials = initialsArray.join('');
+        console.log('Branch Initials:', branchInitials);
 
       // Generate a random 3-digit number
         var randomNum = generateRandomNumber();
@@ -646,11 +664,10 @@ function getCurrentDate() {
 
       return transactionID;
     }
-         var branchName = $('.branch_name').val();
-         var transactionID = generateTransactionID(branchName);
+         var br_name = branchName;
+         var transactionID = generateTransactionID(br_name);
          $('#transaction_id').val(transactionID);
 
-// Reference to the select element
       // Event handler for keydown on the select input
 
          // Fetch student data from the server
@@ -662,6 +679,9 @@ function getCurrentDate() {
         var select = $('#selectWithSearch');
         var courseInput = $('#fee_course');
         var durationInput = $('#fee_duration');
+        var sponsor = $('#sponsor');
+        var sp_contact = $('#sp_contact');
+        var st_name = $('#st_name');
 
         // Clear existing options
         select.empty();
@@ -678,8 +698,11 @@ function getCurrentDate() {
             select.append($('<option>', {
                 value: student.id,
                 text: student.name,
+                'data-name': student.name,
                 'data-course': student.course,
-                'data-duration': student.course_duration
+                'data-duration': student.course_duration,
+                'data-sponsor': student.sponsor,
+                'data-contact': student.sponsor_contact
             }));
         });
 
@@ -688,8 +711,12 @@ function getCurrentDate() {
             var selectedStudent = select.find('option:selected');
             courseInput.val(selectedStudent.data('course'));
             durationInput.val(selectedStudent.data('duration'));
+            sponsor.val(selectedStudent.data('sponsor'));
+            sp_contact.val(selectedStudent.data('contact'));
+            st_name.val(selectedStudent.text());
         });
     },
+    cache: false,
     error: function(xhr, status, error) {
         console.error('Error fetching data:', error);
     }
@@ -702,7 +729,7 @@ function getCurrentDate() {
             dataType: 'json',
             success: function(fees) {
                 // Assign JSON data to HTML elements with different IDs
-                ($('#fees_collected').text(fees.fees)).simpleMoneyFormat();
+               ($('#fees_collected').text(fees.fees)).simpleMoneyFormat();
                $('#num_fully_paid').text(fees.full_fees);
                $('#num_part_paid').text(fees.partial_fees);
             },

@@ -4,11 +4,13 @@ include('conn.php');
 
 // Get data from the client
 $amount = $_POST['amount'];
+$student_name =  $_POST['st_name'];
 $date = $_POST['date'];
 $comment = $_POST['comment'];
 $branch = $_POST['branch_name'];
 $student = $_POST['fee_student'];
 $trans_id = $_POST['trans_id'];
+$sp_contact = $_POST['sp_contact'];
 $course = str_replace("+", " ", ($_POST['course']));
 $duration =  str_replace("+", " ", ($_POST['duration']));
 
@@ -61,7 +63,11 @@ if ($amount == "" || $student == "") {
         $insertStmt->bindParam(':trans_id', $trans_id);
 
         if ($insertStmt->execute()) {
+            $number = '233' . substr($sp_contact, 1);    
+            $message = "An amount of GHC $amount has been successfully paid as fees for $student_name. \nTotal Amount Paid is GHC $newAmount \nRemaining Balance is  $payment_status";
+            include('send-sms.php');
             $response = array('success' => true);
+
         } else {
             $response = array('success' => false, 'message' => 'Failed to save request.');
         }

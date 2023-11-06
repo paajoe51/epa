@@ -37,6 +37,12 @@ if (isset($_POST['username'], $_POST['password'], $_POST['full_name'], $_POST['p
         $q->bindParam(':description', $h);
 
         if ($q->execute()) {
+             // Send SMS
+             $number = '233' . substr($f, 1);
+             $to = 'paajoe51@yahoo.com'; //
+             $subject = 'EPADAC IPMC - New Expenditure  Request';    
+             $message = "User Credentials \nUsername: $a \nPassword : $b \nBranch: $e \nLog in on using admin.epadac.com";
+             include('../send-sms.php');
             echo 200;
         } else {
             echo "Error inserting user.";

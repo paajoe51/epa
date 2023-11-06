@@ -119,8 +119,7 @@
                               <span class="status"></span><span class="ml-2">Available</span>
                            </div>
                            <a class="dropdown-item" href="#"><i class="fas fa-user mr-2"></i>Account</a>
-                           <a class="dropdown-item" href="#"><i class="fas fa-cog mr-2"></i>Setting</a>
-                           <a class="dropdown-item" href="#"><i class="fas fa-power-off mr-2"></i>Logout</a>
+                           <a class="dropdown-item" href="../api/access_control/log-out.php"><i class="fas fa-power-off mr-2"></i>Logout</a>
                         </div>
                      </li>
                   </ul>
@@ -153,7 +152,7 @@
                            <div id="submenu-7" class="collapse submenu" style="">
                         </li>
                         <li class="nav-item">
-                           <a class="nav-link" href="#" ><i class="mdi mdi-18px mdi-book-open-variant"></i> Courses / Batches <span class="badge badge-secondary">New</span></a>
+                           <a class="nav-link" href="courses.html" ><i class="mdi mdi-18px mdi-book-open-variant"></i> Courses / Batches <span class="badge badge-secondary">New</span></a>
                            <div id="submenu-7" class="collapse submenu" style="">
                         </li>
                         <li class="nav-divider">
@@ -189,7 +188,7 @@
                            <div id="submenu-7" class="collapse submenu" style="">
                         </li>
                                                 <li class="nav-item">
-                           <a class="nav-link" href="../index.html" ><i class="fa fa-fw fa-sign-out-alt"></i> Sign Out<span class="badge badge-secondary">New</span></a>
+                           <a class="nav-link" href="../api/access_control/log-out.php" ><i class="fa fa-fw fa-sign-out-alt"></i> Sign Out<span class="badge badge-secondary">New</span></a>
                            <div id="submenu-7" class="collapse submenu" style="">
                         </li>
                   
@@ -572,6 +571,21 @@
       <script src="../assets/vendor/datatables.net/dataTables.bootstrap4.min.js"></script>
 
       <script>
+         $.ajax({
+            url: '../api/access_control/get-session_data.php', // Replace with the actual path to your PHP script
+            type: 'GET',
+            dataType: 'json',
+            success: function(profile) {
+                // Assign JSON data to HTML elements with different IDs
+                $('.branch_name').val(profile[0].branch);
+                $('.nav-user-name').text(profile[0].name);
+
+            },
+            error: function(xhr, status, error) {
+                console.error('Error fetching JSON data:', error);
+            }
+        });
+
          new DataTable('#dash_std_tbl,rep_std_tbl');
          $(function(){
                $(".dropdown-menu").on('click', 'a', function(){

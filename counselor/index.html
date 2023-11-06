@@ -165,7 +165,7 @@
                               <div class="card-body">
                                  <h5 class="text-muted">Students</h5>
                                  <div class="metric-value d-inline-block">
-                                    <h1 class="mb-1"><span class="text-primary mdi mdi-account-multiple-outline mdi-36px"></span>120</h1>
+                                    <h1 class="mb-1"><span class="text-primary"><i class="fa fa-fw fa-users"></i> </span> <span id="t_std"> <i class="fa fa-spinner fa-spin"></i> </span></h1>
                                  </div>
                                  <div class="metric-label d-inline-block float-right text-success font-weight-bold">
                                     <span class="icon-circle-small icon-box-xs text-success bg-success-light"> <i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">5.86%</span>
@@ -176,9 +176,9 @@
                         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
                            <div class="card border-3 border-top border-top-primary">
                               <div class="card-body">
-                                 <h5 class="text-muted">Fees</h5>
+                                 <h5 class="text-muted">Fees for the Day</h5>
                                  <div class="metric-value d-inline-block">
-                                    <h1 class="mb-1">5</h1>
+                                    <h1 class="mb-1"><span class="text-success"><i class="fa fa-fw fa-money-bill-alt"></i> </span> <span id="fees_day"> <i class="fa fa-spinner fa-spin"></i> </span></h1>
                                  </div>
                                  <div class="metric-label d-inline-block float-right text-success font-weight-bold">
                                     <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">10%</span>
@@ -189,9 +189,9 @@
                         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
                            <div class="card border-3 border-top border-top-primary">
                               <div class="card-body">
-                                 <h5 class="text-muted">Current Blanace</h5>
+                                 <h5 class="text-muted">Total Fees</h5>
                                  <div class="metric-value d-inline-block">
-                                    <h1 class="mb-1">13000</h1>
+                                    <h1 class="mb-1"><span class="text-info"><i class="fa fa-fw fa-money-bill-alt"></i> </span> <span id="fees_total"> <i class="fa fa-spinner fa-spin"></i> </span></h1>
                                  </div>
                                  <div class="metric-label d-inline-block float-right text-success font-weight-bold">
                                     <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">5%</span>
@@ -358,6 +358,21 @@
       <script src="../assets/vendor/datatables.net/dataTables.min.js"></script>
       <script src="../assets/vendor/datatables.net/dataTables.bootstrap4.min.js"></script>
 <script>
+$.ajax({
+            url: '../api/access_control/get-session_data.php', // Replace with the actual path to your PHP script
+            type: 'GET',
+            dataType: 'json',
+            success: function(profile) {
+                // Assign JSON data to HTML elements with different IDs
+                $('.branch_name').val(profile[0].branch);
+                $('.nav-user-name').text(profile[0].name);
+
+            },
+            error: function(xhr, status, error) {
+                console.error('Error fetching JSON data:', error);
+            }
+        });
+   
     // Initialize DataTable
     var dataTable = $('#std_recs_tbl').DataTable({
     // Specify your DataTable configuration options here
@@ -415,13 +430,66 @@ $.ajax({
       
 </script>
       <script>
-         new DataTable('#dash_std_tbl');
+         reloadNumbers();
          $(function(){
                $(".dropdown-menu").on('click', 'a', function(){
                   $(this).parents('.dropdown').find('button').text($(this).text());
                });
             });
+
+            function reloadNumbers() {
+           $.ajax({
+            url: '../api/get-num_students.php', // Replace with the actual path to your PHP script
+            type: 'GET',
+            dataType: 'json',
+            success: function(count) {
+                // Assign JSON data to HTML elements with different IDs
+                $('#t_std').text(count.total);
+                // Assign more data to other HTML elements as needed
+            },
+            error: function(xhr, status, error) {
+                console.error('Error fetching JSON data:', error);
+            }
+        }); 
+        $.ajax({
+            url: '../api/get-fees_count.php', // Replace with the actual path to your PHP script
+            type: 'GET',
+            dataType: 'json',
+            success: function(fees) {
+                $('#fees_day').text(fees.today_fees);
+                // Assign more data to other HTML elements as needed
+            },
+            error: function(xhr, status, error) {
+                console.error('Error fetching JSON data:', error);
+            }
+        });
+        $.ajax({
+       url: '../api/get-batches_count.php', // Replace with the actual path to your PHP script
+       type: 'GET',
+       dataType: 'json',
+       success: function(batch) {
+           // Assign JSON data to HTML elements with different IDs
+           $('#t_batches').text(batch.total);
+       },
+       error: function(xhr, status, error) {
+           console.error('Error fetching JSON data:', error);
+       }
+   });
+   $.ajax({
+       url: '../api/get-fees_count.php', // Replace with the actual path to your PHP script
+       type: 'GET',
+       dataType: 'json',
+       success: function(fees) {
+           // Assign JSON data to HTML elements with different IDs
+           ($('#fees_total').text(fees.fees)).simpleMoneyFormat();
+       },
+       error: function(xhr, status, error) {
+           console.error('Error fetching JSON data:', error);
+       }
+   });
+      }
      </script>
+     
 
       <script src="../assets/vendor/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js" data-cf-settings="8753a994eed150800267cbdd-|49" defer=""></script>
    </body>

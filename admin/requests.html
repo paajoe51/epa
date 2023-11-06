@@ -155,10 +155,7 @@
                   </div>
                   <a class="dropdown-item" href="#">
                     <i class="fas fa-user mr-2"></i>Account </a>
-                  <a class="dropdown-item" href="#">
-                    <i class="fas fa-cog mr-2"></i>Setting </a>
-                  <a class="dropdown-item" href="#">
-                    <i class="fas fa-power-off mr-2"></i>Logout </a>
+                    <a class="dropdown-item" href="../api/access_control/log-out.php"><i class="fas fa-power-off mr-2"></i>Logout</a>
                 </div>
               </li>
             </ul>
@@ -191,7 +188,7 @@
                       <div id="submenu-7" class="collapse submenu" style="">
                    </li>
                    <li class="nav-item">
-                      <a class="nav-link" href="#" ><i class="mdi mdi-18px mdi-book-open-variant"></i> Courses / Batches <span class="badge badge-secondary">New</span></a>
+                      <a class="nav-link" href="courses.html" ><i class="mdi mdi-18px mdi-book-open-variant"></i> Courses / Batches <span class="badge badge-secondary">New</span></a>
                       <div id="submenu-7" class="collapse submenu" style="">
                    </li>
                    <li class="nav-divider">
@@ -474,6 +471,20 @@
     <script src="../assets/vendor/datatables.net/dataTables.min.js"></script>
     <script src="../assets/vendor/datatables.net/dataTables.bootstrap4.min.js"></script>
     <script>
+$.ajax({
+            url: '../api/access_control/get-session_data.php', // Replace with the actual path to your PHP script
+            type: 'GET',
+            dataType: 'json',
+            success: function(profile) {
+                // Assign JSON data to HTML elements with different IDs
+                $('.branch_name').val(profile[0].branch);
+                $('.nav-user-name').text(profile[0].name);
+
+            },
+            error: function(xhr, status, error) {
+                console.error('Error fetching JSON data:', error);
+            }
+        });
 
       new DataTable('#dash_std_tbl');
       $(function() {
@@ -535,7 +546,7 @@
                                     '</div>'+
                                   '</div>'+
                                   '<br />'+
-                                  '<div class="text-right text-muted pt-1">4d</div>'+
+                                  '<div class="text-right text-muted pt-1">'+calculateDaysDifference(request.date)+'Days</div>'+
                                ' </span>'+
                              ' </div>'
                    requestsBox.append(row);
@@ -546,7 +557,22 @@
            }
        });
 
+       function calculateDaysDifference(databaseDate) {
+            // Parse the database date string to a JavaScript Date object
+            var databaseDateObj = new Date(databaseDate);
 
+            // Get the current date
+            var currentDate = new Date();
+
+            // Calculate the difference in milliseconds
+            var timeDifference = currentDate - databaseDateObj;
+
+            // Calculate the number of days
+            var daysDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+
+            // Return the result
+            return daysDifference;
+        }
       $.ajax({
            url: '../api/get-branch_earlier_requests_data.php', // Update with your endpoint URL
            type: 'GET',
@@ -598,7 +624,7 @@
                                     '</div>'+
                                   '</div>'+
                                   '<br />'+
-                                  '<div class="text-right text-muted pt-1">4d</div>'+
+                                  '<div class="text-right text-muted pt-1">'+calculateDaysDifference(request.date)+'Days</div>'+
                                ' </span>'+
                              ' </div>'
                    requestsBox.append(row);
@@ -693,7 +719,7 @@
       reloadNumbers();
       function reloadNumbers() {
            $.ajax({
-            url: '../api/get-branch_request_count.php', // Replace with the actual path to your PHP script
+            url: '../api/get-request_count.php', // Replace with the actual path to your PHP script
             type: 'GET',
             dataType: 'json',
             success: function(request) {

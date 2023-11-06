@@ -1,10 +1,10 @@
 <?php
 include('conn.php');
 session_start();
-$branch = $_SESSION['SESS_BRANCH'] ;
 $position = $_SESSION['SESS_POSITION'] ;
 
 if($position=='branch_admin' | $position=='counselor' ){
+    $branch = $_SESSION['SESS_BRANCH'] ;
     // Query to select data from the students table
 $t_sql = "SELECT * FROM students WHERE  branch='$branch'";
 $m_sql = "SELECT * FROM students WHERE sex = 'male' AND branch='$branch'";

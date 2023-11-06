@@ -125,7 +125,7 @@
                            </div>
                            <a class="dropdown-item" href="#"><i class="fas fa-user mr-2"></i>Account</a>
                            <a class="dropdown-item" href="#"><i class="fas fa-cog mr-2"></i>Setting</a>
-                           <a class="dropdown-item" href="#"><i class="fas fa-power-off mr-2"></i>Logout</a>
+                           <a class="dropdown-item" href="../api/access_control/log-out.php"><i class="fas fa-power-off mr-2"></i>Logout</a>
                         </div>
                      </li>
                   </ul>
@@ -166,7 +166,7 @@
                            <div id="submenu-7" class="collapse submenu" style="">
                         </li>
                                                 <li class="nav-item">
-                           <a class="nav-link" href="../index.html" ><i class="fa fa-fw fa-sign-out-alt"></i> Sign Out<span class="badge badge-secondary">New</span></a>
+                           <a class="nav-link" href="../api/access_control/log-out.php" ><i class="fa fa-fw fa-sign-out-alt"></i> Sign Out<span class="badge badge-secondary">New</span></a>
                            <div id="submenu-7" class="collapse submenu" style="">
                         </li>
                   
@@ -260,10 +260,11 @@
                                              <th class="border-0" width="3%">#</th>
                                              <th class="border-0" width="5%">Image</th>
                                              <th >ID</th>
+                                             <th class="border-0" width="15%"> Student ID</th>
                                              <th class="border-0" width ="15%">Student Name</th>
                                              <th class="border-0" width="7%">Mobile </th>
                                              <th class="border-0" width="20%">Course</th>
-                                             <th class="border-0" width="15%"> Student ID</th>
+                                             
                                              <th class="border-0" width="8%">Amount Paid</th>
                                              <th class="border-0" width="8%">Payment Status</th>
                                              <th></th>
@@ -423,7 +424,22 @@
                      <div class="input-group-append"><span class="input-group-text"><i class="fas fa-home"></i></span></div>
                   </div>
                </div>
-        
+               <div class="row">           
+                  <div class="col-md-6">
+                     <div class="input-group mb-3">
+                        <div class="input-group-prepend"><span class="input-group-text">Sponsor: </span></div>
+                        <input type="text" class="form-control clear_input" id="sp_name" name="sp_name">
+                        <div class="input-group-append"><span class="input-group-text"><i class="fa fa-user-circle"></i></span></div>
+                     </div>
+                  </div>
+                  <div class="col-md-6">
+                     <div class="input-group mb-3">
+                        <div class="input-group-prepend"><span class="input-group-text">Sponsor Contact:</span></div>
+                           <input type="text" class="form-control clear_input" id ="sp_contact" name="sp_contact">
+                        <div class="input-group-append"><span class="input-group-text"><i class="fa fa-phone-square"></i></span></div>
+                     </div>
+                  </div>
+               </div>
                <h4>Contact Data</h4>
                <div class="form-group">
                   <div class="input-group mb-3">
@@ -494,7 +510,7 @@
                               <div class="input-group mb-3">
                                  <div class="input-group-prepend"><span class="input-group-text"> Batch:</span></div>
                                     <select class="form-control form-control-md batch_list" name="batch" id="batch_list">
-                                       <option>Default Batch</option>
+                                       <option>GB(L0)</option>
                                     </select>
                                  <div class="input-group-append"><span class="input-group-text"><i class="fa fa-users"></i></span></div>
                               </div>
@@ -619,6 +635,21 @@
       <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script>
+      $.ajax({
+            url: '../api/access_control/get-session_data.php', // Replace with the actual path to your PHP script
+            type: 'GET',
+            dataType: 'json',
+            success: function(profile) {
+                // Assign JSON data to HTML elements with different IDs
+               // $('.branch_name').val(profile[0].branch);
+                $('.nav-user-name').text(profile[0].name);
+
+            },
+            error: function(xhr, status, error) {
+                console.error('Error fetching JSON data:', error);
+            }
+        });
+
        $(document).ready(function () {
          reloadNumbers();
          var course_code;
@@ -784,10 +815,10 @@
         { data: null }, // ID
         { data: null}, // Avatar
         { data: "id", className:'ID d-none'},
+        { data: "student_id",className:'student_id'},
         { data: "name" },
         { data: "contact" },
         { data: "course" },
-        { data: "student_id",className:'student_id'},
         { data: "amount_paid" },
         { data: "payment_status" },
         { data: "course_duration" , className:'d-none'},

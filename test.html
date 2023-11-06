@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap List Group with Toggle Button</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container mt-4">
+    <h2>Task List</h2>
+
+    <!-- Bootstrap List Group -->
+    <ul class="list-group">
+        <!-- List Item 1 -->
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            Task 1
+            <button type="button" class="btn btn-sm toggle-btn" data-status="active" data-batch-id="1">Start</button>
+        </li>
+
+        <!-- List Item 2 -->
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            Task 2
+            <button type="button" class="btn toggle-btn" data-status="active" data-batch-id="2">Start</button>
+        </li>
+
+        <!-- Add more list items as needed -->
+    </ul>
+</div>
+
+<!-- jQuery library -->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<!-- Bootstrap JS and Popper.js -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        // Add click event handler to toggle button
+        $('.toggle-btn').click(function () {
+            // Get the current text and toggle it
+            var currentText = $(this).text();
+            var newText = (currentText === 'Start') ? 'Stop' : 'Start';
+
+            // Toggle the button text
+            $(this).text(newText);
+
+            // Toggle the button color based on the text
+            var newColor = (newText === 'Start') ? 'success' : 'danger';
+            $(this).removeClass('btn-success btn-danger').addClass('btn-' + newColor);
+
+            // Toggle the status attribute
+            var newStatus = (newText === 'Stop') ? 'active' : 'stopped';
+            $(this).data('status', newStatus);
+
+            // Get the batch ID from data attribute
+            var batchId = $(this).data('batch-id');
+
+            // Send a POST request to update the status in the database
+            $.ajax({
+                url: '../api/save-update_batch_status.php', // Update with the correct path to your PHP file
+                type: 'POST',
+                data: {
+                    batchId: batchId,
+                    status: newStatus
+                },
+                success: function (response) {
+                    // Handle success response if needed
+                    console.log(response);
+                },
+                error: function (xhr, status, error) {
+                    // Handle error
+                    console.error('Error updating status:', error);
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+</html>

@@ -2,7 +2,7 @@
 include('conn.php');
 
 // Check if the required POST fields are set
-if (isset($_POST['course'], $_POST['batch'], $_POST['name'], $_POST['branch'], $_POST['branch'], $_POST['dob'])) {
+if (isset($_POST['student_id'], $_POST['course'],$_POST['course_duration'], $_POST['batch'], $_POST['name'], $_POST['branch'], $_POST['dob'])) {
     $a = $_POST['student_id'];
     $b = $_POST['course'];
     $c = $_POST['batch'];
@@ -14,9 +14,11 @@ if (isset($_POST['course'], $_POST['batch'], $_POST['name'], $_POST['branch'], $
     $i = $_POST['email'];
     $j = $_POST['sex'];
     $k = $_POST['course_duration'];
+    $l = $_POST['sp_name'];
+    $m = $_POST['sp_contact'];
 
     // Use prepared statements to prevent SQL injection
-    $qry = $db->prepare("SELECT * FROM students WHERE student_id = :student_id AND contact= :contact" );
+    $qry = $db->prepare("SELECT * FROM students WHERE student_id = :student_id AND contact = :contact");
     $qry->bindParam(':student_id', $a);
     $qry->bindParam(':contact', $h);
     $qry->execute();
@@ -26,22 +28,34 @@ if (isset($_POST['course'], $_POST['batch'], $_POST['name'], $_POST['branch'], $
         echo 400;
     } else {
         // Use prepared statements for the INSERT query
-        $sql = "INSERT INTO students (student_id, course,course_duration, batch, name, branch, dob, hometown, contact, email, sex) 
-                VALUES (:student_id, :course, :duration, :batch, :name, :branch, :dob, :hometown, :contact, :email, :sex)";
+        $sql = "INSERT INTO students (student_id, course, course_duration, batch, name, branch, dob, hometown, contact, email, sex, sponsor, sponsor_contact, payment_status)
+                VALUES (:student_id, :course, :duration, :batch, :name, :branch, :dob, :hometown, :contact, :email, :sex, :spon, :spon_con, 'Nothing Paid')";
 
-        $q = $db->prepare($sql);
-        $q->bindParam(':student_id', $a);
-        $q->bindParam(':course', $b);
-        $q->bindParam(':batch', $c);
-        $q->bindParam(':name', $d);
-        $q->bindParam(':branch', $e);
-        $q->bindParam(':dob', $f);
-        $q->bindParam(':hometown', $g);
-        $q->bindParam(':contact', $h);
-        $q->bindParam(':email', $i);
-        $q->bindParam(':sex', $j);
-        $q->bindParam(':duration', $k);
+            $q = $db->prepare($sql);
+            $q->bindParam(':student_id', $a);
+            $q->bindParam(':course', $b);
+            $q->bindParam(':batch', $c);
+            $q->bindParam(':name', $d);
+            $q->bindParam(':branch', $e);
+            $q->bindParam(':dob', $f);
+            $q->bindParam(':hometown', $g);
+            $q->bindParam(':contact', $h);
+            $q->bindParam(':email', $i);
+            $q->bindParam(':sex', $j);
+            $q->bindParam(':duration', $k);
+            $q->bindParam(':spon', $l);
+            $q->bindParam(':spon_con', $m);
+
         if ($q->execute()) {
+            $number = '233' . substr($h, 1);
+            $subject = 'EPADAC IPMC - New Expenditure  Request';    
+            $message = "Hello  $d,  \nYou have been Successfully Enrolled in IPMC - $e Branch, to read $b for the Duration of $k.\nYour Student ID is $a";
+            include('send-sms.php');
+
+            $number = '233' . substr($m, 1);
+            $subject = 'EPADAC IPMC - New Expenditure  Request';    
+            $message = "Hello  $l,  \nThank you for Enrolling your ward at  IPMC - $e Branch, to read $b for the Duration of $k.";
+            include('send-sms.php');
             echo 200;
         } else {
             echo "Error inserting user.";

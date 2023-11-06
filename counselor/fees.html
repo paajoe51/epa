@@ -394,32 +394,53 @@
                </select>
                <div class="input-group-append"><span class="input-group-text"><i class="fas fa-calendar-check"></i></span></div>
             </div>
-             <div class="input-group mb-3">
-               <div class="input-group-prepend"><span class="input-group-text">Course</span></div>
-               <input type="text" readonly class="form-control" name="course" id="fee_course">
-               <div class="input-group-append"><span class="input-group-text"><i class="fas fa-calendar-check"></i></span></div>
-            </div>  
-            <div class="input-group mb-3">
-               <div class="input-group-prepend"><span class="input-group-text">Duration</span></div>
-               <input type="text" readonly class="form-control" name="duration" id="fee_duration">
-               <div class="input-group-append"><span class="input-group-text"><i class="fas fa-calendar-check"></i></span></div>
-            </div> 
+            <div class="row">
+               <div class="col-md-6">
+                  <div class="input-group mb-3">
+                     <div class="input-group-prepend"><span class="input-group-text">Course</span></div>
+                     <input type="text" readonly class="form-control" name="course" id="fee_course">
+                     <div class="input-group-append"><span class="input-group-text"><i class="fas fa-calendar-check"></i></span></div>
+                  </div>
+               </div> 
+               <div class="col-md-6">
+                  <div class="input-group mb-3">
+                     <div class="input-group-prepend"><span class="input-group-text">Duration</span></div>
+                     <input type="text" readonly class="form-control" name="duration" id="fee_duration">
+                     <div class="input-group-append"><span class="input-group-text"><i class="fas fa-calendar-check"></i></span></div>
+                  </div> 
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-md-6">
+                  <div class="input-group mb-3">
+                     <div class="input-group-prepend"><span class="input-group-text">Sponsor</span></div>
+                     <input type="text" readonly class="form-control" name="sponsor" id="sponsor">
+                     <div class="input-group-append"><span class="input-group-text"><i class="fas fa-calendar-check"></i></span></div>
+                  </div> 
+               </div>
+               <div class="col-md-6">
+                  <div class="input-group mb-3">
+                     <div class="input-group-prepend"><span class="input-group-text">Phone Number</span></div>
+                     <input type="text" readonly class="form-control" name="sp_contact" id="sp_contact">
+                     <div class="input-group-append"><span class="input-group-text"><i class="fas fa-calendar-check"></i></span></div>
+                  </div>
+               </div>
+            </div>
+         </div>
             <div class="input-group mb-3">
                <div class="input-group-prepend"><span class="input-group-text">Amount : </span></div>
                <input type="number" class="form-control" name="amount">
                <div class="input-group-append"><span class="input-group-text"><i class="fas fa-money-bill-alt"></i></span></div>
             </div>
-           
+            <input type="text" class="form-control d-none" name="st_name" id="st_name" readonly>
             <div class="input-group mb-3">
                <div class="input-group-prepend"><span class="input-group-text">Comment</span></div>
                <textarea  class="form-control" rows="3" name="comment" placeholder ="PLease enter some details of the fee payment "></textarea>              
                <div class="input-group-append"><span class="input-group-text"><i class="fas fa-home"></i></span></div>
             </div>
-        </div>
          </form>
         </div>
-     
-       
+ 
        <!-- Modal footer -->
        <div class="modal-footer">
          <button type="button" class="btn btn-success" data-dismiss="modal" id="saveFeeBtn">Save</button>
@@ -476,7 +497,7 @@
     columns: [
         { data: null }, // ID
         { data: "id", className:'ID d-none'},
-        { data: "branch" },
+        { data: "branch", className:'d-none' },
         { data: "name" },
         { data: "amount_paid" },
         { data: "payment_status" },
@@ -524,7 +545,7 @@ var dataTable = $('#fees_log_tbl').DataTable({
         { data: "id", className:'ID d-none'},
         { data: "date" },
         { data: "transaction_id" },
-        { data: "branch" },
+        { data: "branch", className:'d-none' },
         { data: "payer" },
         { data: "amount" },
         { data: null } // Actions
@@ -549,7 +570,7 @@ var dataTable = $('#fees_log_tbl').DataTable({
                              '<button class="dropdown-item" type="button">'+
                                 '<i class="mdi mdi-binoculars"></i> View Detail </button>'+
                               '<button class="dropdown-item" type="button">'+
-                                '<i class="mdi mdi-printer"></i> Print Report </button>'+
+                                '<i class="mdi mdi-printer"></i> Print Receipt </button>'+
                            '</div>'+
                         ' </div>'+
                        ' </td>'
@@ -560,6 +581,9 @@ var dataTable = $('#fees_log_tbl').DataTable({
 
     $('#feeMdlBtn').click(function() {
          var branchName = $('.branch_name').val();
+        $('#fee_course,#fee_duration').val("");
+       // $().val("");
+
 function getCurrentDate() {
               var currentDate = new Date();
               var year = currentDate.getFullYear();
@@ -574,7 +598,8 @@ function getCurrentDate() {
             dataType: 'json',
             success: function(profile) {
                 // Assign JSON data to HTML elements with different IDs
-                $('.branch_name').val(profile[0].branch);
+                var branchName = profile[0].branch;
+                $('.branch_name').val(branchName);
                 $('.nav-user-name').text(profile[0].name);
             },
             error: function(xhr, status, error) {
@@ -625,13 +650,16 @@ function getCurrentDate() {
 
          // Fetch student data from the server
          $.ajax({
-    url: '../api/get-students_data.php', // Replace with the actual PHP file path
+    url: '../api/get-students_data.php', 
     type: 'GET',
     dataType: 'json',
     success: function(data) {
         var select = $('#selectWithSearch');
         var courseInput = $('#fee_course');
         var durationInput = $('#fee_duration');
+        var sponsor = $('#sponsor');
+        var sp_contact = $('#sp_contact');
+        var st_name = $('#st_name');
 
         // Clear existing options
         select.empty();
@@ -645,19 +673,25 @@ function getCurrentDate() {
 
         // Iterate through the JSON data and append options
         $.each(data, function(index, student) {
-            select.append($('<option>', {
+         select.append($('<option>', {
                 value: student.id,
                 text: student.name,
+                'data-name': student.name,
                 'data-course': student.course,
-                'data-duration': student.course_duration
+                'data-duration': student.course_duration,
+                'data-sponsor': student.sponsor,
+                'data-contact': student.sponsor_contact
             }));
         });
 
         // Update fee_course and fee_duration on select change
         select.on('change', function() {
-            var selectedStudent = select.find('option:selected');
+         var selectedStudent = select.find('option:selected');
             courseInput.val(selectedStudent.data('course'));
             durationInput.val(selectedStudent.data('duration'));
+            sponsor.val(selectedStudent.data('sponsor'));
+            sp_contact.val(selectedStudent.data('contact'));
+            st_name.val(selectedStudent.text());
         });
     },
     error: function(xhr, status, error) {

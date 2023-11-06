@@ -1,3 +1,5 @@
+
+
 <!doctype html>
 <html lang="en">
    <!-- Mirrored from colorlib.com/polygon/concept/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Mar 2020 00:15:28 GMT -->
@@ -5,6 +7,24 @@
    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
    <!-- /Added by HTTrack -->
    <head>
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script type="text/javascript">
+        $.ajax({
+            url: '../api/access_control/auth.php',
+            type: 'GET',
+            dataType: 'json',
+            success: function (response) {
+                // Check if the response is 401
+                if (response === 401) {
+                    // Redirect to forbidden.html
+                    window.location.href = '../forbidden.html';
+                }
+            },
+            error: function (xhr, status, error) {
+                console.error('Error:', error);
+            }
+        });
+      </script>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.min.css">
@@ -16,6 +36,9 @@
       <link rel="stylesheet" href="../assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
       <link rel="stylesheet" href="../assets/vendor/charts/c3charts/c3.css">
       <link rel="stylesheet" href="../assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
+      <!-- Include jQuery -->
+
+
       <title>Director - Dashboard</title>
    </head>
    
@@ -120,8 +143,7 @@
                               <span class="status"></span><span class="ml-2">Available</span>
                            </div>
                            <a class="dropdown-item" href="#"><i class="fas fa-user mr-2"></i>Account</a>
-                           <a class="dropdown-item" href="#"><i class="fas fa-cog mr-2"></i>Setting</a>
-                           <a class="dropdown-item" href="#"><i class="fas fa-power-off mr-2"></i>Logout</a>
+                           <a class="dropdown-item" href="../api/access_control/log-out.php"><i class="fas fa-power-off mr-2"></i>Logout</a>
                         </div>
                      </li>
                   </ul>
@@ -144,7 +166,14 @@
                            <a class="nav-link" href="index.html" ><i class="fas fa-fw fa-tachometer-alt"></i> Dasboard<span class="badge badge-secondary">New</span></a>
                            <div id="submenu-7" class="collapse submenu" style="">
                         </li>                    
-                  
+                        <li class="nav-item">
+                           <a class="nav-link" href="courses.html" ><i class="fas fa-fw fa-book"></i> Courses / Batches<span class="badge badge-secondary">New</span></a>
+                           <div id="submenu-7" class="collapse submenu" style="">
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link" href="branches.html" ><i class="fas fa-fw fa-code-branch"></i> Branches Management<span class="badge badge-secondary">New</span></a>
+                           <div id="submenu-7" class="collapse submenu" style="">
+                        </li>
                         <li class="nav-divider">
                            REPORTS
                         </li>
@@ -157,7 +186,7 @@
                            <div id="submenu-7" class="collapse submenu" style="">
                         </li>
                         <li class="nav-item">
-                           <a class="nav-link" href="notifications.html"><i class="fas fa-fw fa-print"></i> Expenditure Report</a>
+                           <a class="nav-link" href="requests.html"><i class="fas fa-fw fa-print"></i> Expenditure Requests</a>
                         </li>
                         <li class="nav-item">
                            <a class="nav-link" href="bank-report.html"><i class="fas fa-fw fa-print"></i> Bank Report</a>
@@ -221,7 +250,7 @@
                               <div class="card-body">
                                  <h5 class="text-muted">Students</h5>
                                  <div class="metric-value d-inline-block">
-                                    <h1 class="mb-1">12099</h1>
+                                    <h1 class="mb-1"><span class="text-success"><i class="fa fa-fw fa-users"></i> </span> <span id="t_std"> <i class="fa fa-spinner fa-spin"></i> </span></h1>
                                  </div>
                                  <div class="metric-label d-inline-block float-right text-success font-weight-bold">
                                     <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">5.86%</span>
@@ -234,7 +263,7 @@
                               <div class="card-body">
                                  <h5 class="text-muted">Branches</h5>
                                  <div class="metric-value d-inline-block">
-                                    <h1 class="mb-1">5</h1>
+                                    <h1 class="mb-1"><span class="text-info"><i class="fa fa-fw fa-code-branch"></i> </span> <span id="num_br"> <i class="fa fa-spinner fa-spin"></i> </span></h1>
                                  </div>
                                  <div class="metric-label d-inline-block float-right text-success font-weight-bold">
                                     <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">10%</span>
@@ -247,7 +276,7 @@
                               <div class="card-body">
                                  <h5 class="text-muted">Current Blanace</h5>
                                  <div class="metric-value d-inline-block">
-                                    <h1 class="mb-1">13000</h1>
+                                    <h1 class="mb-1"><span class="text-primary"><i class="fa fa-fw fa-money-bill-alt"></i> </span> <span id="balance"> <i class="fa fa-spinner fa-spin"></i> </span></h1>
                                  </div>
                                  <div class="metric-label d-inline-block float-right text-success font-weight-bold">
                                     <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">5%</span>
@@ -260,7 +289,7 @@
                               <div class="card-body">
                                  <h5 class="text-muted">Users</h5>
                                  <div class="metric-value d-inline-block">
-                                    <h1 class="mb-1">1340</h1>
+                                    <h1 class="mb-1"><span class="text-warning"><i class="fa fa-fw fa-users"></i> </span> <span id="num_users"> <i class="fa fa-spinner fa-spin"></i> </span></h1>
                                  </div>
                                  <div class="metric-label d-inline-block float-right text-danger font-weight-bold">
                                     <span class="icon-circle-small icon-box-xs text-danger bg-danger-light bg-danger-light "><i class="fa fa-fw fa-arrow-down"></i></span><span class="ml-1">4%</span>
@@ -278,131 +307,25 @@
                               </div>
                               <div class="card-body">
                                  <div class="table-responsive">
-                                    <table  class="table table-striped table-hover table-bordered small" id="dash_std_tbl" data-page-length='5'>
+                                    <table id="std_recs_tbl" class="table table-striped table-hover table-condensed small" id="dash_std_tbl" data-page-length='10'>
                                        <thead class="bg-light">
                                           <tr class="border-0">
-                                             <th class="border-0">#</th>
+                                             <th class="border-0" width="3%">#</th>
                                              <th class="border-0" width="5%">Image</th>
+                                             <th >ID</th>
                                              <th class="border-0" width ="15%">Student Name</th>
-                                             <th class="border-0">Mobile </th>
-                                             <th class="border-0">Course</th>
-                                             <th class="border-0">Student ID</th>
-                                             <th class="border-0" width="8%">Branch</th>
+                                             <th class="border-0" width="7%">Mobile </th>
+                                             <th class="border-0" width="20%">Course</th>
+                                             <th class="border-0" width="15%"> Student ID</th>
                                              <th class="border-0" width="8%">Amount Paid</th>
                                              <th class="border-0" width="8%">Payment Status</th>
+                                             <th></th>
+                                             <th></th>
+                                             <th></th>
                                           </tr>
                                        </thead>
-                                       <tbody>
-                                          <tr>
-                                             <td>1</td>
-                                             <td>
-                                                <div class="m-r-10"><img src="../assets/images/avatar-6.png" alt="user" class="rounded" width="45"></div>
-                                             </td>
-                                             <td>Abdul-Razak Tahiru </td>
-                                             <td>0544628575 </td>
-                                             <td>System And Network Engineering S1 </td>
-                                             <td>KS/SE(L1)21/ANT577 </td>
-                                             <td>IPMC-KASOA </td>
-                                             <td>GHS 1,832</td>
-                                             <td><span class="badge-dot badge-success mr-1"></span>Fully Paid </td>
-                                          </tr>
-                                          <tr>
-                                             <td>2</td>
-                                             <td>
-                                                <div class="m-r-10"><img src="../assets/images/avatar-6.png" alt="user" class="rounded" width="45"></div>
-                                             </td>
-                                             <td>Adamu Sahibu </td>
-                                             <td>0591446094 </td>
-                                             <td>Graphic And Web Design </td>
-                                             <td>KS/GWD22/ANS958</td>
-                                             <td>IPMC-KASOA</td>
-                                             <td>GHS 2400</td>
-                                             <td><span class="badge-dot badge-warning mr-1"></span>GHS 1832</td>
-                                          </tr>
-                                          <tr>
-                                             <td>3</td>
-                                             <td>
-                                                <div class="m-r-10"><img src="../assets/images/avatar-6.png" alt="user" class="rounded" width="45"></div>
-                                             </td>
-                                             <td>Agnes Assan </td>
-                                             <td>0543147754 </td>
-                                             <td>Database Technology S1</td>
-                                             <td>KS/DBT(L1)21/ANA210 </td>
-                                             <td>IPMC-KASOA</td>
-                                             <td>GHS 1832  </td>
-                                             <td><span class="badge-dot badge-success mr-1"></span>Fully Paid </td>
-                                          </tr>
-                                          <tr>
-                                             <td>4</td>
-                                             <td>
-                                                <div class="m-r-10"><img src="../assets/images/avatar-6.png" alt="user" class="rounded" width="45"></div>
-                                             </td>
-                                             <td>Ahmed Abdul</td>
-                                             <td>0554427573 </td>
-                                             <td>Graphic And Web Design</td>
-                                             <td>KS/GWD22/AAA397</td>
-                                             <td>IPMC-KASOA</td>
-                                             <td>GHS 3300 </td>
-                                             <td><span class="badge-dot badge-warning mr-1"></span>GHS 300</td>
-                                          </tr>
-                                          <tr>
-                                             <td>5</td>
-                                             <td>
-                                                <div class="m-r-10"><img src="../assets/images/avatar-6.png" alt="user" class="rounded" width="45"></div>
-                                             </td>
-                                             <td>Alex Otoo</td>
-                                             <td>0203093840 </td>
-                                             <td>Graphic And Web Design S1</td>
-                                             <td>KS/GWD21/ANM498</td>
-                                             <td>IPMC-KASOA</td>
-                                             <td>GHS 3240 </td>
-                                             <td><span class="badge-dot badge-success mr-1"></span>Fully Paid </td>
-                                          </tr>
-                                          <tr>
-                                             <td>6</td>
-                                             <td>
-                                                <div class="m-r-10"><img src="../assets/images/avatar-6.png" alt="user" class="rounded" width="45"></div>
-                                             </td>
-                                             <td>Product #2 </td>
-                                             <td>id000002 </td>
-                                             <td>12</td>
-                                             <td>$180.00</td>
-                                             <td>25-08-2018 21:12:56</td>
-                                             <td>Rachel J. Wicker </td>
-                                             <td><span class="badge-dot badge-success mr-1"></span>Delivered </td>
-                                          </tr>
-                                          <tr>
-                                             <td>7</td>
-                                             <td>
-                                                <div class="m-r-10"><img src="../assets/images/avatar-6.png" alt="user" class="rounded" width="45"></div>
-                                             </td>
-                                             <td>Product #1 </td>
-                                             <td>id000001 </td>
-                                             <td>20</td>
-                                             <td>$80.00</td>
-                                             <td>27-08-2018 01:22:12</td>
-                                             <td>Patricia J. King </td>
-                                             <td><span class="badge-dot badge-brand mr-1"></span>InTransit </td>
-                                          </tr>
-                                          <tr>
-                                             <td>8</td>
-
-
-                                             <td>
-                                                <div class="m-r-10"><img src="../assets/images/avatar-6.png" alt="user" class="rounded" width="45"></div>
-                                             </td>
-                                             <td>Product #2 </td>
-                                             <td>id000002 </td>
-                                             <td>12</td>
-                                             <td>$180.00</td>
-                                             <td>25-08-2018 21:12:56</td>
-                                             <td>Rachel J. Wicker </td>
-                                             <td><span class="badge-dot badge-success mr-1"></span>Delivered </td>
-                                          </tr>
-                                                                                   
-                                          <!--tr>
-                                             <td colspan="9"><a href="#" class="btn btn-outline-light float-right">View Details</a></td>
-                                          </tr-->
+                                       <tbody id="students-data">
+                                          <!--Students table here-->
                                        </tbody>
                                     </table>
                                  </div>
@@ -520,24 +443,105 @@
       <script src="../assets/vendor/datatables.net/dataTables.min.js"></script>
       <script src="../assets/vendor/datatables.net/dataTables.bootstrap4.min.js"></script>
       <script>
+          reloadNumbers();
+           var dataTable = $('#std_recs_tbl').DataTable({
+    // Specify your DataTable configuration options here
+    ajax: {
+        url: "../api/get-students_data.php",
+        dataType: "json",
+        type: "GET",
+        dataSrc: "" // Data source property in the API response, if needed
+    },
+    columns: [
+        { data: null }, // ID
+        { data: null}, // Avatar
+        { data: "id", className:'ID d-none'},
+        { data: "name" },
+        { data: "contact" },
+        { data: "course" },
+        { data: "student_id",className:'student_id'},
+        { data: "amount_paid" },
+        { data: "payment_status" },
+        { data: "course_duration" , className:'d-none'},
+        { data: "hometown", className:'d-none' },
+        { data: "email", className:'d-none' },
+    ],
+    columnDefs: [
+        {
+            targets: [0], // Target the ID column
+            render: function (data, type, row, meta) {
+                // Render the ID using the row index
+                return meta.row + 1;
+            }
+        },
+        {
+            targets: [1], // Target the Avatar column
+            render: function (data, type, row) {
+                return '<div class="m-r-10"><img src="../assets/images/avatar-6.png" alt="user" class="rounded" width="45"></div>';
+            }
+        },
+    ]
+});
+
+$.ajax({
+       url: '../api/get-fees_count.php', // Replace with the actual path to your PHP script
+       type: 'GET',
+       dataType: 'json',
+       success: function(fees) {
+           // Assign JSON data to HTML elements with different IDs
+           //($('#fees_collected').text(fees.fees)).simpleMoneyFormat();
+          //$('#num_fully_paid').text(fees.full_fees);
+          //$('#num_part_paid').text(fees.partial_fees);
+       },
+       error: function(xhr, status, error) {
+           console.error('Error fetching JSON data:', error);
+       }
+   });
+   function reloadNumbers() {
+           $.ajax({
+            url: '../api/get-num_students.php', // Replace with the actual path to your PHP script
+            type: 'GET',
+            dataType: 'json',
+            success: function(count) {
+                // Assign JSON data to HTML elements with different IDs
+                $('#t_std').text(count.total);
+                // Assign more data to other HTML elements as needed
+            },
+            error: function(xhr, status, error) {
+                console.error('Error fetching JSON data:', error);
+            }
+        });
+
          $.ajax({
-               url: '../api/access_control/auth.php',
-               type: 'GET',
-               dataType: 'json',
-               success: function (response) {
-                   // Check if the response is 401
-                   if (response === 401) {
-                       // Redirect to forbidden.html
-                       window.location.href = '../forbidden.html';
-                   }
-               },
-               error: function (xhr, status, error) {
-                   console.error('Error:', error);
-               }
-           });
+            url: '../api/get-branch_count.php', // Replace with the actual path to your PHP script
+            type: 'GET',
+            dataType: 'json',
+            success: function(count) {
+                // Assign JSON data to HTML elements with different IDs
+                $('#num_br').text(count.total);
+                // Assign more data to other HTML elements as needed
+            },
+            error: function(xhr, status, error) {
+                console.error('Error fetching JSON data:', error);
+            }
+        });
+
+         $.ajax({
+            url: '../api/get-users_count.php', // Replace with the actual path to your PHP script
+            type: 'GET',
+            dataType: 'json',
+            success: function(count) {
+                // Assign JSON data to HTML elements with different IDs
+                $('#num_users').text(count.total);
+                // Assign more data to other HTML elements as needed
+            },
+            error: function(xhr, status, error) {
+                console.error('Error fetching JSON data:', error);
+            }
+        });
+      }
       </script>
       <script>
-         new DataTable('#dash_std_tbl');
          $(function(){
                $(".dropdown-menu").on('click', 'a', function(){
                   $(this).parents('.dropdown').find('button').text($(this).text());

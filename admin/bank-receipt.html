@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+   <!-- Mirrored from colorlib.com/polygon/concept/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Mar 2020 00:15:28 GMT -->
+   <!-- Added by HTTrack -->
+   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+   <!-- /Added by HTTrack -->
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.min.css">
+      <link href="../assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
+      <link rel="stylesheet" href="../assets/libs/css/style.css">
+      <link rel="stylesheet" href="../assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
+      <link rel="stylesheet" href="../assets/vendor/charts/chartist-bundle/chartist.css">
+      <link rel="stylesheet" href="../assets/vendor/charts/morris-bundle/morris.css">
+      <link rel="stylesheet" href="../assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
+      <link rel="stylesheet" href="../assets/vendor/charts/c3charts/c3.css">
+      <link rel="stylesheet" href="../assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
+      <title>Administrator - Dashboard</title>
+   </head>
+   <body>
+
+               <div class="container-fluid dashboard-content ">
+                  <div class="ecommerce-widget">
+                     <div class="row">
+                        <div class="col-12" id="printArea">
+                          <div class="card">
+                            <div class="card-header p-4">
+                              <div class="float-right">
+                                <h3 class="mb-0">BA-23100923</h3>
+                                Date: <span id="date">...</span>
+                              </div>
+                            </div>
+                            <div class="card-body"><br><br><br><br><br><br>
+                              <div class="row mb-4">
+                                <div class="col-sm-6">
+                                  <h3 class="text-dark mb-1">EPADAC Business Center</h3>
+                                  <div>Breman Asikuma</div>
+                                  <div>Central Region, GH</div>
+                                  <div>Email: <a href="https://colorlib.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e78e898188a7808295868b83c984888ac9978b">info@epadac.com</a></div>
+                                  <div>Phone: +233 54 239 9543</div>
+                                </div>
+                                <div class="col-sm-6">
+                                  <h3 class="text-dark mb-1 user-name" >Anthony K. Friel</h3>
+                                </div>
+                              </div>
+                              <div class="table-responsive-sm">
+                                <table class="table table-striped">
+                                  <thead>
+                                    <tr>
+                                      <th>Transaction Type</th>
+                                      <th>Transaction Note</th>
+                                      <th>Target Account</th>
+                                      <th class="right">Amount</th>
+                                      <th class="right">Total</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr>
+                                      <td class="left strong" id="trans_type"></td>
+                                      <td class="left" id="trans_note"></td>
+                                      <td class="left" id="target"></td>
+                                      <td class="right">&#x20b5; <span id="trans_amount" class="trans_amount">1500.00</span></td>
+                                      <td class="right">&#x20b5; <span id="trans_amount" class="trans_amount">1500.00</span></td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </div>
+                              <div class="row">
+                                <div class="col-lg-4 col-sm-5 ml-auto">
+                                  <table class="table table-clear">
+                                    <tbody>
+                                        <td class="left">
+                                          <strong class="text-dark">Total</strong>
+                                        </td>
+                                        <td class="right">
+                                          <strong class="text-dark">&#x20b5; <span id="trans_amount" class="trans_amount">1500.00</strong>
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="card-footer bg-white">
+                              <p class="mb-0">IPMC - <span id="branch"></span></p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                     
+                  </div>
+               </div>
+            </div>
+
+      <script src="../assets/vendor/jquery/jquery-3.3.1.min.js" type="8753a994eed150800267cbdd-text/javascript"></script>
+      <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.js" type="8753a994eed150800267cbdd-text/javascript"></script>
+      <script src="../assets/vendor/slimscroll/jquery.slimscroll.js" type="8753a994eed150800267cbdd-text/javascript"></script>
+      <script src="../assets/libs/js/main-js.js" type="8753a994eed150800267cbdd-text/javascript"></script>
+      <script src="../assets/vendor/charts/chartist-bundle/chartist.min.js" type="8753a994eed150800267cbdd-text/javascript"></script>
+      <script src="../assets/vendor/charts/sparkline/jquery.sparkline.js" type="8753a994eed150800267cbdd-text/javascript"></script>
+      <script src="../assets/vendor/charts/morris-bundle/raphael.min.js" type="8753a994eed150800267cbdd-text/javascript"></script>
+      <script src="../assets/vendor/charts/morris-bundle/morris.js" type="8753a994eed150800267cbdd-text/javascript"></script>
+      <script src="../assets/vendor/charts/c3charts/c3.min.js" type="8753a994eed150800267cbdd-text/javascript"></script>
+      <script src="../assets/vendor/charts/c3charts/d3-5.4.0.min.js" type="8753a994eed150800267cbdd-text/javascript"></script>
+      <script src="../assets/vendor/charts/c3charts/C3chartjs.js" type="8753a994eed150800267cbdd-text/javascript"></script>
+      <script src="../assets/libs/js/dashboard-ecommerce.js" type="8753a994eed150800267cbdd-text/javascript"></script>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13" type="8753a994eed150800267cbdd-text/javascript"></script>
+      <script type="8753a994eed150800267cbdd-text/javascript">
+         window.dataLayer = window.dataLayer || [];
+         function gtag(){dataLayer.push(arguments);}
+         gtag('js', new Date());
+         
+         gtag('config', 'UA-23581568-13');
+      </script>
+      <script src="../assets/vendor/datatables.net/jquery-3.7.0.js"></script>
+      <script src="../assets/vendor/datatables.net/dataTables.min.js"></script>
+      <script src="../assets/vendor/datatables.net/dataTables.bootstrap4.min.js"></script>
+      <script>
+         function printInvoice() {
+            window.print();
+         }
+      </script>
+<script>
+    $(document).ready(function () {
+      var queryParams = new URLSearchParams(window.location.search);
+    
+    // Get the JSON data from the query parameters
+    var jsonData = queryParams.get('jsonData');
+
+    // Parse the JSON data
+    var receivedData = JSON.parse(decodeURIComponent(jsonData));
+
+    // Access the received data
+    console.log(receivedData);
+    // Now you can use 'receivedData' in this page
+    $('#date').text(receivedData.date);
+    $('#trans_type').text(receivedData.banking_type);
+    $('#trans_note').text(receivedData.comment);    
+    $('#target').text(receivedData.target);
+    $('.trans_amount').text(receivedData.amount);
+    $('#branch').text(receivedData.branch);
+      window.print();
+    });
+
+   $.ajax({
+       url: '../api/access_control/get-session_data.php', // Replace with the actual path to your PHP script
+       type: 'GET',
+       dataType: 'json',
+       success: function(profile) {
+           // Assign JSON data to HTML elements with different IDs
+           $('.branch_name').val(profile[0].branch);
+           $('.user-name').text(profile[0].name);
+
+       },
+       error: function(xhr, status, error) {
+           console.error('Error fetching JSON data:', error);
+       }
+   });
+
+     </script>
+
+      <script src="../assets/vendor/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js" data-cf-settings="8753a994eed150800267cbdd-|49" defer=""></script>
+   </body>
+   <!-- Mirrored from colorlib.com/polygon/concept/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Mar 2020 00:27:53 GMT -->
+</html>

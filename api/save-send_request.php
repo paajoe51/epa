@@ -21,13 +21,15 @@ if ($request_amount == "" || $request_note == "") {
         $stmt->bindParam(':request_date', $request_date);
         $stmt->bindParam(':request_note', $request_note);
 
+
         if ($stmt->execute()) {
             // Send email
+            $number = '233542399543';
             $to = 'paajoe51@yahoo.com'; //
-            $subject = 'EPADAC IPMC - New Expenditure  Request';
-            $message = "Amount: $request_amount\nNote: $request_note\nBranch: $request_branch";
+            $subject = 'EPADAC IPMC - New Expenditure  Request';    
+            $message = "Expenditure Request \nDate: $request_date \nAmount : $request_amount \nBranch: $request_branch \nNote: $request_note";
 
-            
+            include('send-sms.php');
             // Additional headers
             $headers = 'From: webmaster@example.com' . "\r\n" .
                 'Reply-To: webmaster@example.com' . "\r\n" .

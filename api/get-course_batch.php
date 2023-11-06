@@ -14,6 +14,9 @@ if (isset($_POST['selected_course'])) {
     // Fetch data and store it in an array
     $batches = $stmt->fetchAll(PDO::FETCH_COLUMN);
 
+    // Add "GB(L0)" as the first object in the array
+    array_unshift($batches, "GB(L0)");
+
     // Return the response as JSON
     $response = ['batches' => $batches];
     header('Content-Type: application/json');

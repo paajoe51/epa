@@ -2,7 +2,7 @@
 include('../conn.php');
 
 // Query to select data from the users table
-$sql = "SELECT password, name, position, branch, contact, email, description FROM users";
+$sql = "SELECT * FROM users";
 
 try {
     $stmt = $db->prepare($sql);

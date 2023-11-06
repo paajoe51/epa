@@ -3,11 +3,13 @@ include('conn.php');
 session_start();
 $branch = $_SESSION['SESS_BRANCH'] ;
 $position = $_SESSION['SESS_POSITION'] ;
+$today=date("d/m/Y");
 
 if($position=='branch_admin' | $position=='counselor' ){
     // Query to select data from the students table
     $fees_sql = "SELECT SUM(amount_paid) as fee_sum FROM students WHERE branch = '$branch'";
     $full_sql = "SELECT *  FROM students WHERE payment_status='Fully Paid' AND branch = '$branch'";
+    $td_fee_sql = "SELECT SUM(amount) as day_fee_sum  FROM fees WHERE branch='$branch' AND date = '$today'";
     $st_sql = "SELECT *  FROM students WHERE branch = '$branch'";
 }
 
@@ -31,6 +33,15 @@ try {
     $full_stmt->execute();
     $full = $full_stmt->rowCount();
 
+    // todays fee Paid
+    $td_fee_stmt = $db->prepare($td_fee_sql);
+    $td_fee_stmt->execute();
+    $today_fees = $td_fee_stmt->fetch(PDO::FETCH_ASSOC);
+    if ($today_fees['day_fee_sum']==null)
+        $td_fee=0.00;
+    else
+        $td_fee =  $today_fees['day_fee_sum'];
+
     // Female students
     $st_stmt = $db->prepare($st_sql);
     $st_stmt->execute();
@@ -42,7 +53,9 @@ try {
     $data = [
         "fees" => $fees,
         "full_fees" => $full,
-        "partial_fees" => $partial
+        "today_fees" => $td_fee,
+        "partial_fees" => $partial,
+        "today" => $today
     ];
 
     // Encode the data as JSON

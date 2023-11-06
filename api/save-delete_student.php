@@ -11,9 +11,13 @@ if (isset($_POST['id']) && !empty($_POST['id'])) {
     try {
         $stmt = $db->prepare($sql);
         $stmt->bindParam(':studentId', $studentId, PDO::PARAM_INT);
-        $stmt->execute();
-if($stmt)
-        echo 'Student deleted successfully';
+        $success = $stmt->execute(); // Store the result in a variable
+
+        if ($success) {
+            echo 'Student deleted successfully';
+        } else {
+            echo 'Error deleting student';
+        }
     } catch (PDOException $e) {
         echo 'Error: ' . $e->getMessage();
     }

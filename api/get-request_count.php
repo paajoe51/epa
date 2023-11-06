@@ -2,10 +2,25 @@
 include('conn.php');
 
 // Query to select data from the students table
-$all_sql = "SELECT * FROM requests";
-$pen_sql = "SELECT * FROM requests WHERE status = 'pending'";
-$acc_sql = "SELECT * FROM requests WHERE status = 'accepted'";
-$rej_sql = "SELECT * FROM requests WHERE status = 'rejected'";
+session_start();
+
+$branch = $_SESSION['SESS_BRANCH'] ;
+$position = $_SESSION['SESS_POSITION'] ;
+
+if($position=='branch_admin' | $position=='counselor' ){
+    $all_sql = "SELECT * FROM requests WHERE branch = '$branch'";
+    $pen_sql = "SELECT * FROM requests WHERE branch = '$branch' AND status = 'pending'";
+    $acc_sql = "SELECT * FROM requests WHERE branch = '$branch' AND status = 'accepted'";
+    $rej_sql = "SELECT * FROM requests WHERE branch = '$branch' AND status = 'declined'";
+}
+else{
+// Query to select data from the students table
+    $all_sql = "SELECT * FROM requests";
+    $pen_sql = "SELECT * FROM requests WHERE status = 'pending'";
+    $acc_sql = "SELECT * FROM requests WHERE status = 'accepted'";
+    $rej_sql = "SELECT * FROM requests WHERE status = 'declined'";
+}
+
 
 try {
     // Total students
@@ -25,12 +40,13 @@ try {
 
     
     // Rejected students
-    $rej_stmt = $db->prepare($acc_sql);
-    $acc_stmt->execute();
-    $rejected_requests = $acc_stmt->rowCount();
+    $rej_stmt = $db->prepare($rej_sql);
+    $rej_stmt->execute();
+    $rejected_requests = $rej_stmt->rowCount();
 
     // Store the counts in an associative array
     $data = [
+        "branch" => $branch,
         "total" => $total_request,
         "pending" => $pending_requests,
         "accepted" => $accepted_requests,
