@@ -5,6 +5,30 @@
    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
    <!-- /Added by HTTrack -->
    <head>
+      <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+      <script>
+         $(document).ready(function() {
+             // Make an AJAX request to check if the user is logged in
+             $.ajax({
+                 url: '../api/access_control/auth.php',
+                 type: 'GET',
+                 success: function(response) {
+                     // If the response is 'authenticated', the user is logged in
+                     if (response === 'authenticated') {
+                         // User is logged in, continue loading the page
+                         console.log('User is logged in.');
+                     } else {
+                         // User is not logged in, redirect to the login page
+                         window.location.href = '../index.html';
+                     }
+                 },
+                 error: function(xhr, status, error) {
+                     // Handle the error
+                     console.error('Error checking authentication:', error);
+                 }
+             });
+         });
+     </script>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.min.css">

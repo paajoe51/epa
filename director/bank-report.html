@@ -464,6 +464,7 @@ $.ajax({
             url: '../api/get-banking_count.php', // Replace with the actual path to your PHP script
             type: 'GET',
             dataType: 'json',
+            cache: false,
             success: function(banking) {
                 // Assign JSON data to HTML elements with different IDs
                 ($('#with_amt').text(banking.withdrawals)).simpleMoneyFormat();
@@ -482,6 +483,7 @@ $.ajax({
         url: "../api/get-deposit_banking.php",
         dataType: "json",
         type: "GET",
+        cache: false,
         dataSrc: "" // Data source property in the API response, if needed
     },
     columns: [
@@ -510,6 +512,7 @@ var dataTable = $('#with_banking_tbl').DataTable({
         url: "../api/get-withdrawal_banking.php",
         dataType: "json",
         type: "GET",
+        cache: false,
         dataSrc: "" // Data source property in the API response, if needed
     },
     columns: [

@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="../assets/vendor/charts/c3charts/c3.css">
     <link rel="stylesheet" href="../assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.css" integrity="sha256-NAxhqDvtY0l4xn+YVa6WjAcmd94NNfttjNsDmNatFVc=" crossorigin="anonymous" />
-    <title>Requests Ops-Manager</title>
+    <title>Requests-Director</title>
   </head>
   <body>
     <div class="dashboard-main-wrapper">
@@ -168,84 +168,83 @@
       <div class="nav-left-sidebar sidebar-dark">
         <div class="menu-list">
           <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="d-xl-none d-lg-none" href="#">Dashboard</a>
+            <a class="d-xl-none d-lg-none" href="index.html">Dashboard</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-              <ul class="navbar-nav flex-column">
-                <li class="nav-divider"> Menu </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="students-records.html">
-                    <i class="fas fa-fw fa-inbox"></i> Students Records <span class="badge badge-secondary">New</span>
-                  </a>
-                  <div id="submenu-7" class="collapse submenu" style="">
-                <li class="nav-item">
-                  <a class="nav-link" href="#">
-                    <i class="fas fa-fw fa-inbox"></i> Fees Table <span class="badge badge-secondary">New</span>
-                  </a>
-                  <div id="submenu-7" class="collapse submenu" style="">
-                </li>
-                <li class="nav-divider"> REPORTS </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">
-                    <i class="fas fa-fw fa-inbox"></i> Students Reports <span class="badge badge-secondary">New</span>
-                  </a>
-                  <div id="submenu-7" class="collapse submenu" style="">
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">
-                    <i class="fas fa-fw fa-inbox"></i> Staff Records <span class="badge badge-secondary">New</span>
-                  </a>
-                  <div id="submenu-7" class="collapse submenu" style="">
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-6" aria-controls="submenu-6">
-                    <i class="fas fa-fw fa-file"></i> Account </a>
-                  <div id="submenu-6" class="collapse submenu" style="">
-                    <ul class="nav flex-column">
-                      <li class="nav-item">
-                        <a class="nav-link" href="pages/blank-page.html">Expenditure Report</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="pages/blank-page.html">Bank Report</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="pages/blank-page-header.html">Received Report</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="pages/blank-page-header.html">Request Expenditure</a>
-                      </li>
-
-                    </ul>
-                  </div>
-                </li>
-                
-                <li class="nav-divider"> USER ACCOUNT </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">
-                    <i class="fas fa-fw fa-inbox"></i> Profile <span class="badge badge-secondary">New</span>
-                  </a>
-                  <div id="submenu-7" class="collapse submenu" style="">
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">
-                    <i class="fas fa-fw fa-sign-out"></i> Sign Out <span class="badge badge-secondary">New</span>
-                  </a>
-                  <div id="submenu-7" class="collapse submenu" style="">
-                </li>
-              </ul>
+               <ul class="navbar-nav flex-column">
+                  <li class="nav-divider">
+                     Menu
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="index.html" ><i class="fas fa-fw fa-tachometer-alt"></i> Dasboard<span class="badge badge-secondary">New</span></a>
+                     <div id="submenu-7" class="collapse submenu" style="">
+                  </li>                    
+                  <li class="nav-item">
+                     <a class="nav-link" href="courses.html" ><i class="fas fa-fw fa-book"></i> Courses / Batches<span class="badge badge-secondary">New</span></a>
+                     <div id="submenu-7" class="collapse submenu" style="">
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="branches.html" ><i class="fas fa-fw fa-code-branch"></i> Branches Management<span class="badge badge-secondary">New</span></a>
+                     <div id="submenu-7" class="collapse submenu" style="">
+                  </li>
+                  <li class="nav-divider">
+                     REPORTS
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="students-records.html" ><i class="fas fa-fw fa-users"></i> Students Reports<span class="badge badge-secondary">New</span></a>
+                     <div id="submenu-7" class="collapse submenu" style="">
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="staff.html" ><i class="fas fa-fw fa-suitcase"></i> Staff Records<span class="badge badge-secondary">New</span></a>
+                     <div id="submenu-7" class="collapse submenu" style="">
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="requests.html"><i class="fas fa-fw fa-print"></i> Expenditure Requests</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="bank-report.html"><i class="fas fa-fw fa-print"></i> Bank Report</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="pages/blank-page-header.html"><i class="fas fa-fw fa-print"></i> Received Report</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-6" aria-controls="submenu-6"><i class="fas fa-fw fa-money-bill-alt"></i> Account </a>
+                     <div id="submenu-6" class="collapse submenu" style="">
+                        <ul class="nav flex-column">
+                           <li class="nav-item">
+                              <a class="nav-link" href="fees-table.html"><i class="fas fa-fw fa-table"></i> Fees Table</a>
+                           </li>
+                           <li class="nav-item">
+                              <a class="nav-link"data-toggle="modal" data-target="#addUserMdl"><i class="fas fa-fw fa-plus-square"></i> Record Transaction</a>
+                           </li>
+                        </ul>
+                     </div>
+                  </li>
+                  <li class="nav-divider">
+                     USERS
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="users.html" ><i class="fas fa-fw fa-users"></i> All Users<span class="badge badge-secondary">New</span></a>
+                     <div id="submenu-7" class="collapse submenu" style="">
+                  </li>
+                     <li class="nav-item">
+                     <a class="nav-link" href="#" ><i class="fas fa-fw fa-user-plus"></i> Add User<span class="badge badge-secondary">New</span></a>
+                     <div id="submenu-7" class="collapse submenu" style="">
+                     </li>
+               </ul>
             </div>
-          </nav>
+         </nav>
         </div>
-      </div>
+     </div>
       <div class="dashboard-wrapper">
         <div class="dashboard-ecommerce">
           <div class="container-fluid dashboard-content ">
             <div class="row">
               <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                 <div class="page-header">
-                  <h2 class="pageheader-title">Expenditure Requests</h2>
+                  <h2 class="pageheader-title">Request Notifications</h2>
                   <p class="pageheader-text">Nulla euismod urna eros, sit amet scelerisque torton lectus vel mauris facilisis faucibus at enim quis massa lobortis rutrum.</p>
                   <div class="page-breadcrumb">
                     <nav aria-label="breadcrumb">
@@ -261,13 +260,13 @@
               </div>
             </div>
             <div class="ecommerce-widget">
-              <div class="row">
+              <div class="row" >
                 <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
                   <div class="card border-3 border-top border-top-primary">
                     <div class="card-body">
                       <h5 class="text-muted">All Notifications</h5>
                       <div class="metric-value d-inline-block">
-                        <h1 class="mb-1">20</h1>
+                        <h1 class="mb-1"><span class="text-info"><i class="fa fa-fw fa-info-circle"></i></span> <span id="all_reqs"> <i class="fa fa-spinner fa-spin"></i> </span></h1>
                       </div>
                       <div class="metric-label d-inline-block float-right text-success font-weight-bold">
                         <span class="icon-circle-small icon-box-xs text-success bg-success-light">
@@ -283,7 +282,7 @@
                     <div class="card-body">
                       <h5 class="text-muted">Pending Request</h5>
                       <div class="metric-value d-inline-block">
-                        <h1 class="mb-1">9</h1>
+                        <h1 class="mb-1"><span class="text-warning"><i class="fa fa-fw fa-hourglass-end"></i></span> <span id="pen_reqs"> <i class="fa fa-spinner fa-spin"></i> </span></h1>
                       </div>
                       <div class="metric-label d-inline-block float-right text-success font-weight-bold">
                         <span class="icon-circle-small icon-box-xs text-success bg-success-light">
@@ -299,7 +298,7 @@
                     <div class="card-body">
                       <h5 class="text-muted">Accepted</h5>
                       <div class="metric-value d-inline-block">
-                        <h1 class="mb-1">4</h1>
+                        <h1 class="mb-1"><span class="text-success"><i class="fa fa-fw fa-thumbs-up"></i></span> <span id="acc_reqs"> <i class="fa fa-spinner fa-spin"></i> </span></h1>
                       </div>
                       <div class="metric-label d-inline-block float-right text-success font-weight-bold">
                         <span class="icon-circle-small icon-box-xs text-success bg-success-light">
@@ -315,7 +314,7 @@
                     <div class="card-body">
                       <h5 class="text-muted">Rejected</h5>
                       <div class="metric-value d-inline-block">
-                        <h1 class="mb-1">6</h1>
+                        <h1 class="mb-1"><span class="text-danger"><i class="fa fa-fw fa-thumbs-down"></i></span> <span id="rej_reqs"> <i class="fa fa-spinner fa-spin"></i> </span></h1>
                       </div>
                       <div class="metric-label d-inline-block float-right text-danger font-weight-bold">
                         <span class="icon-circle-small icon-box-xs text-danger bg-danger-light bg-danger-light ">
@@ -334,159 +333,16 @@
                       <div class="box-title border-bottom p-3">
                         <h6 class="m-0">Recent</h6>
                       </div>
-                      <div class="box-body p-0">
-                        <div class="p-3 d-flex align-items-center bg-light border-bottom osahan-post-header">
-                          <div class="dropdown-list-image mr-3">
-                            <img class="rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="" />
-                          </div>
-                          <div class="font-weight-bold mr-3">
-                            <div class="text-truncate">
-                              <span>1. </span>
-                              <span>MICHAEL ABORDZI</span> - <span class="text-primary">Breman Asikuma</span>
-                            </div>
-                            <div class="mb-2"><span class="font-weight-normal">Income tax sops on the cards, The bias in VC funding, and other top news for you</span><span class=> - GHC 5,000 </span></div>
-                          </div>
-                          <span class="ml-auto mb-auto">
-                            
-                            <br />
-                            <div class="text-right text-warning pt-1"> <i class="fa fa-check-circle"></i> Pending Response</div>
-                          </span>
-                        </div>
+                      <div class="box-body p-0" id="recent_req_list">
+                        <!--Recent Requests Show here-->
                       </div>
                     </div>
-                    <div class="box shadow-sm rounded bg-white mb-3">
+                    <div class="box shadow-sm rounded bg-white mb-3" >
                       <div class="box-title border-bottom p-3">
                         <h6 class="m-0">Earlier</h6>
                       </div>
-                      <div class="box-body p-0">
-                        <div class="p-3 d-flex align-items-center border-bottom osahan-post-header">
-                          <div class="dropdown-list-image mr-3">
-                            <img class="rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" />
-                          </div>
-                          <div class="font-weight-bold mr-3">
-                            <div class="text-truncate">
-                              <span>1. </span>
-                              <span>MICHAEL ABORDZI</span> - <span class="text-primary">Breman Asikuma</span>
-                            </div>
-                            <div class="mb-2">
-                              <span class="font-weight-normal">Congratulate Gurdeep Singh Osahan (iamgurdeeposahan)</span> for 5 years at Askbootsrap Pvt.
-                            </div>
-                            <div class="small text-success">
-                              <i class="fa fa-check-circle"></i> Request Approved
-                            </div>
-                          </div>
-                          <span class="ml-auto mb-auto">
-                            <div class="btn-group">
-                              <button type="button" class="btn btn-light btn-sm rounded" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="mdi mdi-dots-vertical"></i>
-                              </button>
-                              <div class="dropdown-menu dropdown-menu-right">
-                                <button class="dropdown-item" type="button">
-                                  <i class="mdi mdi-delete"></i> Delete </button>
-                                <button class="dropdown-item" type="button">
-                                  <i class="mdi mdi-close"></i> Turn Off </button>
-                              </div>
-                            </div>
-                            <br />
-                            <div class="text-right text-muted pt-1">4d</div>
-                          </span>
-                        </div>
-                        <div class="p-3 d-flex align-items-center border-bottom osahan-post-header">
-                          <div class="dropdown-list-image mr-3">
-                            <img class="rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" />
-                          </div>
-                          <div class="font-weight-bold mr-3">
-                            <div class="text-truncate">
-                              <span>2. </span>
-                              <span>MICHAEL ABORDZI</span> - <span class="text-primary">Breman Asikuma</span>
-                            </div>
-                            <div class="mb-2">
-                              <span class="font-weight-normal">Congratulate Gurdeep Singh Osahan (iamgurdeeposahan)</span> for 5 years at Askbootsrap Pvt.
-                            </div>
-                            <div class="small text-success">
-                              <i class="fa fa-check-circle"></i> Request Approved
-                            </div>
-                          </div>
-                          <span class="ml-auto mb-auto">
-                            <div class="btn-group">
-                              <button type="button" class="btn btn-light btn-sm rounded" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="mdi mdi-dots-vertical"></i>
-                              </button>
-                              <div class="dropdown-menu dropdown-menu-right">
-                                <button class="dropdown-item" type="button">
-                                  <i class="mdi mdi-delete"></i> Delete </button>
-                                <button class="dropdown-item" type="button">
-                                  <i class="mdi mdi-close"></i> Turn Off </button>
-                              </div>
-                            </div>
-                            <br />
-                            <div class="text-right text-muted pt-1">4d</div>
-                          </span>
-                        </div>
-                        <div class="p-3 d-flex align-items-center border-bottom osahan-post-header">
-                          <div class="dropdown-list-image mr-3">
-                            <img class="rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" />
-                          </div>
-                          <div class="font-weight-bold mr-3">
-                            <div class="text-truncate">
-                              <span>3. </span>
-                              <span>MICHAEL ABORDZI</span> - <span class="text-primary">Agona Swedru</span>
-                            </div>
-                            <div class="mb-2">
-                              <span class="font-weight-normal">Congratulate Gurdeep Singh Osahan (iamgurdeeposahan)</span> for 5 years at Askbootsrap Pvt.
-                            </div>
-                            <div class="small text-danger">
-                              <i class="fa fa-times-circle"></i> Request declined
-                            </div>
-                          </div>
-                          <span class="ml-auto mb-auto">
-                            <div class="btn-group">
-                              <button type="button" class="btn btn-light btn-sm rounded" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="mdi mdi-dots-vertical"></i>
-                              </button>
-                              <div class="dropdown-menu dropdown-menu-right">
-                                <button class="dropdown-item" type="button">
-                                  <i class="mdi mdi-delete"></i> Delete </button>
-                                <button class="dropdown-item" type="button">
-                                  <i class="mdi mdi-close"></i> Turn Off </button>
-                              </div>
-                            </div>
-                            <br />
-                            <div class="text-right text-muted pt-1">4d</div>
-                          </span>
-                        </div>
-                        <div class="p-3 d-flex align-items-center border-bottom osahan-post-header">
-                          <div class="dropdown-list-image mr-3">
-                            <img class="rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" />
-                          </div>
-                          <div class="font-weight-bold mr-3">
-                            <div class="text-truncate">
-                              <span>4. </span>
-                              <span>MICHAEL ABORDZI</span> - <span class="text-primary">Kasoa</span>
-                            </div>
-                            <div class="mb-2">
-                              <span class="font-weight-normal">Congratulate Gurdeep Singh Osahan (iamgurdeeposahan)</span> for 5 years at Askbootsrap Pvt.
-                            </div>
-                            <div class="small text-success">
-                              <i class="fa fa-check-circle"></i>Request Approved
-                            </div>
-                          </div>
-                          <span class="ml-auto mb-auto">
-                            <div class="btn-group">
-                              <button type="button" class="btn btn-light btn-sm rounded" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="mdi mdi-dots-vertical"></i>
-                              </button>
-                              <div class="dropdown-menu dropdown-menu-right">
-                                <button class="dropdown-item" type="button">
-                                  <i class="mdi mdi-delete"></i> Delete </button>
-                                <button class="dropdown-item" type="button">
-                                  <i class="mdi mdi-close"></i> Turn Off </button>
-                              </div>
-                            </div>
-                            <br />
-                            <div class="text-right text-muted pt-1">4d</div>
-                          </span>
-                        </div>
+                      <div class="box-body p-0" id="old_req_list">
+                        <!--Earlier MRequests show here-->
                       </div>
                     </div>
                   </div>
@@ -562,6 +418,197 @@
         });
       });
     </script>
+    <script>
+      reloadNumbers();
+      // Reload the content after AJAX success
+      function reloadNumbers() {
+           $.ajax({
+            url: '../api/get-request_count.php', // Replace with the actual path to your PHP script
+            type: 'GET',
+            dataType: 'json',
+            success: function(request) {
+                // Assign JSON data to HTML elements with different IDs
+                $('#all_reqs').text(request.total);
+                $('#pen_reqs').text(request.pending);
+                $('#acc_reqs').text(request.accepted);
+                $('#rej_reqs').text(request.rejected);
+                // Assign more data to other HTML elements as needed
+            },
+            error: function(xhr, status, error) {
+                console.error('Error fetching JSON data:', error);
+            }
+        });
+      }
+      $.ajax({
+           url: '../api/get-recent_requests_data.php', // Update with your endpoint URL
+           type: 'GET',
+           dataType: 'json', // Assuming the response is JSON
+           success: function(data) {
+               // Assuming the data received is an array of objects
+               var requestsBox = $('#recent_req_list');
+
+               // Iterate through the data and populate the table rows
+               $.each(data, function(index, request) {
+                var request_status;
+               
+                if (request.status=="accepted"){
+                    request_status ='<div class="small text-success">'+
+                                    '<i class="fa fa-check-circle"></i> Request Approved'+
+                            '</div>'
+                  }else if(request.status=="pending"){
+                    request_status ='<div class="small text-warning">'+
+                                    '<i class="fa fa-check-circle"></i> Request Submitted and Pending response'+
+                            '</div>'
+                  }else if(request.status=="declined"){
+                    request_status ='<div class="small text-danger">'+
+                                    '<i class="fa fa-check-circle"></i> Request was Declined'+
+                            '</div>'
+                    }
+                   var row = '<div class="p-3 d-flex align-items-center border-bottom osahan-post-header col-md-12">'+
+                                '<input type="text" class="d-none request-id" value='+request.id+'>'+
+                                '<div class="dropdown-list-image mr-3">'+
+                                  '<img class="rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" />'+
+                                '</div>'+
+                                '<div class="font-weight-bold mr-3">'+
+                                 ' <div class="text-truncate">'+
+                                   ' <span>'+(index+1)+'. </span>'+
+                                   ' <span>'+request.personnel+'</span> - <span class="text-primary"> '+request.branch+' </span>'+
+                                  '</div>'+
+                                  '<div class="mb-2 col-md-12">'+
+                                    '<span class="font-weight-normal">'+request.description+'</span><br> <span class="float-right"> - GHC '+request.amount+'</span>'+
+                                 ' </div>'+
+                                 request_status+
+                               ' </div>'+
+                                '<span class="ml-auto mb-auto">'+
+                                  '<div class="btn-group" id="action_buttons" data-request-id = '+request.id+'>'+
+                                    '<button type="button" class="btn btn-light btn-sm rounded" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'+
+                                    '  <i class="mdi mdi-dots-vertical"></i>'+
+                                    '</button>'+
+                                    '<div class="dropdown-menu dropdown-menu-right">'+
+                                      '<button class="dropdown-item text-success approve-btn" type="button">'+
+                                        '<i class="mdi mdi-delete"></i> Aprove </button>'+
+                                      '<button class="dropdown-item text-danger decline-btn" type="button">'+
+                                        '<i class="mdi mdi-close"></i> Decline </button>'+
+                                    '</div>'+
+                                  '</div>'+
+                                  '<br />'+
+                                  '<div class="text-right text-muted pt-1">4d</div>'+
+                               ' </span>'+
+                             ' </div>'
+                   requestsBox.append(row);
+               });
+           },
+           error: function(xhr, status, error) {
+               console.error('Error fetching data:', error);
+           }
+       });
+
+
+      $.ajax({
+           url: '../api/get-earlier_requests_data.php', // Update with your endpoint URL
+           type: 'GET',
+           dataType: 'json', // Assuming the response is JSON
+           success: function(data) {
+               // Assuming the data received is an array of objects
+               var requestsBox = $('#old_req_list');
+
+               // Iterate through the data and populate the table rows
+               $.each(data, function(index, request) {
+                var request_status;
+               
+                if (request.status=="accepted"){
+                    request_status ='<div class="small text-success">'+
+                                    '<i class="fa fa-check-circle"></i> Request Approved'+
+                            '</div>'
+                  }else if(request.status=="pending"){
+                    request_status ='<div class="small text-warning">'+
+                                    '<i class="fa fa-check-circle"></i> Request Submitted and Pending response'+
+                            '</div>'
+                  }else if(request.status=="declined"){
+                    request_status ='<div class="small text-danger">'+
+                                    '<i class="fa fa-check-circle"></i> Request was Declined'+
+                            '</div>'
+                    }
+                   var row = '<div class="p-3 d-flex align-items-center border-bottom osahan-post-header col-md-12">'+
+                                '<input type="text" class="d-none request-id" value='+request.id+'>'+
+                                '<div class="dropdown-list-image mr-3">'+
+                                  '<img class="rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" />'+
+                                '</div>'+
+                                '<div class="font-weight-bold mr-3">'+
+                                 ' <div class="text-truncate">'+
+                                   ' <span>'+(index+1)+'. </span>'+
+                                   ' <span>'+request.personnel+'</span> - <span class="text-primary"> '+request.branch+' </span>'+
+                                  '</div>'+
+                                  '<div class="mb-2 col-md-12">'+
+                                    '<span class="font-weight-normal">'+request.description+'</span><br> <span class="float-right"> - GHC '+request.amount+'</span>'+
+                                 ' </div>'+
+                                 request_status+
+                               ' </div>'+
+                                '<span class="ml-auto mb-auto">'+
+                                  '<div class="btn-group" id="action_buttons" data-request-id = '+request.id+'>'+
+                                    '<button type="button" class="btn btn-light btn-sm rounded" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'+
+                                    '  <i class="mdi mdi-dots-vertical"></i>'+
+                                    '</button>'+
+                                    '<div class="dropdown-menu dropdown-menu-right">'+
+                                      '<button class="dropdown-item text-success hide-btn" type="button">'+
+                                        '<i class="mdi mdi-delete"></i> Hide </button>'+
+                                    '</div>'+
+                                  '</div>'+
+                                  '<br />'+
+                                  '<div class="text-right text-muted pt-1">4d</div>'+
+                               ' </span>'+
+                             ' </div>'
+                   requestsBox.append(row);
+               });
+           },
+           error: function(xhr, status, error) {
+               console.error('Error fetching data:', error);
+           }
+       });
+
+       $(document).on('click', '.approve-btn', function() {
+        var requestId = $(this).closest('.btn-group').data('request-id');
+
+    // Send AJAX request to update the status to 'Accepted'
+    $.ajax({
+        url: '../api/update-request_status.php',
+        type: 'POST',
+        data: { requestId: requestId, status: 'accepted' },
+        success: function(response) {
+            // Handle success (you can update the UI as needed)
+            console.log(response);
+            location.reload();
+        },
+        error: function(error) {
+            // Handle error
+            console.error(error);
+        }
+    });
+});
+
+$(document).on('click', '.decline-btn', function() {
+        var requestId = $(this).closest('.btn-group').data('request-id');
+
+    // Send AJAX request to update the status to 'Accepted'
+    $.ajax({
+        url: '../api/update-request_status.php',
+        type: 'POST',
+        data: { requestId: requestId, status: 'declined' },
+        success: function(response) {
+            // Handle success (you can update the UI as needed)
+            console.log(response);
+            location.reload();
+        },
+        error: function(error) {
+            // Handle error
+            console.error(error);
+        }
+    });
+});
+
+
+    </script>
+
     <script src="../assets/vendor/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js" data-cf-settings="8753a994eed150800267cbdd-|49" defer=""></script>
   </body>
   <!-- Mirrored from colorlib.com/polygon/concept/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Mar 2020 00:27:53 GMT -->

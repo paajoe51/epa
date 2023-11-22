@@ -289,6 +289,7 @@
                                              <th class="border-0" width="3%">#</th>
                                              <th class="border-0" width="5%">Image</th>
                                              <th >ID</th>
+                                             <th>Branch</th>
                                              <th class="border-0" width ="15%">Student Name</th>
                                              <th class="border-0" width="7%">Mobile </th>
                                              <th class="border-0" width="20%">Course</th>
@@ -689,6 +690,7 @@ var dataTable = $('#std_recs_tbl').DataTable({
         { data: null }, // ID
         { data: null}, // Avatar
         { data: "id", className:'ID d-none'},
+        { data: "branch" },
         { data: "name" },
         { data: "contact" },
         { data: "course" },
@@ -716,7 +718,7 @@ var dataTable = $('#std_recs_tbl').DataTable({
             }
         },
         {
-            targets: [12], // Target the Actions column
+            targets: [13], // Target the Actions column
             orderable: false,
             render: function (data, type, row) {
                 return '<td style="margin:0;padding:2px;">' +

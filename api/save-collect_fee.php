@@ -63,7 +63,7 @@ if ($amount == "" || $student == "") {
         $insertStmt->bindParam(':trans_id', $trans_id);
 
         if ($insertStmt->execute()) {
-            $number = '233' . substr($sp_contact, 1);    
+            $number = ['233' . substr($sp_contact, 1)];    
             $message = "An amount of GHC $amount has been successfully paid as fees for $student_name. \nTotal Amount Paid is GHC $newAmount \nRemaining Balance is  $payment_status";
             include('send-sms.php');
             $response = array('success' => true);

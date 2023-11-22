@@ -1,0 +1,650 @@
+<!doctype html>
+<html lang="en">
+   <!-- Mirrored from colorlib.com/polygon/concept/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Mar 2020 00:15:28 GMT -->
+   <!-- Added by HTTrack -->
+   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+   <!-- /Added by HTTrack -->
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.min.css">
+      <link href="../assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
+      <link rel="stylesheet" href="../assets/libs/css/style.css">
+      <link rel="stylesheet" href="../assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
+      <link rel="stylesheet" href="../assets/vendor/charts/chartist-bundle/chartist.css">
+      <link rel="stylesheet" href="../assets/vendor/charts/morris-bundle/morris.css">
+      <link rel="stylesheet" href="../assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
+      <link rel="stylesheet" href="../assets/vendor/charts/c3charts/c3.css">
+      <link rel="stylesheet" href="../assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
+      <title>Branches</title>
+   </head>
+   <body>
+      <div class="dashboard-main-wrapper">
+         <div class="dashboard-header">
+            <nav class="navbar navbar-expand-lg bg-white fixed-top">
+               <a class="navbar-brand" href="index-2.html">IPMC - EPADAC</a>
+               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+               </button>
+               <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                  <ul class="navbar-nav ml-auto navbar-right-top">
+                     <li class="nav-item dropdown notification">
+                        <a class="nav-link nav-icons" href="#" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-fw fa-bell"></i> <span class="indicator"></span></a>
+                        <ul class="dropdown-menu dropdown-menu-right notification-dropdown">
+                           <li>
+                              <div class="notification-title"> Notification</div>
+                              <div class="notification-list">
+                                 <div class="list-group">
+                                    <a href="#" class="list-group-item list-group-item-action active">
+                                       <div class="notification-info">
+                                          <div class="notification-list-user-img"><img src="../assets/images/avatar-2.jpg" alt="" class="user-avatar-md rounded-circle"></div>
+                                          <div class="notification-list-user-block">
+                                             <span class="notification-list-user-name">Jeremy Rakestraw</span>accepted your invitation to join the team.
+                                             <div class="notification-date">2 min ago</div>
+                                          </div>
+                                       </div>
+                                    </a>
+                                    <a href="#" class="list-group-item list-group-item-action">
+                                       <div class="notification-info">
+                                          <div class="notification-list-user-img"><img src="../assets/images/avatar-3.jpg" alt="" class="user-avatar-md rounded-circle"></div>
+                                          <div class="notification-list-user-block">
+                                             <span class="notification-list-user-name">John Abraham </span>is now following you
+                                             <div class="notification-date">2 days ago</div>
+                                          </div>
+                                       </div>
+                                    </a>
+                                    <a href="#" class="list-group-item list-group-item-action">
+                                       <div class="notification-info">
+                                          <div class="notification-list-user-img"><img src="../assets/images/avatar-4.jpg" alt="" class="user-avatar-md rounded-circle"></div>
+                                          <div class="notification-list-user-block">
+                                             <span class="notification-list-user-name">Monaan Pechi</span> is watching your main repository
+                                             <div class="notification-date">2 min ago</div>
+                                          </div>
+                                       </div>
+                                    </a>
+                                    <a href="#" class="list-group-item list-group-item-action">
+                                       <div class="notification-info">
+                                          <div class="notification-list-user-img"><img src="../assets/images/avatar-5.jpg" alt="" class="user-avatar-md rounded-circle"></div>
+                                          <div class="notification-list-user-block">
+                                             <span class="notification-list-user-name">Jessica Caruso</span>accepted your invitation to join the team.
+                                             <div class="notification-date">2 min ago</div>
+                                          </div>
+                                       </div>
+                                    </a>
+                                 </div>
+                              </div>
+                           </li>
+                           <li>
+                              <div class="list-footer"> <a href="#">View all notifications</a></div>
+                           </li>
+                        </ul>
+                     </li>
+                     <li class="nav-item dropdown connection">
+                        <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fas fa-fw fa-th"></i> </a>
+                        <ul class="dropdown-menu dropdown-menu-right connection-dropdown">
+                           <li class="connection-list">
+                              <div class="row">
+                                 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
+                                    <a href="#" class="connection-item"><img src="../assets/images/github.png" alt=""> <span>Github</span></a>
+                                 </div>
+                                 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
+                                    <a href="#" class="connection-item"><img src="../assets/images/dribbble.png" alt=""> <span>Dribbble</span></a>
+                                 </div>
+                                 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
+                                    <a href="#" class="connection-item"><img src="../assets/images/dropbox.png" alt=""> <span>Dropbox</span></a>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
+                                    <a href="#" class="connection-item"><img src="../assets/images/bitbucket.png" alt=""> <span>Bitbucket</span></a>
+                                 </div>
+                                 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
+                                    <a href="#" class="connection-item"><img src="../assets/images/mail_chimp.png" alt=""><span>Mail chimp</span></a>
+                                 </div>
+                                 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
+                                    <a href="#" class="connection-item"><img src="../assets/images/slack.png" alt=""> <span>Slack</span></a>
+                                 </div>
+                              </div>
+                           </li>
+                           <li>
+                              <div class="conntection-footer"><a href="#">More</a></div>
+                           </li>
+                        </ul>
+                     </li>
+                     <li class="nav-item dropdown nav-user">
+                        <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../assets/images/avatar-1.jpg" alt="" class="user-avatar-md rounded-circle"></a>
+                        <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
+                           <div class="nav-user-info">
+                              <h5 class="mb-0 text-white nav-user-name">John Abraham </h5>
+                              <span class="status"></span><span class="ml-2">Available</span>
+                           </div>
+                           <a class="dropdown-item" href="#"><i class="fas fa-user mr-2"></i>Account</a>
+                           <a class="dropdown-item" href="#"><i class="fas fa-cog mr-2"></i>Setting</a>
+                           <a class="dropdown-item" href="#"><i class="fas fa-power-off mr-2"></i>Logout</a>
+                        </div>
+                     </li>
+                  </ul>
+               </div>
+            </nav>
+         </div>
+         <div class="nav-left-sidebar sidebar-dark">
+            <div class="menu-list">
+               <nav class="navbar navbar-expand-lg navbar-light">
+                  <a class="d-xl-none d-lg-none" href="index.html">Dashboard</a>
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarNav">
+                     <ul class="navbar-nav flex-column">
+                        <li class="nav-divider">
+                           Menu
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link" href="index.html" ><i class="fas fa-fw fa-tachometer-alt"></i> Dasboard<span class="badge badge-secondary">New</span></a>
+                           <div id="submenu-7" class="collapse submenu" style="">
+                        </li>                    
+                        <li class="nav-item">
+                           <a class="nav-link" href="courses.html" ><i class="fas fa-fw fa-book"></i> Courses / Batches<span class="badge badge-secondary">New</span></a>
+                           <div id="submenu-7" class="collapse submenu" style="">
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link" href="branches.html" ><i class="fas fa-fw fa-code-branch"></i> Branches Management<span class="badge badge-secondary">New</span></a>
+                           <div id="submenu-7" class="collapse submenu" style="">
+                        </li>
+                        <li class="nav-divider">
+                           REPORTS
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link" href="students-records.html" ><i class="fas fa-fw fa-users"></i> Students Reports<span class="badge badge-secondary">New</span></a>
+                           <div id="submenu-7" class="collapse submenu" style="">
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link" href="staff.html" ><i class="fas fa-fw fa-suitcase"></i> Staff Records<span class="badge badge-secondary">New</span></a>
+                           <div id="submenu-7" class="collapse submenu" style="">
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link" href="requests.html"><i class="fas fa-fw fa-print"></i> Expenditure Requests</a>
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link" href="bank-report.html"><i class="fas fa-fw fa-print"></i> Bank Report</a>
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link" href="pages/blank-page-header.html"><i class="fas fa-fw fa-print"></i> Received Report</a>
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-6" aria-controls="submenu-6"><i class="fas fa-fw fa-money-bill-alt"></i> Account </a>
+                           <div id="submenu-6" class="collapse submenu" style="">
+                              <ul class="nav flex-column">
+                                 <li class="nav-item">
+                                    <a class="nav-link" href="fees-table.html"><i class="fas fa-fw fa-table"></i> Fees Table</a>
+                                 </li>
+                                 <li class="nav-item">
+                                    <a class="nav-link"data-toggle="modal" data-target="#addUserMdl"><i class="fas fa-fw fa-plus-square"></i> Record Transaction</a>
+                                 </li>
+                              </ul>
+                           </div>
+                        </li>
+                        <li class="nav-divider">
+                           USERS
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link" href="users.html" ><i class="fas fa-fw fa-users"></i> All Users<span class="badge badge-secondary">New</span></a>
+                           <div id="submenu-7" class="collapse submenu" style="">
+                        </li>
+                           <li class="nav-item">
+                           <a class="nav-link" href="#" ><i class="fas fa-fw fa-user-plus"></i> Add User<span class="badge badge-secondary">New</span></a>
+                           <div id="submenu-7" class="collapse submenu" style="">
+                           </li>
+                     </ul>
+                  </div>
+               </nav>
+            </div>
+         </div>
+         <div class="dashboard-wrapper">
+            <div class="dashboard-ecommerce">
+               <div class="container-fluid dashboard-content ">
+                  <div class="row">
+                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="page-header">
+                           <h2 class="pageheader-title">Branches </h2>
+                           <p class="pageheader-text">Nulla euismod urna eros, sit amet scelerisque torton lectus vel mauris facilisis faucibus at enim quis massa lobortis rutrum.</p>
+                           <div class="page-breadcrumb">
+                              <nav aria-label="breadcrumb">
+                                 <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Branches</li>
+                                 </ol>
+                              </nav>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="ecommerce-widget">
+                     <div class="row">
+                        <div class="col-sm-12 col-lg-12 col-md-6 col-sm-12 col-12">
+                           <div class="card">
+                              <div class="card-header primary">
+                                 <span><h5 class="mb-0">Branches Records<button type="button"class=" btn btn-success float-right" data-toggle="modal" data-target="#addUserMdl"> <i class="fas fa-plus-square"></i> Create Branch <i class="fas fa-university"></i></button></h5></span>
+                              </div>
+                              <div class="card-body">
+                                 <div class="table-responsive">
+                                    <table  class="table  table-hover table-bordered small" id="br_tbl" data-page-length='5'>
+                                       <thead class="bg-light">
+                                          <tr class="border-0">
+                                             <th class="border-0 border-right" width="5%">#</th>
+                                             <th class="border-0" width="5%"></th>
+                                             <th class="d-none">ID</th>
+                                             <th class="border-0" >Branch Name</th>
+                                             <th class="border-0">Location</th>
+                                             <th class="border-0">Students </th>
+                                             <th class="border-0">Staff</th>
+                                             <th class="border-0 d-none">Branch ID </th>
+                                             <th class="text-center" width="15%">Action</th>
+                                          </tr>
+                                       </thead>
+                                       <tbody>
+                                          <!--The table content loads here-->
+                                       </tbody>
+                                    </table>
+                                 </div>
+                              </div>
+                           </div>
+                        
+                        </div>
+                                 
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="footer">
+               <div class="container-fluid">
+                  <div class="row">
+                     <div class="col-xl-8 col-lg-6 col-md-6 col-sm-12 col-12">
+                        Copyright © 2023 EPADAC Business Center - Powered by Mickysoft Technologies. All rights reserved.
+                     </div>
+                     <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
+                        <div class="text-md-right footer-links d-none d-sm-block">
+                           <a href="javascript: void(0);">About</a>
+                           <a href="javascript: void(0);">Support</a>
+                           <a href="javascript: void(0);">Contact Us</a>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+       <!-- The Modal -->
+  <div class="modal fade" id="addUserMdl">
+   <div class="modal-dialog modal-lg">
+     <div class="modal-content">
+     
+       <!-- Modal Header -->
+       <div class="modal-header">
+         <h4 class="modal-title">Create New Branch</h4>
+         <button type="button" class="close" data-dismiss="modal">&times;</button>
+       </div>
+       
+       <!-- Modal body -->
+       <div class="modal-body">
+         <form id="addBranchform">
+            <div class="input-group mb-3">
+               <div class="input-group-prepend">
+               <span class="input-group-text">Bramch ID:</span>
+               </div>
+               <input type="text" class="form-control" id="br_id_txt" name="branch_id" readonly>
+               <div class="input-group-append">
+                  <span class="input-group-text">-#-</i></span>
+               </div>
+            </div>
+            <div class="input-group mb-3">
+               <div class="input-group-prepend">
+               <span class="input-group-text">Bramch name:</span>
+               </div>
+               <input type="text" class="form-control" id="br_name_txt" name="branch_name">
+               <div class="input-group-append">
+                  <span class="input-group-text"><i class="fas fa-university"></i></span>
+               </div>
+            </div>
+            <div class="input-group mb-3">
+               <div class="input-group-prepend">
+               <span class="input-group-text">Location:</span>
+               </div>
+               
+               <input type="text" class="form-control" id ="location_txt" name="location">
+               <div class="input-group-append">
+                  <span class="input-group-text"><i class="fas fa-map"></i></span>
+               </div>
+            </div>
+            <div class="input-group mb-3">
+               <div class="input-group-prepend">
+               <span class="input-group-text">Address:</span>
+               </div>
+               <textarea type="text" class="form-control" id="address_txt" name="address"></textarea>
+               <div class="input-group-append">
+                  <span class="input-group-text"><i class="fas fa-box"></i></span>
+               </div>
+            </div>
+         </form>
+       </div>
+       
+       <!-- Modal footer -->
+       <div class="modal-footer">
+         <button type="button" class="btn btn-success" id="addBranchBtn" data-dismiss="modal">Save</button>
+         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+       </div>
+       
+     </div>
+   </div>
+ </div>
+
+ <div class="modal fade" id="editBranchMdl">
+   <div class="modal-dialog modal-lg">
+     <div class="modal-content">
+     
+       <!-- Modal Header -->
+       <div class="modal-header">
+         <h4 class="modal-title">Edit Branch</h4>
+         <button type="button" class="close" data-dismiss="modal">&times;</button>
+       </div>
+       
+       <!-- Modal body -->
+       <div class="modal-body">
+         <form id="editBranchform">
+            <div class="input-group mb-3 d-none">
+               <div class="input-group-prepend">
+               <span class="input-group-text">Bramch ID:</span>
+               </div>
+               <input type="text" class="form-control br_id_txt" id="edit_br_id" name="branch_id" readonly>
+               <div class="input-group-append">
+                  <span class="input-group-text">-#-</i></span>
+               </div>
+            </div>
+            <div class="input-group mb-3">
+               <div class="input-group-prepend">
+               <span class="input-group-text">Bramch name:</span>
+               </div>
+               <input type="text" class="form-control" id="edit_br_name" name="branch_name">
+               <div class="input-group-append">
+                  <span class="input-group-text"><i class="fas fa-university"></i></span>
+               </div>
+            </div>
+            <div class="input-group mb-3">
+               <div class="input-group-prepend">
+               <span class="input-group-text">Location:</span>
+               </div>
+               <input type="text" class="form-control" id ="edit_br_location" name="location">
+               <div class="input-group-append">
+                  <span class="input-group-text"><i class="fas fa-map"></i></span>
+               </div>
+            </div>
+            <div class="input-group mb-3">
+               <div class="input-group-prepend">
+               <span class="input-group-text">Address:</span>
+               </div>
+               <textarea type="text" class="form-control" id="edit_address_txt" name="address"></textarea>
+               <div class="input-group-append">
+                  <span class="input-group-text"><i class="fas fa-box"></i></span>
+               </div>
+            </div>
+         </form>
+       </div>
+       
+       <!-- Modal footer -->
+       <div class="modal-footer">
+         <button type="button" class="btn btn-success" id="editBranchBtn" data-dismiss="modal">Save</button>
+         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+       </div>
+       
+     </div>
+   </div>
+ </div>
+      <script src="../assets/vendor/jquery/jquery-3.3.1.min.js" type="8753a994eed150800267cbdd-text/javascript"></script>
+      <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.js" type="8753a994eed150800267cbdd-text/javascript"></script>
+      <script src="../assets/vendor/slimscroll/jquery.slimscroll.js" type="8753a994eed150800267cbdd-text/javascript"></script>
+      <script src="../assets/libs/js/main-js.js" type="8753a994eed150800267cbdd-text/javascript"></script>
+      <script src="../assets/vendor/charts/chartist-bundle/chartist.min.js" type="8753a994eed150800267cbdd-text/javascript"></script>
+      <script src="../assets/vendor/charts/sparkline/jquery.sparkline.js" type="8753a994eed150800267cbdd-text/javascript"></script>
+      <script src="../assets/vendor/charts/morris-bundle/raphael.min.js" type="8753a994eed150800267cbdd-text/javascript"></script>
+      <script src="../assets/vendor/charts/morris-bundle/morris.js" type="8753a994eed150800267cbdd-text/javascript"></script>
+      <script src="../assets/vendor/charts/c3charts/c3.min.js" type="8753a994eed150800267cbdd-text/javascript"></script>
+      <script src="../assets/vendor/charts/c3charts/d3-5.4.0.min.js" type="8753a994eed150800267cbdd-text/javascript"></script>
+      <script src="../assets/vendor/charts/c3charts/C3chartjs.js" type="8753a994eed150800267cbdd-text/javascript"></script>
+      <script src="../assets/libs/js/dashboard-ecommerce.js" type="8753a994eed150800267cbdd-text/javascript"></script>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13" type="8753a994eed150800267cbdd-text/javascript"></script>
+      <script type="8753a994eed150800267cbdd-text/javascript">
+         window.dataLayer = window.dataLayer || [];
+         function gtag(){dataLayer.push(arguments);}
+         gtag('js', new Date());
+         
+         gtag('config', 'UA-23581568-13');
+      </script>
+      <script src="../assets/vendor/datatables.net/jquery-3.7.0.js"></script>
+      <script src="../assets/vendor/datatables.net/dataTables.min.js"></script>
+      <script src="../assets/vendor/datatables.net/dataTables.bootstrap4.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+      <script>
+          $.ajax({
+           url: '../api/get-branches_data.php', // Update with your endpoint URL
+           type: 'GET',
+           dataType: 'json', // Assuming the response is JSON
+           cache: false,
+           success: function(data) {
+               // Assuming the data received is an array of objects
+               var tableBody = $('#br_tbl tbody');
+
+               // Iterate through the data and populate the table rows
+               $.each(data, function(index, branch) {
+                   var row = '<tr>' +
+                       '<td>' + (index + 1) + '</td>' +
+                       '<td class="text-center text-info">'+
+                           '<div class="m-r-5"><i class="fas fa-university fa-2x cyan-color text-center"></i></div>'+
+                        '</td>'+
+                       '<td class="d-none">' + branch.id + '</td>' +
+                       '<td>' + branch.name + '</td>' +
+                       '<td>' + branch.location + '</td>' +
+                       '<td>'+branch.num_students+'</td>' +
+                       '<td>'+branch.num_staff+'</td>' +
+                       '<td class="d-none">' + branch.branch_id + '</td>' +
+                       '<td style="margin:0;padding:2px;"  class= "text-center">'+
+                               '<span>'+
+                                   '<button type="button" class="btn btn-sm btn-outline-warning" style="margin:0; margin-left: margin-right:0;"><i class="fas fa-cog fa-spin fa-lg"></i></button>'+
+                                   '<button type="button" class="btn btn-sm btn-outline-danger" style="margin:0; margin-left: 0; margin-right:0;"><i class="fas fa-user-times  fa-lg"></i></button>'+
+                               '</span>'+
+                            '</td>'+
+                       '</tr>';
+                   tableBody.append(row);
+               });
+           },
+           error: function(xhr, status, error) {
+               console.error('Error fetching data:', error);
+           }
+       });
+      </script>
+      <script>
+         $(function(){
+               $(".dropdown-menu").on('click', 'a', function(){
+                  $(this).parents('.dropdown').find('button').text($(this).text());
+               });
+            });
+     </script>
+
+      <script src="../assets/vendor/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js" data-cf-settings="8753a994eed150800267cbdd-|49" defer=""></script>
+      <script>
+         $(document).ready(function(){
+
+            $('#br_name_txt').on('input', function() {
+        // Get the value of the 'branch_name' input
+        var branchName = $(this).val();
+
+        // Call a function to update the 'branch_id' input
+        updateBranchId(branchName);
+    });
+
+    // Function to update the 'branch_id' input
+    function updateBranchId(branchName) {
+        // Remove leading and trailing whitespaces
+        branchName = branchName.trim();
+
+        // Split the 'branchName' into words
+        var words = branchName.split(/\s+/);
+
+        // Initialize 'branchId' as an empty string
+        var branchId = '';
+
+        // Check if 'branchName' has only one word
+        if (words.length === 1) {
+            // If only one word, take the first 2 consonants
+            branchId = branchName.replace(/[aeiou]/gi, '').slice(0, 2).toUpperCase();
+        } else {
+            // Otherwise, take the first letter of each word
+            branchId = words.map(function(word) {
+                // Extract the first letter and convert to uppercase
+                return word.charAt(0).toUpperCase();
+            }).join('');
+        }
+
+        // Set the value of 'branch_id' input
+        $('#br_id_txt').val(branchId);
+    }
+            $("#addBranchBtn").click(function(event){
+              // alert('test button')  ;
+               event.preventDefault()
+               var branch_name = $("#br_name_txt").val().trim();
+               var location = $("#location_txt").val().trim();
+               var address = $("#address_txt").val().trim();
+               var form_data = $("#addBranchform").serialize();
+
+               if( branch_name != "" && location != ""){
+                  // alert('all fields set');
+                     $.ajax({
+                        url:'../api/save-branch.php',
+                        type:'POST',
+                        contentType: 'application/x-www-form-urlencoded',
+                        data:form_data,
+                        success:function(response){
+                           //var msg = "";
+                           if(response ==200){
+                              Swal.fire(
+                                 'Sucessful',
+                                 'Branch <strong>'+branch_name+'</strong> Created Succesfully',
+                                 'success'
+                              )
+
+                              $(function () {
+                                 $('#modal-lg').modal('toggle');
+                              });
+                                 window.location = "dashboard/index.html";
+                           }
+                           else if(response ==400){
+                              Swal.fire(
+                                 'Error',
+                                 'User already Exists',
+                                 'error'
+                              )
+                           }
+                           else{
+                              alert ('something went wrong');
+                                 //msg = "Invalid username and password!";
+                           }
+                        //   $("#message").html(msg);
+                        }
+                     });
+               }
+            });
+         })
+         // Add a click event listener to the delete buttons
+        $('#br_tbl').on('click', '.btn-outline-danger', function () {
+            // Get the row containing the delete button
+            var row = $(this).closest('tr');
+
+            // Get the value in the 'ID' column of the clicked row
+            var id = row.find('td:eq(2)').text(); // Assuming ID is in the third column (index 2)
+            var name = row.find('td:eq(3)').text(); // Assuming ID is in the third column (index 2)
+            // Confirm deletion with the user
+            if (confirm('Are you sure you want to delete this record?')) {
+                // Send an AJAX request to the PHP script to delete the record
+                $.ajax({
+                    type: 'POST',
+                    url: '../api/save-delete_branch.php',
+                    data: { id: id },
+                    success: function (response) {
+                        // If the record is successfully deleted, remove the row from the table
+                        if (response === 'success') {
+                              Swal.fire(
+                                 'Sucessful',
+                                 'Branch <strong>'+name+'</strong> Deleted Succesfully',
+                                 'success'
+                              )
+                            row.remove();
+                        } else {
+                            alert('Error deleting record. Please try again.');
+                        }
+                    }
+                });
+            }
+        });
+        $('#br_tbl').on('click', '.btn-outline-warning', function() {
+    // Get the data from the selected row
+    var rowData = $(this).closest('tr').find('td:not(:last-child)');
+
+    // Populate the modal form with the data
+    $('#edit_br_id').val(rowData.eq(2).text());
+    $('#edit_br_name').val(rowData.eq(3).text());
+    $('#edit_br_location').val(rowData.eq(4).text());
+    branch_name: $('#edit_br_name').val(),
+
+    // You can continue this for other fields as well
+
+    // Show the modal
+    $('#editBranchMdl').modal('show');
+
+    $('#editBranchBtn').click(function() {
+    // Get the updated data from the form
+    var updatedData = {
+        branch_id: $('#edit_br_id').val(),
+        branch_name: $('#edit_br_name').val(),
+        branch_location: $('#edit_br_location').val()
+        // Add other fields here
+    };
+
+    // Send an AJAX request to update the record
+    $.ajax({
+        type: 'POST',
+        url: '../api/save-edit_branch.php', // Your PHP script for updating the record
+        data: updatedData,
+        success: function(response) {
+         if(response ==200){
+               Swal.fire(
+                  'Sucessful',
+                  'Branch  Updated  Succesfully',
+                  'success'
+               )
+
+               $(function () {
+                  $('#modal-lg').modal('toggle');
+               });
+                  location.reload();
+            }
+            else{
+               alert ('something went wrong');
+                  
+            }
+        },
+        error: function(error) {
+            console.error(error);
+        }
+    });
+
+    // Close the modal
+    $('#editBranchMdl').modal('hide');
+});
+});
+
+// Add a click event listener to the "Save" button in the modal
+
+      </script>
+   </body>
+   <!-- Mirrored from colorlib.com/polygon/concept/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Mar 2020 00:27:53 GMT -->
+</html>

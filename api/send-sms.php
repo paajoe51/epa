@@ -16,7 +16,7 @@ curl_setopt_array($curl, [
     CURLOPT_POSTFIELDS => http_build_query([
         'sender' => 'EPADAC-IPMC',
         'message' => $message,
-        'recipients' => [$number]
+        'recipients' => $number
     ]),
 ]);
 

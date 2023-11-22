@@ -440,6 +440,11 @@
                      </div>
                   </div>
                </div>
+               <div class="input-group mb-3">
+                  <div class="input-group-prepend"><span class="input-group-text">Registration Fee</span></div>
+                  <input type="number" class="form-control" placeholder="Enter the amount of 350.00 for Registration"  name="reg_fee">
+                  <div class="input-group-append"><span class="input-group-text"><i class="fas fa-money-bill-alt"></i></span></div>
+               </div>
                <h4>Contact Data</h4>
                <div class="form-group">
                   <div class="input-group mb-3">
@@ -521,6 +526,7 @@
                         <div class="input-group-prepend"><span class="input-group-text">Course Duration</span></div>
                         <select class="form-control form-control-md" name="duration" id="course_duration">
                            <option class ="font-italic">Select Duration</option>
+                           <option value="Two Months" id="2months">Two Months</option>
                            <option value="Three Months">Three Months</option>
                            <option value="Six Months">Six Months</option>
                            <option Value="One Year">One Year</option>
@@ -789,10 +795,33 @@
                  reloadNumbers();
                  
                // You can also do additional actions here, like clearing the form or redirecting.
-                  }
-              else{
-                 alert(response)
-              }
+               }else if(response==400){
+               // Handle the response from the server
+               Swal.fire(
+                 'Warning!',
+                 'User Already Exists!',
+                 'warning'
+                 )
+                 
+               // You can also do additional actions here, like clearing the form or redirecting.
+               }else if(response==401){
+                // Handle the response from the server
+                Swal.fire(
+                  'Warning!',
+                  'You need to enter Registration Fee',
+                  'warning'
+                  )
+                // You can also do additional actions here, like clearing the form or redirecting.
+                }else if(response==402){
+                // Handle the response from the server
+                Swal.fire(
+                  'Warning!',
+                  'Registration fee needs to be 350.00',
+                  'warning'
+                  )
+               }else{
+                  alert(response)
+               }
               },
            error: function(xhr, status, error) {
                // Handle errors here

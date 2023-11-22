@@ -104,6 +104,7 @@
               if( username != "" && password != "" ){
                   $.ajax({
                       type:'POST',
+                      cache: false,
                       url:'api/access_control/login.php',
                       data:{
                             username:username,

@@ -556,7 +556,7 @@ function generateCourseCode(courseName) {
          url:"../api/get-courses_data.php",
          dataType:"JSON",
          type:"GET",
-
+         cache: false,
          success: function(courses) {
            var sn= 1;
            var courses_data ="";
@@ -582,6 +582,7 @@ function generateCourseCode(courseName) {
            url: '../api/get-batches_data.php', // Update with your endpoint URL
            type: 'GET',
            dataType: 'json', // Assuming the response is JSON
+           cache: false,
            success: function(data) {
                // Assuming the data received is an array of objects
                var tableBody = $('#batch_tbl tbody');

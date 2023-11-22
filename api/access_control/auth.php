@@ -1,16 +1,12 @@
 <?php
 session_start();
-if(isset($_SESSION['SESS_POSITION'])){
-    $position = $_SESSION['SESS_POSITION'] ;
 
-    if($position!='director' ){
-        echo 401;
-    }
-    else{
-        echo 200;
-        }
-    }
-else{
-    echo 401;
+// Your authentication logic goes here
+if (isset($_SESSION['username'])) {
+    // User is logged in
+    echo 'authenticated';
+} else {
+    // User is not logged in
+    echo 'not_authenticated';
 }
 ?>

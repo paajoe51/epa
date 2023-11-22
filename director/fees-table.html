@@ -428,6 +428,7 @@
            url: '../api/get-fees_table.php', // Update with your endpoint URL
            type: 'GET',
            dataType: 'json', // Assuming the response is JSON
+           cache: false,
            success: function(data) {
                // Assuming the data received is an array of objects
                var tableBody = $('#fees_tbl tbody');
@@ -459,6 +460,7 @@
             url: '../api/get-courses_data.php', // Replace with the actual PHP file path
             type: 'GET',
             dataType: 'json',
+            cache: false,
             success: function(data) {
                 var select = $('.course_list');
 

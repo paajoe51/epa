@@ -429,6 +429,7 @@
            url: '../api/get-branches_data.php', // Update with your endpoint URL
            type: 'GET',
            dataType: 'json', // Assuming the response is JSON
+           cache: false,
            success: function(data) {
                // Assuming the data received is an array of objects
                var tableBody = $('#br_tbl tbody');
