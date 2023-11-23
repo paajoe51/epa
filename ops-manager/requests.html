@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="../assets/vendor/charts/c3charts/c3.css">
     <link rel="stylesheet" href="../assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.css" integrity="sha256-NAxhqDvtY0l4xn+YVa6WjAcmd94NNfttjNsDmNatFVc=" crossorigin="anonymous" />
-    <title>Requests-Director</title>
+    <title>Requests - Ops Manager</title>
   </head>
   <body>
     <div class="dashboard-main-wrapper">
@@ -330,6 +330,19 @@
                 <div class="row">
                   <div class="col-lg-12 right">
                     <div class="box shadow-sm rounded bg-white mb-3">
+                      <div class="box-title border-bottom p-3"  style="height:60px;">
+                        <h6 class="m-0">Request Controls
+                          <span class="float-right">
+                            <button type="button" id="addRequestMdlBtn" class=" btn btn-sm btn-primary" style="margin-left: 20px;" data-toggle="modal" data-target="#addRequestMdl"><i class="fas fa-plus-square" id="requestBtn"></i> Make a Request</button>
+                         </span>
+                        </h6>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-12 right">
+                    <div class="box shadow-sm rounded bg-white mb-3">
                       <div class="box-title border-bottom p-3">
                         <h6 class="m-0">Recent</h6>
                       </div>
@@ -365,6 +378,55 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+      <!-- The Modal -->
+  <div class="modal fade" id="addRequestMdl">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">New Request Form</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+          <form id="addRequestForm">
+            <input type="text" class="d-none" name="request_branch" id="req_br">
+            <input type="text" class="d-none" name="request_personnel" id="req_per">
+            <div class="row">
+              
+              <div class="col-md-7">
+                <div class="input-group mb-3">
+                      <div class="input-group-prepend"><span class="input-group-text">Request Amount:</span></div>
+                      <div class="input-group-prepend"><span class="input-group-text">GH&#8373; </span></div>
+                      <input type="number" class="form-control" name="request_amount" id="request_amount" required>
+                      <div class="input-group-append"><span class="input-group-text"><i class="fas fa-money-bill-alt"></i></span></div>
+                </div>
+              </div>
+              <div class="col-md-5">
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend"><span class="input-group-text">Request Date</span></div>
+                  <input type="text" class="form-control" id="request_date"  name="request_date" readonly>
+                  <div class="input-group-append"><span class="input-group-text"><i class="fas fa-comment-alt"></i></span></div>
+                </div>
+              </div>
+            </div>
+           <div class="input-group mb-3">
+             <div class="input-group-prepend"><span class="input-group-text">Request Note</span></div>
+             <textarea class="form-control" id="request_note"  name="request_note" required></textarea>
+             <div class="input-group-append"><span class="input-group-text"><i class="fas fa-comment-alt"></i></span></div>
+           </div>
+         </form>
+       </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" data-dismiss="modal" id="addRequest">Save</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
       </div>
     </div>
     <style>
@@ -485,10 +547,8 @@
                                     '  <i class="mdi mdi-dots-vertical"></i>'+
                                     '</button>'+
                                     '<div class="dropdown-menu dropdown-menu-right">'+
-                                      '<button class="dropdown-item text-success approve-btn" type="button">'+
-                                        '<i class="mdi mdi-delete"></i> Aprove </button>'+
-                                      '<button class="dropdown-item text-danger decline-btn" type="button">'+
-                                        '<i class="mdi mdi-close"></i> Decline </button>'+
+                                      '<button class="dropdown-item text-warning " type="button">'+
+                                        '<i class="mdi mdi-close"></i> Hide </button>'+
                                     '</div>'+
                                   '</div>'+
                                   '<br />'+
