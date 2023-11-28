@@ -1,23 +1,29 @@
 <?php
 include('conn.php');
 session_start();
-$branch = $_SESSION['SESS_BRANCH'] ;
 $position = $_SESSION['SESS_POSITION'] ;
 $today=date("d/m/Y");
 
 if($position=='branch_admin' | $position=='counselor' ){
+    $branch = $_SESSION['SESS_BRANCH'] ;
     // Query to select data from the students table
-    $fees_sql = "SELECT SUM(amount_paid) as fee_sum FROM students WHERE branch = '$branch'";
+    $fees_sql = "SELECT SUM(amount) as fee_sum FROM fees WHERE branch = '$branch'";
     $full_sql = "SELECT *  FROM students WHERE payment_status='Fully Paid' AND branch = '$branch'";
     $td_fee_sql = "SELECT SUM(amount) as day_fee_sum  FROM fees WHERE branch='$branch' AND date = '$today'";
     $st_sql = "SELECT *  FROM students WHERE branch = '$branch'";
-}
-
-else{
+}elseif (!empty($_SESSION['SESS_BRANCH_OVRD']) && $_SESSION['SESS_BRANCH_OVRD'] == true && $_SESSION['SESS_BRANCH']!='all') {
     // Query to select data from the students table
-    $fees_sql = "SELECT SUM(amount_paid) as fee_sum FROM students";
-    $full_sql = "SELECT *  FROM students WHERE payment_status='Fully Paid'";
-    $st_sql = "SELECT *  FROM students";
+    $branch = $_SESSION['SESS_BRANCH'] ;
+    $fees_sql = "SELECT SUM(amount) as fee_sum FROM fees WHERE branch = '$branch'";
+    $full_sql = "SELECT *  FROM students WHERE payment_status='Fully Paid' AND branch = '$branch'";
+    $td_fee_sql = "SELECT SUM(amount) as day_fee_sum  FROM fees WHERE branch='$branch' AND date = '$today'";
+    $st_sql = "SELECT *  FROM students WHERE branch = '$branch'";
+}else {
+   // Query to select data from the students table
+   $fees_sql = "SELECT SUM(amount) as fee_sum FROM fees";
+   $full_sql = "SELECT *  FROM students WHERE payment_status='Fully Paid'";
+   $td_fee_sql = "SELECT SUM(amount) as day_fee_sum  FROM fees WHERE  date = '$today'";
+   $st_sql = "SELECT *  FROM students";
 }
 
 

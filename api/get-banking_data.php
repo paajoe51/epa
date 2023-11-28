@@ -1,18 +1,21 @@
 <?php
 include('conn.php');
 session_start();
-$branch = $_SESSION['SESS_BRANCH'] ;
 $position = $_SESSION['SESS_POSITION'] ;
 
-if($position=='branch_admin' | $position=='counselor' ){
-    $sql = "SELECT * FROM banking WHERE branch='$branch'";
-}
 
-else{
+// Query to select data from the courses table
+if($position=='branch_admin' | $position=='counselor' ){
+    $branch = $_SESSION['SESS_BRANCH'] ;
+    // Query to select data from the students table
+    $sql = "SELECT * FROM banking WHERE branch='$branch'";
+}elseif (!empty($_SESSION['SESS_BRANCH_OVRD']) && $_SESSION['SESS_BRANCH_OVRD'] == true && $_SESSION['SESS_BRANCH']!='all') {
+    $branch = $_SESSION['SESS_BRANCH'] ;
+    // Query to select data from the students table
+    $sql = "SELECT * FROM banking WHERE branch='$branch'";
+}else {
     $sql = "SELECT * FROM banking";
 }
-// Query to select data from the courses table
-
 
 try {
     $stmt = $db->prepare($sql);

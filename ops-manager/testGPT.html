@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Account Dashboard</title>
+</head>
+<body>
+
+<div class="container mt-4">
+    <h2 class="mb-4">Account Dashboard</h2>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">EPA Amount</h5>
+                    <p class="card-text" id="epa_amt">Loading...</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Withdrawals</h5>
+                    <p class="card-text" id="with_amt">Loading...</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">HQ Amount</h5>
+                    <p class="card-text" id="hq_amt">Loading...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@leonardosarmentocastro/simple-money-format@1.5.3/dist/simple-money-format.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
+<script>
+    // Your reloadNumbers function here...
+    function reloadNumbers() {
+        // Mock data for testing
+        var banking = {
+            epadac: 1000,
+            withdrawals: 500,
+            hq: 700
+        };
+
+        // Update HTML elements with data
+        $('#epa_amt').text(banking.epadac).simpleMoneyFormat();
+        $('#with_amt').text(banking.withdrawals);
+        $('#hq_amt').text(banking.hq);
+    }
+
+    // Initial load
+    reloadNumbers();
+</script>
+
+</body>
+</html>

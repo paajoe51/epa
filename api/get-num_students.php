@@ -2,22 +2,22 @@
 include('conn.php');
 session_start();
 $position = $_SESSION['SESS_POSITION'] ;
-
 if($position=='branch_admin' | $position=='counselor' ){
     $branch = $_SESSION['SESS_BRANCH'] ;
     // Query to select data from the students table
-$t_sql = "SELECT * FROM students WHERE  branch='$branch'";
-$m_sql = "SELECT * FROM students WHERE sex = 'male' AND branch='$branch'";
-$f_sql = "SELECT * FROM students WHERE sex = 'female' AND branch='$branch'";
+        $t_sql = "SELECT * FROM students WHERE  branch='$branch'";
+        $m_sql = "SELECT * FROM students WHERE sex = 'male' AND branch='$branch'";
+        $f_sql = "SELECT * FROM students WHERE sex = 'female' AND branch='$branch'";
+}elseif (!empty($_SESSION['SESS_BRANCH_OVRD']) && $_SESSION['SESS_BRANCH_OVRD'] == true && $_SESSION['SESS_BRANCH']!='all') {
+        $branch = $_SESSION['SESS_BRANCH'] ;
+        $t_sql = "SELECT * FROM students WHERE  branch='$branch'";
+        $m_sql = "SELECT * FROM students WHERE sex = 'male' AND branch='$branch'";
+        $f_sql = "SELECT * FROM students WHERE sex = 'female' AND branch='$branch'";
+}else {
+        $t_sql = "SELECT * FROM students";
+        $m_sql = "SELECT * FROM students WHERE sex = 'male'";
+        $f_sql = "SELECT * FROM students WHERE sex = 'female'";
 }
-
-else{
-// Query to select data from the students table
-$t_sql = "SELECT * FROM students";
-$m_sql = "SELECT * FROM students WHERE sex = 'male'";
-$f_sql = "SELECT * FROM students WHERE sex = 'female'";
-}
-
 
 try {
     // Total students
@@ -51,5 +51,5 @@ try {
 } catch (PDOException $e) {
     // Handle query error
     echo "Error: " . $e->getMessage();
-}
+} 
 ?>

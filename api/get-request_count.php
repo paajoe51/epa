@@ -14,13 +14,19 @@ if($position=='branch_admin' | $position=='counselor' ){
     $rej_sql = "SELECT * FROM requests WHERE branch = '$branch' AND status = 'declined'";
 }
 else{
-// Query to select data from the students table
-    $all_sql = "SELECT * FROM requests";
-    $pen_sql = "SELECT * FROM requests WHERE status = 'pending'";
-    $acc_sql = "SELECT * FROM requests WHERE status = 'accepted'";
-    $rej_sql = "SELECT * FROM requests WHERE status = 'declined'";
+    // Check if SESS_BRANCH_OVRD is set
+    if (isset($_SESSION['SESS_BRANCH_OVRD']) && $_SESSION['SESS_BRANCH_OVRD'] == true && $branch!='all') {
+        $all_sql = "SELECT * FROM requests WHERE branch = '$branch'";
+        $pen_sql = "SELECT * FROM requests WHERE branch = '$branch' AND status = 'pending'";
+        $acc_sql = "SELECT * FROM requests WHERE branch = '$branch' AND status = 'accepted'";
+        $rej_sql = "SELECT * FROM requests WHERE branch = '$branch' AND status = 'declined'";
+    } else {
+        $all_sql = "SELECT * FROM requests";
+        $pen_sql = "SELECT * FROM requests WHERE status = 'pending'";
+        $acc_sql = "SELECT * FROM requests WHERE status = 'accepted'";
+        $rej_sql = "SELECT * FROM requests WHERE status = 'declined'";
+    }
 }
-
 
 try {
     // Total students

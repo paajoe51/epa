@@ -1,23 +1,25 @@
 <?php
 include('conn.php');
 session_start();
-$branch = $_SESSION['SESS_BRANCH'] ;
+//$branch = $_SESSION['SESS_BRANCH'] ;
 $position = $_SESSION['SESS_POSITION'] ;
 
 if($position=='branch_admin' | $position=='counselor' ){
+    $branch = $_SESSION['SESS_BRANCH'] ;
     // Query to select data from the students table
-$with_sql = "SELECT SUM(amount) as withdrawal_sum FROM banking WHERE branch='$branch' AND banking_type = 'withdrawal' ";
-$hq_sql = "SELECT SUM(amount) as hq_sum FROM banking WHERE branch='$branch' AND banking_type='deposit' AND target = 'HQ'";
-$epa_sql = "SELECT SUM(amount) as epa_sum FROM banking WHERE branch='$branch' AND banking_type='Deposit' AND target = 'EPADAC'";
+    $with_sql = "SELECT SUM(amount) as withdrawal_sum FROM banking WHERE branch='$branch' AND banking_type = 'withdrawal' ";
+    $hq_sql = "SELECT SUM(amount) as hq_sum FROM banking WHERE branch='$branch' AND banking_type='deposit' AND target = 'HQ'";
+    $epa_sql = "SELECT SUM(amount) as epa_sum FROM banking WHERE branch='$branch' AND banking_type='Deposit' AND target = 'EPADAC'";
+}elseif (!empty($_SESSION['SESS_BRANCH_OVRD']) && $_SESSION['SESS_BRANCH_OVRD'] == true && $_SESSION['SESS_BRANCH']!='all') {
+    $branch = $_SESSION['SESS_BRANCH'] ;
+    $with_sql = "SELECT SUM(amount) as withdrawal_sum FROM banking WHERE branch='$branch' AND banking_type = 'withdrawal' ";
+    $hq_sql = "SELECT SUM(amount) as hq_sum FROM banking WHERE branch='$branch' AND banking_type='deposit' AND target = 'HQ'";
+    $epa_sql = "SELECT SUM(amount) as epa_sum FROM banking WHERE branch='$branch' AND banking_type='Deposit' AND target = 'EPADAC'";
+}else {
+    $with_sql = "SELECT SUM(amount) as withdrawal_sum FROM banking WHERE banking_type = 'withdrawal' ";
+    $hq_sql = "SELECT SUM(amount) as hq_sum FROM banking WHERE banking_type='deposit' AND target = 'HQ'";
+    $epa_sql = "SELECT SUM(amount) as epa_sum FROM banking WHERE banking_type='Deposit' AND target = 'EPADAC'";
 }
-else{
-   // Query to select data from the students table
-$with_sql = "SELECT SUM(amount) as withdrawal_sum FROM banking WHERE banking_type = 'withdrawal' ";
-$hq_sql = "SELECT SUM(amount) as hq_sum FROM banking WHERE banking_type='deposit' AND target = 'HQ'";
-$epa_sql = "SELECT SUM(amount) as epa_sum FROM banking WHERE banking_type='Deposit' AND target = 'EPADAC'";
-}
-// 
-
 
 try {
     // Total students

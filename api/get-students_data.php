@@ -3,16 +3,31 @@
 
     session_start();
 
-    $branch = $_SESSION['SESS_BRANCH'] ;
+    //$branch = $_SESSION['SESS_BRANCH'] ;
     $position = $_SESSION['SESS_POSITION'] ;
 
     if($position=='branch_admin' | $position=='counselor' ){
+        $branch = $_SESSION['SESS_BRANCH'] ;
+        // Query to select data from the students table
         $sql = "SELECT * FROM students WHERE branch = '$branch' ORDER BY id DESC";
+    }elseif (!empty($_SESSION['SESS_BRANCH_OVRD']) && $_SESSION['SESS_BRANCH_OVRD'] == true && $_SESSION['SESS_BRANCH']!='all') {
+        // Query to select data from the students table
+        $branch = $_SESSION['SESS_BRANCH'] ;
+        $sql = "SELECT * FROM students WHERE branch = '$branch' ORDER BY id DESC";
+    }else {
+       // Query to select data from the students table
+       $sql = "SELECT * FROM students ORDER BY id DESC";
     }
+    
 
-    else{
-    // Query to select data from the users table
-    $sql = "SELECT * FROM students ORDER BY id DESC";
+    if($position=='branch_admin' | $position=='counselor' ){
+        $branch = $_SESSION['SESS_BRANCH'] ;
+        // Query to select data from the students table
+        $sql = "SELECT * FROM students WHERE branch = '$branch' ORDER BY id DESC";
+    }elseif (!empty($_SESSION['SESS_BRANCH_OVRD']) && $_SESSION['SESS_BRANCH_OVRD'] == true && $_SESSION['SESS_BRANCH']!='all') {
+        $sql = "SELECT * FROM students WHERE branch = '$branch' ORDER BY id DESC";
+    }else {
+        $sql = "SELECT * FROM students ORDER BY id DESC";
     }
 
     try {

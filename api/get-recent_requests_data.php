@@ -1,38 +1,47 @@
 <?php
 include('conn.php');
-
 session_start();
-$branch = $_SESSION['SESS_BRANCH'] ;
-$position = $_SESSION['SESS_POSITION'] ;
 
-if($position=='branch_admin' | $position=='counselor' ){
-    $sql = "SELECT * FROM requests 
-            WHERE type='recent' AND branch = '$branch'";
-}
+// Check if required session variables are set
+if (isset($_SESSION['SESS_BRANCH'], $_SESSION['SESS_POSITION'])) {
+    $branch = $_SESSION['SESS_BRANCH'];
+    $position = $_SESSION['SESS_POSITION'];
 
-else{
-    $sql = "SELECT * FROM requests 
-    WHERE type='recent'";
-}
+    if ($position == 'branch_admin' || $position == 'counselor') {
+        $sql = "SELECT * FROM requests 
+                WHERE type='recent' AND branch = :branch";
+    } else {
+        // Check if SESS_BRANCH_OVRD is set
+        if (isset($_SESSION['SESS_BRANCH_OVRD']) && $_SESSION['SESS_BRANCH_OVRD'] == true && $branch!='all') {
+            $sql = "SELECT * FROM requests 
+                    WHERE type='recent' AND branch = :branch";
+        } else {
+            $sql = "SELECT * FROM requests 
+                    WHERE type='recent'";
+        }
+    }
 
-// Query to select data from the courses table
+    // Query to select data from the requests table
+    try {
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(':branch', $branch, PDO::PARAM_STR);
+        $stmt->execute();
 
+        // Fetch data and store it in an array
+        $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-try {
-    $stmt = $db->prepare($sql);
-    $stmt->execute();
+        // Encode the data as JSON
+        $json_data = json_encode($data);
 
-    // Fetch data and store it in an array
-    $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-    // Encode the data as JSON
-    $json_data = json_encode($data);
-
-    // Output the JSON data
-    header('Content-Type: application/json');
-    echo $json_data;
-} catch (PDOException $e) {
-    // Handle query error
-    echo "Error: " . $e->getMessage();
+        // Output the JSON data
+        header('Content-Type: application/json');
+        echo $json_data;
+    } catch (PDOException $e) {
+        // Handle query error
+        echo "Error: " . $e->getMessage();
+    }
+} else {
+    // Handle the case when required session variables are not set
+    echo "Session variables not set.";
 }
 ?>

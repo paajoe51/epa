@@ -16,17 +16,30 @@
     <link rel="stylesheet" href="../assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="../assets/vendor/charts/c3charts/c3.css">
     <link rel="stylesheet" href="../assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.css" integrity="sha256-NAxhqDvtY0l4xn+YVa6WjAcmd94NNfttjNsDmNatFVc=" crossorigin="anonymous" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.5/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css">
     <title>Requests - Ops Manager</title>
   </head>
   <body>
     <div class="dashboard-main-wrapper">
       <div class="dashboard-header">
         <nav class="navbar navbar-expand-lg bg-white fixed-top">
-          <a class="navbar-brand" href="index-2.html">IPMC - EPADAC</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+          <div class="col-md-2 float-right">
+            <a class="navbar-brand" href="index-2.html">IPMC - EPADAC</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
+          <div class="col-md-4 float-right">
+            <select class="form-control" id="selected_branch" name="req_br">
+              <option value="all" class="font-italic">All Branches</option>
+              <option value="Agona Swedru" class="font-italic">Agona Swedru</option>
+              <option value="Cape Coast" class="font-italic">Cape Coast</option>
+              <option value="Kaasoa" class="font-italic">Kaasoa</option>
+              <option value="Breman Asikuma" class="font-italic">Breman Asikuma</option>
+          </select>
+          </div>
           <div class="collapse navbar-collapse " id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto navbar-right-top">
               <li class="nav-item dropdown notification">
@@ -393,10 +406,20 @@
         <!-- Modal body -->
         <div class="modal-body">
           <form id="addRequestForm">
-            <input type="text" class="d-none" name="request_branch" id="req_br">
+            <!--input type="text" class="d-none" name="request_branch" id="req_br"-->
             <input type="text" class="d-none" name="request_personnel" id="req_per">
             <div class="row">
-              
+              <div class ="col-md-12">
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend"><span class="input-group-text">Select Branch :</span></div>
+                 <select class="form-control"  id="req_br" name="req_br">
+                     <option class="font-italic">Select Branch</option>
+                  </select>
+                  <div class="input-group-append"><span class="input-group-text"><i class="fas fa-calendar-check"></i></span></div>
+               </div>
+              </div>
+            </div>
+            <div class="row">
               <div class="col-md-7">
                 <div class="input-group mb-3">
                       <div class="input-group-prepend"><span class="input-group-text">Request Amount:</span></div>
@@ -482,6 +505,38 @@
     </script>
     <script>
       reloadNumbers();
+      getRecentRequests();
+      getEarlierRequests();
+      // Event listener for the change event on the select element
+      $('#selected_branch').change(function() {
+            // Get the selected value
+            var selectedBranch = $(this).val();
+
+            // Store the selected value in session storage
+            sessionStorage.setItem('selected_branch', selectedBranch);
+           // alert(sessionStorage.getItem('selected_branch'));
+
+            $.ajax({
+                type: 'POST',
+                url: '../api/access_control/set-session_branch.php',
+                data: { 
+                      selected_branch: selectedBranch,
+                      branch_override:true
+                 },
+                success: function(response) {
+                    console.log('Branch set successfully');
+                    $('#recent_req_list').load(location.href + ' #recent_req_list');
+                    reloadNumbers();
+                    getRecentRequests();
+                    $('#old_req_list').load(location.href + ' #old_req_list');
+                    getEarlierRequests();
+                },
+                error: function(error) {
+                    console.error('Error setting branch:', error);
+                }
+            });
+        });
+
       // Reload the content after AJAX success
       function reloadNumbers() {
            $.ajax({
@@ -501,131 +556,135 @@
             }
         });
       }
-      $.ajax({
-           url: '../api/get-recent_requests_data.php', // Update with your endpoint URL
-           type: 'GET',
-           dataType: 'json', // Assuming the response is JSON
-           success: function(data) {
-               // Assuming the data received is an array of objects
-               var requestsBox = $('#recent_req_list');
+      function getRecentRequests(){
+          $.ajax({
+              url: '../api/get-recent_requests_data.php', // Update with your endpoint URL
+              type: 'GET',
+              dataType: 'json', // Assuming the response is JSON
+              cache: false,
+              success: function(data) {
+                  // Assuming the data received is an array of objects
+                  var requestsBox = $('#recent_req_list');
 
-               // Iterate through the data and populate the table rows
-               $.each(data, function(index, request) {
-                var request_status;
-               
-                if (request.status=="accepted"){
-                    request_status ='<div class="small text-success">'+
-                                    '<i class="fa fa-check-circle"></i> Request Approved'+
-                            '</div>'
-                  }else if(request.status=="pending"){
-                    request_status ='<div class="small text-warning">'+
-                                    '<i class="fa fa-check-circle"></i> Request Submitted and Pending response'+
-                            '</div>'
-                  }else if(request.status=="declined"){
-                    request_status ='<div class="small text-danger">'+
-                                    '<i class="fa fa-check-circle"></i> Request was Declined'+
-                            '</div>'
-                    }
-                   var row = '<div class="p-3 d-flex align-items-center border-bottom osahan-post-header col-md-12">'+
-                                '<input type="text" class="d-none request-id" value='+request.id+'>'+
-                                '<div class="dropdown-list-image mr-3">'+
-                                  '<img class="rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" />'+
-                                '</div>'+
-                                '<div class="font-weight-bold mr-3">'+
-                                 ' <div class="text-truncate">'+
-                                   ' <span>'+(index+1)+'. </span>'+
-                                   ' <span>'+request.personnel+'</span> - <span class="text-primary"> '+request.branch+' </span>'+
-                                  '</div>'+
-                                  '<div class="mb-2 col-md-12">'+
-                                    '<span class="font-weight-normal">'+request.description+'</span><br> <span class="float-right"> - GHC '+request.amount+'</span>'+
-                                 ' </div>'+
-                                 request_status+
-                               ' </div>'+
-                                '<span class="ml-auto mb-auto">'+
-                                  '<div class="btn-group" id="action_buttons" data-request-id = '+request.id+'>'+
-                                    '<button type="button" class="btn btn-light btn-sm rounded" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'+
-                                    '  <i class="mdi mdi-dots-vertical"></i>'+
-                                    '</button>'+
-                                    '<div class="dropdown-menu dropdown-menu-right">'+
-                                      '<button class="dropdown-item text-warning " type="button">'+
-                                        '<i class="mdi mdi-close"></i> Hide </button>'+
+                  // Iterate through the data and populate the table rows
+                  $.each(data, function(index, request) {
+                    var request_status;
+                  
+                    if (request.status=="accepted"){
+                        request_status ='<div class="small text-success">'+
+                                        '<i class="fa fa-check-circle"></i> Request Approved'+
+                                '</div>'
+                      }else if(request.status=="pending"){
+                        request_status ='<div class="small text-warning">'+
+                                        '<i class="fa fa-check-circle"></i> Request Submitted and Pending response'+
+                                '</div>'
+                      }else if(request.status=="declined"){
+                        request_status ='<div class="small text-danger">'+
+                                        '<i class="fa fa-check-circle"></i> Request was Declined'+
+                                '</div>'
+                        }
+                      var row = '<div class="p-3 d-flex align-items-center border-bottom osahan-post-header col-md-12">'+
+                                    '<input type="text" class="d-none request-id" value='+request.id+'>'+
+                                    '<div class="dropdown-list-image mr-3">'+
+                                      '<img class="rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" />'+
                                     '</div>'+
-                                  '</div>'+
-                                  '<br />'+
-                                  '<div class="text-right text-muted pt-1">4d</div>'+
-                               ' </span>'+
-                             ' </div>'
-                   requestsBox.append(row);
-               });
-           },
-           error: function(xhr, status, error) {
-               console.error('Error fetching data:', error);
-           }
-       });
+                                    '<div class="font-weight-bold mr-3">'+
+                                    ' <div class="text-truncate">'+
+                                      ' <span>'+(index+1)+'. </span>'+
+                                      ' <span>'+request.personnel+'</span> - <span class="text-primary"> '+request.branch+' </span>'+
+                                      '</div>'+
+                                      '<div class="mb-2 col-md-12">'+
+                                        '<span class="font-weight-normal">'+request.description+'</span><br> <span class="float-right"> - GHC '+request.amount+'</span>'+
+                                    ' </div>'+
+                                    request_status+
+                                  ' </div>'+
+                                    '<span class="ml-auto mb-auto">'+
+                                      '<div class="btn-group" id="action_buttons" data-request-id = '+request.id+'>'+
+                                        '<button type="button" class="btn btn-light btn-sm rounded" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'+
+                                        '  <i class="mdi mdi-dots-vertical"></i>'+
+                                        '</button>'+
+                                        '<div class="dropdown-menu dropdown-menu-right">'+
+                                          '<button class="dropdown-item text-warning " type="button">'+
+                                            '<i class="mdi mdi-close"></i> Hide </button>'+
+                                        '</div>'+
+                                      '</div>'+
+                                      '<br />'+
+                                      '<div class="text-right text-muted pt-1">4d</div>'+
+                                  ' </span>'+
+                                ' </div>'
+                      requestsBox.append(row);
+                  });
+              },
+              error: function(xhr, status, error) {
+                  console.error('Error fetching data:', error);
+              }
+          });
+        }
 
+      function getEarlierRequests(){
+          $.ajax({
+              url: '../api/get-earlier_requests_data.php', // Update with your endpoint URL
+              type: 'GET',
+              dataType: 'json', // Assuming the response is JSON
+              cache: false,
+              success: function(data) {
+                  // Assuming the data received is an array of objects
+                  var requestsBox = $('#old_req_list');
 
-      $.ajax({
-           url: '../api/get-earlier_requests_data.php', // Update with your endpoint URL
-           type: 'GET',
-           dataType: 'json', // Assuming the response is JSON
-           success: function(data) {
-               // Assuming the data received is an array of objects
-               var requestsBox = $('#old_req_list');
-
-               // Iterate through the data and populate the table rows
-               $.each(data, function(index, request) {
-                var request_status;
-               
-                if (request.status=="accepted"){
-                    request_status ='<div class="small text-success">'+
-                                    '<i class="fa fa-check-circle"></i> Request Approved'+
-                            '</div>'
-                  }else if(request.status=="pending"){
-                    request_status ='<div class="small text-warning">'+
-                                    '<i class="fa fa-check-circle"></i> Request Submitted and Pending response'+
-                            '</div>'
-                  }else if(request.status=="declined"){
-                    request_status ='<div class="small text-danger">'+
-                                    '<i class="fa fa-check-circle"></i> Request was Declined'+
-                            '</div>'
-                    }
-                   var row = '<div class="p-3 d-flex align-items-center border-bottom osahan-post-header col-md-12">'+
-                                '<input type="text" class="d-none request-id" value='+request.id+'>'+
-                                '<div class="dropdown-list-image mr-3">'+
-                                  '<img class="rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" />'+
-                                '</div>'+
-                                '<div class="font-weight-bold mr-3">'+
-                                 ' <div class="text-truncate">'+
-                                   ' <span>'+(index+1)+'. </span>'+
-                                   ' <span>'+request.personnel+'</span> - <span class="text-primary"> '+request.branch+' </span>'+
-                                  '</div>'+
-                                  '<div class="mb-2 col-md-12">'+
-                                    '<span class="font-weight-normal">'+request.description+'</span><br> <span class="float-right"> - GHC '+request.amount+'</span>'+
-                                 ' </div>'+
-                                 request_status+
-                               ' </div>'+
-                                '<span class="ml-auto mb-auto">'+
-                                  '<div class="btn-group" id="action_buttons" data-request-id = '+request.id+'>'+
-                                    '<button type="button" class="btn btn-light btn-sm rounded" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'+
-                                    '  <i class="mdi mdi-dots-vertical"></i>'+
-                                    '</button>'+
-                                    '<div class="dropdown-menu dropdown-menu-right">'+
-                                      '<button class="dropdown-item text-success hide-btn" type="button">'+
-                                        '<i class="mdi mdi-delete"></i> Hide </button>'+
+                  // Iterate through the data and populate the table rows
+                  $.each(data, function(index, request) {
+                    var request_status;
+                  
+                    if (request.status=="accepted"){
+                        request_status ='<div class="small text-success">'+
+                                        '<i class="fa fa-check-circle"></i> Request Approved'+
+                                '</div>'
+                      }else if(request.status=="pending"){
+                        request_status ='<div class="small text-warning">'+
+                                        '<i class="fa fa-check-circle"></i> Request Submitted and Pending response'+
+                                '</div>'
+                      }else if(request.status=="declined"){
+                        request_status ='<div class="small text-danger">'+
+                                        '<i class="fa fa-check-circle"></i> Request was Declined'+
+                                '</div>'
+                        }
+                      var row = '<div class="p-3 d-flex align-items-center border-bottom osahan-post-header col-md-12">'+
+                                    '<input type="text" class="d-none request-id" value='+request.id+'>'+
+                                    '<div class="dropdown-list-image mr-3">'+
+                                      '<img class="rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" />'+
                                     '</div>'+
-                                  '</div>'+
-                                  '<br />'+
-                                  '<div class="text-right text-muted pt-1">4d</div>'+
-                               ' </span>'+
-                             ' </div>'
-                   requestsBox.append(row);
-               });
-           },
-           error: function(xhr, status, error) {
-               console.error('Error fetching data:', error);
-           }
-       });
-
+                                    '<div class="font-weight-bold mr-3">'+
+                                    ' <div class="text-truncate">'+
+                                      ' <span>'+(index+1)+'. </span>'+
+                                      ' <span>'+request.personnel+'</span> - <span class="text-primary"> '+request.branch+' </span>'+
+                                      '</div>'+
+                                      '<div class="mb-2 col-md-12">'+
+                                        '<span class="font-weight-normal">'+request.description+'</span><br> <span class="float-right"> - GHC '+request.amount+'</span>'+
+                                    ' </div>'+
+                                    request_status+
+                                  ' </div>'+
+                                    '<span class="ml-auto mb-auto">'+
+                                      '<div class="btn-group" id="action_buttons" data-request-id = '+request.id+'>'+
+                                        '<button type="button" class="btn btn-light btn-sm rounded" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'+
+                                        '  <i class="mdi mdi-dots-vertical"></i>'+
+                                        '</button>'+
+                                        '<div class="dropdown-menu dropdown-menu-right">'+
+                                          '<button class="dropdown-item text-success hide-btn" type="button">'+
+                                            '<i class="mdi mdi-delete"></i> Hide </button>'+
+                                        '</div>'+
+                                      '</div>'+
+                                      '<br />'+
+                                      '<div class="text-right text-muted pt-1">4d</div>'+
+                                  ' </span>'+
+                                ' </div>'
+                      requestsBox.append(row);
+                  });
+              },
+              error: function(xhr, status, error) {
+                  console.error('Error fetching data:', error);
+              }
+          });
+      }
        $(document).on('click', '.approve-btn', function() {
         var requestId = $(this).closest('.btn-group').data('request-id');
 

@@ -30,6 +30,15 @@
                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                <span class="navbar-toggler-icon"></span>
                </button>
+               <div class="col-md-4 float-right">
+                  <select class="form-control" id="selected_branch" name="req_br">
+                    <option value="all" class="font-italic">All Branches</option>
+                    <option value="Agona Swedru" class="font-italic">Agona Swedru</option>
+                    <option value="Cape Coast" class="font-italic">Cape Coast</option>
+                    <option value="Kaasoa" class="font-italic">Kaasoa</option>
+                    <option value="Breman Asikuma" class="font-italic">Breman Asikuma</option>
+                </select>
+                </div>
                <div class="collapse navbar-collapse " id="navbarSupportedContent">
                   <ul class="navbar-nav ml-auto navbar-right-top">
                      <li class="nav-item">
@@ -519,7 +528,7 @@
          
          <div class="modal-body">
             <form id="editStdForm">
-               <input type="text" readonly class="form-control" name="id">  
+               <input type="text" readonly class="form-control d-none" name="id">  
             <div class="row">           
                <div class="col-md-6">
                   <div class="form-group">
@@ -673,6 +682,33 @@
 // Initialize DataTable
 var cacheBuster = new Date().getTime(); // Using timestamp as an example
 
+$('#selected_branch').change(function() {
+            // Get the selected value
+            var selectedBranch = $(this).val();
+
+            // Store the selected value in session storage
+            sessionStorage.setItem('selected_branch', selectedBranch);
+            alert(sessionStorage.getItem('selected_branch'));
+
+            $.ajax({
+                type: 'POST',
+                url: '../api/access_control/set-session_branch.php',
+                data: { 
+                      selected_branch: selectedBranch,
+                      branch_override:true
+                 },
+                success: function(response) {
+                    console.log('Branch set successfully');
+                    reloadNumbers();
+                    reloadTable();
+                },
+                error: function(error) {
+                    console.error('Error setting branch:', error);
+                }
+            });
+        });
+
+
     // Your server-side endpoint URL
 var url = '../api/get-students_data.php';
     // Append the cache buster to the URL
@@ -731,14 +767,13 @@ var dataTable = $('#std_recs_tbl').DataTable({
         }
     ]
 });
-// Load data into the table on page load
-var cacheBuster = new Date().getTime(); // Using timestamp as an example
+// Load data into the table on page load]
+dataTable.ajax.url('../api/get-students_data.php').load();
 
-    // Your server-side endpoint URL
-var url = '../api/get-students_data.php';
-    // Append the cache buster to the URL
-url += '?cache=' + cacheBuster;
-dataTable.ajax.url(url).load();
+function reloadTable(){
+   dataTable.ajax.url('../api/get-students_data.php').load();
+}
+
        $("#addStdBtn").click(function(event) {
            event.preventDefault(); // Prevent the default form submission
    
@@ -862,8 +897,8 @@ $('#std_recs_tbl').on('click', '.btn-outline-warning', function() {
         var duration = rowData[9];
         var amount = rowData[5];
         var contact = rowData[4];
-        var hometown = rowData[10];
-        var email = rowData[11];
+        var hometown = rowData[11];
+        var email = rowData[12];
         var dob = rowData[13];
 
         // Fill the form with the data
