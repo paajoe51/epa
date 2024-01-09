@@ -20,7 +20,7 @@
       <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.5/css/dataTables.bootstrap4.min.css">
       <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
  
-      <title>Fees</title>
+      <title>Fees Table</title>
    </head>
    <body>
       <div class="dashboard-main-wrapper">
@@ -130,7 +130,7 @@
                            </div>
                            <a class="dropdown-item" href="#"><i class="fas fa-user mr-2"></i>Account</a>
                            <a class="dropdown-item" href="#"><i class="fas fa-cog mr-2"></i>Setting</a>
-                           <a class="dropdown-item" href="#"><i class="fas fa-power-off mr-2"></i>Logout</a>
+                           <a class="dropdown-item" href="../api/access_control/log-out.php"><i class="fas fa-power-off mr-2"></i>Logout</a>
                         </div>
                      </li>
                   </ul>
@@ -179,32 +179,18 @@
                            <a class="nav-link" href="bank-report.html"><i class="fas fa-fw fa-print"></i> Bank Report</a>
                         </li>
                         <li class="nav-item">
-                           <a class="nav-link" href="pages/blank-page-header.html"><i class="fas fa-fw fa-print"></i> Received Report</a>
-                        </li>
-                        <li class="nav-item">
                            <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-6" aria-controls="submenu-6"><i class="fas fa-fw fa-money-bill-alt"></i> Account </a>
                            <div id="submenu-6" class="collapse submenu" style="">
                               <ul class="nav flex-column">
                                  <li class="nav-item">
-                                    <a class="nav-link" href="fees-table.html"><i class="fas fa-fw fa-table"></i> Fees Table</a>
+                                    <a class="nav-link"data-toggle="modal"  href="fees.html"><i class="fas fa-fw fa-plus-square"></i> Fees</a>
                                  </li>
                                  <li class="nav-item">
-                                    <a class="nav-link"data-toggle="modal" data-target="#addUserMdl"><i class="fas fa-fw fa-plus-square"></i> Record Transaction</a>
+                                    <a class="nav-link" href="fees-table.html"><i class="fas fa-fw fa-table"></i> Fees Table</a>
                                  </li>
                               </ul>
                            </div>
                         </li>
-                        <li class="nav-divider">
-                           USERS
-                        </li>
-                        <li class="nav-item">
-                           <a class="nav-link" href="users.html" ><i class="fas fa-fw fa-users"></i> All Users<span class="badge badge-secondary">New</span></a>
-                           <div id="submenu-7" class="collapse submenu" style="">
-                        </li>
-                           <li class="nav-item">
-                           <a class="nav-link" href="#" ><i class="fas fa-fw fa-user-plus"></i> Add User<span class="badge badge-secondary">New</span></a>
-                           <div id="submenu-7" class="collapse submenu" style="">
-                           </li>
                      </ul>
                   </div>
                </nav>
@@ -222,7 +208,7 @@
                               <nav aria-label="breadcrumb">
                                  <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="index.html" class="breadcrumb-link">Dashboard</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Fees</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Fees Table</li>
                                  </ol>
                               </nav>
                            </div>
@@ -234,7 +220,7 @@
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                            <div class="card">
                               <div class="card-header">
-                                 <h5 class="mb-0">Full Records of Fee Structure <button type="button"class=" btn btn-primary float-right" data-toggle="modal" data-target="#recFeeMdl"><i class="mdi mdi-table-edit"></i>Set-up Fees Table</button></h5>
+                                 <h5 class="mb-0 ">Full Records of Fee Structure <button type="button"class=" btn btn-primary float-right d-none" data-toggle="modal" data-target="#recFeeMdl"><i class="mdi mdi-table-edit"></i>Set-up Fees Table</button></h5>
                               </div>
                               <div class="card-body">
                                  <div class="table-responsive small">
@@ -247,7 +233,7 @@
                                              <th class="border-0" >Course</th>
                                              <th class="border-0" width="13%">Duration</th>
                                              <th class="border-0" width="10%" >Amount</th>
-                                             <th width="10%">Action</th>
+                                             <th width="10%" class="d-none">Action</th>
                                           </tr>
                                        </thead>
                                        <tbody>
@@ -266,7 +252,7 @@
                <div class="container-fluid">
                   <div class="row">
                      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                        Copyright © 2018 Concept. All rights reserved.
+                        Copyright © 2023 EPADAC Business Center - Powered by Mickysoft Technologies. All rights reserved.
                      </div>
                      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
                         <div class="text-md-right footer-links d-none d-sm-block">
@@ -442,7 +428,7 @@
                        '<td>' + fee.course_name + '</td>' +
                        '<td>' + fee.duration + '</td>' +
                        '<td>' + fee.amount + '</td>' +
-                       '<td style="margin:0;padding:2px;">'+
+                       '<td class ="d-none" style="margin:0;padding:2px;">'+
                                '<span>'+
                                   '<button type="button" class="btn btn-sm btn-outline-warning"  data-toggle="modal" data-target="#editFeeMdl" style="margin:0; margin-left: margin-right:0;"><i class="fas fa-edit fa-lg"></i></button>'+
                                   '<button type="button" class="btn btn-sm btn-outline-danger delete-btn" style="margin:0; margin-left: 0; margin-right:0;"><i class="fas fa-times  fa-lg"></i></button>'+

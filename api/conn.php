@@ -1,34 +1,28 @@
-
 <?php
-/* Connection parameters - Remote
-$db_host = '94.23.253.103';
-$db_port = '3306';
-$db_name = 'epadacco_ipmc_admin';
-$db_user = 'epadacco_mickysoft';
-$db_pass = 'PAAjoe@1992';*/
+/* Database config */
+$db_host		= '127.0.0.1';
+$db_user		= 'root';
+$db_pass		= '';
+$db_database	= 'epa_ipmc_db'; 
 
-// Connection parameters - Local
-$db_host = '127.0.0.1';
-$db_port = '3306';
-$db_name = 'epa_ipmc_db';
-$db_user = 'root';
-$db_pass = '';
+/* Database config
 
-
-// PDO connection string
-$dsn = "mysql:host=$db_host;port=$db_port;dbname=$db_name";
-
+$db_host		= '23.111.175.170';
+$db_user		= 'mickysof_root';
+$db_pass		= 'paajoe@1992';
+$db_database	= 'mickysof_momo_rec_db';  */
 try {
-    // Create a new PDO instance
-    $db = new PDO($dsn, $db_user, $db_pass);
+	//create PDO connection
+	$db = new PDO('mysql:host='.$db_host.';dbname='.$db_database, $db_user, $db_pass);
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);//Suggested to comment on production websites
+    $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+    //echo "db connected";
 
-    // Set PDO to throw exceptions on error
-    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-    //echo 'Connection successful'; // This line should be executed if the connection is successful
-
-} catch (PDOException $e) {
-    // Handle PDO connection error
-    die("Connection failed: " . $e->getMessage());
+} catch(PDOException $e) {
+	//show error
+    echo '<p class="bg-danger">'.$e->getMessage().'</p>';
+    echo"error  test message";
+    exit;
 }
+
 ?>

@@ -5,6 +5,30 @@
    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
    <!-- /Added by HTTrack -->
    <head>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+      <script>
+         // Function to check login status
+         function checkLoginStatus() {
+            $.ajax({
+               url: '../api/access_control/auth.php',
+               type: 'GET',
+               success: function(response) {
+                     if (response === 'logged_in') {
+                        // alert('logged in');
+                     } else {
+                        alert('You must log  in');
+                        window.location.href = '../index.html';
+                     }
+               },
+               error: function() {
+                     console.log('Error checking login status');
+               }
+            });
+         }
+
+         // Call the function when the page is loaded
+            checkLoginStatus();
+      </script>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.min.css">

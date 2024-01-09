@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <title>Contact Form</title>
+</head>
+<body>
+
+<div class="container mt-5">
+  <form id="contactForm">
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="serviceName">Service Name</label>
+        <input type="text" class="form-control" id="serviceName" name="serviceName" placeholder="Enter service name">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="contact">Contact</label>
+        <input type="text" class="form-control" id="contact" name="contact" placeholder="Enter contact">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="message">Message</label>
+      <textarea class="form-control" id="message" name="message" rows="4" placeholder="Enter your message"></textarea>
+    </div>
+    <button type="button" class="btn btn-primary btn-lg btn-block" onclick="sendMessage()">Send Message</button>
+  </form>
+</div>
+
+<!-- Bootstrap JS and Popper.js scripts (required for Bootstrap components) -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<!-- SweetAlert CDN -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+<!-- Add this script after your previous scripts -->
+<script>
+    function sendMessage() {
+      var formData = $('#contactForm').serialize();
+      
+      $.ajax({
+        type: 'POST',
+        url: 'send-sms.php',
+        data: formData,
+        success: function(response) {
+          // Parse the JSON response
+          var responseData =(response);
+    
+          if (responseData.status == 'success') {
+            // Display a success SweetAlert
+            Swal.fire({
+              icon: 'success',
+              title: 'Message Sent Successfully!',
+              text: responseData.message
+            });
+          } else {
+            // Display an error SweetAlert
+            Swal.fire({
+              icon: 'error',
+              title: 'Error!',
+              text: responseData.message
+            });
+          }
+        },
+        error: function(error) {
+          // Handle error
+          console.error(error);
+    
+          // Display an error SweetAlert
+          Swal.fire({
+            icon: 'error',
+            title: 'Error!',
+            text: 'An error occurred while processing your request.'
+          });
+        }
+      });
+    }
+    </script>
+    
+
+</body>
+</html>

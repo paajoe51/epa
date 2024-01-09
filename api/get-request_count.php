@@ -6,12 +6,13 @@ session_start();
 
 $branch = $_SESSION['SESS_BRANCH'] ;
 $position = $_SESSION['SESS_POSITION'] ;
+$currentYear = date("Y");
 
-if($position=='branch_admin' | $position=='counselor' ){
-    $all_sql = "SELECT * FROM requests WHERE branch = '$branch'";
-    $pen_sql = "SELECT * FROM requests WHERE branch = '$branch' AND status = 'pending'";
-    $acc_sql = "SELECT * FROM requests WHERE branch = '$branch' AND status = 'accepted'";
-    $rej_sql = "SELECT * FROM requests WHERE branch = '$branch' AND status = 'declined'";
+if($position=='branch_admin' || $position=='counselor' ){
+    $all_sql = "SELECT * FROM requests WHERE branch = '$branch' AND YEAR(STR_TO_DATE(date, '%d/%m/%Y')) = $currentYear";
+    $pen_sql = "SELECT * FROM requests WHERE branch = '$branch' AND status = 'pending' AND YEAR(STR_TO_DATE(date, '%d/%m/%Y')) = $currentYear";
+    $acc_sql = "SELECT * FROM requests WHERE branch = '$branch' AND status = 'accepted' AND YEAR(STR_TO_DATE(date, '%d/%m/%Y')) = $currentYear";
+    $rej_sql = "SELECT * FROM requests WHERE branch = '$branch' AND status = 'declined' AND YEAR(STR_TO_DATE(date, '%d/%m/%Y')) = $currentYear";
 }
 else{
     // Check if SESS_BRANCH_OVRD is set

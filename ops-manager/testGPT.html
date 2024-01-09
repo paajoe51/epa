@@ -1,68 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <title>Account Dashboard</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>External Page Viewer</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <style>
+    /* Add your custom styles here */
+    #externalFrame {
+      width: 100%;
+      height: 500px; /* Adjust the height as needed */
+    }
+  </style>
 </head>
 <body>
 
-<div class="container mt-4">
-    <h2 class="mb-4">Account Dashboard</h2>
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">External Page Viewer</a>
+  </nav>
 
-    <div class="row">
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">EPA Amount</h5>
-                    <p class="card-text" id="epa_amt">Loading...</p>
-                </div>
-            </div>
-        </div>
+  <!-- Main Content -->
+  <div class="container mt-3">
+    <h2>Main Page</h2>
+    <p>This is the main content of the page.</p>
 
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Withdrawals</h5>
-                    <p class="card-text" id="with_amt">Loading...</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">HQ Amount</h5>
-                    <p class="card-text" id="hq_amt">Loading...</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@leonardosarmentocastro/simple-money-format@1.5.3/dist/simple-money-format.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
-<script>
-    // Your reloadNumbers function here...
-    function reloadNumbers() {
-        // Mock data for testing
-        var banking = {
-            epadac: 1000,
-            withdrawals: 500,
-            hq: 700
-        };
-
-        // Update HTML elements with data
-        $('#epa_amt').text(banking.epadac).simpleMoneyFormat();
-        $('#with_amt').text(banking.withdrawals);
-        $('#hq_amt').text(banking.hq);
-    }
-
-    // Initial load
-    reloadNumbers();
-</script>
-
+    <!-- External Page Embedded in an Iframe -->
+    <iframe src="https://zeno.fm/player/tech-talk-radio" width="575" height="250" frameborder="0" scrolling="no"></iframe><a href="https://zeno.fm/" target="_blank" style="display: block; font-size: 0.9em; line-height: 10px;">A Zeno.FM Station</a>
+  </div>
 </body>
+<style>
+div.bg-light-gr     ay{
+    display:none;
+}
+</style>
 </html>

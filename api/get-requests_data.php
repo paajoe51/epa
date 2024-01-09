@@ -2,12 +2,17 @@
 include('conn.php');
 session_start();
 
+$branch = $_SESSION['SESS_BRANCH'] ;
+$position = $_SESSION['SESS_POSITION'] ;
+$currentYear = date("Y");
+
+if($position=='branch_admin' || $position=='counselor' ){
     if (isset($_SESSION['SESS_BRANCH'])) {
     $s_branch = $_SESSION['SESS_BRANCH'];
 
     // Query to select data from the courses table
-    $sql = "SELECT * FROM requests WHERE branch='$s_branch'";
-
+    $sql = "SELECT * FROM requests WHERE branch='$s_branch' AND YEAR(STR_TO_DATE(date, '%d/%m/%Y')) = $currentYear";
+    }
     try {
         $stmt = $db->prepare($sql);
         $stmt->execute();

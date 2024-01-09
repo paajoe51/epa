@@ -1,6 +1,7 @@
 <?php
 include('conn.php');
 session_start();
+$currentYear = date("Y");
 
 // Check if required session variables are set
 if (isset($_SESSION['SESS_BRANCH'], $_SESSION['SESS_POSITION'])) {
@@ -9,7 +10,7 @@ if (isset($_SESSION['SESS_BRANCH'], $_SESSION['SESS_POSITION'])) {
 
     if ($position == 'branch_admin' || $position == 'counselor') {
         $sql = "SELECT * FROM requests 
-                WHERE type='earlier' AND branch = :branch";
+                WHERE type='earlier' AND branch = :branch AND YEAR(STR_TO_DATE(date, '%d/%m/%Y')) = $currentYear";
     } else {
         // Check if SESS_BRANCH_OVRD is set
         if (isset($_SESSION['SESS_BRANCH_OVRD']) && $_SESSION['SESS_BRANCH_OVRD'] == true && $branch!='all') {

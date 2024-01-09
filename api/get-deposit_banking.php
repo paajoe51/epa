@@ -2,11 +2,12 @@
 include('conn.php');
 session_start();
 $position = $_SESSION['SESS_POSITION'] ;
+$currentYear = date("Y");
 
-if($position=='branch_admin' | $position=='counselor' ){
+if($position=='branch_admin' || $position=='counselor' ){
     $branch = $_SESSION['SESS_BRANCH'] ;
     // Query to select data from the students table
-    $sql = "SELECT * FROM banking WHERE banking_type = 'Deposit' AND branch = '$branch'" ;
+    $sql = "SELECT * FROM banking WHERE banking_type = 'Deposit' AND branch = '$branch' AND YEAR(STR_TO_DATE(date, '%d/%m/%Y')) = $currentYear" ;
 }elseif (!empty($_SESSION['SESS_BRANCH_OVRD']) && $_SESSION['SESS_BRANCH_OVRD'] == true && $_SESSION['SESS_BRANCH']!='all') {
     $branch = $_SESSION['SESS_BRANCH'] ;
     // Query to select data from the students table

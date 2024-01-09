@@ -4,7 +4,7 @@ session_start();
 $branch = $_SESSION['SESS_BRANCH'] ;
 $position = $_SESSION['SESS_POSITION'] ;
 
-if($position=='branch_admin' | $position=='counselor' ){
+if($position=='branch_admin' || $position=='counselor' ){
     $t_sql = "SELECT * FROM batches WHERE branch='$branch'";
 }
 else{

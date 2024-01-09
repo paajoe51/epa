@@ -11,8 +11,9 @@ $branch = $_POST['branch_name'];
 $student = $_POST['fee_student'];
 $trans_id = $_POST['trans_id'];
 $sp_contact = $_POST['sp_contact'];
-$course = str_replace("+", " ", ($_POST['course']));
-$duration =  str_replace("+", " ", ($_POST['duration']));
+$course = ($_POST['course']);
+$duration = ($_POST['duration']);
+$type = ($_POST['fee_type']);
 
 if ($amount == "" || $student == "") {
     $response = 201;
@@ -28,20 +29,20 @@ if ($amount == "" || $student == "") {
         // Calculate the new amount by adding the current amount and the new amount from the form
         $newAmount = $currentAmountPaid + $amount;
 
-        // Fetch the current amount paid from the students table
+        // Fetch the Course  amount  from the fees table
         $fee_query = "SELECT amount FROM fees_table WHERE course_name = :course AND duration = :duration" ;
         $fee_stmt = $db->prepare($fee_query);
         $fee_stmt->bindParam(':course', $course);
         $fee_stmt->bindParam(':duration', $duration);
-        $fee_stmt->execute();
-        $fee = $fee_stmt->fetchColumn();
+        $fee = $fee_stmt->execute();
+        //$fee = $fee_stmt->fetchColumn();
 
         // Calculate the new amount by adding the current amount and the new amount from the form
         if ($newAmount<$fee){
-            $payment_status= $newAmount-$fee;
+            $payment_status= ($newAmount-$fee);
         }
-        elseif ($newAmount>=$fee){
-            $payment_status="Fully Paid";
+        else{
+            $payment_status=($newAmount-$fee);
         }
 
         // Update the amount_paid in the students table
@@ -53,11 +54,12 @@ if ($amount == "" || $student == "") {
         $updateStmt->execute();
 
         // Insert the new fee record
-        $insertQuery = "INSERT INTO fees (date, transaction_id, branch, amount, comment, student_id) VALUES (:fee_date, :trans_id, :branch, :amount, :comment, :student_id)";
+        $insertQuery = "INSERT INTO fees (date, transaction_id, branch, amount, fee_type, comment, student_id) VALUES (:fee_date, :trans_id, :branch, :amount, :fee_type, :comment, :student_id)";
         $insertStmt = $db->prepare($insertQuery);
         $insertStmt->bindParam(':fee_date', $date);
         $insertStmt->bindParam(':branch', $branch);
         $insertStmt->bindParam(':amount', $amount);
+        $insertStmt->bindParam(':fee_type', $type);
         $insertStmt->bindParam(':comment', $comment);
         $insertStmt->bindParam(':student_id', $student);
         $insertStmt->bindParam(':trans_id', $trans_id);

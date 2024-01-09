@@ -2,9 +2,10 @@
 include('conn.php');
 session_start();
 $branch=$_SESSION['SESS_BRANCH']; 
+$currentYear = date("Y");
 
 // Query to select data from the courses table
-$sql = "SELECT * FROM fees WHERE branch = '$branch'";
+$sql = "SELECT * FROM fees WHERE branch = '$branch' AND YEAR(STR_TO_DATE(date, '%d/%m/%Y')) = $currentYear ORDER BY id DESC";
 
 try {
     $stmt = $db->prepare($sql);

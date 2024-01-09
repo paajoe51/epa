@@ -19,7 +19,7 @@
       <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
       <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.5/css/dataTables.bootstrap4.min.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css">
-
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
  
       <title>Fees-Counselor</title>
    </head>
@@ -32,7 +32,7 @@
                <span class="navbar-toggler-icon"></span>
                </button>
                <div class="col-md-4 float-right">
-                  <select class="form-control" id="selected_branch" name="req_br">
+                  <select class="form-control branch_list" id="selected_branch" name="req_br">
                     <option value="all" class="font-italic">All Branches</option>
                     <option value="Agona Swedru" class="font-italic">Agona Swedru</option>
                     <option value="Cape Coast" class="font-italic">Cape Coast</option>
@@ -158,60 +158,48 @@
                         <li class="nav-divider">
                            Menu
                         </li>
-                        
                         <li class="nav-item">
-                           <a class="nav-link" href="index.html" ><i class="fas fa-fw fa-tachometer-alt"></i> Dashboard <span class="badge badge-secondary">New</span></a>
+                           <a class="nav-link" href="index.html" ><i class="fas fa-fw fa-tachometer-alt"></i> Dasboard<span class="badge badge-secondary">New</span></a>
+                           <div id="submenu-7" class="collapse submenu" style="">
+                        </li>                    
+                        <li class="nav-item">
+                           <a class="nav-link" href="courses.html" ><i class="fas fa-fw fa-book"></i> Courses / Batches<span class="badge badge-secondary">New</span></a>
                            <div id="submenu-7" class="collapse submenu" style="">
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="students-records.html" ><i class="fas fa-fw fa-users"></i> Students Records<span class="badge badge-secondary">New</span></a>
-                        <div id="submenu-7" class="collapse submenu" style=""></div>
-                        
-                        <li class="nav-item">
-                           <a class="nav-link" href="fees.html" ><i class="mdi mdi-cash-multiple mdi-18px"></i> Fees <span class="badge badge-secondary">New</span></a>
-                           <div id="submenu-7" class="collapse submenu" style="">
-                        </li>
-                        <li class="nav-item">
-                           <a class="nav-link" href="courses.html" ><i class="mdi mdi-18px mdi-book-open-variant"></i> Courses / Batches <span class="badge badge-secondary">New</span></a>
+                           <a class="nav-link" href="branches.html" ><i class="fas fa-fw fa-code-branch"></i> Branches Management<span class="badge badge-secondary">New</span></a>
                            <div id="submenu-7" class="collapse submenu" style="">
                         </li>
                         <li class="nav-divider">
                            REPORTS
                         </li>
                         <li class="nav-item">
-                           <a class="nav-link" href="students-records.html" ><i class="fas fa-fw fa-inbox"></i> Students Reports<span class="badge badge-secondary">New</span></a>
-                           <div id="submenu-7" class="collapse submenu" style="">
-                        </li>
-                                                <li class="nav-item">
-                           <a class="nav-link" href="courses.html" ><i class="fas fa-fw fa-book"></i> Library / Archives <span class="badge badge-secondary">New</span></a>
+                           <a class="nav-link" href="students-records.html" ><i class="fas fa-fw fa-users"></i> Students Reports<span class="badge badge-secondary">New</span></a>
                            <div id="submenu-7" class="collapse submenu" style="">
                         </li>
                         <li class="nav-item">
-                           <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-6" aria-controls="submenu-6"><i class="fas fa-fw fa-file"></i> Account </a>
+                           <a class="nav-link" href="staff.html" ><i class="fas fa-fw fa-suitcase"></i> Staff Records<span class="badge badge-secondary">New</span></a>
+                           <div id="submenu-7" class="collapse submenu" style="">
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link" href="requests.html"><i class="fas fa-fw fa-print"></i> Expenditure Requests</a>
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link" href="bank-report.html"><i class="fas fa-fw fa-print"></i> Bank Report</a>
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-6" aria-controls="submenu-6"><i class="fas fa-fw fa-money-bill-alt"></i> Account </a>
                            <div id="submenu-6" class="collapse submenu" style="">
                               <ul class="nav flex-column">
                                  <li class="nav-item">
-                                    <a class="nav-link" href="account.html"><i class="fas fa-fw fa-university"></i> Bank Report</a>
+                                    <a class="nav-link"data-toggle="modal"  href="fees.html"><i class="fas fa-fw fa-plus-square"></i> Fees</a>
                                  </li>
                                  <li class="nav-item">
-                                    <a class="nav-link" href="requests.html"><i class="mdi mdi-book-plus"></i> Expenditure Requests</a>
+                                    <a class="nav-link" href="fees-table.html"><i class="fas fa-fw fa-table"></i> Fees Table</a>
                                  </li>
                               </ul>
                            </div>
                         </li>
-                        
-                        <li class="nav-divider">
-                           USER ACCOUNT
-                        </li>
-                        <li class="nav-item">
-                           <a class="nav-link" href="#" ><i class="fas fa-fw fa-user"></i> Profile<span class="badge badge-secondary">New</span></a>
-                           <div id="submenu-7" class="collapse submenu" style="">
-                        </li>
-                                                <li class="nav-item">
-                           <a class="nav-link" href="../index.html" ><i class="fa fa-fw fa-sign-out-alt"></i> Sign Out<span class="badge badge-secondary">New</span></a>
-                           <div id="submenu-7" class="collapse submenu" style="">
-                        </li>
-                  
                      </ul>
                   </div>
                </nav>
@@ -298,7 +286,8 @@
                                     <div class="col-xl-12 col-lg-12 col-md-6 col-sm-12 col-12">
                                        <div class="card">
                                           <div class="card-header">
-                                             <h5 class="mb-0">List of Students by Fee Payment <button type="button"class=" btn btn-primary float-right" id="feeMdlBtn" data-toggle="modal" data-target="#recFeeMdl"><i class="mdi mdi-cash-multiple"></i> Record Fee</button></h5>
+                                             <h5 class="mb-0">List of Students by Fee Payment </h5>
+                                             
                                           </div>
                                           <div class="card-body">
                                              <div class="table-responsive table-sm text-small">
@@ -328,7 +317,31 @@
                                     <div class="col-xl-12 col-lg-12 col-md-6 col-sm-12 col-12">
                                        <div class="card">
                                           <div class="card-header primary">
-                                             <h5 class="mb-0">Transaction Log of Fee Collection <button type="button"class=" btn btn-primary float-right" id="feeMdlBtn" data-toggle="modal" data-target="#recFeeMdl"><i class="mdi mdi-cash-multiple"></i> Record Fee</button></h5>
+                                             <h5 class="mb-0">Transaction Log of Fee Collection </h5>
+                                             <div class="form-row mb-3">
+                                                <div class="col-sm-4">
+                                                    <div class="input-group date">
+                                                        <input type="text" class="form-control" id="startDate" placeholder="Select Start Date" autocomplete="off">
+                                                        <div class="input-group-append">
+                                                            <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <div class="input-group date">
+                                                        <input type="text" class="form-control" id="endDate" placeholder="Select End Date" autocomplete="off">
+                                                        <div class="input-group-append">
+                                                            <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-2">
+                                                    <button class="btn btn-account btn-primary" id="filterBtn">Filter</button>
+                                                </div>
+                                                <div class="col-sm-s">
+                                                   <button type="button"class=" btn btn-primary float-right" id="feeMdlBtn" data-toggle="modal" data-target="#recFeeMdl"><i class="mdi mdi-cash-multiple"></i> Record Fee</button></button>
+                                                </div>
+                                            </div>
                                           </div>
                                           <div class="card-body">
                                              <div class="table-responsive table-sm text-small">
@@ -340,7 +353,7 @@
                                                          <th>Date</th>
                                                          <th>Transaction ID</th>
                                                          <th class="border-0">Branch</th>
-                                                         <th class="border-0">Payer</th>
+                                                         <th class="border-0">Fee Type</th>
                                                          <th class="border-0">Amount</th>
                                                          <th class="border-1" width="3%"></th>
                                                       </tr>
@@ -515,9 +528,18 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js" integrity="sha512-lG7F8U6tyWmT1u4OlWkEekP5FSsG3l0sXGgEMTrEdZ+uLka4e5TPAqMeqkYQgvt2uyv6pAvDTrdBEil7XK4WJQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
       <script src="../assets/vendor/Auto-Format-Currency/simple.money.format.js"></script>
-     <script>
-        //new DataTable('#std_fees_tbl');
-     </script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+
+      <script>
+          // Initialize datepicker
+          $('.date').datepicker({
+              format: 'dd-mm-yyyy',
+              autoclose: true,
+              todayHighlight: true,
+              clearBtn: true,
+              todayBtn: 'linked'
+          });
+      </script>
 
      <script>
       var branchName = "waiting for date";
@@ -535,6 +557,36 @@
                 console.error('Error fetching JSON data:', error);
             }
         });
+        
+        $.ajax({
+               url: '../api/get-branches_data.php',
+               type: 'GET',
+               dataType: 'json',
+               cache: false, // Disable caching
+               success: function(data) {
+                  var select = $('.branch_list');
+
+                  // Clear existing options (if any)
+                  select.empty();
+
+                  // Prepend 'All Branches' option
+                  select.append($('<option>', {
+                        value: 'all',
+                        text: 'All Branches'
+                  }));
+
+                  // Iterate through the JSON data and append options
+                  $.each(data, function(index, branch) {
+                        select.append($('<option>', {
+                           value: branch.name,
+                           text: branch.name
+                        }));
+                  });
+               },
+               error: function(xhr, status, error) {
+                  console.error('Error fetching data:', error);
+               }  
+         });
 
         reloadNumbers();
         $('#selected_branch').change(function() {
@@ -565,7 +617,7 @@
 
 
  // Initialize DataTable
- var dataTable = $("#std_fees_tbl").DataTable({
+ var stdTable = $("#std_fees_tbl").DataTable({
     // Specify your DataTable configuration options here
     ajax: {
         url: "../api/get-students_data.php",
@@ -593,10 +645,9 @@
     ]
 });
 
-stdFeeTable = dataTable;
+//stdFeeTable = dataTable;
 
-var dataTable = $('#fees_log_tbl').DataTable({
-    // Specify your DataTable configuration options here
+var  feeLogTable = $('#fees_log_tbl').DataTable({
     ajax: {
         url: "../api/get-fees_log.php",
         dataType: "json",
@@ -606,11 +657,11 @@ var dataTable = $('#fees_log_tbl').DataTable({
     },
     columns: [
         { data: null }, // ID
-        { data: "id", className:'ID d-none'},
-        { data: "date" },
+        { data: "id", className: 'ID d-none' },
+        { data: "date"},
         { data: "transaction_id" },
         { data: "branch" },
-        { data: "payer" },
+        { data: "fee_type" },
         { data: "amount" },
         { data: null } // Actions
     ],
@@ -626,27 +677,44 @@ var dataTable = $('#fees_log_tbl').DataTable({
             targets: [7], // Target the Actions column
             orderable: false,
             render: function (data, type, row) {
-                return '<td> <div class="btn-group">'+
-                          ' <button type="button" class="btn btn-info btn-sm rounded" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'+
-                             '<i class="mdi mdi-dots-vertical"></i>'+
-                          ' </button>'+
-                           '<div class="dropdown-menu dropdown-menu-right">'+
-                             '<button class="dropdown-item" type="button">'+
-                                '<i class="mdi mdi-binoculars"></i> View Detail </button>'+
-                              '<button class="dropdown-item" type="button" id="printInvoice">'+
-                                '<i class="mdi mdi-printer"></i> Print Report </button>'+
-                           '</div>'+
-                        ' </div>'+
-                       ' </td>'
+                return '<td> <div class="btn-group">' +
+                     ' <button type="button" class="btn btn-info btn-sm rounded" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">' +
+                     '<i class="mdi mdi-dots-vertical"></i>' +
+                     ' </button>' +
+                     '<div class="dropdown-menu dropdown-menu-right">' +
+                     '<button class="dropdown-item" type="button">' +
+                     '<i class="mdi mdi-binoculars"></i> View Detail </button>' +
+                     '<button class="dropdown-item" type="button" id="printInvoice">' +
+                     '<i class="mdi mdi-printer"></i> Print Report </button>' +
+                     '</div>' +
+                     ' </div>' +
+                    ' </td>'
             }
         }
     ]
 });
 
+// Add a click event for the filter button
+$('#filterBtn').on('click', function () {
+    var startDate = $('#startDate').val();
+    var endDate = $('#endDate').val();
+    console.log('Start Date:', startDate);
+    console.log('End Date:', endDate);
+    alert(startDate);
+    // Apply date range filter
+    dataTable.columns(2).search(startDate + ' to ' + endDate).draw();
+});
+
+   function formatDate(inputDate) {
+      var parts = inputDate.split('/');
+      return parts[2] + '-' + parts[1] + '-' + parts[0];
+   }
+
 function reloadTable(){
-   dataTable.ajax.url('../api/get-fees_log.php').load();
-   stdFeeTable.ajax.url('../api/get-students_data.php').load();
+   feeLogTable.ajax.url('../api/get-fees_log.php').load();
+   stdTable.ajax.url('../api/get-students_data.php').load();
 }
+
 $('#fees_log_tbl tbody').on('click', '#printInvoice', function () {
       // Get data of the clicked row
       //alert ('rowData');
@@ -724,7 +792,7 @@ $('#fees_log_tbl tbody').on('click', '#printInvoice', function () {
             // Event handler for keydown on the select input
 
                // Fetch student data from the server
-               $.ajax({
+         $.ajax({
          url: '../api/get-students_data.php', // Replace with the actual PHP file path
          type: 'GET',
          dataType: 'json',

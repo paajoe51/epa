@@ -2,12 +2,13 @@
 include('conn.php');
 session_start();
 $branch=$_SESSION['SESS_BRANCH'];
+$currentYear = date("Y");
 
 // Query to select data from the students table
-$all_sql = "SELECT * FROM requests WHERE branch='$branch'";
-$pen_sql = "SELECT * FROM requests WHERE branch='$branch' AND status = 'pending'";
-$acc_sql = "SELECT * FROM requests WHERE branch='$branch' AND status = 'accepted'";
-$rej_sql = "SELECT * FROM requests WHERE branch='$branch' AND status = 'rejected'";
+$all_sql = "SELECT * FROM requests WHERE branch='$branch' AND YEAR(STR_TO_DATE(date, '%d/%m/%Y')) = $currentYear";
+$pen_sql = "SELECT * FROM requests WHERE branch='$branch' AND status = 'pending' AND YEAR(STR_TO_DATE(date, '%d/%m/%Y')) = $currentYear";
+$acc_sql = "SELECT * FROM requests WHERE branch='$branch' AND status = 'accepted' AND YEAR(STR_TO_DATE(date, '%d/%m/%Y')) = $currentYear";
+$rej_sql = "SELECT * FROM requests WHERE branch='$branch' AND status = 'rejected' AND YEAR(STR_TO_DATE(date, '%d/%m/%Y')) = $currentYear";
 
 try {
     // Total students

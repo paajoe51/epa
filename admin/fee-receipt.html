@@ -5,6 +5,30 @@
    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
    <!-- /Added by HTTrack -->
    <head>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+      <script>
+         // Function to check login status
+         function checkLoginStatus() {
+            $.ajax({
+               url: '../api/access_control/auth.php',
+               type: 'GET',
+               success: function(response) {
+                     if (response === 'logged_in') {
+                        // alert('logged in');
+                     } else {
+                        alert('You must log  in');
+                        window.location.href = '../index.html';
+                     }
+               },
+               error: function() {
+                     console.log('Error checking login status');
+               }
+            });
+         }
+
+         // Call the function when the page is loaded
+            checkLoginStatus();
+      </script>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.min.css">
@@ -27,7 +51,7 @@
                           <div class="card">
                             <div class="card-header p-4">
                               <div class="float-right">
-                                <h3 class="mb-0">BA-23100923</h3>
+                                <h3 class="mb-0" id="trans_id"></h3>
                                 Date: <span id="date">...</span>
                               </div>
                             </div>
@@ -107,57 +131,48 @@
       <script src="../assets/vendor/charts/c3charts/C3chartjs.js" type="8753a994eed150800267cbdd-text/javascript"></script>
       <script src="../assets/libs/js/dashboard-ecommerce.js" type="8753a994eed150800267cbdd-text/javascript"></script>
       <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13" type="8753a994eed150800267cbdd-text/javascript"></script>
-      <script type="8753a994eed150800267cbdd-text/javascript">
-         window.dataLayer = window.dataLayer || [];
-         function gtag(){dataLayer.push(arguments);}
-         gtag('js', new Date());
-         
-         gtag('config', 'UA-23581568-13');
-      </script>
       <script src="../assets/vendor/datatables.net/jquery-3.7.0.js"></script>
       <script src="../assets/vendor/datatables.net/dataTables.min.js"></script>
       <script src="../assets/vendor/datatables.net/dataTables.bootstrap4.min.js"></script>
-      <script>
-         function printInvoice() {
-            window.print();
-         }
-      </script>
+
 <script>
     $(document).ready(function () {
       var queryParams = new URLSearchParams(window.location.search);
-    
-      // Get the JSON data from the query parameters
-      var jsonData = queryParams.get('jsonData');
+        
+          // Get the JSON data from the query parameters
+          var jsonData = queryParams.get('jsonData');
 
-      // Parse the JSON data
-      var receivedData = JSON.parse(decodeURIComponent(jsonData));
+          // Parse the JSON data
+          var receivedData = JSON.parse(decodeURIComponent(jsonData));
 
-    // Access the received data
-    console.log(receivedData);
-    // Now you can use 'receivedData' in this page
-    $('#date').text(receivedData.date);
-    $('#trans_type').text(receivedData.banking_type);
-    $('#trans_note').text(receivedData.comment);    
-    $('#target').text(receivedData.target);
-    $('.trans_amount').text(receivedData.amount);
-    $('#branch').text(receivedData.branch);
-      window.print();
+        // Access the received data
+        console.log(receivedData);
+        // Now you can use 'receivedData' in this page
+        $('#date').text(receivedData.date);
+        $('#trans_type').text(receivedData.banking_type);
+        $('#trans_id').text(receivedData.transaction_id);
+        $('#trans_note').text(receivedData.comment);    
+        $('#target').text(receivedData.target);
+        $('.trans_amount').text(receivedData.amount);
+        $('#branch').text(receivedData.branch);
+        // window.print();
+        $.ajax({
+          url: '../api/access_control/get-session_data.php', // Replace with the actual path to your PHP script
+          type: 'GET',
+          dataType: 'json',
+          success: function(profile) {
+              // Assign JSON data to HTML elements with different IDs
+              $('.branch_name').val(profile[0].branch);
+              $('.user-name').text(profile[0].name);
+              window.print();
+          },
+          error: function(xhr, status, error) {
+              console.error('Error fetching JSON data:', error);
+          }
+      });
+      
     });
 
-   $.ajax({
-       url: '../api/access_control/get-session_data.php', // Replace with the actual path to your PHP script
-       type: 'GET',
-       dataType: 'json',
-       success: function(profile) {
-           // Assign JSON data to HTML elements with different IDs
-           $('.branch_name').val(profile[0].branch);
-           $('.user-name').text(profile[0].name);
-
-       },
-       error: function(xhr, status, error) {
-           console.error('Error fetching JSON data:', error);
-       }
-   });
 
      </script>
 

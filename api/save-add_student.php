@@ -24,6 +24,11 @@ elseif($_POST['reg_fee']<350){
     $m = $_POST['sp_contact'];
     $n = $_POST['reg_fee'];
 
+    session_start();
+    $branch = $e;
+    $generatedCode = generateCode($branch);
+    $date = date('d/m/Y');
+
     // Use prepared statements to prevent SQL injection
     $qry = $db->prepare("SELECT * FROM students WHERE student_id = :student_id AND contact = :contact");
     $qry->bindParam(':student_id', $a);
@@ -55,20 +60,61 @@ elseif($_POST['reg_fee']<350){
             $q->bindParam(':reg_fee', $n);
 
         if ($q->execute()) {
-            $number = ['233' . substr($h, 1)];
+            $type='Registration';
+            $lastStudentId = $db->lastInsertId();
+
+            // Insert the Registration fee record
+            $insertQuery = "INSERT INTO fees (date, transaction_id, branch, amount, fee_type, student_id) VALUES (:fee_date, :trans_id, :branch, :amount, :fee_type, :student_id)";
+            $insertStmt = $db->prepare($insertQuery);
+            $insertStmt->bindParam(':fee_date', $date);
+            $insertStmt->bindParam(':trans_id', $generatedCode);
+            $insertStmt->bindParam(':branch', $e);
+            $insertStmt->bindParam(':amount', $n);
+            $insertStmt->bindParam(':fee_type', $type);
+            $insertStmt->bindParam(':student_id', $lastStudentId);
+            $insertStmt->execute();
+            
+          /*  $number = ['233' . substr($h, 1)];
             $subject = 'EPADAC IPMC - New Expenditure  Request';    
             $message = "Hello  $d,  \nYou have been Successfully Enrolled in IPMC - $e Branch, to read $b for the Duration of $k.\nYour Student ID is $a";
             include('send-sms.php');
             $number = ['233' . substr($m, 1)];
             $subject = 'EPADAC IPMC - New Expenditure  Request';    
             $message = "Hello  $l,  \nThank you for Enrolling your ward at  IPMC - $e Branch, to read $b for the Duration of $k.";
-            include('send-sms.php');
+            include('send-sms.php');*/
+
+
             echo 200;
         } else {
-            echo "Error inserting user.";
+            echo "Adding New Student.";
         }
     }
 } else {
     echo "Missing required fields.";
 }
+
+function generateCode($input) {
+    $words = explode(' ', $input);
+    
+    $initials = '';
+    foreach ($words as $word) {
+        if (count($words) === 1) {
+            // If there's only one word, take the first 2 consonants
+            $consonants = preg_replace("/[aeiouAEIOU]+/", "", $word);
+            $initials .= strtoupper(substr($consonants, 0, 2));
+        } else {
+            // If there are multiple words, take the first letter of each word
+            $initials .= strtoupper(substr($word, 0, 1));
+        }
+    }
+    
+    $datePart = date('dmy');
+    $randomNumbers = str_pad(mt_rand(1, 999), 3, '0', STR_PAD_LEFT);
+    
+    $result = $initials . '/'. 'RF/'. $datePart . '-' . $randomNumbers;
+    
+    return $result;
+}
+   // echo "Generated Code: $generatedCode";
+
 ?>

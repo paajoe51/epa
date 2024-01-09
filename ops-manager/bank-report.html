@@ -27,7 +27,7 @@
                <span class="navbar-toggler-icon"></span>
                </button>
                <div class="col-md-4 float-right">
-                  <select class="form-control" id="selected_branch" name="req_br">
+                  <select class="form-control branch_list" id="selected_branch" name="req_br">
                     <option value="all" class="font-italic">All Branches</option>
                     <option value="Agona Swedru" class="font-italic">Agona Swedru</option>
                     <option value="Cape Coast" class="font-italic">Cape Coast</option>
@@ -178,32 +178,18 @@
                            <a class="nav-link" href="bank-report.html"><i class="fas fa-fw fa-print"></i> Bank Report</a>
                         </li>
                         <li class="nav-item">
-                           <a class="nav-link" href="pages/blank-page-header.html"><i class="fas fa-fw fa-print"></i> Received Report</a>
-                        </li>
-                        <li class="nav-item">
                            <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-6" aria-controls="submenu-6"><i class="fas fa-fw fa-money-bill-alt"></i> Account </a>
                            <div id="submenu-6" class="collapse submenu" style="">
                               <ul class="nav flex-column">
                                  <li class="nav-item">
-                                    <a class="nav-link" href="fees-table.html"><i class="fas fa-fw fa-table"></i> Fees Table</a>
+                                    <a class="nav-link"data-toggle="modal"  href="fees.html"><i class="fas fa-fw fa-plus-square"></i> Fees</a>
                                  </li>
                                  <li class="nav-item">
-                                    <a class="nav-link"data-toggle="modal" data-target="#addUserMdl"><i class="fas fa-fw fa-plus-square"></i> Record Transaction</a>
+                                    <a class="nav-link" href="fees-table.html"><i class="fas fa-fw fa-table"></i> Fees Table</a>
                                  </li>
                               </ul>
                            </div>
                         </li>
-                        <li class="nav-divider">
-                           USERS
-                        </li>
-                        <li class="nav-item">
-                           <a class="nav-link" href="users.html" ><i class="fas fa-fw fa-users"></i> All Users<span class="badge badge-secondary">New</span></a>
-                           <div id="submenu-7" class="collapse submenu" style="">
-                        </li>
-                           <li class="nav-item">
-                           <a class="nav-link" href="#" ><i class="fas fa-fw fa-user-plus"></i> Add User<span class="badge badge-secondary">New</span></a>
-                           <div id="submenu-7" class="collapse submenu" style="">
-                           </li>
                      </ul>
                   </div>
                </nav>
@@ -318,9 +304,7 @@
                                                          <th class="border-0">Note</th>
                                                       </tr>
                                                    </thead>
-                                                   <tbody>
-                                                      
-                                                                                        
+                                                   <tbody>                                                                                     
                                                       <!--tr>
                                                          <td colspan="9"><a href="#" class="btn btn-outline-light float-right">View Details</a></td>
                                                       </tr-->
@@ -480,7 +464,35 @@
       <script src="../assets/vendor/datatables.net/dataTables.bootstrap4.min.js"></script>
       <script src="../assets/vendor/Auto-Format-Currency/simple.money.format.js"></script>
 <script>
+ $.ajax({
+    url: '../api/get-branches_data.php',
+    type: 'GET',
+    dataType: 'json',
+    cache: false, // Disable caching
+    success: function(data) {
+        var select = $('.branch_list');
 
+        // Clear existing options (if any)
+        select.empty();
+
+        // Prepend 'All Branches' option
+        select.append($('<option>', {
+            value: 'all',
+            text: 'All Branches'
+        }));
+
+        // Iterate through the JSON data and append options
+        $.each(data, function(index, branch) {
+            select.append($('<option>', {
+                value: branch.name,
+                text: branch.name
+            }));
+        });
+    },
+    error: function(xhr, status, error) {
+        console.error('Error fetching data:', error);
+    }
+});
 reloadNumbers();
 //reloadTable();
 $('#selected_branch').change(function() {
@@ -515,20 +527,23 @@ $('#selected_branch').change(function() {
       var $epaAmt = $('#epa_amt');
       var $withAmt = $('#with_amt');
       var $hqAmt = $('#hq_amt');
-      var $balance = $('#bal_amt');
-      var money = $('.money');
+      var $balAmt = $('#bal_amt');
+      var $money = $('.money');
 
     $.ajax({
         url: '../api/get-banking_count.php', // Replace with the actual path to your PHP script
         type: 'GET',
         dataType: 'json',
-        cache: false,
+        cache: false, // Explicitly disable caching
+        data: { _: new Date().getTime() }, // Add a timestamp to the query string
+        
         success: function (banking) {
             // Assign JSON data to HTML elements with different IDs
             $epaAmt.text(banking.epadac);
             $withAmt.text(banking.withdrawals);
             $hqAmt.text(banking.hq);
-            money.simpleMoneyFormat();
+            $balAmt.text(banking.balance);
+            $money.simpleMoneyFormat();
         },
         error: function (xhr, status, error) {
             console.error('Error fetching JSON data:', status, error, xhr);

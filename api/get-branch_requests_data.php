@@ -4,9 +4,10 @@ include('conn.php');
 session_start();
 if (isset($_SESSION['SESS_BRANCH'])) {
 $s_branch = $_SESSION['SESS_BRANCH'];
+$currentYear = date("Y");
 
 // Query to select data from the courses table
-$sql = "SELECT * FROM requests WHERE branch='$s_branch'";
+$sql = "SELECT * FROM requests WHERE branch='$s_branch' AND YEAR(STR_TO_DATE(date, '%d/%m/%Y')) = $currentYear";
 
 try {
     $stmt = $db->prepare($sql);

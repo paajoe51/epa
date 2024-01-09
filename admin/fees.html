@@ -5,6 +5,30 @@
    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
    <!-- /Added by HTTrack -->
    <head>
+      <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+      <script>
+         // Function to check login status
+         function checkLoginStatus() {
+            $.ajax({
+               url: '../api/access_control/auth.php',
+               type: 'GET',
+               success: function(response) {
+                     if (response === 'logged_in') {
+                        // alert('logged in');
+                     } else {
+                        alert('You must log  in');
+                        window.location.href = '../index.html';
+                     }
+               },
+               error: function() {
+                     console.log('Error checking login status');
+               }
+            });
+         }
+
+         // Call the function when the page is loaded
+            checkLoginStatus();
+      </script>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.min.css">
@@ -21,7 +45,7 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css">
 
  
-      <title>Fees-Counselor</title>
+      <title>Fees-Admin</title>
    </head>
    <body>
       <div class="dashboard-main-wrapper">
@@ -126,7 +150,7 @@
                         <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../assets/images/avatar-1.jpg" alt="" class="user-avatar-md rounded-circle"></a>
                         <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
                            <div class="nav-user-info">
-                              <h5 class="mb-0 text-white nav-user-name">John Abraham </h5>
+                              <h5 class="mb-0 text-white nav-user-name"> </h5>
                               <span class="status"></span><span class="ml-2">Available</span>
                            </div>
                            <a class="dropdown-item" href="#"><i class="fas fa-user mr-2"></i>Account</a>
@@ -235,7 +259,7 @@
                               <div class="card-body">
                                  <h5 class="text-muted">Fees Collected</h5>
                                  <div class="metric-value d-inline-block">
-                                    <h1 class="mb-1">GHC <span id="fees_collected"></span></h1>
+                                    <h1 class="mb-1"><span class="font-24">GHC</span> <span id="fees_collected" class="money"></span></h1>
                                  </div>
                                  <div class="metric-label d-inline-block float-right text-success font-weight-bold">
                                     <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">5.86%</span>
@@ -246,9 +270,9 @@
                         <div class="col-xl-4 col-lg-3 col-md-6 col-sm-12 col-12">
                            <div class="card border-3 border-top border-top-primary">
                               <div class="card-body">
-                                 <h5 class="text-muted">Fully Paid</h5>
+                                 <h5 class="text-muted">Fully Paid <span id="num_fully_paid" class="badge badge-success float-right">0</span></h5>
                                  <div class="metric-value d-inline-block">
-                                    <h1 class="mb-1"><span id="num_fully_paid"></span></h1>
+                                    <h1 class="mb-1"><span class="font-24">GHC </span><span id="amt_fully_paid" class="money" >0.00</span></h1>
                                  </div>
                                  <div class="metric-label d-inline-block float-right text-success font-weight-bold">
                                     <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">10%</span>
@@ -259,9 +283,9 @@
                         <div class="col-xl-4 col-lg-3 col-md-6 col-sm-12 col-12">
                            <div class="card border-3 border-top border-top-primary">
                               <div class="card-body">
-                                 <h5 class="text-muted">Partially Paid</h5>
+                                 <h5 class="text-muted">Owing <span id="num_part_paid" class="badge badge-warning float-right">0</span></h5>
                                  <div class="metric-value d-inline-block">
-                                    <h1 class="mb-1"><span id="num_part_paid"></span></h1>
+                                    <h1 class="mb-1"><span class="font-24">GHC </span><span id="amt_owing" class="money">0.00</span></h1>
                                  </div>
                                  <div class="metric-label d-inline-block float-right text-success font-weight-bold">
                                     <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">5%</span>
@@ -291,6 +315,7 @@
                                           <div class="card-header">
                                              <h5 class="mb-0">List of Students by Fee Payment <button type="button"class=" btn btn-primary float-right" id="feeMdlBtn" data-toggle="modal" data-target="#recFeeMdl"><i class="mdi mdi-cash-multiple"></i> Record Fee</button></h5>
                                           </div>
+                                          
                                           <div class="card-body">
                                              <div class="table-responsive table-sm text-small">
                                                 <table id="std_fees_tbl" class="table table-striped table-hover table-bordered smaller table-condesed" id="dash_std_tbl" data-page-length='10'>
@@ -331,7 +356,7 @@
                                                          <th>Date</th>
                                                          <th>Transaction ID</th>
                                                          <th class="border-0">Branch</th>
-                                                         <th class="border-0">Payer</th>
+                                                         <th class="border-0">Fee Type</th>
                                                          <th class="border-0">Amount</th>
                                                          <th class="border-1" width="3%"></th>
                                                       </tr>
@@ -446,18 +471,33 @@
                </div>
                <div class="col-md-6">
                   <div class="input-group mb-3">
-                     <div class="input-group-prepend"><span class="input-group-text">Phone Number</span></div>
+                     <div class="input-group-prepend"><span class="input-group-text">Contact</span></div>
                      <input type="text" readonly class="form-control" name="sp_contact" id="sp_contact">
                      <div class="input-group-append"><span class="input-group-text"><i class="fas fa-calendar-check"></i></span></div>
                   </div>
                </div>
             </div>
          </div>
-            <div class="input-group mb-3">
-               <div class="input-group-prepend"><span class="input-group-text">Amount : </span></div>
-               <input type="number" class="form-control" name="amount">
-               <div class="input-group-append"><span class="input-group-text"><i class="fas fa-money-bill-alt"></i></span></div>
+         <div class="row">
+            <div class="col-md-6">
+               <div class="input-group mb-3">
+                  <div class="input-group-prepend"><span class="input-group-text">Fee Type :</span></div>
+                  <select class="form-control"  id="fee_type" name="fee_type" placeholder="Select the type of Fee">
+                     <option class="font-italic" value="Tution Instalment">Fee Instalment</option>
+                     <option class="font-italic" value="Tution Initial Deposit">Initial Deposit</option>
+                     <option class="font-italic" value="Registration">Registration</option>
+                  </select>
+                  <div class="input-group-append"><span class="input-group-text"><i class="fas fa-money-bill-alt"></i></span></div>
+               </div>
             </div>
+            <div class="col-md-6">
+               <div class="input-group mb-3">
+                  <div class="input-group-prepend"><span class="input-group-text">Amount : </span></div>
+                  <input type="number" class="form-control" name="amount">
+                  <div class="input-group-append"><span class="input-group-text"><i class="fas fa-money-bill-alt"></i></span></div>
+               </div>
+            </div>
+         </div>
             <input type="text" class="form-control d-none" name="st_name" id="st_name" readonly>
             <div class="input-group mb-3">
                <div class="input-group-prepend"><span class="input-group-text">Comment</span></div>
@@ -467,7 +507,6 @@
          </form>
         </div>
      
-       
        <!-- Modal footer -->
        <div class="modal-footer">
          <button type="button" class="btn btn-success" data-dismiss="modal" id="saveFeeBtn">Save</button>
@@ -491,13 +530,6 @@
       <script src="../assets/vendor/charts/c3charts/C3chartjs.js" type="8753a994eed150800267cbdd-text/javascript"></script>
       <script src="../assets/libs/js/dashboard-ecommerce.js" type="8753a994eed150800267cbdd-text/javascript"></script>
       <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13" type="8753a994eed150800267cbdd-text/javascript"></script>
-      <script type="8753a994eed150800267cbdd-text/javascript">
-         window.dataLayer = window.dataLayer || [];
-         function gtag(){dataLayer.push(arguments);}
-         gtag('js', new Date());
-         
-         gtag('config', 'UA-23581568-13');
-      </script>
       
       <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
       <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
@@ -511,7 +543,9 @@
      </script>
 
      <script>
-      var branchName = "waiting for date";
+      $.ajaxSetup({ cache: false });
+
+      var branchName = "waiting for Name";
       $.ajax({
             url: '../api/access_control/get-session_data.php', // Replace with the actual path to your PHP script
             type: 'GET',
@@ -571,7 +605,7 @@ var dataTable = $('#fees_log_tbl').DataTable({
         { data: "date" },
         { data: "transaction_id" },
         { data: "branch" },
-        { data: "payer" },
+        { data: "fee_type" },
         { data: "amount" },
         { data: null } // Actions
     ],
@@ -605,12 +639,12 @@ var dataTable = $('#fees_log_tbl').DataTable({
 });
 $('#fees_log_tbl tbody').on('click', '#printInvoice', function () {
       // Get data of the clicked row
-      alert ('rowData');
+      //alert ('rowData');
       var rowData = dataTable.row($(this).parents('tr')).data();
 
       // Convert the row data to JSON
       var jsonData = JSON.stringify(rowData);
-      alert (rowData);
+      //alert (rowData);
       // Navigate to the bank-receipt.html page with the JSON data as a query parameter
       window.location.href = 'fee-receipt.html?jsonData=' + encodeURIComponent(jsonData);
     });
@@ -669,7 +703,7 @@ $('#fees_log_tbl tbody').on('click', '#printInvoice', function () {
             var lastTwoDigitsOfYear = year.slice(-2);
 
             // Concatenate the components to form the transaction ID
-            var transactionID = branchInitials +'/'+ day + month + lastTwoDigitsOfYear+'-'+randomNum;
+            var transactionID = branchInitials +'/TF/'+ day + month + lastTwoDigitsOfYear+'-'+randomNum;
 
             return transactionID;
          }
@@ -686,6 +720,7 @@ $('#fees_log_tbl tbody').on('click', '#printInvoice', function () {
          dataType: 'json',
          success: function(data) {
             var select = $('#selectWithSearch');
+            var select2=$('#fee_type');
             var courseInput = $('#fee_course');
             var durationInput = $('#fee_duration');
             var sponsor = $('#sponsor');
@@ -731,6 +766,7 @@ $('#fees_log_tbl tbody').on('click', '#printInvoice', function () {
          }
       });
 
+
    });
    $.ajax({
             url: '../api/get-fees_count.php', // Replace with the actual path to your PHP script
@@ -740,7 +776,9 @@ $('#fees_log_tbl tbody').on('click', '#printInvoice', function () {
                 // Assign JSON data to HTML elements with different IDs
                ($('#fees_collected').text(fees.fees)).simpleMoneyFormat();
                $('#num_fully_paid').text(fees.full_fees);
+               ($('#amt_fully_paid').text(fees.full_fees_amt)).simpleMoneyFormat();
                $('#num_part_paid').text(fees.partial_fees);
+               ($('#amt_owing').text(fees.owing_fees)).simpleMoneyFormat();
             },
             error: function(xhr, status, error) {
                 console.error('Error fetching JSON data:', error);

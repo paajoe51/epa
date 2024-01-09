@@ -10,15 +10,18 @@ if($position=='branch_admin' | $position=='counselor' ){
     $with_sql = "SELECT SUM(amount) as withdrawal_sum FROM banking WHERE branch='$branch' AND banking_type = 'withdrawal' ";
     $hq_sql = "SELECT SUM(amount) as hq_sum FROM banking WHERE branch='$branch' AND banking_type='deposit' AND target = 'HQ'";
     $epa_sql = "SELECT SUM(amount) as epa_sum FROM banking WHERE branch='$branch' AND banking_type='Deposit' AND target = 'EPADAC'";
+    $fees_sql = "SELECT SUM(amount) as fee_sum FROM fees WHERE branch='$branch'";
 }elseif (!empty($_SESSION['SESS_BRANCH_OVRD']) && $_SESSION['SESS_BRANCH_OVRD'] == true && $_SESSION['SESS_BRANCH']!='all') {
     $branch = $_SESSION['SESS_BRANCH'] ;
     $with_sql = "SELECT SUM(amount) as withdrawal_sum FROM banking WHERE branch='$branch' AND banking_type = 'withdrawal' ";
     $hq_sql = "SELECT SUM(amount) as hq_sum FROM banking WHERE branch='$branch' AND banking_type='deposit' AND target = 'HQ'";
     $epa_sql = "SELECT SUM(amount) as epa_sum FROM banking WHERE branch='$branch' AND banking_type='Deposit' AND target = 'EPADAC'";
+    $fees_sql = "SELECT SUM(amount) as fee_sum FROM fees WHERE branch='$branch'";
 }else {
     $with_sql = "SELECT SUM(amount) as withdrawal_sum FROM banking WHERE banking_type = 'withdrawal' ";
     $hq_sql = "SELECT SUM(amount) as hq_sum FROM banking WHERE banking_type='deposit' AND target = 'HQ'";
     $epa_sql = "SELECT SUM(amount) as epa_sum FROM banking WHERE banking_type='Deposit' AND target = 'EPADAC'";
+    $fees_sql = "SELECT SUM(amount) as fee_sum FROM fees";
 }
 
 try {
@@ -40,14 +43,30 @@ try {
     $epa_result = $epa_stmt->fetch(PDO::FETCH_ASSOC);
     $epa =  $epa_result['epa_sum'];
 
+    // Fees Collected 
+    $fees_stmt = $db->prepare($fees_sql);
+    $fees_stmt->execute();
+    $fees_result = $fees_stmt->fetch(PDO::FETCH_ASSOC);
+    $fees =  $fees_result['fee_sum'];
+
+        
+    if ($withdrawals == null){
+        $withdrawals =0;
+    }
     
-    
+    if ($hq == null){
+        $hq =0;
+    }
+    if ($epa == null){
+        $epa =0;
+    }
 
     // Store the counts in an associative array
     $data = [
         "withdrawals" => $withdrawals,
         "hq" => $hq,
-        "epadac" => $epa
+        "epadac" => $epa,
+        "balance" => ($fees - $withdrawals)
     ];
 
     // Encode the data as JSON

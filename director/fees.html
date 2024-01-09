@@ -18,8 +18,107 @@
       <link rel="stylesheet" href="../assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
       <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
       <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.5/css/dataTables.bootstrap4.min.css">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css">
-
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css"> 
+      <link rel="stylesheet" href="https://cdn.datatables.net/datetime/1.5.1/css/dataTables.dateTime.min.css">
+      <style>
+         .tile{
+            width: 100%;
+            background:#fff;
+            border-radius:5px;
+            box-shadow:0px 2px 3px -1px rgba(151, 171, 187, 0.7);
+            float:left;
+              transform-style: preserve-3d;
+              margin-bottom: 10px;
+            padding-bottom: 0;;
+         }
+         
+         .banner-img {
+            padding: 5px 5px 0;
+         }
+         
+         .banner-img img {
+            width: 100%;
+            border-radius: 5px;
+            opacity: 0.6;
+         }
+         
+         .dates{
+            border:1px solid #ebeff2;
+            border-radius:5px;
+            padding:10px 0px;
+            margin:1px 2px;
+            font-size:16px;
+            color:#5aadef;
+            font-weight:600;	
+            overflow:auto;
+         }
+         .dates div{
+            float:left;
+            width:50%;
+            text-align:center;
+            position:relative;
+         }
+         .dates strong,
+         .stats strong{
+            display:block;
+            color:#adb8c2;
+            font-size:11px;
+            font-weight:700;
+         }
+         .dates .seperator{
+            width:1px;
+            height:40px;
+            position:absolute;
+            right:0;
+            top:0;	
+            background:#ebeff2;
+         }
+         .stats{
+            border-top:1px solid #ebeff2;
+            background:#f7f8fa;
+            overflow:auto;
+            padding:10px 0;
+            font-size:16px;
+            color:#59687f;
+            font-weight:600;
+            border-radius: 0 0 5px 5px;
+         }
+         .stats div{
+            border-right:1px solid #ebeff2;
+            width: 33.33333%;
+            float:left;
+            text-align:center
+         }
+         
+         .stats div:nth-of-type(3){border:none;}
+         
+         div.footer {
+            text-align: right;
+            position: relative;
+            margin: 20px 5px;
+         }
+         
+         div.footer a.Cbtn-primary{
+            background-color: #5AADF2;
+            color: #FFF;
+         }
+         
+         div.footer a.Cbtn-primary:hover{
+            background-color: #7dbef5;
+         }
+         
+         div.footer a.Cbtn-danger{
+            background-color: #fc5a5a;
+            color: #FFF;
+         }
+         
+         div.footer a.Cbtn-danger:hover{
+            background-color: #fd7676;
+         }
+            .card.collapsed .toggle-btn i::before {
+               content: '\f067'; /* Unicode character for minus icon */
+           }
+         </style>
  
       <title>Fees-Counselor</title>
    </head>
@@ -31,6 +130,18 @@
                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                <span class="navbar-toggler-icon"></span>
                </button>
+               <div class="col-md-4 float-right">
+                  <select class="form-control branch_list" id="selected_branch" name="req_br">
+                    <option value="all" class="font-italic">All Branches</option>
+                    <option value="Agona Swedru" class="font-italic">Agona Swedru</option>
+                    <option value="Cape Coast" class="font-italic">Cape Coast</option>
+                    <option value="Kaasoa" class="font-italic">Kaasoa</option>
+                    <option value="Breman Asikuma" class="font-italic">Breman Asikuma</option>
+                  </select>
+                </div>
+                <div class="col-md-4 float-right">
+                  <input class="form-control" type="text" name="daterange" value="01/01/2015 - 01/31/2015" />
+                </div>
                <div class="collapse navbar-collapse " id="navbarSupportedContent">
                   <ul class="navbar-nav ml-auto navbar-right-top">
                      <li class="nav-item">
@@ -214,7 +325,11 @@
                   <div class="row">
                      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="page-header">
-                           <h2 class="pageheader-title">Fees Record</h2>
+                           <h2 class="pageheader-title">
+                              <span>Fees Record</span>
+                              
+                           </span>
+                          </h2>
                            <p class="pageheader-text">Nulla euismod urna eros, sit amet scelerisque torton lectus vel mauris facilisis faucibus at enim quis massa lobortis rutrum.</p>
                            <div class="page-breadcrumb">
                               <nav aria-label="breadcrumb">
@@ -230,12 +345,12 @@
                   <div class="ecommerce-widget">
                      
                      <div class="row">
-                        <div class="col-xl-4 col-lg-3 col-md-6 col-sm-12 col-12">
+                        <div class="col-lg-5 col-lg-3 col-md-6 col-sm-12 col-12">
                            <div class="card border-3 border-top border-top-primary">
                               <div class="card-body">
                                  <h5 class="text-muted">Fees Collected</h5>
                                  <div class="metric-value d-inline-block">
-                                    <h1 class="mb-1">GHC <span id="fees_collected"></span></h1>
+                                    <h1 class="mb-1"><span class="text-success font-26"><i class="fa fa-fw fa-users"></i> </span> GHC <span id="fees_collected"></span></h1>
                                  </div>
                                  <div class="metric-label d-inline-block float-right text-success font-weight-bold">
                                     <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">5.86%</span>
@@ -243,32 +358,37 @@
                               </div>
                            </div>
                         </div>
-                        <div class="col-xl-4 col-lg-3 col-md-6 col-sm-12 col-12">
-                           <div class="card border-3 border-top border-top-primary">
-                              <div class="card-body">
-                                 <h5 class="text-muted">Fully Paid</h5>
-                                 <div class="metric-value d-inline-block">
-                                    <h1 class="mb-1"><span id="num_fully_paid"></span></h1>
-                                 </div>
-                                 <div class="metric-label d-inline-block float-right text-success font-weight-bold">
-                                    <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">10%</span>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-3 col-md-6 col-sm-12 col-12">
-                           <div class="card border-3 border-top border-top-primary">
-                              <div class="card-body">
-                                 <h5 class="text-muted">Partially Paid</h5>
-                                 <div class="metric-value d-inline-block">
-                                    <h1 class="mb-1"><span id="num_part_paid"></span></h1>
-                                 </div>
-                                 <div class="metric-label d-inline-block float-right text-success font-weight-bold">
-                                    <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">5%</span>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
+                        
+                        <div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
+                           <div class="card border-3 border-top border-top-primary" >
+                               <div class="dates">
+                                   <div class="start">
+                                       <strong>AMOUNT FULLY PAID</strong><span>GHC <span id="full_paid_amt"> <i class="fa fa-spinner fa-spin"></i> </span>.00</span>
+                                       <span class="seperator"></span>
+                                   </div>
+                                   
+                                   <div class="ends">
+                                       <strong>AMOUNT OWING</strong><span>GHC <span id="owing_amt"> <i class="fa fa-spinner fa-spin"></i> </span>.00</span>
+                                   </div>
+                               </div>
+       
+                               <div class="stats">
+       
+                                   <div>
+                                       <strong>NUMBER FULLY PAID</strong><span class="text-success"><i class ="fas fa-users"></i> </span><span id="full_paid_num" class="font-20 text">0</span>
+                                   </div>
+       
+                                   <div>
+                                       <strong>REGISTRATION FEE</strong> <span>GHC </span><span id="registration_fee">0</span>.00
+                                   </div>
+       
+                                   <div>
+                                       <strong>NUMBER PARTIALLY PAID</strong> <span class="text-warning"><i class ="fas fa-users"></i> </span><span id="part_paid_num">0</span>
+                                   </div>
+       
+                               </div>
+                           </div> 
+                    </div>
                      </div>
 
                      <div class="row">
@@ -331,7 +451,7 @@
                                                          <th>Date</th>
                                                          <th>Transaction ID</th>
                                                          <th class="border-0">Branch</th>
-                                                         <th class="border-0">Payer</th>
+                                                         <th class="border-0">Fee Type</th>
                                                          <th class="border-0">Amount</th>
                                                          <th class="border-1" width="3%"></th>
                                                       </tr>
@@ -491,13 +611,6 @@
       <script src="../assets/vendor/charts/c3charts/C3chartjs.js" type="8753a994eed150800267cbdd-text/javascript"></script>
       <script src="../assets/libs/js/dashboard-ecommerce.js" type="8753a994eed150800267cbdd-text/javascript"></script>
       <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13" type="8753a994eed150800267cbdd-text/javascript"></script>
-      <script type="8753a994eed150800267cbdd-text/javascript">
-         window.dataLayer = window.dataLayer || [];
-         function gtag(){dataLayer.push(arguments);}
-         gtag('js', new Date());
-         
-         gtag('config', 'UA-23581568-13');
-      </script>
       
       <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
       <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
@@ -506,9 +619,56 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js" integrity="sha512-lG7F8U6tyWmT1u4OlWkEekP5FSsG3l0sXGgEMTrEdZ+uLka4e5TPAqMeqkYQgvt2uyv6pAvDTrdBEil7XK4WJQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
       <script src="../assets/vendor/Auto-Format-Currency/simple.money.format.js"></script>
-     <script>
-        //new DataTable('#std_fees_tbl');
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.2/moment.min.js"></script>
+    <!-- Include Date Range Picker -->
+      <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+      <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+      <script type="text/javascript">
+         $(function() {
+             $('input[name="daterange"]').daterangepicker({
+                 "showDropdowns": true,
+                 "autoApply": true,
+                 ranges: {
+                     'Today': [moment(), moment()],
+                     'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                     'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                     'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                     'This Month': [moment().startOf('month'), moment().endOf('month')],
+                     'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+                 },
+                 locale: {
+                     format: 'YYYY-MM-DD'
+                 },
+                 "linkedCalendars": false,
+                 "startDate": "2020-01-01",
+                 "endDate": "2024-01-02"
+             }, function(start, end, label) {
+                 alert("Your date range is: " + start.format('DD/MM/YYYY') + ' to ' + end.format('DD/MM/YYYY'));
+                 console.log("New date range selected: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')');
+                 var currentURL = window.location.href;
+                 $.ajax({
+                     type: 'POST',
+                     url: '../api/set-date_range.php',
+                     data: { 
+                         return_url: currentURL,
+                         begin: start.format('YYYY-MM-DD'),
+                         finish: end.format('YYYY-MM-DD'),
+                         date_range: true
+                     },
+                     success: function(response) {
+                         console.log('Finding data between ' + start.format('YYYY-MM-DD') + ' and ' + end.format('YYYY-MM-DD'));
+                         reloadNumbers();
+                         reloadTable();
+                     },
+                     error: function(error) {
+                         console.error('Error setting branch:', error);
+                     }
+                 });
+             });
+         });
      </script>
+     
 
      <script>
       var branchName = "waiting for date";
@@ -526,9 +686,66 @@
                 console.error('Error fetching JSON data:', error);
             }
         });
+        $.ajax({
+               url: '../api/get-branches_data.php',
+               type: 'GET',
+               dataType: 'json',
+               cache: false, // Disable caching
+               success: function(data) {
+                  var select = $('.branch_list');
+
+                  // Clear existing options (if any)
+                  select.empty();
+
+                  // Prepend 'All Branches' option
+                  select.append($('<option>', {
+                        value: 'all',
+                        text: 'All Branches'
+                  }));
+
+                  // Iterate through the JSON data and append options
+                  $.each(data, function(index, branch) {
+                        select.append($('<option>', {
+                           value: branch.name,
+                           text: branch.name
+                        }));
+                  });
+               },
+               error: function(xhr, status, error) {
+                  console.error('Error fetching data:', error);
+               }  
+         });
+
+         
+        reloadNumbers();
+        $('#selected_branch').change(function() {
+            // Get the selected value
+            var selectedBranch = $(this).val();
+
+            // Store the selected value in session storage
+            sessionStorage.setItem('selected_branch', selectedBranch);
+            //alert(sessionStorage.getItem('selected_branch'));
+
+            $.ajax({
+                type: 'POST',
+                url: '../api/access_control/set-session_branch.php',
+                data: { 
+                      selected_branch: selectedBranch,
+                      branch_override:true
+                 },
+                success: function(response) {
+                    console.log('Branch set successfully');
+                    reloadNumbers();
+                    reloadTable();
+                },
+                error: function(error) {
+                    console.error('Error setting branch:', error);
+                }
+            });
+        });
 
  // Initialize DataTable
- var dataTable = $("#std_fees_tbl").DataTable({
+ var stdTable = $("#std_fees_tbl").DataTable({
     // Specify your DataTable configuration options here
     ajax: {
         url: "../api/get-students_data.php",
@@ -556,10 +773,10 @@
     ]
 });
 
-var dataTable = $('#fees_log_tbl').DataTable({
+var feeLogTable = $('#fees_log_tbl').DataTable({
     // Specify your DataTable configuration options here
     ajax: {
-        url: "../api/get-branch_fees_log.php",
+        url: "../api/get-fees_log.php",
         dataType: "json",
         type: "GET",
         cache: false,
@@ -567,11 +784,16 @@ var dataTable = $('#fees_log_tbl').DataTable({
     },
     columns: [
         { data: null }, // ID
-        { data: "id", className:'ID d-none'},
-        { data: "date" },
+        { data: "id", className: 'ID d-none' },
+        { data: "date", render: function (data) {
+            // Parse the date string and format it to "YYYY-MM-DD"
+            var formattedDate = moment(data, 'DD/MM/YYYY').format('YYYY-MM-DD');
+            //console.log("Original Date: " + data + ", Formatted Date: " + formattedDate);
+            return formattedDate;
+        }},
         { data: "transaction_id" },
         { data: "branch" },
-        { data: "payer" },
+        { data: "fee_type" },
         { data: "amount" },
         { data: null } // Actions
     ],
@@ -587,22 +809,28 @@ var dataTable = $('#fees_log_tbl').DataTable({
             targets: [7], // Target the Actions column
             orderable: false,
             render: function (data, type, row) {
-                return '<td> <div class="btn-group">'+
-                          ' <button type="button" class="btn btn-info btn-sm rounded" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'+
-                             '<i class="mdi mdi-dots-vertical"></i>'+
-                          ' </button>'+
-                           '<div class="dropdown-menu dropdown-menu-right">'+
-                             '<button class="dropdown-item" type="button">'+
-                                '<i class="mdi mdi-binoculars"></i> View Detail </button>'+
-                              '<button class="dropdown-item" type="button" id="printInvoice">'+
-                                '<i class="mdi mdi-printer"></i> Print Report </button>'+
-                           '</div>'+
-                        ' </div>'+
-                       ' </td>'
+                return '<td> <div class="btn-group">' +
+                    ' <button type="button" class="btn btn-info btn-sm rounded" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">' +
+                   '<i class="mdi mdi-dots-vertical"></i>' +
+                   ' </button>' +
+                   '<div class="dropdown-menu dropdown-menu-right">' +
+                   '<button class="dropdown-item" type="button">' +
+                   '<i class="mdi mdi-binoculars"></i> View Detail </button>' +
+                   '<button class="dropdown-item" type="button" id="printInvoice">' +
+                   '<i class="mdi mdi-printer"></i> Print Report </button>' +
+                   '</div>' +
+                   ' </div>' +
+                   ' </td>'
             }
         }
     ]
 });
+
+
+function reloadTable(){
+   feeLogTable.ajax.url('../api/get-fees_log.php').load();
+   stdTable.ajax.url('../api/get-students_data.php').load();
+}
 $('#fees_log_tbl tbody').on('click', '#printInvoice', function () {
       // Get data of the clicked row
       alert ('rowData');
@@ -732,20 +960,39 @@ $('#fees_log_tbl tbody').on('click', '#printInvoice', function () {
       });
 
    });
+   function reloadNumbers(){
    $.ajax({
             url: '../api/get-fees_count.php', // Replace with the actual path to your PHP script
             type: 'GET',
             dataType: 'json',
             success: function(fees) {
                 // Assign JSON data to HTML elements with different IDs
-               ($('#fees_collected').text(fees.fees)).simpleMoneyFormat();
-               $('#num_fully_paid').text(fees.full_fees);
-               $('#num_part_paid').text(fees.partial_fees);
+               $('#fees_collected').text(fees.fees);
+               $('#full_paid_num').text(fees.full_fees);
+               $('#part_paid_num').text(fees.partial_fees);
+               $('#full_paid_amt').text(fees.full_fees_amt);
+               $('#owing_amt').text(fees.owing_fees);
+               $('#registration_fee').text(fees.registration_fee);
             },
             error: function(xhr, status, error) {
                 console.error('Error fetching JSON data:', error);
             }
         });
+
+        $.ajax({
+            url: '../api/get-accounts.php', // Replace with the actual path to your PHP script
+            type: 'GET',
+            dataType: 'json',
+            success: function(account) {
+                // Assign JSON data to HTML elements with different IDs
+               //$('#fees_this_month').text(account.fees_cur_month);
+               
+            },
+            error: function(xhr, status, error) {
+                console.error('Error fetching JSON data:', error);
+            }
+        });
+      }
       
     //Record Collected fee
     $('#saveFeeBtn').click(function() {

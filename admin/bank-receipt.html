@@ -5,6 +5,30 @@
    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
    <!-- /Added by HTTrack -->
    <head>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+      <script>
+         // Function to check login status
+         function checkLoginStatus() {
+            $.ajax({
+               url: '../api/access_control/auth.php',
+               type: 'GET',
+               success: function(response) {
+                     if (response === 'logged_in') {
+                        // alert('logged in');
+                     } else {
+                        alert('You must log  in');
+                        window.location.href = '../index.html';
+                     }
+               },
+               error: function() {
+                     console.log('Error checking login status');
+               }
+            });
+         }
+
+         // Call the function when the page is loaded
+            checkLoginStatus();
+      </script>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.min.css">
@@ -27,7 +51,7 @@
                           <div class="card">
                             <div class="card-header p-4">
                               <div class="float-right">
-                                <h3 class="mb-0">BA-23100923</h3>
+                                <h3 class="mb-0" id="inv_id">BA-23100923</h3>
                                 Date: <span id="date">...</span>
                               </div>
                             </div>
@@ -60,21 +84,21 @@
                                       <td class="left strong" id="trans_type"></td>
                                       <td class="left" id="trans_note"></td>
                                       <td class="left" id="target"></td>
-                                      <td class="right">&#x20b5; <span id="trans_amount" class="trans_amount">1500.00</span></td>
-                                      <td class="right">&#x20b5; <span id="trans_amount" class="trans_amount">1500.00</span></td>
+                                      <td class="right">GH&#x20b5; <span id="trans_amount" class="trans_amount">0.00</span></td>
+                                      <td class="right">GH&#x20b5; <span id="trans_amount" class="trans_amount">0.00</span></td>
                                     </tr>
                                   </tbody>
                                 </table>
                               </div>
                               <div class="row">
-                                <div class="col-lg-4 col-sm-5 ml-auto">
+                                <div class="col-lg-6 col-sm-6 ml-auto">
                                   <table class="table table-clear">
                                     <tbody>
                                         <td class="left">
                                           <strong class="text-dark">Total</strong>
                                         </td>
                                         <td class="right">
-                                          <strong class="text-dark">&#x20b5; <span id="trans_amount" class="trans_amount">1500.00</strong>
+                                          <strong class="text-dark">GH&#x20b5; <span id="trans_amount" class="trans_amount">0.00</strong>
                                         </td>
                                       </tr>
                                     </tbody>
@@ -116,11 +140,7 @@
       <script src="../assets/vendor/datatables.net/jquery-3.7.0.js"></script>
       <script src="../assets/vendor/datatables.net/dataTables.min.js"></script>
       <script src="../assets/vendor/datatables.net/dataTables.bootstrap4.min.js"></script>
-      <script>
-         function printInvoice() {
-            window.print();
-         }
-      </script>
+  
 <script>
     $(document).ready(function () {
       var queryParams = new URLSearchParams(window.location.search);
@@ -135,12 +155,13 @@
     console.log(receivedData);
     // Now you can use 'receivedData' in this page
     $('#date').text(receivedData.date);
-    $('#trans_type').text(receivedData.banking_type);
+    $('#trans_type').text(receivedData.banking_type);  
+    $('#inv_id').text(receivedData.inv_id);
     $('#trans_note').text(receivedData.comment);    
     $('#target').text(receivedData.target);
     $('.trans_amount').text(receivedData.amount);
     $('#branch').text(receivedData.branch);
-      window.print();
+      //window.print();
     });
 
    $.ajax({
@@ -161,6 +182,12 @@
      </script>
 
       <script src="../assets/vendor/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js" data-cf-settings="8753a994eed150800267cbdd-|49" defer=""></script>
+      <script>
+        printInvoice();
+        function printInvoice() {
+           window.print();
+        }
+     </script>
    </body>
    <!-- Mirrored from colorlib.com/polygon/concept/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Mar 2020 00:27:53 GMT -->
 </html>

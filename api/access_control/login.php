@@ -37,12 +37,12 @@
 					$account_type=$account["position"];
 				}
 				
-				session_regenerate_id();
+					session_regenerate_id();
 					$_SESSION['username'] = $login;
 					$_SESSION['pass'] = $password;
 					$_SESSION['SESS_MEMBER_ID'] =  $row['id'];
 					$_SESSION['SESS_BRANCH'] =  $row['branch'];
-					//$_SESSION['SESS_BRANCH_ID'] =  $row['branch_id'];
+					$_SESSION['SESS_ID'] = session_id();
 					$_SESSION['SESS_FULL_NAME'] = $row['name']; 
 					$_SESSION['SESS_POSITION'] =   $account_type;
 			

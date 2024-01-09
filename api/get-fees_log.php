@@ -2,11 +2,12 @@
 include('conn.php');
 session_start();
 $position = $_SESSION['SESS_POSITION'] ;
+$currentYear = date("Y");
 
-if($position=='branch_admin' | $position=='counselor' ){
+if($position=='branch_admin' || $position=='counselor' ){
     $branch = $_SESSION['SESS_BRANCH'] ;
     // Query to select data from the students table
-    $sql = "SELECT * FROM fees WHERE branch = '$branch' ORDER BY id DESC";
+    $sql = "SELECT * FROM fees WHERE branch = '$branch' AND YEAR(STR_TO_DATE(date, '%d/%m/%Y')) = $currentYear ORDER BY id DESC";
 }elseif (!empty($_SESSION['SESS_BRANCH_OVRD']) && $_SESSION['SESS_BRANCH_OVRD'] == true && $_SESSION['SESS_BRANCH']!='all') {
     // Query to select data from the students table
     $branch = $_SESSION['SESS_BRANCH'] ;

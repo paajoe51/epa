@@ -25,6 +25,102 @@
             }
         });
       </script>
+       <style>
+         .tile{
+            width: 100%;
+            background:#fff;
+            border-radius:5px;
+            box-shadow:0px 2px 3px -1px rgba(151, 171, 187, 0.7);
+            float:left;
+              transform-style: preserve-3d;
+              margin-bottom: 10px;
+            padding-bottom: 0;;
+         }
+         
+         .banner-img {
+            padding: 5px 5px 0;
+         }
+         
+         .banner-img img {
+            width: 100%;
+            border-radius: 5px;
+            opacity: 0.6;
+         }
+         
+         .dates{
+            border:1px solid #ebeff2;
+            border-radius:5px;
+            padding:10px 0px;
+            margin:1px 2px;
+            font-size:16px;
+            color:#5aadef;
+            font-weight:600;	
+            overflow:auto;
+         }
+         .dates div{
+            float:left;
+            width:50%;
+            text-align:center;
+            position:relative;
+         }
+         .dates strong,
+         .stats strong{
+            display:block;
+            color:#adb8c2;
+            font-size:11px;
+            font-weight:700;
+         }
+         .dates .seperator{
+            width:1px;
+            height:40px;
+            position:absolute;
+            right:0;
+            top:0;	
+            background:#ebeff2;
+         }
+         .stats{
+            border-top:1px solid #ebeff2;
+            background:#f7f8fa;
+            overflow:auto;
+            padding:10px 0;
+            font-size:16px;
+            color:#59687f;
+            font-weight:600;
+            border-radius: 0 0 5px 5px;
+         }
+         .stats div{
+            border-right:1px solid #ebeff2;
+            width: 33.33333%;
+            float:left;
+            text-align:center
+         }
+         
+         .stats div:nth-of-type(3){border:none;}
+         
+         div.footer {
+            text-align: right;
+            position: relative;
+            margin: 20px 5px;
+         }
+         
+         div.footer a.Cbtn-primary{
+            background-color: #5AADF2;
+            color: #FFF;
+         }
+         
+         div.footer a.Cbtn-primary:hover{
+            background-color: #7dbef5;
+         }
+         
+         div.footer a.Cbtn-danger{
+            background-color: #fc5a5a;
+            color: #FFF;
+         }
+         
+         div.footer a.Cbtn-danger:hover{
+            background-color: #fd7676;
+         }
+         </style>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.min.css">
@@ -49,7 +145,16 @@
                <a class="navbar-brand" href="index-2.html">IPMC - EPADAC</a>
                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                <span class="navbar-toggler-icon"></span>
-               </button>
+               </button>               
+               <div class="col-md-4 float-right">
+                  <select class="form-control branch_list" id="selected_branch" name="req_br">
+                    <option value="all" class="font-italic">All Branches</option>
+                    <option value="Agona Swedru" class="font-italic">Agona Swedru</option>
+                    <option value="Cape Coast" class="font-italic">Cape Coast</option>
+                    <option value="Kaasoa" class="font-italic">Kaasoa</option>
+                    <option value="Breman Asikuma" class="font-italic">Breman Asikuma</option>
+                  </select>
+                </div>
                <div class="collapse navbar-collapse " id="navbarSupportedContent">
                   <ul class="navbar-nav ml-auto navbar-right-top">
                      <li class="nav-item dropdown notification">
@@ -192,32 +297,18 @@
                            <a class="nav-link" href="bank-report.html"><i class="fas fa-fw fa-print"></i> Bank Report</a>
                         </li>
                         <li class="nav-item">
-                           <a class="nav-link" href="pages/blank-page-header.html"><i class="fas fa-fw fa-print"></i> Received Report</a>
-                        </li>
-                        <li class="nav-item">
                            <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-6" aria-controls="submenu-6"><i class="fas fa-fw fa-money-bill-alt"></i> Account </a>
                            <div id="submenu-6" class="collapse submenu" style="">
                               <ul class="nav flex-column">
                                  <li class="nav-item">
-                                    <a class="nav-link" href="fees-table.html"><i class="fas fa-fw fa-table"></i> Fees Table</a>
+                                    <a class="nav-link" href="fees.html"><i class="fas fa-fw fa-plus-square"></i> Fees</a>
                                  </li>
                                  <li class="nav-item">
-                                    <a class="nav-link"data-toggle="modal" data-target="#addUserMdl"><i class="fas fa-fw fa-plus-square"></i> Record Transaction</a>
+                                    <a class="nav-link" href="fees-table.html"><i class="fas fa-fw fa-table"></i> Fees Table</a>
                                  </li>
                               </ul>
                            </div>
                         </li>
-                        <li class="nav-divider">
-                           USERS
-                        </li>
-                        <li class="nav-item">
-                           <a class="nav-link" href="users.html" ><i class="fas fa-fw fa-users"></i> All Users<span class="badge badge-secondary">New</span></a>
-                           <div id="submenu-7" class="collapse submenu" style="">
-                        </li>
-                           <li class="nav-item">
-                           <a class="nav-link" href="#" ><i class="fas fa-fw fa-user-plus"></i> Add User<span class="badge badge-secondary">New</span></a>
-                           <div id="submenu-7" class="collapse submenu" style="">
-                           </li>
                      </ul>
                   </div>
                </nav>
@@ -235,7 +326,7 @@
                               <nav aria-label="breadcrumb">
                                  <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">E-Commerce Dashboard Template</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
                                  </ol>
                               </nav>
                            </div>
@@ -250,7 +341,7 @@
                               <div class="card-body">
                                  <h5 class="text-muted">Students</h5>
                                  <div class="metric-value d-inline-block">
-                                    <h1 class="mb-1"><span class="text-success"><i class="fa fa-fw fa-users"></i> </span> <span id="t_std"> <i class="fa fa-spinner fa-spin"></i> </span></h1>
+                                    <h2 class="mb-1"><span class="text-success"><i class="fa fa-fw fa-users"></i> </span> <span id="t_std"> <i class="fa fa-spinner fa-spin"></i> </span></h2>
                                  </div>
                                  <div class="metric-label d-inline-block float-right text-success font-weight-bold">
                                     <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">5.86%</span>
@@ -263,7 +354,7 @@
                               <div class="card-body">
                                  <h5 class="text-muted">Branches</h5>
                                  <div class="metric-value d-inline-block">
-                                    <h1 class="mb-1"><span class="text-info"><i class="fa fa-fw fa-code-branch"></i> </span> <span id="num_br"> <i class="fa fa-spinner fa-spin"></i> </span></h1>
+                                    <h2 class="mb-1"><span class="text-info"><i class="fa fa-fw fa-code-branch"></i> </span> <span id="num_br"> <i class="fa fa-spinner fa-spin"></i> </span></h2>
                                  </div>
                                  <div class="metric-label d-inline-block float-right text-success font-weight-bold">
                                     <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">10%</span>
@@ -271,32 +362,34 @@
                               </div>
                            </div>
                         </div>
-                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+                        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
                            <div class="card border-3 border-top border-top-primary">
-                              <div class="card-body">
-                                 <h5 class="text-muted">Current Blanace</h5>
-                                 <div class="metric-value d-inline-block">
-                                    <h1 class="mb-1"><span class="text-primary"><i class="fa fa-fw fa-money-bill-alt"></i> </span> <span id="balance"> <i class="fa fa-spinner fa-spin"></i> </span></h1>
-                                 </div>
-                                 <div class="metric-label d-inline-block float-right text-success font-weight-bold">
-                                    <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">5%</span>
-                                 </div>
-                              </div>
+                               <div class="dates">
+                                   <div class="start">
+                                       <strong>WITHHOLDING BALANCE</strong>
+                                       <span>GHC <span id="balance"><i class="fa fa-spinner fa-spin"></i></span>.00</span>
+                                       <span class="seperator"></span>
+                                   </div>
+                                   <div class="ends">
+                                       <strong>BANKED CASH</strong>
+                                       <span>GHC <span id="banked"><i class="fa fa-spinner fa-spin"></i></span>.00</span>
+                                   </div>
+                               </div>
+                       
+                               <div class="stats">
+                                   <div>
+                                       <strong>FEES</strong><span>GHC </span><span id="fees">0</span>.00
+                                   </div>
+                                   <div>
+                                       <strong>EPA - 70%</strong> <span>GHC </span><span id="dep_epa">0</span>.00
+                                   </div>
+                                   <div>
+                                       <strong>HQ - 30%</strong> <span>GHC </span><span id="dep_hq">0</span>.00
+                                   </div>
+                               </div>
                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
-                           <div class="card border-3 border-top border-top-primary">
-                              <div class="card-body">
-                                 <h5 class="text-muted">Users</h5>
-                                 <div class="metric-value d-inline-block">
-                                    <h1 class="mb-1"><span class="text-warning"><i class="fa fa-fw fa-users"></i> </span> <span id="num_users"> <i class="fa fa-spinner fa-spin"></i> </span></h1>
-                                 </div>
-                                 <div class="metric-label d-inline-block float-right text-danger font-weight-bold">
-                                    <span class="icon-circle-small icon-box-xs text-danger bg-danger-light bg-danger-light "><i class="fa fa-fw fa-arrow-down"></i></span><span class="ml-1">4%</span>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
+                       </div>
+                       
                      </div>
 
                      <div class="row">
@@ -313,6 +406,7 @@
                                              <th class="border-0" width="3%">#</th>
                                              <th class="border-0" width="5%">Image</th>
                                              <th >ID</th>
+                                             <th width ="10%">Branch</th>
                                              <th class="border-0" width ="15%">Student Name</th>
                                              <th class="border-0" width="7%">Mobile </th>
                                              <th class="border-0" width="20%">Course</th>
@@ -443,7 +537,62 @@
       <script src="../assets/vendor/datatables.net/dataTables.min.js"></script>
       <script src="../assets/vendor/datatables.net/dataTables.bootstrap4.min.js"></script>
       <script>
+          $.ajax({
+               url: '../api/get-branches_data.php',
+               type: 'GET',
+               dataType: 'json',
+               cache: false, // Disable caching
+               success: function(data) {
+                  var select = $('.branch_list');
+
+                  // Clear existing options (if any)
+                  select.empty();
+
+                  // Prepend 'All Branches' option
+                  select.append($('<option>', {
+                        value: 'all',
+                        text: 'All Branches'
+                  }));
+
+                  // Iterate through the JSON data and append options
+                  $.each(data, function(index, branch) {
+                        select.append($('<option>', {
+                           value: branch.name,
+                           text: branch.name
+                        }));
+                  });
+               },
+               error: function(xhr, status, error) {
+                  console.error('Error fetching data:', error);
+               }  
+         });
           reloadNumbers();
+          $('#selected_branch').change(function() {
+            // Get the selected value
+            var selectedBranch = $(this).val();
+
+            // Store the selected value in session storage
+            sessionStorage.setItem('selected_branch', selectedBranch);
+            //alert(sessionStorage.getItem('selected_branch'));
+
+            $.ajax({
+                type: 'POST',
+                url: '../api/access_control/set-session_branch.php',
+                data: { 
+                      selected_branch: selectedBranch,
+                      branch_override:true
+                 },
+                success: function(response) {
+                    console.log('Branch set successfully');
+                   reloadNumbers();
+                   reloadTable();
+                },
+                error: function(error) {
+                    console.error('Error setting branch:', error);
+                }
+            });
+        });
+
            var dataTable = $('#std_recs_tbl').DataTable({
     // Specify your DataTable configuration options here
     ajax: {
@@ -456,6 +605,7 @@
         { data: null }, // ID
         { data: null}, // Avatar
         { data: "id", className:'ID d-none'},
+        { data: "branch" },
         { data: "name" },
         { data: "contact" },
         { data: "course" },
@@ -497,7 +647,28 @@ $.ajax({
            console.error('Error fetching JSON data:', error);
        }
    });
+
+
    function reloadNumbers() {
+      //Cache jQuery selectors
+      var $balAmt = $('#bal_amt');
+      var $money = $('.money');
+
+    $.ajax({
+        url: '../api/get-banking_count.php', // Replace with the actual path to your PHP script
+        type: 'GET',
+        dataType: 'json',
+        cache: false,
+        success: function (banking) {
+            // Assign JSON data to HTML elements with different IDs
+            $balAmt.text(banking.balance);
+            $money.simpleMoneyFormat();
+        },
+        error: function (xhr, status, error) {
+            console.error('Error fetching JSON data:', status, error, xhr);
+        }
+    });
+
            $.ajax({
             url: '../api/get-num_students.php', // Replace with the actual path to your PHP script
             type: 'GET',
@@ -539,6 +710,26 @@ $.ajax({
                 console.error('Error fetching JSON data:', error);
             }
         });
+
+        $.ajax({
+            url: '../api/get-accounts.php', // Replace with the actual path to your PHP script
+            type: 'GET',
+            dataType: 'json',
+            success: function(account) {
+                // Assign JSON data to HTML elements with different IDs
+                $('#balance').text(account.balance);
+                $('#banked').text(account.deposits);
+                $('#fees').text(account.fees);
+                $('#dep_epa').text(account.epadac);
+                $('#dep_hq').text(account.hq);
+            },
+            error: function(xhr, status, error) {
+                console.error('Error fetching JSON data:', error);
+            }
+        });
+      }
+      function reloadTable(){
+         dataTable.ajax.url('../api/get-students_data.php').load();
       }
       </script>
       <script>

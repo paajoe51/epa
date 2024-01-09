@@ -32,7 +32,7 @@
             </button>
           </div>
           <div class="col-md-4 float-right">
-            <select class="form-control" id="selected_branch" name="req_br">
+            <select class="form-control branch_list" id="selected_branch" name="req_br">
               <option value="all" class="font-italic">All Branches</option>
               <option value="Agona Swedru" class="font-italic">Agona Swedru</option>
               <option value="Cape Coast" class="font-italic">Cape Coast</option>
@@ -185,68 +185,53 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-               <ul class="navbar-nav flex-column">
-                  <li class="nav-divider">
-                     Menu
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link" href="index.html" ><i class="fas fa-fw fa-tachometer-alt"></i> Dasboard<span class="badge badge-secondary">New</span></a>
-                     <div id="submenu-7" class="collapse submenu" style="">
-                  </li>                    
-                  <li class="nav-item">
-                     <a class="nav-link" href="courses.html" ><i class="fas fa-fw fa-book"></i> Courses / Batches<span class="badge badge-secondary">New</span></a>
-                     <div id="submenu-7" class="collapse submenu" style="">
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link" href="branches.html" ><i class="fas fa-fw fa-code-branch"></i> Branches Management<span class="badge badge-secondary">New</span></a>
-                     <div id="submenu-7" class="collapse submenu" style="">
-                  </li>
-                  <li class="nav-divider">
-                     REPORTS
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link" href="students-records.html" ><i class="fas fa-fw fa-users"></i> Students Reports<span class="badge badge-secondary">New</span></a>
-                     <div id="submenu-7" class="collapse submenu" style="">
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link" href="staff.html" ><i class="fas fa-fw fa-suitcase"></i> Staff Records<span class="badge badge-secondary">New</span></a>
-                     <div id="submenu-7" class="collapse submenu" style="">
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link" href="requests.html"><i class="fas fa-fw fa-print"></i> Expenditure Requests</a>
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link" href="bank-report.html"><i class="fas fa-fw fa-print"></i> Bank Report</a>
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link" href="pages/blank-page-header.html"><i class="fas fa-fw fa-print"></i> Received Report</a>
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-6" aria-controls="submenu-6"><i class="fas fa-fw fa-money-bill-alt"></i> Account </a>
-                     <div id="submenu-6" class="collapse submenu" style="">
-                        <ul class="nav flex-column">
-                           <li class="nav-item">
-                              <a class="nav-link" href="fees-table.html"><i class="fas fa-fw fa-table"></i> Fees Table</a>
-                           </li>
-                           <li class="nav-item">
-                              <a class="nav-link"data-toggle="modal" data-target="#addUserMdl"><i class="fas fa-fw fa-plus-square"></i> Record Transaction</a>
-                           </li>
-                        </ul>
-                     </div>
-                  </li>
-                  <li class="nav-divider">
-                     USERS
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link" href="users.html" ><i class="fas fa-fw fa-users"></i> All Users<span class="badge badge-secondary">New</span></a>
-                     <div id="submenu-7" class="collapse submenu" style="">
-                  </li>
-                     <li class="nav-item">
-                     <a class="nav-link" href="#" ><i class="fas fa-fw fa-user-plus"></i> Add User<span class="badge badge-secondary">New</span></a>
-                     <div id="submenu-7" class="collapse submenu" style="">
-                     </li>
-               </ul>
+            <d<ul class="navbar-nav flex-column">
+              <li class="nav-divider">
+                 Menu
+              </li>
+              <li class="nav-item">
+                 <a class="nav-link" href="index.html" ><i class="fas fa-fw fa-tachometer-alt"></i> Dasboard<span class="badge badge-secondary">New</span></a>
+                 <div id="submenu-7" class="collapse submenu" style="">
+              </li>                    
+              <li class="nav-item">
+                 <a class="nav-link" href="courses.html" ><i class="fas fa-fw fa-book"></i> Courses / Batches<span class="badge badge-secondary">New</span></a>
+                 <div id="submenu-7" class="collapse submenu" style="">
+              </li>
+              <li class="nav-item">
+                 <a class="nav-link" href="branches.html" ><i class="fas fa-fw fa-code-branch"></i> Branches Management<span class="badge badge-secondary">New</span></a>
+                 <div id="submenu-7" class="collapse submenu" style="">
+              </li>
+              <li class="nav-divider">
+                 REPORTS
+              </li>
+              <li class="nav-item">
+                 <a class="nav-link" href="students-records.html" ><i class="fas fa-fw fa-users"></i> Students Reports<span class="badge badge-secondary">New</span></a>
+                 <div id="submenu-7" class="collapse submenu" style="">
+              </li>
+              <li class="nav-item">
+                 <a class="nav-link" href="staff.html" ><i class="fas fa-fw fa-suitcase"></i> Staff Records<span class="badge badge-secondary">New</span></a>
+                 <div id="submenu-7" class="collapse submenu" style="">
+              </li>
+              <li class="nav-item">
+                 <a class="nav-link" href="requests.html"><i class="fas fa-fw fa-print"></i> Expenditure Requests</a>
+              </li>
+              <li class="nav-item">
+                 <a class="nav-link" href="bank-report.html"><i class="fas fa-fw fa-print"></i> Bank Report</a>
+              </li>
+              <li class="nav-item">
+                 <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-6" aria-controls="submenu-6"><i class="fas fa-fw fa-money-bill-alt"></i> Account </a>
+                 <div id="submenu-6" class="collapse submenu" style="">
+                    <ul class="nav flex-column">
+                       <li class="nav-item">
+                          <a class="nav-link"data-toggle="modal"  href="fees.html"><i class="fas fa-fw fa-plus-square"></i> Fees</a>
+                       </li>
+                       <li class="nav-item">
+                          <a class="nav-link" href="fees-table.html"><i class="fas fa-fw fa-table"></i> Fees Table</a>
+                       </li>
+                    </ul>
+                 </div>
+              </li>
+           </ul>
             </div>
          </nav>
         </div>
@@ -424,7 +409,7 @@
                 <div class="input-group mb-3">
                       <div class="input-group-prepend"><span class="input-group-text">Request Amount:</span></div>
                       <div class="input-group-prepend"><span class="input-group-text">GH&#8373; </span></div>
-                      <input type="number" class="form-control" name="request_amount" id="request_amount" required>
+                      <input type="number" class="form-control" name="request_amount" min="1.00" value="0.00" step="0.1" id="request_amount" required>
                       <div class="input-group-append"><span class="input-group-text"><i class="fas fa-money-bill-alt"></i></span></div>
                 </div>
               </div>
@@ -536,6 +521,37 @@
                 }
             });
         });
+
+
+        $.ajax({
+    url: '../api/get-branches_data.php',
+    type: 'GET',
+    dataType: 'json',
+    cache: false, // Disable caching
+    success: function(data) {
+        var select = $('.branch_list');
+
+        // Clear existing options (if any)
+        select.empty();
+
+        // Prepend 'All Branches' option
+        select.append($('<option>', {
+            value: 'all',
+            text: 'All Branches'
+        }));
+
+        // Iterate through the JSON data and append options
+        $.each(data, function(index, branch) {
+            select.append($('<option>', {
+                value: branch.name,
+                text: branch.name
+            }));
+        });
+    },
+    error: function(xhr, status, error) {
+        console.error('Error fetching data:', error);
+    }
+});
 
       // Reload the content after AJAX success
       function reloadNumbers() {
@@ -725,6 +741,70 @@ $(document).on('click', '.decline-btn', function() {
     });
 });
 
+$('#addRequestMdlBtn').click(function() {
+            //alert(getCurrentDate());
+            // Function to get current date in YYYY-MM-DD format
+            function getCurrentDate() {
+              var currentDate = new Date();
+              var year = currentDate.getFullYear();
+              var month = (currentDate.getMonth() + 1).toString().padStart(2, '0'); // Months are zero-based
+              var day = currentDate.getDate().toString().padStart(2, '0');
+              return `${day}/${month}/${year}`;
+            }
+            $('#request_date').val(getCurrentDate());
+            //alert(getCurrentDate());
+          });
+        // Event listener for Save button
+        $('#addRequest').click(function() {
+          // Serialize form data
+          var formData = $('#addRequestForm').serialize();
+
+          // AJAX request to save data
+          $.ajax({
+            url: '../api/save-send_request.php', // Your PHP script handling the database insertion
+            method: 'POST',
+            data: formData,
+            dataType: 'json',
+            success: function(response) {
+              if (response.success) {
+                // Display success message using SweetAlert
+                Swal.fire({
+                  icon: 'success',
+                  title: 'Success',
+                  text: 'Request saved successfully! <br> Waiting for response from',
+                  confirmButtonColor: '#3085d6',
+                  confirmButtonText: 'OK'
+                }).then((result) => {
+                  // Reload or redirect to another page as needed
+                  location.reload();
+                });
+              }else if(response==201) {
+                Swal.fire({
+                  icon: 'error',
+                  title: 'Error',
+                  text: 'You cannot leave either the amount for request or the Description for the Expenditure request Empty',
+                  confirmButtonColor: '#d33',
+                  confirmButtonText: 'OK'
+                });
+              }else {
+                // Display error message using SweetAlert
+                Swal.fire({
+                  icon: 'error',
+                  title: 'Error',
+                  text: 'Failed to save request. Please Check for Errors and try again.',
+                  confirmButtonColor: '#d33',
+                  confirmButtonText: 'OK'
+                });
+              }
+            },
+            error: function(xhr, status, error) {
+              console.error('Error:', error);
+            }
+          });
+        });
+
+      // Reload the content after AJAX success
+      reloadNumbers();
 
     </script>
 
